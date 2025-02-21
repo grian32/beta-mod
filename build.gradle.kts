@@ -8,11 +8,10 @@ plugins {
 	id("maven-publish")
 	id("fabric-loom") version "1.9.2"
 	id("babric-loom-extension") version "1.9.3"
+	kotlin("jvm")
 }
 
 //noinspection GroovyUnusedAssignment
-java.sourceCompatibility = JavaVersion.VERSION_17
-java.targetCompatibility = JavaVersion.VERSION_17
 
 base.archivesName = project.properties["archives_base_name"] as String
 version = project.properties["mod_version"] as String
@@ -84,6 +83,10 @@ dependencies {
 	modImplementation("net.glasslauncher.mods:ModMenu:${project.properties["modmenu_version"]}")
 //	// https://github.com/Glass-Series/Always-More-Items
 //	modImplementation("net.glasslauncher.mods:AlwaysMoreItems:${project.properties["alwaysmoreitems_version"]}")
+	implementation(kotlin("stdlib-jdk8"))
+	modImplementation("net.fabricmc:fabric-language-kotlin:1.10.18+kotlin.1.9.22") {
+		exclude("net.fabricmc")
+	}
 }
 
 tasks.withType<ProcessResources> {
@@ -136,3 +139,6 @@ publishing {
 	}
 }
 
+kotlin {
+	jvmToolchain(17)
+}

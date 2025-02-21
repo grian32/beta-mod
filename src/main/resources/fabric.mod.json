@@ -18,7 +18,10 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "me.grian.griansbetamod.events.init.InitListener"
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.events.init.InitListener"
+      }
     ],
     "stationapi:event_bus_client": [
     ],
