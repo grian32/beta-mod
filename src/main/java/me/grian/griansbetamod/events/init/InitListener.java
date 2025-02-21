@@ -1,22 +1,22 @@
-package net.glasslauncher.example.events.init;
+package me.grian.griansbetamod.events.init;
 
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.util.Namespace;
 import net.modificationstation.stationapi.api.util.Null;
+import net.modificationstation.stationapi.api.util.Namespace;
 import org.apache.logging.log4j.Logger;
 
 public class InitListener {
 
     @Entrypoint.Namespace
-    private static final Namespace NAMESPACE = Null.get();
+    public static Namespace NAMESPACE = Null.get();
 
     @Entrypoint.Logger
-    private static final Logger LOGGER = Null.get();
+    public static Logger LOGGER = Null.get();
 
     @EventListener
-    private static void serverInit(InitEvent event) {
+    public static void serverInit(InitEvent event) {
         LOGGER.info(NAMESPACE.toString());
     }
 }
