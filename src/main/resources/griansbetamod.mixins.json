@@ -4,7 +4,9 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExampleMixin"
+    "DyeItemMixin",
+    "PlayerEntityMixin",
+    "WorldMixin"
   ],
   "server": [
   ],
