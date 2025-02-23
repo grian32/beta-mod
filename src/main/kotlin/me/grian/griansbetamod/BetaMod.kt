@@ -7,6 +7,4 @@ object BetaMod {
     val NAMESPACE: Namespace = Namespace.of("griansbetamod")
 
     val LOGGER: Logger = NAMESPACE.logger
-
-
 }
