@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin;
 
+import me.grian.griansbetamod.ConfigScreen;
 import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,10 +17,12 @@ public class WorldMixin {
 
     @Inject(method = "tick()V", at = @At("HEAD"))
     public void tick(CallbackInfo ci) {
-        for (Object p : players) {
-            IPlayerEntityMixin player = ((IPlayerEntityMixin) p);
-            if (player.beta_mod$getSpeedBoostTicks() != 0) {
-                player.beta_mod$setSpeedBoostTicks(player.beta_mod$getSpeedBoostTicks() - 1);
+        if (ConfigScreen.config.lapisSpeedBoost) {
+            for (Object p : players) {
+                IPlayerEntityMixin player = ((IPlayerEntityMixin) p);
+                if (player.beta_mod$getSpeedBoostTicks() != 0) {
+                    player.beta_mod$setSpeedBoostTicks(player.beta_mod$getSpeedBoostTicks() - 1);
+                }
             }
         }
     }
