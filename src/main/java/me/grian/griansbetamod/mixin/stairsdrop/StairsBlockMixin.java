@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.mixin;
+package me.grian.griansbetamod.mixin.stairsdrop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;

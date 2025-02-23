@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.mixin;
+package me.grian.griansbetamod.mixin.lapisspeedboost;
 
 import me.grian.griansbetamod.ConfigScreen;
 import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
