@@ -4,11 +4,12 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "breakingspeedpickaxe.PickaxeItemMixin",
     "breakingspeedwood.AxeItemMixin",
     "lapisspeedboost.DyeItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
-    "stairsdrop.StairsBlockMixin",
-    "lapisspeedboost.WorldMixin"
+    "lapisspeedboost.WorldMixin",
+    "stairsdrop.StairsBlockMixin"
   ],
   "server": [
   ],
