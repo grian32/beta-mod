@@ -7,5 +7,5 @@
     - This can be disabled via a config.
 
 ### Fixes
-- Fixes Crafting Table break speed.
+- The following wooden items now break faster with axes: Wooden Stairs, Crafting Table
 - Stairs now drop themselves.
