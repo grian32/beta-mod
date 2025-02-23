@@ -5,11 +5,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@Debug(export = true)
 @Mixin(DyeItem.class)
 public class DyeItemMixin {
     @Unique
