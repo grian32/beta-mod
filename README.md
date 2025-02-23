@@ -8,3 +8,4 @@
 
 ### Fixes
 - Fixes Crafting Table break speed.
+- Stairs now drop themselves.
