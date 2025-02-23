@@ -20,7 +20,7 @@
     "stationapi:event_bus": [
       {
         "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.events.init.InitListener"
+        "value": "me.grian.griansbetamod.BetaMod"
       }
     ],
     "stationapi:event_bus_client": [
