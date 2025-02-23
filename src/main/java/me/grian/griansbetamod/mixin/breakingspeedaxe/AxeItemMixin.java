@@ -3,11 +3,9 @@ package me.grian.griansbetamod.mixin.breakingspeedaxe;
 import com.google.common.collect.ObjectArrays;
 import net.minecraft.block.Block;
 import net.minecraft.item.AxeItem;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Debug(export = true)
 @Mixin(AxeItem.class)
 public class AxeItemMixin {
     @Shadow
