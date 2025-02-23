@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.mixin.breakingspeedwood;
+package me.grian.griansbetamod.mixin.breakingspeedaxe;
 
 import com.google.common.collect.ObjectArrays;
 import net.minecraft.block.Block;
@@ -6,7 +6,6 @@ import net.minecraft.item.AxeItem;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 
 @Debug(export = true)
 @Mixin(AxeItem.class)

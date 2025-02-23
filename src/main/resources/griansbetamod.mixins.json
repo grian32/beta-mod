@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "breakingspeedpickaxe.PickaxeItemMixin",
-    "breakingspeedwood.AxeItemMixin",
+    "breakingspeedaxe.AxeItemMixin",
     "lapisspeedboost.DyeItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
     "lapisspeedboost.WorldMixin",
