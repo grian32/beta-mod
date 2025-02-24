@@ -4,7 +4,6 @@ import me.grian.griansbetamod.ConfigScreen;
 import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin extends LivingEntity implements IPlayerEntityMixin {
+public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerEntityMixin {
     @Unique
     int speedBoostTicks = 0;
 
@@ -73,18 +72,5 @@ public class PlayerEntityMixin extends LivingEntity implements IPlayerEntityMixi
     @Override
     public void beta_mod$setSpeedBoostTicks(int value) {
         speedBoostTicks = value;
-    }
-
-    @Override
-    public void initDataTracker() {
-    }
-
-    @Override
-    public void readNbt(NbtCompound nbt) {
-    }
-
-    @Override
-    public void writeNbt(NbtCompound nbt) {
-
     }
 }
