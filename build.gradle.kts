@@ -82,7 +82,7 @@ dependencies {
 	// https://github.com/calmilamsy/modmenu
 	modImplementation("net.glasslauncher.mods:ModMenu:${project.properties["modmenu_version"]}")
 //	// https://github.com/Glass-Series/Always-More-Items
-//	modImplementation("net.glasslauncher.mods:AlwaysMoreItems:${project.properties["alwaysmoreitems_version"]}")
+	modImplementation("net.glasslauncher.mods:AlwaysMoreItems:${project.properties["alwaysmoreitems_version"]}")
 	implementation(kotlin("stdlib-jdk8"))
 	modImplementation("net.fabricmc:fabric-language-kotlin:1.10.18+kotlin.1.9.22") {
 		exclude("net.fabricmc")
