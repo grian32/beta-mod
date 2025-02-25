@@ -1,6 +1,6 @@
 package me.grian.griansbetamod.mixin.lapisspeedboost;
 
-import me.grian.griansbetamod.ConfigScreen;
+import me.grian.griansbetamod.config.ConfigScreen;
 import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
