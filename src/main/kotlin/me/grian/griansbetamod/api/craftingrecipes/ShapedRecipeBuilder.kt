@@ -80,10 +80,6 @@ class ShapedRecipeBuilder {
         )
     }
 
-    private fun checkLength(str: String) {
-        if (str.length != 3) throw Exception("All recipes lines must be 3 characters long.")
-    }
-
     private fun processCharForItemStack(itemStack: ItemStack?): Char {
         if (itemStack == null) {
             return ' '
