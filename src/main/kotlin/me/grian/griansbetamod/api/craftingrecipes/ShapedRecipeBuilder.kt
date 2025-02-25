@@ -8,32 +8,26 @@ class ShapedRecipeBuilder {
     lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
 
-    fun pattern(str: String) {
-        if (str.trimIndent().replace("\n", "").length != 9) {
-            throw Exception("Recipe pattern does not contain the full pattern and is therefore invalid.")
-        }
+    fun key(c: Char, item: ItemStack) {
+        keys[c] = item
+    }
 
-        if (str.trimIndent().count { it == '\n' } != 2) {
-            throw Exception("Recipe pattern does not have the required amount of lines (3) and is therefore invalid.")
-        }
+    fun top(str: String) {
+        checkLength(str)
+        pattern[0] = str
+    }
 
-        val splitStr = str.trimIndent().split("\n")
+    fun middle(str: String) {
+        checkLength(str)
+        pattern[1] = str
+    }
 
-        // should always be valid :S
-        pattern[0] = splitStr[0]
-        pattern[1] = splitStr[1]
-        pattern[2] = splitStr[2]
+    fun bottom(str: String) {
+        checkLength(str)
+        pattern[2] = str
     }
 
     fun registerRecipe() {
-        //            CraftingRegistry.addShapedRecipe(
-//                ItemStack(redstoneBlock), // output
-//                "rrr", // pattern
-//                "rrr",
-//                "rrr",
-//                'r', // key
-//                ItemStack(Item.REDSTONE) // value
-//            )
         val spreadArr: MutableList<Any> = mutableListOf()
 
         pattern.forEach {
@@ -52,7 +46,7 @@ class ShapedRecipeBuilder {
         )
     }
 
-    fun key(c: Char, item: ItemStack) {
-        keys[c] = item
+    private fun checkLength(str: String) {
+        if (str.length != 3) throw Exception("All recipes lines must be 3 characters long.")
     }
 }
