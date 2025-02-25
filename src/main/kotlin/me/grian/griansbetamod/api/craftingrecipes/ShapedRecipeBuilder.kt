@@ -52,7 +52,7 @@ class ShapedRecipeBuilder {
         )
     }
 
-    infix fun Char.key(item: ItemStack) {
-        keys[this] = item
+    fun key(c: Char, item: ItemStack) {
+        keys[c] = item
     }
 }
