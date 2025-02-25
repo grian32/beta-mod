@@ -19,5 +19,6 @@ object TextureListener {
         val terrain = Atlases.getTerrain()
 
         BetaMod.redstoneBlock.textureId = terrain.addTexture(NAMESPACE.id("block/block_redstone")).index
+        BetaMod.grassyBoots.setTexture(NAMESPACE.id("item/grassy_boots"))
     }
 }

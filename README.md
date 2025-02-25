@@ -6,7 +6,9 @@
 - You can now consume lapis which will lead to a 1.5x Speed Boost for 30 seconds. - Currently doesn't work with MP, this is WIP.
     - This can be disabled via a config.
 - Backports redstone blocks for storage purposes, currently does not feature the redstone functionality.
-- Crops no longer get trampled if you are wearing Leather Boots (inspired by BTA)
+- Adds Grassy Boots
+    - While wearing these you will now longer trample crops.
+    - Recipe: [![Image from Gyazo](https://i.gyazo.com/07979b73a12646950b87fc707cda5541.png)](https://gyazo.com/07979b73a12646950b87fc707cda5541)
 
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table.

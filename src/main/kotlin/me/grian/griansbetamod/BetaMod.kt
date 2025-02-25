@@ -1,12 +1,14 @@
 package me.grian.griansbetamod
 
 import me.grian.griansbetamod.blocks.RedstoneBlock
+import me.grian.griansbetamod.items.GrassyBoots
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
+import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
@@ -19,6 +21,9 @@ object BetaMod {
     @JvmStatic
     lateinit var redstoneBlock: Block
 
+    @JvmStatic
+    lateinit var grassyBoots: Item
+
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
         redstoneBlock = RedstoneBlock(NAMESPACE.id("redstone_block"))
@@ -26,6 +31,14 @@ object BetaMod {
             .setSoundGroup(Block.METAL_SOUND_GROUP)
             .setResistance(6.0f)
             .setHardness(5.0f)
+    }
+
+    @EventListener
+    fun registerItems(event: ItemRegistryEvent) {
+        grassyBoots = GrassyBoots(NAMESPACE.id("grassy_boots"))
+            .setTranslationKey(NAMESPACE, "grassy_boots")
+            .setHandheld()
+            .setTexturePosition(0, 3)
     }
 
     @EventListener
@@ -39,6 +52,19 @@ object BetaMod {
             "rrr",
             'r', // key
             ItemStack(Item.REDSTONE) // value
+        )
+
+        CraftingRegistry.addShapedRecipe(
+            ItemStack(grassyBoots),
+            " w ",
+            "sbs",
+            " w ",
+            'w',
+            ItemStack(Item.WHEAT),
+            'b',
+            ItemStack(Item.LEATHER_BOOTS),
+            's',
+            ItemStack(Item.SEEDS)
         )
     }
 }
