@@ -49,17 +49,11 @@ class ShapedRecipeBuilder {
         handleItemStackLine(itemStack1, itemStack2, itemStack3, 2)
     }
 
-    fun top(item1: Item?, item2: Item?, item3: Item?) {
-        handleItemLine(item1, item2, item3, 0)
-    }
+    fun top(item1: Item?, item2: Item?, item3: Item?) = top(item1.toStack(), item2.toStack(), item3.toStack())
 
-    fun middle(item1: Item?, item2: Item?, item3: Item?) {
-        handleItemLine(item1, item2, item3, 1)
-    }
+    fun middle(item1: Item?, item2: Item?, item3: Item?) = middle(item1.toStack(), item2.toStack(), item3.toStack())
 
-    fun bottom(item1: Item?, item2: Item?, item3: Item?) {
-        handleItemLine(item1, item2, item3, 2)
-    }
+    fun bottom(item1: Item?, item2: Item?, item3: Item?) = bottom(item1.toStack(), item2.toStack(), item3.toStack())
 
     fun registerRecipe() {
         val spreadArr: MutableList<Any> = mutableListOf()
@@ -102,13 +96,5 @@ class ShapedRecipeBuilder {
         pattern[idx] = str
     }
 
-    private fun handleItemLine(item1: Item?, item2: Item?, item3: Item?, idx: Int) {
-        // some of the dumbest code i've ever written but if it's null then i cant instantiate a stack with it lol
-        handleItemStackLine(
-            if (item1 == null) null else ItemStack(item1),
-            if (item2 == null) null else ItemStack(item2),
-            if (item3 == null) null else ItemStack(item3),
-            idx
-        )
-    }
+    private fun Item?.toStack(): ItemStack? = if (this == null) null else ItemStack(this, 1)
 }
