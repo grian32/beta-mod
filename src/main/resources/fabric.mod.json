@@ -24,6 +24,10 @@
       }
     ],
     "stationapi:event_bus_client": [
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.TextureListener"
+      }
     ],
     "stationapi:event_bus_server": [
     ],
