@@ -4,8 +4,9 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "breakingspeedpickaxe.PickaxeItemMixin",
     "breakingspeedaxe.AxeItemMixin",
+    "breakingspeedpickaxe.PickaxeItemMixin",
+    "croptrampling.FarmlandBlockMixin",
     "lapisspeedboost.DyeItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
     "lapisspeedboost.WorldMixin",
