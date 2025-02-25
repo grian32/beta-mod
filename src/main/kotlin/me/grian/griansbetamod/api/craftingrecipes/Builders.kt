@@ -6,3 +6,10 @@ inline fun addShapedRecipe(init: ShapedRecipeBuilder.() -> Unit): ShapedRecipeBu
     shapedRecipe.registerRecipe()
     return shapedRecipe;
 }
+
+inline fun addShapelessRecipe(init: ShapelessRecipeBuilder.() -> Unit): ShapelessRecipeBuilder {
+    val shapelessRecipe = ShapelessRecipeBuilder()
+    shapelessRecipe.init()
+    shapelessRecipe.registerRecipe()
+    return shapelessRecipe;
+}
