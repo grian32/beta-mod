@@ -54,6 +54,11 @@ object BetaMod {
             ItemStack(Item.REDSTONE) // value
         )
 
+        CraftingRegistry.addShapelessRecipe(
+            ItemStack(Item.REDSTONE, 9),
+            redstoneBlock
+        )
+
         CraftingRegistry.addShapedRecipe(
             ItemStack(grassyBoots),
             " w ",
