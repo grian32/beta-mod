@@ -12,7 +12,7 @@ import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
 
 object BetaMod {
-    private val NAMESPACE: Namespace = Namespace.of("griansbetamod")
+    val NAMESPACE: Namespace = Namespace.of("griansbetamod")
 
     private val LOGGER: Logger = NAMESPACE.logger
 
