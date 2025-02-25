@@ -9,25 +9,6 @@ class ShapedRecipeBuilder {
     private lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
     private val elements = ArrayDeque(('a'..'z').toList())
-//
-//    fun key(c: Char, item: ItemStack) {
-//        keys[c] = item
-//    }
-//
-//    fun top(str: String) {
-//        checkLength(str)
-//        pattern[0] = str
-//    }
-//
-//    fun middle(str: String) {
-//        checkLength(str)
-//        pattern[1] = str
-//    }
-//
-//    fun bottom(str: String) {
-//        checkLength(str)
-//        pattern[2] = str
-//    }
 
     fun output(item: Item) {
         output(ItemStack(item, 1))
