@@ -27,11 +27,13 @@ object BetaMod {
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
-        redstoneBlock = RedstoneBlock(NAMESPACE.id("redstone_block"))
-            .setTranslationKey(NAMESPACE, "redstone_block")
-            .setSoundGroup(Block.METAL_SOUND_GROUP)
-            .setResistance(6.0f)
-            .setHardness(5.0f)
+        if (ConfigScreen.config.enableRedstoneBlock) {
+            redstoneBlock = RedstoneBlock(NAMESPACE.id("redstone_block"))
+                .setTranslationKey(NAMESPACE, "redstone_block")
+                .setSoundGroup(Block.METAL_SOUND_GROUP)
+                .setResistance(6.0f)
+                .setHardness(5.0f)
+        }
     }
 
     @EventListener
@@ -48,19 +50,22 @@ object BetaMod {
     fun registerRecipes(event: RecipeRegisterEvent) {
         val type = RecipeRegisterEvent.Vanilla.fromType(event.recipeId)
 
-        CraftingRegistry.addShapedRecipe(
-            ItemStack(redstoneBlock), // output
-            "rrr", // pattern
-            "rrr",
-            "rrr",
-            'r', // key
-            ItemStack(Item.REDSTONE) // value
-        )
+        if (ConfigScreen.config.enableRedstoneBlock) {
+            CraftingRegistry.addShapedRecipe(
+                ItemStack(redstoneBlock), // output
+                "rrr", // pattern
+                "rrr",
+                "rrr",
+                'r', // key
+                ItemStack(Item.REDSTONE) // value
+            )
 
-        CraftingRegistry.addShapelessRecipe(
-            ItemStack(Item.REDSTONE, 9),
-            redstoneBlock
-        )
+            CraftingRegistry.addShapelessRecipe(
+                ItemStack(Item.REDSTONE, 9),
+                redstoneBlock
+            )
+        }
+
         if (ConfigScreen.config.leatherBootsTrampleCrops) {
             CraftingRegistry.addShapedRecipe(
                 ItemStack(grassyBoots),

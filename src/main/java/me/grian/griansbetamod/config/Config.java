@@ -8,4 +8,7 @@ public class Config {
 
     @ConfigEntry(name = "Players wearing Grassy Boots no longer trample crops.", description = "Requires a restart to take effect, grassy boots are also included in this config.")
     public Boolean leatherBootsTrampleCrops = true;
+
+    @ConfigEntry(name = "Enable Redstone Blocks", description = "Requires a restart to take effect.")
+    public Boolean enableRedstoneBlock = true;
 }
