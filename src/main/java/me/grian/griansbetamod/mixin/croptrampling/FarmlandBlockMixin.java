@@ -4,9 +4,7 @@ import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Arrays;
-import java.util.Objects;
+import static me.grian.griansbetamod.util.ExtKt.isAllNull;
+import static me.grian.griansbetamod.util.ExtKt.toItemIds;
 
 @Mixin(FarmlandBlock.class)
 public class FarmlandBlockMixin {
@@ -29,13 +27,11 @@ public class FarmlandBlockMixin {
 
         if (isPlayer) {
             player = (PlayerEntity) entity;
-            hasArmor = !Arrays.stream(player.inventory.armor).allMatch(Objects::isNull);
+            hasArmor = !isAllNull(player.inventory.armor);
         }
 
         if (isPlayer && hasArmor) {
-            hasLeatherBoots = Arrays.stream(player.inventory.armor).anyMatch(
-                    i -> i.getItem().id == Item.LEATHER_BOOTS.id
-            );
+            hasLeatherBoots = ArrayUtils.contains(toItemIds(player.inventory.armor), Item.LEATHER_BOOTS.id);
         }
 
         if (ConfigScreen.config.leatherBootsTrampleCrops && isPlayer && hasLeatherBoots) {
