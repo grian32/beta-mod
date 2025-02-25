@@ -18,6 +18,6 @@ object TextureListener {
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
 
-        redstoneBlockTexture = terrain.addTexture(NAMESPACE.id("block/block_redstone")).index
+        BetaMod.redstoneBlock.textureId = terrain.addTexture(NAMESPACE.id("block/block_redstone")).index
     }
 }
