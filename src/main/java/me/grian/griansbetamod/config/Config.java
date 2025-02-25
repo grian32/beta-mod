@@ -1,4 +1,4 @@
-package me.grian.griansbetamod;
+package me.grian.griansbetamod.config;
 
 import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 

@@ -28,7 +28,7 @@
     "stationapi:event_bus_server": [
     ],
     "gcapi3": [
-      "me.grian.griansbetamod.ConfigScreen"
+      "me.grian.griansbetamod.config.ConfigScreen"
     ]
   },
   "mixins": [
