@@ -55,33 +55,27 @@ object BetaMod {
 
         if (ConfigScreen.config.enableRedstoneBlock) {
             addShapedRecipe {
-                output = ItemStack(redstoneBlock)
+                output(redstoneBlock.asItem())
 
-                top("rrr")
-                middle("rrr")
-                bottom("rrr")
-
-                key('r', ItemStack(Item.REDSTONE))
+                top(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                middle(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
             }
 
             addShapelessRecipe {
-                output = ItemStack(Item.REDSTONE, 9)
+                output(ItemStack(Item.REDSTONE, 9))
 
-                ingredient(ItemStack(redstoneBlock))
+                ingredient(redstoneBlock.asItem())
             }
         }
 
         if (ConfigScreen.config.leatherBootsTrampleCrops) {
             addShapedRecipe {
-                output = ItemStack(grassyBoots)
+                output(grassyBoots)
 
-                top(" w ")
-                middle("sbs")
-                bottom(" w ")
-
-                key('w', ItemStack(Item.WHEAT))
-                key('s', ItemStack(Item.SEEDS))
-                key('b', ItemStack(Item.LEATHER_BOOTS))
+                top(null, Item.WHEAT, null)
+                middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
+                bottom(null, Item.WHEAT, null)
             }
         }
     }
