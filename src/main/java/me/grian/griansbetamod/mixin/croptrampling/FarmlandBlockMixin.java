@@ -1,10 +1,10 @@
 package me.grian.griansbetamod.mixin.croptrampling;
 
+import me.grian.griansbetamod.BetaMod;
 import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,7 +31,7 @@ public class FarmlandBlockMixin {
         }
 
         if (isPlayer && hasArmor) {
-            hasLeatherBoots = ArrayUtils.contains(toItemIds(player.inventory.armor), Item.LEATHER_BOOTS.id);
+            hasLeatherBoots = ArrayUtils.contains(toItemIds(player.inventory.armor), BetaMod.grassyBoots.id);
         }
 
         if (ConfigScreen.config.leatherBootsTrampleCrops && isPlayer && hasLeatherBoots) {
