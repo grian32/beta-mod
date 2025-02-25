@@ -33,7 +33,7 @@ object BetaMod {
         val type = RecipeRegisterEvent.Vanilla.fromType(event.recipeId)
 
         CraftingRegistry.addShapedRecipe(
-            ItemStack(redstoneBlock), // outpu
+            ItemStack(redstoneBlock), // output
             "rrr", // pattern
             "rrr",
             "rrr",
