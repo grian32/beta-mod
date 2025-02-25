@@ -1,5 +1,8 @@
 package me.grian.griansbetamod
 
+import me.grian.griansbetamod.api.craftingrecipes.ShapelessRecipeBuilder
+import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
+import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
@@ -51,34 +54,35 @@ object BetaMod {
         val type = RecipeRegisterEvent.Vanilla.fromType(event.recipeId)
 
         if (ConfigScreen.config.enableRedstoneBlock) {
-            CraftingRegistry.addShapedRecipe(
-                ItemStack(redstoneBlock), // output
-                "rrr", // pattern
-                "rrr",
-                "rrr",
-                'r', // key
-                ItemStack(Item.REDSTONE) // value
-            )
+            addShapedRecipe {
+                output = ItemStack(redstoneBlock)
 
-            CraftingRegistry.addShapelessRecipe(
-                ItemStack(Item.REDSTONE, 9),
-                redstoneBlock
-            )
+                top("rrr")
+                middle("rrr")
+                bottom("rrr")
+
+                key('r', ItemStack(Item.REDSTONE))
+            }
+
+            addShapelessRecipe {
+                output = ItemStack(Item.REDSTONE, 9)
+
+                ingredient(ItemStack(redstoneBlock))
+            }
         }
 
         if (ConfigScreen.config.leatherBootsTrampleCrops) {
-            CraftingRegistry.addShapedRecipe(
-                ItemStack(grassyBoots),
-                " w ",
-                "sbs",
-                " w ",
-                'w',
-                ItemStack(Item.WHEAT),
-                'b',
-                ItemStack(Item.LEATHER_BOOTS),
-                's',
-                ItemStack(Item.SEEDS)
-            )
+            addShapedRecipe {
+                output = ItemStack(grassyBoots)
+
+                top(" w ")
+                middle("sbs")
+                bottom(" w ")
+
+                key('w', ItemStack(Item.WHEAT))
+                key('s', ItemStack(Item.SEEDS))
+                key('b', ItemStack(Item.LEATHER_BOOTS))
+            }
         }
     }
 }
