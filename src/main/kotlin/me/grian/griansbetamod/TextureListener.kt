@@ -1,5 +1,6 @@
 package me.grian.griansbetamod
 
+import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases
@@ -19,6 +20,6 @@ object TextureListener {
         val terrain = Atlases.getTerrain()
 
         BetaMod.redstoneBlock.textureId = terrain.addTexture(NAMESPACE.id("block/block_redstone")).index
-        BetaMod.grassyBoots.setTexture(NAMESPACE.id("item/grassy_boots"))
+        if (ConfigScreen.config.leatherBootsTrampleCrops) BetaMod.grassyBoots.setTexture(NAMESPACE.id("item/grassy_boots"))
     }
 }

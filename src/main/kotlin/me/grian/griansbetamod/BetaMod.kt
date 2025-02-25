@@ -1,6 +1,7 @@
 package me.grian.griansbetamod
 
 import me.grian.griansbetamod.blocks.RedstoneBlock
+import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
@@ -35,10 +36,12 @@ object BetaMod {
 
     @EventListener
     fun registerItems(event: ItemRegistryEvent) {
-        grassyBoots = GrassyBoots(NAMESPACE.id("grassy_boots"))
-            .setTranslationKey(NAMESPACE, "grassy_boots")
-            .setHandheld()
-            .setTexturePosition(0, 3)
+        if (ConfigScreen.config.leatherBootsTrampleCrops) {
+            grassyBoots = GrassyBoots(NAMESPACE.id("grassy_boots"))
+                .setTranslationKey(NAMESPACE, "grassy_boots")
+                .setHandheld()
+                .setTexturePosition(0, 3)
+        }
     }
 
     @EventListener
@@ -58,18 +61,19 @@ object BetaMod {
             ItemStack(Item.REDSTONE, 9),
             redstoneBlock
         )
-
-        CraftingRegistry.addShapedRecipe(
-            ItemStack(grassyBoots),
-            " w ",
-            "sbs",
-            " w ",
-            'w',
-            ItemStack(Item.WHEAT),
-            'b',
-            ItemStack(Item.LEATHER_BOOTS),
-            's',
-            ItemStack(Item.SEEDS)
-        )
+        if (ConfigScreen.config.leatherBootsTrampleCrops) {
+            CraftingRegistry.addShapedRecipe(
+                ItemStack(grassyBoots),
+                " w ",
+                "sbs",
+                " w ",
+                'w',
+                ItemStack(Item.WHEAT),
+                'b',
+                ItemStack(Item.LEATHER_BOOTS),
+                's',
+                ItemStack(Item.SEEDS)
+            )
+        }
     }
 }
