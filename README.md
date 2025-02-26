@@ -8,6 +8,7 @@
 - Adds Grassy Boots
     - While wearing these you will now longer trample crops.
     - Recipe: [![Image from Gyazo](https://i.gyazo.com/07979b73a12646950b87fc707cda5541.png)](https://gyazo.com/07979b73a12646950b87fc707cda5541)
+- Adds recipe that lets you decraft a saddle into 5 Leather as saddles have no realistic uses.
 
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table.

@@ -11,4 +11,7 @@ public class Config {
 
     @ConfigEntry(name = "Enable Redstone Blocks", description = "Requires a restart to take effect.")
     public Boolean enableRedstoneBlock = true;
+
+    @ConfigEntry(name = "Allows crafting saddles into leather.", description = "Requires a restart to take effect.")
+    public Boolean decraftSaddles = true;
 }

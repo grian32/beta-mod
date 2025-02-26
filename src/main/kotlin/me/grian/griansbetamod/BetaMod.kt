@@ -77,5 +77,13 @@ object BetaMod {
                 bottom(null, Item.WHEAT, null)
             }
         }
+
+        if (ConfigScreen.config.decraftSaddles) {
+            addShapelessRecipe {
+                output(ItemStack(Item.LEATHER, 5))
+
+                ingredient(Item.SADDLE)
+            }
+        }
     }
 }
