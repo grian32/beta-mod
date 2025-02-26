@@ -44,7 +44,6 @@ object BetaMod {
         if (ConfigScreen.config.leatherBootsTrampleCrops) {
             grassyBoots = GrassyBoots(NAMESPACE.id("grassy_boots"))
                 .setTranslationKey(NAMESPACE, "grassy_boots")
-                .setHandheld()
                 .setTexturePosition(0, 3)
         }
     }
