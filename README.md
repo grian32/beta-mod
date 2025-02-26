@@ -4,7 +4,6 @@
 
 ### New
 - You can now consume lapis which will lead to a 1.5x Speed Boost for 30 seconds. - Currently doesn't work with MP, this is WIP.
-    - This can be disabled via a config.
 - Backports redstone blocks for storage purposes, currently does not feature the redstone functionality.
 - Adds Grassy Boots
     - While wearing these you will now longer trample crops.
@@ -14,3 +13,7 @@
 - The following items now break faster with axes: Wooden Stairs, Crafting Table.
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore.
 - Stairs now drop themselves.
+
+### Configuration
+
+All of the above New Features can be enabled/disabled individually, the fixes cannot be disabled.
