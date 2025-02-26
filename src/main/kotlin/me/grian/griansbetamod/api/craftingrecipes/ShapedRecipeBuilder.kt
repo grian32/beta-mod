@@ -8,7 +8,7 @@ class ShapedRecipeBuilder {
     private val pattern: Array<String> = Array(3) { "" }
     private lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
-    private val elements = ArrayDeque(('a'..'z').toList())
+    private val charsForItems = ('a'..'j').toMutableList()
 
     fun output(item: Item) {
         output(ItemStack(item, 1))
@@ -60,7 +60,7 @@ class ShapedRecipeBuilder {
             itemStack == null -> ' '
             keys.values.contains(itemStack) -> keys.entries.first { it.value == itemStack }.key
             else -> {
-                val key = elements.removeFirst()
+                val key = charsForItems.removeFirst()
                 keys[key] = itemStack
                 return key
             }
