@@ -56,14 +56,14 @@ class ShapedRecipeBuilder {
     }
 
     private fun processCharForItemStack(itemStack: ItemStack?): Char {
-        if (itemStack == null) {
-            return ' '
-        } else if (keys.values.contains(itemStack)) {
-            return keys.entries.filter { it.value == itemStack }[0].key
-        } else {
-            val key = elements.removeFirst()
-            keys[key] = itemStack
-            return key
+        return when {
+            itemStack == null -> ' '
+            keys.values.contains(itemStack) -> keys.entries.first { it.value == itemStack }.key
+            else -> {
+                val key = elements.removeFirst()
+                keys[key] = itemStack
+                return key
+            }
         }
     }
 
