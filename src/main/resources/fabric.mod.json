@@ -21,6 +21,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.BetaMod"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.MiningListener"
       }
     ],
     "stationapi:event_bus_client": [

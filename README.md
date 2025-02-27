@@ -11,7 +11,7 @@
 - Adds recipe that lets you decraft a saddle into 5 Leather as saddles have no realistic uses.
 
 ### Fixes
-- The following items now break faster with axes: Wooden Stairs, Crafting Table.
+- The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab.
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore.
 - Stairs now drop themselves.
 
