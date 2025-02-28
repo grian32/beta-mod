@@ -1,5 +1,7 @@
 {
   "values": [
-    "griansbetamod:redstone_block"
+    "griansbetamod:redstone_block",
+    "griansbetamod:icy_stone",
+    "griansbetamod:icy_cobblestone"
   ]
 }
