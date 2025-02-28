@@ -9,6 +9,9 @@
     - While wearing these you will now longer trample crops.
     - Recipe: [![Image from Gyazo](https://i.gyazo.com/07979b73a12646950b87fc707cda5541.png)](https://gyazo.com/07979b73a12646950b87fc707cda5541)
 - Adds recipe that lets you decraft a saddle into 5 Leather as saddles have no realistic uses.
+- Taiga/Tundra Biomes now generate with Icy Stone & all associated variants (i.e ores, etc.)
+    - This can be enabled/disabled like every other new feature but it will only affect newly generated chunks. So if you do this on an existing world, you'll only get the icy stone generated in new chunks.
+    - Currently WIP
 
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab.
