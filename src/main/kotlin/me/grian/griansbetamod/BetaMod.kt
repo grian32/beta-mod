@@ -2,6 +2,7 @@ package me.grian.griansbetamod
 
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
+import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
 import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.config.ConfigScreen
@@ -23,6 +24,7 @@ object BetaMod {
 
     lateinit var redstoneBlock: Block
     lateinit var icyStone: Block
+    lateinit var icyCobblestone: Block
 
     lateinit var grassyBoots: Item
 
@@ -41,8 +43,14 @@ object BetaMod {
             icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
                 .setTranslationKey(NAMESPACE, "icy_stone")
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(1.5F)
-                .setResistance(10.0F)
+                .setHardness(1.5f)
+                .setResistance(10.0f)
+
+            icyCobblestone = IcyCobblestoneBlock(NAMESPACE.id("icy_cobblestone"))
+                .setTranslationKey(NAMESPACE, "icy_cobblestone")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(2.0f)
+                .setResistance(10.0f)
         }
     }
 
