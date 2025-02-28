@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Debug(export=true)
 @Mixin(OverworldChunkGenerator.class)
 public class OverworldChunkGeneratorMixin {
     @Shadow
