@@ -28,7 +28,6 @@ object BetaMod {
 
     lateinit var grassyBoots: Item
 
-
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.enableRedstoneBlock) {
