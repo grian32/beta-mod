@@ -1,5 +1,5 @@
 # @ is a shorthand for the current mod id, which is griansbetamod. E.g: tile.@.redclay.name
 tile.@.redstone_block.name=Block of Redstone
 item.@.grassy_boots.name=Grassy Boots
-tile.@.icy_stone=Icy Stone
-tile.@.icy_cobbestone=Icy Cobblestone
+tile.@.icy_stone.name=Icy Stone
+tile.@.icy_cobblestone.name=Icy Cobblestone
