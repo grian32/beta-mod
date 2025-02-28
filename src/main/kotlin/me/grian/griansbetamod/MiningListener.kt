@@ -20,7 +20,6 @@ object MiningListener {
 
         val meta = event.blockView.getBlockMeta(blockPos.x, blockPos.y, blockPos.z)
 
-        // TODO: refactor, it's pretty bad code
         if (
             meta == 2 &&
             (blockId == Block.SLAB.id || blockId == Block.DOUBLE_SLAB.id)
@@ -28,17 +27,14 @@ object MiningListener {
             event.resultProvider = BooleanSupplier { true }
         } else if (
             meta == 0 &&
-            blockId == 0
+            blockId == 0 &&
+            lastBlockMeta == 2 &&
+            (lastBlockId == Block.SLAB.id || lastBlockId == Block.DOUBLE_SLAB.id)
         ) {
             // https://github.com/DanyGames2014/UniTweaks/blob/e2ea7de88c24deefe5dd52e7fa27225029ef5465/src/main/java/net/danygames2014/unitweaks/bugfixes/slabminingfix/MiningListener.java#L41
             // I assume since it's not registered as an effective tool on the last tick then it doesn't drop, this
             // fixed it.
-            if (
-                lastBlockMeta == 2 &&
-                (lastBlockId == Block.SLAB.id || lastBlockId == Block.DOUBLE_SLAB.id)
-            ) {
-                event.resultProvider = BooleanSupplier { true }
-            }
+            event.resultProvider = BooleanSupplier { true }
         }
 
         lastBlockMeta = meta
