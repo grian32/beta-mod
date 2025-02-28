@@ -2,6 +2,7 @@ package me.grian.griansbetamod
 
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
+import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
@@ -20,11 +21,11 @@ object BetaMod {
 
     private val LOGGER: Logger = NAMESPACE.logger
 
-    @JvmStatic
     lateinit var redstoneBlock: Block
+    lateinit var icyStone: Block
 
-    @JvmStatic
     lateinit var grassyBoots: Item
+
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
@@ -34,6 +35,14 @@ object BetaMod {
                 .setSoundGroup(Block.METAL_SOUND_GROUP)
                 .setResistance(6.0f)
                 .setHardness(5.0f)
+        }
+
+        if (ConfigScreen.config.icyStone) {
+            icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
+                .setTranslationKey(NAMESPACE, "icy_stone")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(1.5F)
+                .setResistance(10.0F)
         }
     }
 
