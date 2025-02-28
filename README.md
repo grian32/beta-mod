@@ -12,6 +12,8 @@
 - Taiga/Tundra Biomes now generate with Icy Stone & all associated variants (i.e ores, etc.)
     - This can be enabled/disabled like every other new feature but it will only affect newly generated chunks. So if you do this on an existing world, you'll only get the icy stone generated in new chunks.
     - Currently WIP
+- F3 Debug Menu now displays biome.
+    - This is not configurable as it's for debugging.
 
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab.
