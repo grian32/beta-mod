@@ -1,6 +1,7 @@
 package me.grian.griansbetamod.mixin.icystone;
 
 import me.grian.griansbetamod.BetaMod;
+import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -26,15 +27,17 @@ public class OverworldChunkGeneratorMixin {
      */
     @Inject(method = "buildTerrain", at = @At("HEAD"))
     void buildTerrain(int chunkX, int chunkZ, byte[] blocks, Biome[] biomes, double[] temperatures, CallbackInfo ci) {
-        int var4 = chunkX * 16;
-        int var5 = chunkZ * 16;
-        biomeMod = this.world.method_1781().getBiome(var4, var5);
+        if (ConfigScreen.config.icyStone) {
+            int var4 = chunkX * 16;
+            int var5 = chunkZ * 16;
+            biomeMod = this.world.method_1781().getBiome(var4, var5);
+        }
     }
 
     // https://discord.com/channels/397834523028488203/782730916396924968/1344424528561963020
     @ModifyVariable(method = "buildTerrain", at = @At("STORE"), ordinal = 15)
     private int injected(int value, int chunkX, int chunkZ, byte[] blocks, Biome[] biomes, double[] temperatures) {
-        if (value == Block.STONE.id && (biomeMod == Biome.TAIGA || biomeMod == Biome.TUNDRA)) {
+        if (ConfigScreen.config.icyStone && value == Block.STONE.id && (biomeMod == Biome.TAIGA || biomeMod == Biome.TUNDRA)) {
             return BetaMod.icyStone.id;
         }
         return value;
@@ -42,7 +45,7 @@ public class OverworldChunkGeneratorMixin {
 
     @ModifyVariable(method = "buildSurfaces", at = @At("STORE"), ordinal = 13)
     private int injected(int value, int chunkX, int chunkZ, byte[] blocks, Biome[] biomes) {
-        if(value == BetaMod.icyStone.id){
+        if(ConfigScreen.config.icyStone && value == BetaMod.icyStone.id){
             return Block.STONE.id;
         }
         return value;
