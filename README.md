@@ -16,7 +16,7 @@
     - This is not configurable as it's for debugging.
 
 ### Fixes
-- The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab.
+- The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab, Wooden Fence.
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore.
 - Stairs now drop themselves.
 

@@ -14,7 +14,8 @@ public class AxeItemMixin {
     static {
         Block[] newBlocks = new Block[]{
                 Block.CRAFTING_TABLE,
-                Block.WOODEN_STAIRS
+                Block.WOODEN_STAIRS,
+                Block.FENCE
         };
 
         axeEffectiveBlocks = ObjectArrays.concat(axeEffectiveBlocks, newBlocks, Block.class);
