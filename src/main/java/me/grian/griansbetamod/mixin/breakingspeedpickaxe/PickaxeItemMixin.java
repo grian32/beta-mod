@@ -15,7 +15,8 @@ public class PickaxeItemMixin {
         Block[] newBlocks = new Block[]{
                 Block.REDSTONE_ORE,
                 Block.LIT_REDSTONE_ORE,
-                Block.COBBLESTONE_STAIRS
+                Block.COBBLESTONE_STAIRS,
+                Block.FURNACE
         };
 
         pickaxeEffectiveBlocks = ObjectArrays.concat(pickaxeEffectiveBlocks, newBlocks, Block.class);
