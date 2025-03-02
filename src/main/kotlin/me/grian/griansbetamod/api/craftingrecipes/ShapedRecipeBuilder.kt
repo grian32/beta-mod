@@ -41,11 +41,11 @@ class ShapedRecipeBuilder {
 
     fun bottom(item1: Item?, item2: Item?, item3: Item?) = bottom(item1.toStack(), item2.toStack(), item3.toStack())
 
-    fun top(block1: Block, block2: Block, block3: Block) = top(block1.toItem(), block2.toItem(), block3.toItem())
+    fun top(block1: Block?, block2: Block?, block3: Block?) = top(block1.toItem(), block2.toItem(), block3.toItem())
 
-    fun middle(block1: Block, block2: Block, block3: Block) = middle(block1.toItem(), block2.toItem(), block3.toItem())
+    fun middle(block1: Block?, block2: Block?, block3: Block?) = middle(block1.toItem(), block2.toItem(), block3.toItem())
 
-    fun bottom(block1: Block, block2: Block, block3: Block) = bottom(block1.toItem(), block2.toItem(), block3.toItem())
+    fun bottom(block1: Block?, block2: Block?, block3: Block?) = bottom(block1.toItem(), block2.toItem(), block3.toItem())
 
     fun registerRecipe() {
         val spreadArr: MutableList<Any> = mutableListOf()
@@ -90,5 +90,5 @@ class ShapedRecipeBuilder {
 
     private fun Item?.toStack(): ItemStack? = if (this == null) null else ItemStack(this, 1)
     
-    private fun Block?.toItem(): Item? = this?.asItem()
+    private fun Block??.toItem(): Item? = this?.asItem()
 }
