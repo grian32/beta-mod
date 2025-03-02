@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.api.craftingrecipes
 
+import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry
@@ -9,6 +10,10 @@ class ShapedRecipeBuilder {
     private lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
     private val charsForItems = ('a'..'j').toMutableList()
+
+    fun output(block: Block) {
+        output(block.asItem())
+    }
 
     fun output(item: Item) {
         output(ItemStack(item, 1))
@@ -35,6 +40,12 @@ class ShapedRecipeBuilder {
     fun middle(item1: Item?, item2: Item?, item3: Item?) = middle(item1.toStack(), item2.toStack(), item3.toStack())
 
     fun bottom(item1: Item?, item2: Item?, item3: Item?) = bottom(item1.toStack(), item2.toStack(), item3.toStack())
+
+    fun top(block1: Block, block2: Block, block3: Block) = top(block1.asItem(), block2.asItem(), block3.asItem())
+
+    fun middle(block1: Block, block2: Block, block3: Block) = middle(block1.asItem(), block2.asItem(), block3.asItem())
+
+    fun bottom(block1: Block, block2: Block, block3: Block) = bottom(block1.asItem(), block2.asItem(), block3.asItem())
 
     fun registerRecipe() {
         val spreadArr: MutableList<Any> = mutableListOf()
