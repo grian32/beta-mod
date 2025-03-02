@@ -1,5 +1,6 @@
 package me.grian.griansbetamod
 
+import me.grian.griansbetamod.api.craftingrecipes.ShapedRecipeBuilder
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
@@ -19,5 +20,19 @@ object IcyStoneRecipesListener {
             middle(BetaMod.icyCobblestone, null, BetaMod.icyCobblestone)
             bottom(BetaMod.icyCobblestone, BetaMod.icyCobblestone, BetaMod.icyCobblestone)
         }
+
+        addShapedRecipe {
+            output(Item.STONE_PICKAXE)
+
+            top(BetaMod.icyCobblestone, BetaMod.icyCobblestone, BetaMod.icyCobblestone)
+
+            applySticks()
+        }
+    }
+
+
+    private fun ShapedRecipeBuilder.applySticks(firstItem: Item? = null, secondItem: Item? = Item.STICK) = apply {
+        middle(firstItem, secondItem, null)
+        bottom(null, Item.STICK, null)
     }
 }
