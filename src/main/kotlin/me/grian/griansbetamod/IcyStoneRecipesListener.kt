@@ -28,6 +28,40 @@ object IcyStoneRecipesListener {
 
             applySticks()
         }
+
+        addShapedRecipe {
+            output(Item.STONE_AXE)
+
+            top(BetaMod.icyCobblestone, BetaMod.icyCobblestone, null)
+
+            applySticks(BetaMod.icyCobblestone.asItem())
+        }
+
+        addShapedRecipe {
+            output(Item.STONE_SHOVEL)
+
+            top(null, BetaMod.icyCobblestone, null)
+
+            applySticks()
+        }
+
+
+        addShapedRecipe {
+            output(Item.STONE_SWORD)
+
+            top(null, BetaMod.icyCobblestone, null)
+
+            applySticks(secondItem = BetaMod.icyCobblestone.asItem())
+        }
+
+
+        addShapedRecipe {
+            output(Item.STONE_HOE)
+
+            top(BetaMod.icyCobblestone, BetaMod.icyCobblestone, null)
+
+            applySticks()
+        }
     }
 
 
