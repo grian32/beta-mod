@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry
 
 class ShapedRecipeBuilder {
-    private val pattern: Array<String> = Array(3) { "" }
+    private var pattern = MutableList(3) { "" }
     private lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
     private val charsForItems = ('a'..'j').toMutableList()
@@ -50,6 +50,10 @@ class ShapedRecipeBuilder {
     fun registerRecipe() {
         val spreadArr: MutableList<Any> = mutableListOf()
 
+        // this allows for people not entering one or more lines if they are not required by the
+        // recipe without messing anything else up, basically works like vanilla system
+        pattern = pattern.filter { it.isNotEmpty() }.toMutableList()
+
         pattern.forEach {
             spreadArr.add(it)
         }
@@ -58,7 +62,6 @@ class ShapedRecipeBuilder {
             spreadArr.add(c)
             spreadArr.add(itemStack)
         }
-
 
         CraftingRegistry.addShapedRecipe(
             output,
@@ -90,5 +93,5 @@ class ShapedRecipeBuilder {
 
     private fun Item?.toStack(): ItemStack? = if (this == null) null else ItemStack(this, 1)
     
-    private fun Block??.toItem(): Item? = this?.asItem()
+    private fun Block?.toItem(): Item? = this?.asItem()
 }
