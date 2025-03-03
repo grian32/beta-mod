@@ -3,6 +3,7 @@ package me.grian.griansbetamod
 import me.grian.griansbetamod.api.craftingrecipes.ShapedRecipeBuilder
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.config.ConfigScreen
+import me.grian.griansbetamod.util.isEventTypeShapeless
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -12,6 +13,7 @@ object IcyStoneRecipesListener {
     @EventListener
     fun registerRecipes(event: RecipeRegisterEvent) {
         if (!ConfigScreen.config.icyStone) return
+        if (!isEventTypeShapeless(event.recipeId)) return
 
         addShapedRecipe {
             output(Block.FURNACE)

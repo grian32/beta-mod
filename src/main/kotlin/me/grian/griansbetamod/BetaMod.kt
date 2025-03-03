@@ -7,6 +7,8 @@ import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
+import me.grian.griansbetamod.util.isEventTypeShaped
+import me.grian.griansbetamod.util.isEventTypeShapeless
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -66,33 +68,35 @@ object BetaMod {
     fun registerRecipes(event: RecipeRegisterEvent) {
         val type = RecipeRegisterEvent.Vanilla.fromType(event.recipeId)
 
-        if (ConfigScreen.config.enableRedstoneBlock) {
-            addShapedRecipe {
-                output(redstoneBlock.asItem())
+        if (isEventTypeShaped(event.recipeId)) {
+            if (ConfigScreen.config.enableRedstoneBlock) {
+                addShapedRecipe {
+                    output(redstoneBlock.asItem())
 
-                top(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
-                middle(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
-                bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                    top(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                    middle(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                    bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                }
+
+                addShapelessRecipe {
+                    output(ItemStack(Item.REDSTONE, 9))
+
+                    ingredient(redstoneBlock.asItem())
+                }
             }
 
-            addShapelessRecipe {
-                output(ItemStack(Item.REDSTONE, 9))
+            if (ConfigScreen.config.leatherBootsTrampleCrops) {
+                addShapedRecipe {
+                    output(grassyBoots)
 
-                ingredient(redstoneBlock.asItem())
+                    top(null, Item.WHEAT, null)
+                    middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
+                    bottom(null, Item.WHEAT, null)
+                }
             }
         }
 
-        if (ConfigScreen.config.leatherBootsTrampleCrops) {
-            addShapedRecipe {
-                output(grassyBoots)
-
-                top(null, Item.WHEAT, null)
-                middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
-                bottom(null, Item.WHEAT, null)
-            }
-        }
-
-        if (ConfigScreen.config.decraftSaddles) {
+        if (ConfigScreen.config.decraftSaddles && isEventTypeShapeless(event.recipeId)) {
             addShapelessRecipe {
                 output(ItemStack(Item.LEATHER, 5))
 
