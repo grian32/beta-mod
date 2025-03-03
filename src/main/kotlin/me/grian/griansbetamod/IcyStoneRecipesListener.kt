@@ -65,24 +65,11 @@ object IcyStoneRecipesListener {
             applySticks()
         }
 
-        // TODO: maybe figure out a way to get this to wokr properly without an extra recipe
         addShapedRecipe {
             output(Item.REPEATER)
 
             top(Block.LIT_REDSTONE_TORCH.asItem(), Item.REDSTONE, Block.LIT_REDSTONE_TORCH.asItem())
             middle(BetaMod.icyStone, BetaMod.icyStone, BetaMod.icyStone)
-            bottom(null as Item?, null, null) // needs the cast for overload lol, so dumb
-        }
-
-        addShapedRecipe {
-            output(Item.REPEATER)
-
-            // have to do this as a separate recipe due to limitations of the dsl, won't be encountered often
-            // so i cbf doing it in the dsl
-
-            top(null as Item?, null, null) // needs the cast for overload lol, so dumb
-            middle(Block.LIT_REDSTONE_TORCH.asItem(), Item.REDSTONE, Block.LIT_REDSTONE_TORCH.asItem())
-            bottom(BetaMod.icyStone, BetaMod.icyStone, BetaMod.icyStone)
         }
     }
 
