@@ -12,18 +12,18 @@ class ShapelessRecipeBuilder {
         ingredients.add(item)
     }
 
-    fun registerRecipe() {
-        CraftingRegistry.addShapelessRecipe(
-            output,
-            *ingredients.toTypedArray()
-        )
-    }
-
     fun output(item: Item) {
         output(ItemStack(item, 1))
     }
 
     fun output(itemStack: ItemStack) {
         output = itemStack
+    }
+
+    fun registerRecipe() {
+        CraftingRegistry.addShapelessRecipe(
+            output,
+            *ingredients.toTypedArray()
+        )
     }
 }
