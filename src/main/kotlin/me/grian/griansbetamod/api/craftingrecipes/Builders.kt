@@ -13,3 +13,10 @@ inline fun addShapelessRecipe(init: ShapelessRecipeBuilder.() -> Unit): Shapeles
     shapelessRecipe.registerRecipe()
     return shapelessRecipe;
 }
+
+inline fun addSmeltingRecipe(init: SmeltingRecipeBuilder.() -> Unit): SmeltingRecipeBuilder {
+    val smeltingRecipe = SmeltingRecipeBuilder()
+    smeltingRecipe.init()
+    smeltingRecipe.registerRecipe()
+    return smeltingRecipe
+}
