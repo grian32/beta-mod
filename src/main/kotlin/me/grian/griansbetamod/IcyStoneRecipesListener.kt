@@ -2,6 +2,7 @@ package me.grian.griansbetamod
 
 import me.grian.griansbetamod.api.craftingrecipes.ShapedRecipeBuilder
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
+import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.util.isEventTypeShapeless
 import net.mine_diver.unsafeevents.listener.EventListener
@@ -70,6 +71,11 @@ object IcyStoneRecipesListener {
 
             top(Block.LIT_REDSTONE_TORCH.asItem(), Item.REDSTONE, Block.LIT_REDSTONE_TORCH.asItem())
             middle(BetaMod.icyStone, BetaMod.icyStone, BetaMod.icyStone)
+        }
+
+        addSmeltingRecipe {
+            output(BetaMod.icyStone)
+            input(BetaMod.icyCobblestone)
         }
     }
 
