@@ -2,6 +2,7 @@ package me.grian.griansbetamod
 
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
+import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
 import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.NetherGlassBlock
@@ -11,6 +12,7 @@ import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
+import me.grian.griansbetamod.util.isEventTypeSmelting
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -132,6 +134,15 @@ object BetaMod {
                 output(ItemStack(Item.LEATHER, 5))
 
                 ingredient(Item.SADDLE)
+            }
+        }
+
+        if (isEventTypeSmelting(event.recipeId)) {
+            if (ConfigScreen.config.netherGlass) {
+                addSmeltingRecipe {
+                    input(Block.SOUL_SAND)
+                    output(netherGlass)
+                }
             }
         }
     }
