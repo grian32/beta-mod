@@ -5,6 +5,7 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
 import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
+import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBoots
 import me.grian.griansbetamod.util.isEventTypeShaped
@@ -25,8 +26,11 @@ object BetaMod {
     private val LOGGER: Logger = NAMESPACE.logger
 
     lateinit var redstoneBlock: Block
+
     lateinit var icyStone: Block
     lateinit var icyCobblestone: Block
+
+    lateinit var sawmill: Block
 
     lateinit var grassyBoots: Item
 
@@ -52,6 +56,11 @@ object BetaMod {
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
                 .setHardness(2.0f)
                 .setResistance(10.0f)
+        }
+
+        if (ConfigScreen.config.sawmillBlock) {
+            sawmill = SawmillBlock(NAMESPACE.id("sawmill"))
+                .setTranslationKey(NAMESPACE, "sawmill")
         }
     }
 
