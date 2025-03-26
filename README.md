@@ -14,7 +14,12 @@
     - Currently WIP
 - F3 Debug Menu now displays biome.
     - This is not configurable as it's for debugging.
-
+- Adds a Sawmill Block
+    - This block allows you to convert planks to stairs and slabs at a 1:2 rate for slabs and 1:1 rate for stairs
+    - This block is configured by placing the desired output(i.e the slab or stair) on the left side of the block as indicated by the textures
+    - Once there is a block configured, you can right click with a stack of planks and it will convert them to the output
+    - Recipe: TODO
+  
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Slab, Wooden Fence.
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore, Furnace.
