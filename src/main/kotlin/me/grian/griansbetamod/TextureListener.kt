@@ -1,17 +1,20 @@
 package me.grian.griansbetamod
 
-import me.grian.griansbetamod.config.Config
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases
 import net.modificationstation.stationapi.api.util.Namespace
-import javax.print.attribute.standard.MediaSize.NA
+import kotlin.properties.Delegates
 
 object TextureListener {
     private val NAMESPACE: Namespace = Namespace.of("griansbetamod")
 
     private val LOGGER = NAMESPACE.logger
+
+    var sawmillLeft = 0
+    var sawmillTop = 0
+    var sawmillSide = 0
 
     @EventListener
     fun registerTextures(event: TextureRegisterEvent) {
@@ -22,6 +25,11 @@ object TextureListener {
         if (ConfigScreen.config.icyStone) {
             BetaMod.icyStone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_stone")).index
             BetaMod.icyCobblestone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_cobblestone")).index
+        }
+        if (ConfigScreen.config.sawmillBlock) {
+            sawmillLeft = terrain.addTexture(NAMESPACE.id("block/sawmill_left")).index
+            sawmillTop = terrain.addTexture(NAMESPACE.id("block/sawmill_top")).index
+            sawmillSide = terrain.addTexture(NAMESPACE.id("block/sawmill_side")).index
         }
     }
 }

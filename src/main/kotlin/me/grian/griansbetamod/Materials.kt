@@ -1,6 +1,5 @@
 package me.grian.griansbetamod
 
-import me.grian.griansbetamod.Materials.SAWMILL
 import net.minecraft.block.MapColor
 import net.minecraft.block.material.Material
 

@@ -1,6 +1,7 @@
 package me.grian.griansbetamod.blocks
 
 import me.grian.griansbetamod.Materials
+import me.grian.griansbetamod.TextureListener
 import net.minecraft.block.Block
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
@@ -11,11 +12,15 @@ import net.modificationstation.stationapi.api.util.Identifier
 
 
 class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials.SAWMILL) {
-    override fun getTextureId(blockView: BlockView?, x: Int, y: Int, z: Int, side: Int): Int {
+    override fun getTextureId(blockView: BlockView?, x: Int, y: Int, z: Int, side: Int): Int = getTextureGeneral(side)
+
+    override fun getTexture(side: Int): Int = getTextureGeneral(side)
+
+    private fun getTextureGeneral(side: Int): Int {
         return when (side) {
-            1 -> 23 // top
-            2 -> 1 // left
-            else -> 3
+            1 -> TextureListener.sawmillTop // top
+            2 -> TextureListener.sawmillLeft // left
+            else -> TextureListener.sawmillSide
         }
     }
 
