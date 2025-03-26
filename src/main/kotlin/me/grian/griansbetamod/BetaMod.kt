@@ -61,6 +61,8 @@ object BetaMod {
         if (ConfigScreen.config.sawmillBlock) {
             sawmill = SawmillBlock(NAMESPACE.id("sawmill"))
                 .setTranslationKey(NAMESPACE, "sawmill")
+                .setSoundGroup(Block.WOOD_SOUND_GROUP)
+                .setHardness(3.5f)
         }
     }
 
@@ -101,6 +103,16 @@ object BetaMod {
                     top(null, Item.WHEAT, null)
                     middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
                     bottom(null, Item.WHEAT, null)
+                }
+            }
+
+            if (ConfigScreen.config.sawmillBlock) {
+                addShapedRecipe {
+                    output(sawmill)
+
+                    top(null, Item.IRON_INGOT, null)
+                    middle(Block.PLANKS.asItem(), Item.IRON_INGOT, Block.PLANKS.asItem())
+                    bottom(Block.STONE.asItem(), Item.IRON_INGOT, Block.STONE.asItem() )
                 }
             }
         }
