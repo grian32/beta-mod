@@ -17,4 +17,7 @@ public class Config {
 
     @ConfigEntry(name = "Taiga biomes now generate icy stone", description = "Requires a restart to take effect. WARNING: IF THIS OPTION IS CHANGED AND A EXISTING WORLD IS LOADED IT WILL ONLY AFFECT NEWLY GENERATED CHUNKS.")
     public Boolean icyStone = true;
+
+    @ConfigEntry(name = "Enable Sawmill Block", description = "Requires a restart to take effect.")
+    public Boolean sawmillBlock = true;
 }
