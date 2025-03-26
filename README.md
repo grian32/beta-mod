@@ -18,7 +18,7 @@
     - This block allows you to convert planks to stairs and slabs at a 1:2 rate for slabs and 1:1 rate for stairs
     - This block is configured by placing the desired output(i.e the slab or stair) on the left side of the block as indicated by the textures
     - Once there is a block configured, you can right click with a stack of planks and it will convert them to the output
-    - Recipe: TODO
+    - Recipe: [![Image from Gyazo](https://i.gyazo.com/57c04b8fa47de9ddc228cb70283672af.png)](https://gyazo.com/57c04b8fa47de9ddc228cb70283672af)
 - Adds Nether Glass
     - Recipe (Furnace): Soul Sand -> Nether Glass
     - It's somewhat red tinted glass but the transparent parts aren't tinted as the rendered doesn't support that out of the box and I don't want to bother with backporting it for one block, I might do it at some point in the future though.
