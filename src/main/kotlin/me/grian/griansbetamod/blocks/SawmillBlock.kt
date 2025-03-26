@@ -1,7 +1,7 @@
 package me.grian.griansbetamod.blocks
 
+import me.grian.griansbetamod.Materials
 import net.minecraft.block.Block
-import net.minecraft.block.material.Material
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.world.BlockView
@@ -10,7 +10,7 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.util.Identifier
 
 
-class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Material.WOOD) {
+class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials.SAWMILL) {
     override fun getTextureId(blockView: BlockView?, x: Int, y: Int, z: Int, side: Int): Int {
         return when (side) {
             1 -> 23 // top
