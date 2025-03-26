@@ -20,4 +20,7 @@ public class Config {
 
     @ConfigEntry(name = "Enable Sawmill Block", description = "Requires a restart to take effect.")
     public Boolean sawmillBlock = true;
+
+    @ConfigEntry(name = "Enable Nether Glass", description = "Requires a restart to take effect.")
+    public Boolean netherGlass = true;
 }

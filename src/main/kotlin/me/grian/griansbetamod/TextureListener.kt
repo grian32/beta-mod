@@ -5,7 +5,6 @@ import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases
 import net.modificationstation.stationapi.api.util.Namespace
-import kotlin.properties.Delegates
 
 object TextureListener {
     private val NAMESPACE: Namespace = Namespace.of("griansbetamod")
@@ -31,5 +30,7 @@ object TextureListener {
             sawmillTop = terrain.addTexture(NAMESPACE.id("block/sawmill_top")).index
             sawmillSide = terrain.addTexture(NAMESPACE.id("block/sawmill_side")).index
         }
+
+        if (ConfigScreen.config.netherGlass) BetaMod.netherGlass.textureId = terrain.addTexture(NAMESPACE.id("block/nether_glass")).index
     }
 }

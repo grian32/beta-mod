@@ -4,6 +4,7 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
 import me.grian.griansbetamod.blocks.IcyStoneBlock
+import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
@@ -34,6 +35,8 @@ object BetaMod {
 
     lateinit var grassyBoots: Item
 
+    lateinit var netherGlass: Block
+
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.enableRedstoneBlock) {
@@ -63,6 +66,13 @@ object BetaMod {
                 .setTranslationKey(NAMESPACE, "sawmill")
                 .setSoundGroup(Block.WOOD_SOUND_GROUP)
                 .setHardness(3.5f)
+        }
+
+        if (ConfigScreen.config.netherGlass) {
+            netherGlass = NetherGlassBlock(NAMESPACE.id("nether_glass"))
+                .setTranslationKey(NAMESPACE, "nether_glass")
+                .setSoundGroup(Block.GLASS_SOUND_GROUP)
+                .setHardness(0.3f)
         }
     }
 
