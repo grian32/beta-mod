@@ -9,7 +9,7 @@ import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
-import me.grian.griansbetamod.items.GrassyBoots
+import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
@@ -81,7 +81,7 @@ object BetaMod {
     @EventListener
     fun registerItems(event: ItemRegistryEvent) {
         if (ConfigScreen.config.leatherBootsTrampleCrops) {
-            grassyBoots = GrassyBoots(NAMESPACE.id("grassy_boots"))
+            grassyBoots = GrassyBootsItem(NAMESPACE.id("grassy_boots"))
                 .setTranslationKey(NAMESPACE, "grassy_boots")
                 .setTexturePosition(0, 3)
         }
