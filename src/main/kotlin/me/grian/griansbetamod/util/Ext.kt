@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.util
 
+import net.minecraft.block.Block
 import net.minecraft.item.ItemStack
 
 fun Array<Any?>.isAllNull(): Boolean {
@@ -21,3 +22,5 @@ fun Array<ItemStack?>.toItemIds(): Array<Int?> {
 
     return arr
 }
+
+fun Block.asItemStack(): ItemStack = ItemStack(this, 1)
