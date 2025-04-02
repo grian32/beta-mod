@@ -3,7 +3,8 @@
 ## Features
 
 ### New
-- You can now consume lapis which will lead to a 1.5x Speed Boost for 30 seconds. - Currently doesn't work with MP, this is WIP.
+- You can now consume Speed Crystal's which will lead to a 1.5x Speed Boost for 20 seconds. - Currently doesn't work with MP, this is WIP.
+    - Recipe: [![Image from Gyazo](https://i.gyazo.com/fc3a14850ea2879ae6bb47f923238fd2.png)](https://gyazo.com/fc3a14850ea2879ae6bb47f923238fd2)
 - Backports redstone blocks for storage purposes, currently does not feature the redstone functionality.
 - Adds Grassy Boots
     - While wearing these you will now longer trample crops.
