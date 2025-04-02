@@ -41,6 +41,12 @@
     ],
     "gcapi3": [
       "me.grian.griansbetamod.config.ConfigScreen"
+    ],
+    "glassnetworking": [
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.PacketListener"
+      }
     ]
   },
   "mixins": [

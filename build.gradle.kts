@@ -79,6 +79,7 @@ dependencies {
 	// Extra mods.
 	// https://github.com/calmilamsy/glass-config-api
 	modImplementation("net.glasslauncher.mods:GlassConfigAPI:${project.properties["gcapi_version"]}")
+	modImplementation("net.glasslauncher.mods:glass-networking:1.0.3")
 	// https://github.com/calmilamsy/modmenu
 	modImplementation("net.glasslauncher.mods:ModMenu:${project.properties["modmenu_version"]}")
 //	// https://github.com/Glass-Series/Always-More-Items

@@ -4,18 +4,21 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ServerPlayerAccessor",
     "breakingspeedaxe.AxeItemMixin",
     "breakingspeedpickaxe.PickaxeItemMixin",
     "croptrampling.FarmlandBlockMixin",
     "icystone.OverworldChunkGeneratorMixin",
     "lapisspeedboost.PlayerEntityMixin",
-    "lapisspeedboost.WorldMixin",
     "stairsdrop.StairsBlockMixin"
   ],
   "server": [
+    "lapisspeedboost.ServerPlayNetworkHandlerMixin"
   ],
   "client": [
-    "debugbiome.InGameHudMixin"
+    "ClientNetworkHandlerAccessor",
+    "debugbiome.InGameHudMixin",
+    "lapisspeedboost.WorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
