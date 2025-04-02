@@ -10,6 +10,7 @@ import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
+import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
@@ -38,6 +39,8 @@ object BetaMod {
     lateinit var grassyBoots: Item
 
     lateinit var netherGlass: Block
+
+    lateinit var speedCrystal: Item
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
@@ -84,6 +87,11 @@ object BetaMod {
             grassyBoots = GrassyBootsItem(NAMESPACE.id("grassy_boots"))
                 .setTranslationKey(NAMESPACE, "grassy_boots")
                 .setTexturePosition(0, 3)
+        }
+
+        if (ConfigScreen.config.lapisSpeedBoost) {
+            speedCrystal = SpeedCrystalItem(NAMESPACE.id("speed_crystal"))
+                .setTranslationKey(NAMESPACE, "speed_crystal")
         }
     }
 

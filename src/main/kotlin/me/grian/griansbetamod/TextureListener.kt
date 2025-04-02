@@ -1,5 +1,6 @@
 package me.grian.griansbetamod
 
+import me.grian.griansbetamod.config.Config
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
@@ -30,7 +31,7 @@ object TextureListener {
             sawmillTop = terrain.addTexture(NAMESPACE.id("block/sawmill_top")).index
             sawmillSide = terrain.addTexture(NAMESPACE.id("block/sawmill_side")).index
         }
-
         if (ConfigScreen.config.netherGlass) BetaMod.netherGlass.textureId = terrain.addTexture(NAMESPACE.id("block/nether_glass")).index
+        if (ConfigScreen.config.lapisSpeedBoost) BetaMod.speedCrystal.setTexture(NAMESPACE.id("item/speed_crystal"))
     }
 }
