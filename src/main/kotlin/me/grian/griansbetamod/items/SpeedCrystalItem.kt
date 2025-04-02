@@ -12,7 +12,7 @@ class SpeedCrystalItem(identifier: Identifier) : TemplateItem(identifier) {
     override fun use(stack: ItemStack?, world: World?, user: PlayerEntity?): ItemStack? {
         if (ConfigScreen.config.lapisSpeedBoost) {
             --stack!!.count
-            (user as IPlayerEntityMixin).`beta_mod$setSpeedBoostTicks`(1200)
+            (user as IPlayerEntityMixin).`beta_mod$setSpeedBoostTicks`(400)
             return stack
         }
         return stack
