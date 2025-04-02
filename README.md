@@ -1,5 +1,13 @@
 # Grian's Beta Mod
 
+Grian's Beta Mod is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
+
+This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues.
+
+### Current possibe places of conflict with other mods
+
+- Vanilla Overworld Gen - Mainly the Icy Stone generation in cold biomes detailed below.
+
 ## Features
 
 ### New
@@ -30,6 +38,6 @@
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore, Furnace.
 - Stairs now drop themselves.
 
-### Configuration
+## Configuration
 
 All of the above New Features can be enabled/disabled individually, the fixes cannot be disabled.
