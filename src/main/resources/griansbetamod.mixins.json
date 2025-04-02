@@ -8,7 +8,6 @@
     "breakingspeedpickaxe.PickaxeItemMixin",
     "croptrampling.FarmlandBlockMixin",
     "icystone.OverworldChunkGeneratorMixin",
-    "lapisspeedboost.DyeItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
     "lapisspeedboost.WorldMixin",
     "stairsdrop.StairsBlockMixin"
