@@ -11,11 +11,13 @@ import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
+import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
+import net.minecraft.item.DyeItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
@@ -133,6 +135,17 @@ object BetaMod {
                     top(null, Item.IRON_INGOT, null)
                     middle(Block.PLANKS.asItem(), Item.IRON_INGOT, Block.PLANKS.asItem())
                     bottom(Block.STONE.asItem(), Item.IRON_INGOT, Block.STONE.asItem() )
+                }
+            }
+
+            if (ConfigScreen.config.lapisSpeedBoost) {
+                addShapedRecipe {
+                    output(speedCrystal)
+
+                    top(null, Block.COBBLESTONE, null)
+                    // dmg 4 = lapis
+                    middle(Block.COBBLESTONE.asItemStack(), ItemStack(Item.DYE, 1, 4), Block.COBBLESTONE.asItemStack())
+                    bottom(null, Block.COBBLESTONE, null)
                 }
             }
         }
