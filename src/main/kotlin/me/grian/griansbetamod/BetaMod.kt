@@ -8,6 +8,11 @@ import me.grian.griansbetamod.blocks.icystone.IcyStoneBlock
 import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
+import me.grian.griansbetamod.blocks.icystone.IcyCoalOreBlock
+import me.grian.griansbetamod.blocks.icystone.IcyDiamondOreBlock
+import me.grian.griansbetamod.blocks.icystone.IcyGoldOreBlock
+import me.grian.griansbetamod.blocks.icystone.IcyIronOreBlock
+import me.grian.griansbetamod.blocks.icystone.IcyLapisLazuliOreBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
@@ -34,6 +39,11 @@ object BetaMod {
 
     lateinit var icyStone: Block
     lateinit var icyCobblestone: Block
+    lateinit var icyCoalOre: Block
+    lateinit var icyIronOre: Block
+    lateinit var icyGoldOre: Block
+    lateinit var icyDiamondOre: Block
+    lateinit var icyLapisLazuliOre: Block
 
     lateinit var sawmill: Block
 
@@ -53,6 +63,7 @@ object BetaMod {
                 .setHardness(5.0f)
         }
 
+        // TODO: refactor this to IcyStoneListener, along with the recipes/texture as its going to get bulky
         if (ConfigScreen.config.icyStone) {
             icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
                 .setTranslationKey(NAMESPACE, "icy_stone")
@@ -65,6 +76,37 @@ object BetaMod {
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
                 .setHardness(2.0f)
                 .setResistance(10.0f)
+
+            icyCoalOre = IcyCoalOreBlock(NAMESPACE.id("icy_coal_ore"))
+                .setTranslationKey(NAMESPACE, "icy_coal_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyIronOre = IcyIronOreBlock(NAMESPACE.id("icy_iron_ore"))
+                .setTranslationKey(NAMESPACE, "icy_iron_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyGoldOre = IcyGoldOreBlock(NAMESPACE.id("icy_gold_ore"))
+                .setTranslationKey(NAMESPACE, "icy_gold_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyDiamondOre = IcyDiamondOreBlock(NAMESPACE.id("icy_diamond_ore"))
+                .setTranslationKey(NAMESPACE, "icy_diamond_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyLapisLazuliOre = IcyLapisLazuliOreBlock(NAMESPACE.id("icy_lapis_lazuli_ore"))
+                .setTranslationKey(NAMESPACE, "icy_lapis_lazuli_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
         }
 
         if (ConfigScreen.config.sawmillBlock) {

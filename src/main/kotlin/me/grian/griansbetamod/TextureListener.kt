@@ -1,6 +1,5 @@
 package me.grian.griansbetamod
 
-import me.grian.griansbetamod.config.Config
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
@@ -25,6 +24,11 @@ object TextureListener {
         if (ConfigScreen.config.icyStone) {
             BetaMod.icyStone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_stone")).index
             BetaMod.icyCobblestone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_cobblestone")).index
+            BetaMod.icyCoalOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_coal_ore")).index
+            BetaMod.icyIronOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_iron_ore")).index
+            BetaMod.icyGoldOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_gold_ore")).index
+            BetaMod.icyDiamondOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_diamond_ore")).index
+            BetaMod.icyLapisLazuliOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_lapis_lazuli_ore")).index
         }
         if (ConfigScreen.config.sawmillBlock) {
             sawmillLeft = terrain.addTexture(NAMESPACE.id("block/sawmill_left")).index
