@@ -3,8 +3,8 @@ package me.grian.griansbetamod
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
-import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
-import me.grian.griansbetamod.blocks.IcyStoneBlock
+import me.grian.griansbetamod.blocks.icystone.IcyCobblestoneBlock
+import me.grian.griansbetamod.blocks.icystone.IcyStoneBlock
 import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
@@ -17,7 +17,6 @@ import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
-import net.minecraft.item.DyeItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
