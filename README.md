@@ -42,3 +42,7 @@ The project is currently in pretty early stages & doesn't include much additiona
 ## Configuration
 
 All of the above New Features can be enabled/disabled individually, the fixes cannot be disabled.
+
+## Credits
+
+Font used in icon - https://fontenddev.com/fonts/alkhemikal/
