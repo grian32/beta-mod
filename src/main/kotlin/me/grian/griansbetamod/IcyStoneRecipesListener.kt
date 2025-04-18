@@ -16,6 +16,13 @@ object IcyStoneRecipesListener {
         if (!ConfigScreen.config.icyStone) return
         if (!isEventTypeShapeless(event.recipeId)) return
 
+        // has to be in listener body so the blocks are initialized when called to be part of the map
+        val smeltRecipes = mapOf(
+            BetaMod.icyDiamondOre to Item.DIAMOND,
+            BetaMod.icyIronOre to Item.IRON_INGOT,
+            BetaMod.icyGoldOre to Item.GOLD_INGOT
+        )
+
         addShapedRecipe {
             output(Block.FURNACE)
 
@@ -74,8 +81,15 @@ object IcyStoneRecipesListener {
         }
 
         addSmeltingRecipe {
-            output(BetaMod.icyStone)
             input(BetaMod.icyCobblestone)
+            output(BetaMod.icyStone)
+        }
+
+        for ((input, output) in smeltRecipes) {
+            addSmeltingRecipe {
+                input(input)
+                output(output)
+            }
         }
     }
 

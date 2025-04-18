@@ -3,11 +3,10 @@ package me.grian.griansbetamod
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
-import me.grian.griansbetamod.blocks.IcyCobblestoneBlock
-import me.grian.griansbetamod.blocks.IcyStoneBlock
 import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
+import me.grian.griansbetamod.blocks.icystone.*
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
@@ -17,7 +16,6 @@ import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
-import net.minecraft.item.DyeItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
@@ -35,6 +33,14 @@ object BetaMod {
 
     lateinit var icyStone: Block
     lateinit var icyCobblestone: Block
+    lateinit var icyCoalOre: Block
+    lateinit var icyIronOre: Block
+    lateinit var icyGoldOre: Block
+    lateinit var icyDiamondOre: Block
+    lateinit var icyLapisLazuliOre: Block
+    lateinit var icyRedstoneOre: Block
+    // TODO: mark this so it doesnt show up in ami
+    lateinit var litIcyRedstoneOre: Block
 
     lateinit var sawmill: Block
 
@@ -54,6 +60,7 @@ object BetaMod {
                 .setHardness(5.0f)
         }
 
+        // TODO: refactor this to IcyStoneListener, along with the recipes/texture as its going to get bulky
         if (ConfigScreen.config.icyStone) {
             icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
                 .setTranslationKey(NAMESPACE, "icy_stone")
@@ -66,6 +73,50 @@ object BetaMod {
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
                 .setHardness(2.0f)
                 .setResistance(10.0f)
+
+            icyCoalOre = IcyCoalOreBlock(NAMESPACE.id("icy_coal_ore"))
+                .setTranslationKey(NAMESPACE, "icy_coal_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyIronOre = IcyIronOreBlock(NAMESPACE.id("icy_iron_ore"))
+                .setTranslationKey(NAMESPACE, "icy_iron_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyGoldOre = IcyGoldOreBlock(NAMESPACE.id("icy_gold_ore"))
+                .setTranslationKey(NAMESPACE, "icy_gold_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyDiamondOre = IcyDiamondOreBlock(NAMESPACE.id("icy_diamond_ore"))
+                .setTranslationKey(NAMESPACE, "icy_diamond_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyLapisLazuliOre = IcyLapisLazuliOreBlock(NAMESPACE.id("icy_lapis_lazuli_ore"))
+                .setTranslationKey(NAMESPACE, "icy_lapis_lazuli_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            icyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("icy_redstone_ore"), false)
+                .setTranslationKey(NAMESPACE, "icy_redstone_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            litIcyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("lit_icy_redstone_ore"), true)
+                .setTranslationKey(NAMESPACE, "lit_icy_redstone_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+                .setLuminance(0.625F)
+                .ignoreMetaUpdates()
         }
 
         if (ConfigScreen.config.sawmillBlock) {

@@ -20,7 +20,6 @@ This mod is meant to be played standalone, it may work alongside other mods, but
 - Adds recipe that lets you decraft a saddle into 5 Leather as saddles have no realistic uses.
 - Taiga/Tundra Biomes now generate with Icy Stone & all associated variants (i.e ores, etc.)
     - This can be enabled/disabled like every other new feature but it will only affect newly generated chunks. So if you do this on an existing world, you'll only get the icy stone generated in new chunks.
-    - Currently WIP
 - F3 Debug Menu now displays biome.
     - This is not configurable as it's for debugging.
 - Adds a Sawmill Block
@@ -30,7 +29,7 @@ This mod is meant to be played standalone, it may work alongside other mods, but
     - Recipe: [![Image from Gyazo](https://i.gyazo.com/57c04b8fa47de9ddc228cb70283672af.png)](https://gyazo.com/57c04b8fa47de9ddc228cb70283672af)
 - Adds Nether Glass
     - Recipe (Furnace): Soul Sand -> Nether Glass
-    - It's somewhat red tinted glass but the transparent parts aren't tinted as the rendered doesn't support that out of the box and I don't want to bother with backporting it for one block, I might do it at some point in the future though.
+    - It's somewhat red tinted glass but the transparent parts aren't tinted as the renderer doesn't support that out of the box and I don't want to bother with backporting it for one block, I might do it at some point in the future though.
 
 
 ### Fixes
