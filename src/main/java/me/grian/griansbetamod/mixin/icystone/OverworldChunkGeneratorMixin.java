@@ -6,12 +6,14 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.OverworldChunkGenerator;
-import org.spongepowered.asm.mixin.Debug;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import static me.grian.griansbetamod.mixinutils.IcyOresKt.convertOresToIcy;
 
 @Mixin(OverworldChunkGenerator.class)
 public class OverworldChunkGeneratorMixin {
@@ -49,5 +51,10 @@ public class OverworldChunkGeneratorMixin {
             return Block.STONE.id;
         }
         return value;
+    }
+
+    @Redirect(method = "decorate", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD))
+    private int injected(Block instance) {
+        return convertOresToIcy(instance.id, biomeMod);
     }
 }
