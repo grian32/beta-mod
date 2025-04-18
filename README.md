@@ -6,6 +6,14 @@ This mod is meant to be played standalone, it may work alongside other mods, but
 
 The project is currently in pretty early stages & doesn't include much additional content as of now, a lot more is planned however, so stay tuned!
 
+## Disclaimer
+
+I have no association with and I do not claim to be the youtuber of the same name, it's an unfortunate coincidence, I have had this name for many years and many people know me by it, which means I cannot change it.
+
+## Installation
+
+Installation is done simply by using the Babric Prism Instance available [here](https://github.com/babric/prism-instance), and then simply dropping the mod inside the mods folder.
+
 ### Current possibe places of conflict with other mods
 
 - Vanilla Overworld Gen - Mainly the Icy Stone generation in cold biomes detailed below.
