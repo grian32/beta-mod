@@ -1,6 +1,6 @@
-# Grian's Beta Mod
+# Grian's Beta Expansion
 
-Grian's Beta Mod is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
+Grian's Beta Expansion is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
 
 This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues.
 
