@@ -3,16 +3,10 @@ package me.grian.griansbetamod
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
-import me.grian.griansbetamod.blocks.icystone.IcyCobblestoneBlock
-import me.grian.griansbetamod.blocks.icystone.IcyStoneBlock
 import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
-import me.grian.griansbetamod.blocks.icystone.IcyCoalOreBlock
-import me.grian.griansbetamod.blocks.icystone.IcyDiamondOreBlock
-import me.grian.griansbetamod.blocks.icystone.IcyGoldOreBlock
-import me.grian.griansbetamod.blocks.icystone.IcyIronOreBlock
-import me.grian.griansbetamod.blocks.icystone.IcyLapisLazuliOreBlock
+import me.grian.griansbetamod.blocks.icystone.*
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
@@ -44,6 +38,9 @@ object BetaMod {
     lateinit var icyGoldOre: Block
     lateinit var icyDiamondOre: Block
     lateinit var icyLapisLazuliOre: Block
+    lateinit var icyRedstoneOre: Block
+    // TODO: mark this so it doesnt show up in ami
+    lateinit var litIcyRedstoneOre: Block
 
     lateinit var sawmill: Block
 
@@ -107,6 +104,19 @@ object BetaMod {
                 .setHardness(3.0F)
                 .setResistance(5.0F)
 
+            icyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("icy_redstone_ore"), false)
+                .setTranslationKey(NAMESPACE, "icy_redstone_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+
+            litIcyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("lit_icy_redstone_ore"), true)
+                .setTranslationKey(NAMESPACE, "lit_icy_redstone_ore")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(3.0F)
+                .setResistance(5.0F)
+                .setLuminance(0.625F)
+                .ignoreMetaUpdates()
         }
 
         if (ConfigScreen.config.sawmillBlock) {

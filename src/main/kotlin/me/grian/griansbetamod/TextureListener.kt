@@ -15,6 +15,8 @@ object TextureListener {
     var sawmillTop = 0
     var sawmillSide = 0
 
+    var redstoneOre = 0
+
     @EventListener
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
@@ -29,6 +31,11 @@ object TextureListener {
             BetaMod.icyGoldOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_gold_ore")).index
             BetaMod.icyDiamondOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_diamond_ore")).index
             BetaMod.icyLapisLazuliOre.textureId = terrain.addTexture(NAMESPACE.id("block/icy_lapis_lazuli_ore")).index
+            // not extremely keen on this but it means i only have to override a couple methods instead of c+p the whole
+            // redstone ore class
+            redstoneOre = terrain.addTexture(NAMESPACE.id("block/icy_redstone_ore")).index
+            BetaMod.icyRedstoneOre.textureId = redstoneOre
+            BetaMod.litIcyRedstoneOre.textureId = redstoneOre
         }
         if (ConfigScreen.config.sawmillBlock) {
             sawmillLeft = terrain.addTexture(NAMESPACE.id("block/sawmill_left")).index
