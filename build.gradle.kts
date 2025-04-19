@@ -151,7 +151,7 @@ kotlin {
 modrinth {
 	token.set(System.getenv("MODRINTH_TOKEN")) // Remember to have the MODRINTH_TOKEN environment variable set or else this will fail - just make sure it stays private!
 	projectId.set("grians-beta-expansion") // This can be the project ID or the slug. Either will work!
-	versionNumber.set("1.0.0") // You don't need to set this manually. Will fail if Modrinth has this version already
+	versionNumber.set(version.toString()) // You don't need to set this manually. Will fail if Modrinth has this version already
 	versionType.set("release") // This is the default -- can also be `beta` or `alpha`
 	uploadFile.set(tasks.remapJar) // With Loom, this MUST be set to `remapJar` instead of `jar`!
 	gameVersions.addAll("b1.7.3") // Must be an array, even with only one version
