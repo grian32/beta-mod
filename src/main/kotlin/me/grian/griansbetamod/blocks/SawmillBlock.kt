@@ -52,13 +52,10 @@ class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials
                 SLAB -> {
                     val finalAmount = stackCount * 2
 
-                    // most it can ever be is 2 stacks cuz of the ratio
-                    if (finalAmount > 64) {
-                        player.inventory.main[slot] = ItemStack(SLAB, 64, 2)
+                    player.inventory.main[slot] = ItemStack(SLAB, minOf(finalAmount, 64), 2)
 
+                    if (finalAmount > 64) {
                         player.inventory.addStack(ItemStack(SLAB, finalAmount - 64, 2))
-                    } else {
-                        player.inventory.main[slot] = ItemStack(SLAB, finalAmount, 2)
                     }
 
                     world.playSound(x.toDouble() + 0.5, y.toDouble() + 0.5, z.toDouble() + 0.5, "step.wood", 1.0f, 3.5f)
