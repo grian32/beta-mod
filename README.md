@@ -14,7 +14,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 
 Installation is done simply by using the Babric Prism Instance available [here](https://github.com/babric/prism-instance), and then simply dropping the mod inside the mods folder.
 
-## Current possibe places of conflict with other mods
+## Current possible places of conflict with other mods
 
 - Vanilla Overworld Gen - Mainly the Icy Stone generation in cold biomes detailed below.
 
