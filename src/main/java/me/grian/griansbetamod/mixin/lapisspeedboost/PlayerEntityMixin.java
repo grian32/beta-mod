@@ -59,8 +59,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
             f = scale / f;
             float f2 = MathHelper.sin(this.yaw * (float) Math.PI / 180.0f);
             float f3 = MathHelper.cos(this.yaw * (float) Math.PI / 180.0f);
-            this.velocityX += (double) ((this.sidewaysSpeed *= f) * f3 - (this.forwardSpeed *= f) * f2);
-            this.velocityZ += (double) (this.forwardSpeed * f3 + this.sidewaysSpeed * f2);
+            this.velocityX += (this.sidewaysSpeed *= f) * f3 - (this.forwardSpeed *= f) * f2;
+            this.velocityZ += this.forwardSpeed * f3 + this.sidewaysSpeed * f2;
         }
     }
 
