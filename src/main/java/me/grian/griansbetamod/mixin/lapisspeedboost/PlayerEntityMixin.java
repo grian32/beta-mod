@@ -48,7 +48,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
              this.velocityX += (double)((sideways *= f) * f3 - (forwards *= f) * f2);
              this.velocityZ += (double)(forwards * f3 + sideways * f2);
              }*/
-            float scale = 0.0f;
+            float scale;
 
             if (beta_mod$getSpeedBoostTicks() != 0) {
                 scale = 0.035f;
@@ -56,7 +56,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
                 scale = 0.0f;
             }
 
-            if (!this.isSwimming()) {
+            if (!this.isSwimming() && scale > 0.0f) {
                 float f = MathHelper.sqrt(this.sidewaysSpeed * this.sidewaysSpeed + this.forwardSpeed * this.forwardSpeed);
                 if (f < 0.01f) {
                     return;
