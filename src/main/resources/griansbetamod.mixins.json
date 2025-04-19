@@ -7,6 +7,7 @@
     "breakingspeedaxe.AxeItemMixin",
     "breakingspeedpickaxe.PickaxeItemMixin",
     "croptrampling.FarmlandBlockMixin",
+    "icystone.CaveWorldCarverMixin",
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
     "lapisspeedboost.PlayerEntityMixin",
