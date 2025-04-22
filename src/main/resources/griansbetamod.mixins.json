@@ -7,6 +7,7 @@
     "breakingspeedaxe.AxeItemMixin",
     "breakingspeedpickaxe.PickaxeItemMixin",
     "croptrampling.FarmlandBlockMixin",
+    "fencehitbox.FenceBlockMixin",
     "icystone.CaveWorldCarverMixin",
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
