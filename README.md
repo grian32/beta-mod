@@ -32,7 +32,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 - Adds recipe that lets you decraft a saddle into 5 Leather as saddles have no realistic uses.
 - WIP DON'T USE: Taiga/Tundra Biomes now generate with Icy Stone & all associated variants (i.e ores, etc.)
     - This can be enabled/disabled like every other new feature but it will only affect newly generated chunks. So if you do this on an existing world, you'll only get the icy stone generated in new chunks.
-    - WIP-ish, wouldn't recommend enabling for now as caves don't work properly in both regular vanilla generation and icy stone generation
+    - Wouldn't recommend enabling for now as caves don't work properly in both regular vanilla generation and icy stone generation
 - F3 Debug Menu now displays biome.
     - This is not configurable as it's for debugging.
 - Adds a Sawmill Block
