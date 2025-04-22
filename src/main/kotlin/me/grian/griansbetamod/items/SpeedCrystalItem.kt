@@ -1,7 +1,7 @@
 package me.grian.griansbetamod.items
 
 import me.grian.griansbetamod.config.ConfigScreen
-import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin
+import me.grian.griansbetamod.mixininterfaces.IPlayerEntityMixin
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World

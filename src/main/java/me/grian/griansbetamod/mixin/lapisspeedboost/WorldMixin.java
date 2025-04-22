@@ -1,7 +1,7 @@
 package me.grian.griansbetamod.mixin.lapisspeedboost;
 
 import me.grian.griansbetamod.config.ConfigScreen;
-import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
+import me.grian.griansbetamod.mixininterfaces.IPlayerEntityMixin;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

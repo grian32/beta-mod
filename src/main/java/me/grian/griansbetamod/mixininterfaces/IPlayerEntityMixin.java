@@ -1,4 +1,4 @@
-package me.grians.griansbetamod.mixininterfaces;
+package me.grian.griansbetamod.mixininterfaces;
 
 public interface IPlayerEntityMixin {
     int beta_mod$getSpeedBoostTicks();

@@ -2,7 +2,7 @@ package me.grian.griansbetamod
 
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.mixin.ClientNetworkHandlerAccessor
-import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin
+import me.grian.griansbetamod.mixininterfaces.IPlayerEntityMixin
 import net.modificationstation.stationapi.api.util.Namespace
 import net.glasslauncher.mods.networking.GlassPacketListener
 

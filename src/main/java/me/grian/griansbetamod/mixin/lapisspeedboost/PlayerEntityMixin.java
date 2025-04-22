@@ -1,15 +1,12 @@
 package me.grian.griansbetamod.mixin.lapisspeedboost;
 
 import me.grian.griansbetamod.config.ConfigScreen;
-import me.grians.griansbetamod.mixininterfaces.IPlayerEntityMixin;
+import me.grian.griansbetamod.mixininterfaces.IPlayerEntityMixin;
 import net.minecraft.block.Block;
-import net.minecraft.block.LiquidBlock;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import org.lwjgl.Sys;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
