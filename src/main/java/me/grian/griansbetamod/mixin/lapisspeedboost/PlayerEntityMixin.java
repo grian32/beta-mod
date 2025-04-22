@@ -30,21 +30,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
     @Inject(method = "tick()V", at = @At("HEAD"))
     private void tick(CallbackInfo ci) {
         if (ConfigScreen.config.lapisSpeedBoost) {
-            /** ripped from b1.9-pre3 - MobEntity.moveRelative
-             public void updateVelocity(float sideways, float forwards, float scale) {
-             float f = MathHelper.sqrt(sideways * sideways + forwards * forwards);
-             if (f < 0.01f) {
-             return;
-             }
-             if (f < 1.0f) {
-             f = 1.0f;
-             }
-             f = scale / f;
-             float f2 = MathHelper.sin(this.yaw * (float)Math.PI / 180.0f);
-             float f3 = MathHelper.cos(this.yaw * (float)Math.PI / 180.0f);
-             this.velocityX += (double)((sideways *= f) * f3 - (forwards *= f) * f2);
-             this.velocityZ += (double)(forwards * f3 + sideways * f2);
-             }*/
+            // ripped from b1.9-pre3 - public void updateVelocity(float sideways, float forwards, float scale)
             float scale;
 
             if (beta_mod$getSpeedBoostTicks() != 0) {
@@ -81,9 +67,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
         speedBoostTicks = value;
     }
 
-    /**
-     * based on net.minecraft.entity.Entity#isInFluid(net.minecraft.block.material.Material)
-     */
     @Unique
     private boolean isSwimming() {
         int playerX = MathHelper.floor(this.x);
