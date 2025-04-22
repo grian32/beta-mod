@@ -49,19 +49,29 @@ public class OverworldChunkGeneratorMixin {
 
     @ModifyVariable(method = "buildSurfaces", at = @At("STORE"), ordinal = 13)
     private int injected(int value, int chunkX, int chunkZ, byte[] blocks, Biome[] biomes) {
-        if(ConfigScreen.config.icyStone && value == BetaMod.icyStone.id){
+        if (ConfigScreen.config.icyStone && value == BetaMod.icyStone.id) {
             return Block.STONE.id;
         }
         return value;
     }
 
+    // FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes but if u spawn and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga, might be because im missing a biome check on buildsurfaces
     @Redirect(method = "decorate", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD))
     private int injectedDecorate(Block instance) {
-        return convertOresToIcy(instance.id, biomeMod);
+        if (ConfigScreen.config.icyStone) {
+            return convertOresToIcy(instance.id, biomeMod);
+        }
+
+        // required but never gets here since convert ores to icy default to base id by default
+        return instance.id;
     }
 
     @Redirect(method = "buildSurfaces", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD, ordinal = 2))
     private int injectedBuildSurfaces(Block instance) {
-        return instance.id == Block.STONE.id ? BetaMod.icyStone.id : instance.id;
+        if (ConfigScreen.config.icyStone && instance.id == Block.STONE.id) {
+            return BetaMod.icyStone.id;
+        }
+
+        return instance.id;
     }
 }
