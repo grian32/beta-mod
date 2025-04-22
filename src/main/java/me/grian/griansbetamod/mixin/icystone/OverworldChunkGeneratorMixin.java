@@ -19,6 +19,12 @@ import static me.grian.griansbetamod.mixinutils.IcyOresKt.convertOresToIcy;
 @Debug(export = true)
 @Mixin(OverworldChunkGenerator.class)
 public class OverworldChunkGeneratorMixin {
+    /**
+     * FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga
+     * I think this issue might be due to buildTerrain being called once at the start of worldgen and the biome going off of that, but would require further rewriting
+     * due to the redirect's not really letting me access functions param, would need to rewrite everything that uses it to check each time
+     */
+
     @Shadow
     private World world;
 
@@ -55,7 +61,6 @@ public class OverworldChunkGeneratorMixin {
         return value;
     }
 
-    // FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes but if u spawn and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga
     @Redirect(method = "decorate", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD))
     private int injectedDecorate(Block instance) {
         if (ConfigScreen.config.icyStone) {
