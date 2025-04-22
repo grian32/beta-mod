@@ -55,7 +55,7 @@ public class OverworldChunkGeneratorMixin {
         return value;
     }
 
-    // FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes but if u spawn and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga, might be because im missing a biome check on buildsurfaces
+    // FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes but if u spawn and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga
     @Redirect(method = "decorate", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD))
     private int injectedDecorate(Block instance) {
         if (ConfigScreen.config.icyStone) {
@@ -68,7 +68,7 @@ public class OverworldChunkGeneratorMixin {
 
     @Redirect(method = "buildSurfaces", at = @At(value = "FIELD", target = "Lnet/minecraft/block/Block;id:I", opcode = Opcodes.GETFIELD, ordinal = 2))
     private int injectedBuildSurfaces(Block instance) {
-        if (ConfigScreen.config.icyStone && instance.id == Block.STONE.id) {
+        if (ConfigScreen.config.icyStone && instance.id == Block.STONE.id && (biomeMod == Biome.TAIGA || biomeMod == Biome.TUNDRA)) {
             return BetaMod.icyStone.id;
         }
 
