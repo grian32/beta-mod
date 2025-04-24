@@ -53,7 +53,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 
 ## Configuration
 
-All of the above New Features can be enabled/disabled individually, the fixes cannot be disabled.
+All of the above Features & Fixes can be enabled/disabled individually, all of the above are enabled by default unless WIP & the mod is meant to be played with default configuration. If a certain feature is no longer WIP after an update, you will have to manually enable it.
 
 ## Credits
 
