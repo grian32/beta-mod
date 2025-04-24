@@ -46,7 +46,6 @@ class EnhancementScreenHandler(
         onSlotUpdate(input)
     }
 
-    // TODO: figure out how to call this when the item amount goes up in the item slot, it currently only updates when it goes down.
     override fun onSlotUpdate(inventory: Inventory?) {
         result.setStack(0, EnhancementRecipeManager.craft(input))
     }

@@ -50,6 +50,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore, Furnace.
 - Slabs only break faster with their respective tools, i.e Stone/Sandstone/Cobblestone Slabs break faster with a Pickaxe & Wooden Slabs break faster with an Axe.
 - Stairs now drop themselves.
+- Recipes that requires item stacks bigger than 1 now update the result when the item stack is updated (NOTE: not configurable)
 
 ## Configuration
 

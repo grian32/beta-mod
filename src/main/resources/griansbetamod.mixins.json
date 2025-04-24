@@ -12,6 +12,7 @@
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
     "lapisspeedboost.PlayerEntityMixin",
+    "stackcrafting.ScreenHandlerMixin",
     "stairsdrop.StairsBlockMixin"
   ],
   "server": [
