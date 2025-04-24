@@ -29,4 +29,7 @@ public class Config {
 
     @ConfigEntry(name = "Enable pickaxes breaking several vanilla blocks faster", description = "Requires a restart to take effect. See mod description for which blocks are affected")
     public Boolean pickaxeEffectiveBlocks = true;
+
+    @ConfigEntry(name = "Slabs now break faster with their respective tools based on material.", description = "Requires a restart to take effect.")
+    public Boolean slabBreakSpeed = true;
 }
