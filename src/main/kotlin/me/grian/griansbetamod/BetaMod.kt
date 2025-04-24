@@ -60,65 +60,6 @@ object BetaMod {
                 .setHardness(5.0f)
         }
 
-        // TODO: refactor this to IcyStoneListener, along with the recipes/texture as its going to get bulky
-        if (ConfigScreen.config.icyStone) {
-            icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
-                .setTranslationKey(NAMESPACE, "icy_stone")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(1.5f)
-                .setResistance(10.0f)
-
-            icyCobblestone = IcyCobblestoneBlock(NAMESPACE.id("icy_cobblestone"))
-                .setTranslationKey(NAMESPACE, "icy_cobblestone")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(2.0f)
-                .setResistance(10.0f)
-
-            icyCoalOre = IcyCoalOreBlock(NAMESPACE.id("icy_coal_ore"))
-                .setTranslationKey(NAMESPACE, "icy_coal_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            icyIronOre = IcyIronOreBlock(NAMESPACE.id("icy_iron_ore"))
-                .setTranslationKey(NAMESPACE, "icy_iron_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            icyGoldOre = IcyGoldOreBlock(NAMESPACE.id("icy_gold_ore"))
-                .setTranslationKey(NAMESPACE, "icy_gold_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            icyDiamondOre = IcyDiamondOreBlock(NAMESPACE.id("icy_diamond_ore"))
-                .setTranslationKey(NAMESPACE, "icy_diamond_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            icyLapisLazuliOre = IcyLapisLazuliOreBlock(NAMESPACE.id("icy_lapis_lazuli_ore"))
-                .setTranslationKey(NAMESPACE, "icy_lapis_lazuli_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            icyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("icy_redstone_ore"), false)
-                .setTranslationKey(NAMESPACE, "icy_redstone_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-
-            litIcyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("lit_icy_redstone_ore"), true)
-                .setTranslationKey(NAMESPACE, "lit_icy_redstone_ore")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(3.0F)
-                .setResistance(5.0F)
-                .setLuminance(0.625F)
-                .ignoreMetaUpdates()
-        }
-
         if (ConfigScreen.config.sawmillBlock) {
             sawmill = SawmillBlock(NAMESPACE.id("sawmill"))
                 .setTranslationKey(NAMESPACE, "sawmill")
