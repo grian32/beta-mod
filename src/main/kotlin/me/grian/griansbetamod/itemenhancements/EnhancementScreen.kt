@@ -1,14 +1,13 @@
 package me.grian.griansbetamod.itemenhancements
 
-import me.grian.griansbetamod.TextureListener
 import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.world.World
 import org.lwjgl.opengl.GL11
 
-class EnhancementTableScreen (
+class EnhancementScreen (
     inventory: PlayerInventory, world: World, x: Int, y: Int, z: Int
-) : HandledScreen(EnhancementTableScreenHandler(inventory, world, x, y, z)) {
+) : HandledScreen(EnhancementScreenHandler(inventory, world, x, y, z)) {
     override fun removed() {
         super.removed()
         container.onClosed(minecraft.player)

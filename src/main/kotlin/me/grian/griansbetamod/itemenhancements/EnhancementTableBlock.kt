@@ -13,7 +13,7 @@ class EnhancementTableBlock(identifier: Identifier) : TemplateBlock(identifier, 
     override fun onUse(world: World?, x: Int, y: Int, z: Int, player: PlayerEntity?): Boolean {
         val minecraft = FabricLoader.getInstance().gameInstance as Minecraft;
 
-        minecraft.setScreen(EnhancementTableScreen(player!!.inventory, world!!, x, y, z))
+        minecraft.setScreen(EnhancementScreen(player!!.inventory, world!!, x, y, z))
 
         return true
     }

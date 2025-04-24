@@ -10,7 +10,7 @@ import net.minecraft.screen.slot.CraftingResultSlot
 import net.minecraft.screen.slot.Slot
 import net.minecraft.world.World
 
-class EnhancementTableScreenHandler(
+class EnhancementScreenHandler(
     inventory: PlayerInventory,
     val world: World,
     val x: Int,
@@ -24,7 +24,7 @@ class EnhancementTableScreenHandler(
         // x & y coords are literally just texture coords, unlucky
 
         // result slot
-        this.addSlot(EnhancementTableResultSlot(inventory.player, this.input, this.result, 0, 116, 35))
+        this.addSlot(EnhancementResultSlot(inventory.player, this.input, this.result, 0, 116, 35))
 
         // input slots
         this.addSlot(Slot(this.input, 1, 40, 35))

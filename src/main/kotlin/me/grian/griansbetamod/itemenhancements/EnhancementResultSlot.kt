@@ -8,7 +8,7 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.screen.slot.Slot
 
-class EnhancementTableResultSlot(
+class EnhancementResultSlot(
     private val player: PlayerEntity,
     private val input: Inventory,
     inventory: Inventory?,
