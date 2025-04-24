@@ -17,7 +17,7 @@ public abstract class ScreenHandlerMixin {
     @Inject(method = "onSlotClick", at = @At("RETURN"))
     public void onSlotClick(int index, int button, boolean shift, PlayerEntity player, CallbackInfoReturnable<ItemStack> cir) {
         // fixes an issue where if you modify the amount in a slot then the slot update doesn't get processed, so this means if you add 1 log to a recipe
-        // that requires 48 logs, then it will not update.
+        // that requires 48 logs but has 47 logs in the slot, then it will not update.
         onSlotUpdate(player.inventory);
     }
 }
