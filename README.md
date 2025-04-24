@@ -43,7 +43,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 - Adds Nether Glass
     - Recipe (Furnace): Soul Sand -> Nether Glass
     - It's somewhat red tinted glass but the transparent parts aren't tinted as the renderer doesn't support that out of the box and I don't want to bother with backporting it for one block, I might do it at some point in the future though.
-
+- Fences have smaller collision boxes that fit the model as seen in later versions.
 
 ### Fixes
 - The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Fence.
