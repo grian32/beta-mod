@@ -5,8 +5,8 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.inventory.Inventory
+import net.minecraft.recipe.CraftingRecipeManager
 import net.minecraft.screen.ScreenHandler
-import net.minecraft.screen.slot.CraftingResultSlot
 import net.minecraft.screen.slot.Slot
 import net.minecraft.world.World
 
@@ -24,28 +24,32 @@ class EnhancementScreenHandler(
         // x & y coords are literally just texture coords, unlucky
 
         // result slot
-        this.addSlot(EnhancementResultSlot(inventory.player, this.input, this.result, 0, 116, 35))
+        addSlot(EnhancementResultSlot(inventory.player, input, result, 0, 116, 35))
 
         // input slots
-        this.addSlot(Slot(this.input, 1, 40, 35))
-        this.addSlot(Slot(this.input, 2, 58, 35))
+        addSlot(Slot(input, 0, 40, 35))
+        addSlot(Slot(input, 1, 58, 35))
 
 
         // player inventory
         for (var8 in 0..2) {
             for (var10 in 0..8) {
-                this.addSlot(Slot(inventory, var10 + var8 * 9 + 9, 8 + var10 * 18, 84 + var8 * 18))
+                addSlot(Slot(inventory, var10 + var8 * 9 + 9, 8 + var10 * 18, 84 + var8 * 18))
             }
         }
 
         // hotbar
         for (var9 in 0..8) {
-            this.addSlot(Slot(inventory, var9, 8 + var9 * 18, 142))
+            addSlot(Slot(inventory, var9, 8 + var9 * 18, 142))
         }
 
-        this.onSlotUpdate(this.input)
+        onSlotUpdate(input)
     }
 
+    // TODO: figure out how to call this when the item amount goes up in the item slot, it currently only updates when it goes down.
+    override fun onSlotUpdate(inventory: Inventory?) {
+        result.setStack(0, EnhancementRecipeManager.craft(input))
+    }
 
     override fun canUse(player: PlayerEntity?): Boolean {
         return world.getBlockId(x, y, z) == BetaMod.enhancementTable.id
