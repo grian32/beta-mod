@@ -13,7 +13,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 ## Installation
 
 1. Install the Babric Prism Instance available [here](https://github.com/babric/prism-instance)
-2. Add the following mods: [Glass Config API](https://modrinth.com/mod/glass-config-api), [Glass Networking](https://modrinth.com/mod/glass-networking), [Fabric Language Kotlin 1.10.18+kotlin1.9.22.](https://modrinth.com/mod/fabric-language-kotlin/version/1.10.18+kotlin.1.9.22) & [StationAPI](https://modrinth.com/mod/stationapi) to your mods folder.
+2. Add the following mods: [Glass Config API](https://modrinth.com/mod/glass-config-api), [Glass Networking](https://modrinth.com/mod/glass-networking), [Fabric Language Kotlin 1.10.18+kotlin1.9.22.](https://modrinth.com/mod/fabric-language-kotlin/version/1.10.18+kotlin.1.9.22), [StationAPI](https://modrinth.com/mod/stationapi) & [Mod Menu Beta](https://modrinth.com/mod/modmenu-beta) to your mods folder.
 3. Add the jar you downloaded to the mods folder.
 
 ## Current possible places of conflict with other mods
