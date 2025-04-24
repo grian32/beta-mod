@@ -35,4 +35,7 @@ public class Config {
 
     @ConfigEntry(name = "Stairs now drop themselves", description = "Requires a restart to take effect.")
     public Boolean stairDrop = true;
+
+    @ConfigEntry(name = "Fence collision box matches later versions", description = "Requires a restart to take effect.")
+    public Boolean fenceCollisionBox = true;
 }
