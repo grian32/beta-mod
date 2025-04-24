@@ -1,4 +1,4 @@
-package me.grian.griansbetamod
+package me.grian.griansbetamod.slabbreakspeed
 
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
