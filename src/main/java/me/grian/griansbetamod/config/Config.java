@@ -23,4 +23,10 @@ public class Config {
 
     @ConfigEntry(name = "Enable Nether Glass", description = "Requires a restart to take effect.")
     public Boolean netherGlass = true;
+
+    @ConfigEntry(name = "Enable axes breaking several vanilla blocks faster", description = "Requires a restart to take effect. See mod description for which blocks are affected")
+    public Boolean axeEffectiveBlocks = true;
+
+    @ConfigEntry(name = "Enable pickaxes breaking several vanilla blocks faster", description = "Requires a restart to take effect. See mod description for which blocks are affected")
+    public Boolean pickaxeEffectiveBlocks = true;
 }
