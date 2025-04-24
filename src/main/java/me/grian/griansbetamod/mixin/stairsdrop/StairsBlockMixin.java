@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.stairsdrop;
 
+import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.material.Material;
@@ -30,12 +31,13 @@ public abstract class StairsBlockMixin extends Block {
         // saw another impl which called getDroppedItemMeta which in stairs case always returns 0, it prob went off of
         // orig mc code, but as stairs don't have meta in this version, it's not required so we can just hardcode
         // it as 0
-
-        if (baseBlock == COBBLESTONE) {
-            this.dropStack(world, x, y, z, new ItemStack(COBBLESTONE_STAIRS.id, 1, 0));
-        } else if (baseBlock == PLANKS) {
-            this.dropStack(world, x, y, z, new ItemStack(WOODEN_STAIRS.id, 1, 0));
+        if (ConfigScreen.config.stairDrop) {
+            if (baseBlock == COBBLESTONE) {
+                this.dropStack(world, x, y, z, new ItemStack(COBBLESTONE_STAIRS.id, 1, 0));
+            } else if (baseBlock == PLANKS) {
+                this.dropStack(world, x, y, z, new ItemStack(WOODEN_STAIRS.id, 1, 0));
+            }
+            ci.cancel();
         }
-        ci.cancel();
     }
 }

@@ -32,4 +32,7 @@ public class Config {
 
     @ConfigEntry(name = "Slabs now break faster with their respective tools based on material.", description = "Requires a restart to take effect.")
     public Boolean slabBreakSpeed = true;
+
+    @ConfigEntry(name = "Stairs now drop themselves", description = "Requires a restart to take effect.")
+    public Boolean stairDrop = true;
 }
