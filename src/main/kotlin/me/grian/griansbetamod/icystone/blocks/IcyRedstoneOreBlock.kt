@@ -1,10 +1,8 @@
-package me.grian.griansbetamod.blocks.icystone
+package me.grian.griansbetamod.icystone.blocks
 
 import me.grian.griansbetamod.BetaMod
-import me.grian.griansbetamod.TextureListener
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.world.BlockView
 import net.minecraft.world.World
 import net.modificationstation.stationapi.api.template.block.TemplateRedstoneOreBlock
 import net.modificationstation.stationapi.api.util.Identifier

@@ -6,8 +6,8 @@ import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.NetherGlassBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
-import me.grian.griansbetamod.blocks.icystone.*
 import me.grian.griansbetamod.config.ConfigScreen
+import me.grian.griansbetamod.icystone.blocks.*
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.util.asItemStack

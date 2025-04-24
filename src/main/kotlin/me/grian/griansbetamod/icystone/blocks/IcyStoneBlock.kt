@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.blocks.icystone
+package me.grian.griansbetamod.icystone.blocks
 
 import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.material.Material

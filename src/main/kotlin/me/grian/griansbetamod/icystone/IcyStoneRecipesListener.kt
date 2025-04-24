@@ -1,5 +1,6 @@
-package me.grian.griansbetamod
+package me.grian.griansbetamod.icystone
 
+import me.grian.griansbetamod.BetaMod
 import me.grian.griansbetamod.api.craftingrecipes.ShapedRecipeBuilder
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe

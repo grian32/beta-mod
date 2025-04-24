@@ -1,7 +1,7 @@
-package me.grian.griansbetamod.blocks.icystone
+package me.grian.griansbetamod.icystone.blocks
 
 import net.minecraft.block.material.Material
 import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.util.Identifier
 
-class IcyIronOreBlock(identifier: Identifier) : TemplateBlock(identifier, Material.STONE)
+class IcyCobblestoneBlock(identifier: Identifier) : TemplateBlock(identifier, Material.STONE)

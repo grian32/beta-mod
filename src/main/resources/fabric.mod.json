@@ -28,7 +28,7 @@
       },
       {
         "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.IcyStoneRecipesListener"
+        "value": "me.grian.griansbetamod.icystone.IcyStoneRecipesListener"
       }
     ],
     "stationapi:event_bus_client": [
