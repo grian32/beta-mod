@@ -8,6 +8,8 @@ import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.icystone.blocks.*
+import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
+import me.grian.griansbetamod.itemenhancements.EnhancementTableScreen
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.util.asItemStack
@@ -44,9 +46,12 @@ object BetaMod {
 
     lateinit var sawmill: Block
 
-    lateinit var grassyBoots: Item
 
     lateinit var netherGlass: Block
+
+    lateinit var enhancementTable: Block
+
+    lateinit var grassyBoots: Item
 
     lateinit var speedCrystal: Item
 
@@ -73,6 +78,10 @@ object BetaMod {
                 .setSoundGroup(Block.GLASS_SOUND_GROUP)
                 .setHardness(0.3f)
         }
+
+        enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
+            .setTranslationKey(NAMESPACE, "enhancement_table")
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
     }
 
     @EventListener
