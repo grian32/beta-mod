@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.inventory.Inventory
+import net.minecraft.item.ItemStack
 import net.minecraft.screen.ScreenHandler
 import net.minecraft.screen.slot.Slot
 import net.minecraft.world.World
@@ -52,5 +53,45 @@ class EnhancementScreenHandler(
 
     override fun canUse(player: PlayerEntity?): Boolean {
         return world.getBlockId(x, y, z) == BetaMod.enhancementTable.id
+    }
+
+    override fun onClosed(player: PlayerEntity) {
+        super.onClosed(player)
+        if (!world.isRemote) {
+            val first = input.getStack(0)
+            val second = input.getStack(1)
+
+            if (first != null) player.dropItem(first)
+            if (second != null) player.dropItem(second)
+        }
+    }
+
+    override fun quickMove(slot: Int): ItemStack? {
+        var stack: ItemStack? = null
+        val foundSlot = slots[slot] as Slot?
+
+        if (foundSlot != null && foundSlot.hasStack()) {
+            val slotStack = foundSlot.stack
+            stack = slotStack.copy()
+
+            // result > inventory
+            if (slot == 0) {
+                this.insertItem(stack, 10, 39, true)
+            }
+
+            if (slotStack.count == 0) {
+                foundSlot.stack = null
+            } else {
+                foundSlot.markDirty()
+            }
+
+            if (slotStack.count == stack.count) {
+                return null
+            }
+
+            foundSlot.onTakeItem(slotStack)
+        }
+
+        return stack
     }
 }
