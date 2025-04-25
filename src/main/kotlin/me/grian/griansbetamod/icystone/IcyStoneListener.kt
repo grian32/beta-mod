@@ -8,6 +8,7 @@ import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.icystone.blocks.*
 import me.grian.griansbetamod.util.isEventTypeShapeless
 import net.mine_diver.unsafeevents.listener.EventListener
+import net.mine_diver.unsafeevents.listener.ListenerPriority
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
@@ -18,7 +19,7 @@ import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 object IcyStoneListener {
     private var redstoneOre = 0
 
-    @EventListener
+    @EventListener(priority = ListenerPriority.HIGH)
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.icyStone) {
             with (BetaMod) {
@@ -81,7 +82,7 @@ object IcyStoneListener {
         }
     }
 
-    @EventListener
+    @EventListener(priority = ListenerPriority.LOW)
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
 
