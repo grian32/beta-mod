@@ -15,8 +15,11 @@ import java.util.List;
 public class WorldMixin {
     @Shadow public List players;
 
+    @Shadow public boolean isRemote;
+
     @Inject(method = "tick()V", at = @At("HEAD"))
     public void tick(CallbackInfo ci) {
+        if (isRemote) return;
         if (ConfigScreen.config.lapisSpeedBoost) {
             for (Object p : players) {
                 IPlayerEntityMixin player = ((IPlayerEntityMixin) p);
