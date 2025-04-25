@@ -7,5 +7,6 @@ import net.minecraft.item.ItemStack
 data class EnhancementRecipe (
     val toolType: ToolType,
     val ingredients: ItemStack,
-    val enhancement: Enhancement
+    val enhancement: Enhancement,
+    val enhancementTier: Int,
 )

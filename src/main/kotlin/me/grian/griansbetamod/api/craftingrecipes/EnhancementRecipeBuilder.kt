@@ -10,15 +10,17 @@ class EnhancementRecipeBuilder {
     var toolType: ToolType? = null
     var ingredients: ItemStack? = null
     var enhancement: Enhancement? = null
+    var enhancementTier: Int? = null
 
     fun registerRecipe() {
-        if (toolType == null || ingredients == null || enhancement == null) return
+        if (toolType == null || ingredients == null || enhancement == null || enhancementTier == null) return
 
         EnhancementRecipeManager.recipes.add(
             EnhancementRecipe(
                 toolType!!,
                 ingredients!!,
-                enhancement!!
+                enhancement!!,
+                enhancementTier!!
             )
         )
     }

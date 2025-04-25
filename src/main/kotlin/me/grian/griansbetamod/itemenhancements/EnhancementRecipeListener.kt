@@ -11,6 +11,7 @@ object EnhancementRecipeListener : ModInitializer {
             toolType = ToolType.AXE
             ingredients = ItemStack(Block.LOG, 48, 0)
             enhancement = Enhancement.EXTRA_LOGS
+            enhancementTier = 1
         }
     }
 }
