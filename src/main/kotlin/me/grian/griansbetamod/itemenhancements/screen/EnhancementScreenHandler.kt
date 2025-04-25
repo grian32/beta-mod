@@ -17,8 +17,8 @@ class EnhancementScreenHandler(
     val y: Int,
     val z: Int
 ) : ScreenHandler() {
-    val input: CraftingInventory = CraftingInventory(this, 2, 1)
-    val result: Inventory = EnhancementResultInventory()
+    private val input: CraftingInventory = CraftingInventory(this, 2, 1)
+    private val result: Inventory = EnhancementResultInventory()
 
     init {
         // x & y coords are literally just texture coords, unlucky
