@@ -11,6 +11,7 @@
     "icystone.CaveWorldCarverMixin",
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
+    "itemenhancements.ItemStackMixin",
     "lapisspeedboost.PlayerEntityMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stairsdrop.StairsBlockMixin"
