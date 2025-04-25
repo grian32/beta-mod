@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.itemenhancements
+package me.grian.griansbetamod.itemenhancements.recipe
 
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.item.ItemStack

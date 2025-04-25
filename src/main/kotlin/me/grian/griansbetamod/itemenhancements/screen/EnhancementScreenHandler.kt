@@ -1,11 +1,11 @@
-package me.grian.griansbetamod.itemenhancements
+package me.grian.griansbetamod.itemenhancements.screen
 
 import me.grian.griansbetamod.BetaMod
+import me.grian.griansbetamod.itemenhancements.recipe.EnhancementRecipeManager
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.inventory.Inventory
-import net.minecraft.recipe.CraftingRecipeManager
 import net.minecraft.screen.ScreenHandler
 import net.minecraft.screen.slot.Slot
 import net.minecraft.world.World

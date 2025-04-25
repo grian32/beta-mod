@@ -1,5 +1,6 @@
-package me.grian.griansbetamod.itemenhancements
+package me.grian.griansbetamod.itemenhancements.screen
 
+import me.grian.griansbetamod.itemenhancements.recipe.EnhancementRecipeManager
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.inventory.Inventory

@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.itemenhancements
+package me.grian.griansbetamod.itemenhancements.screen
 
 import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.entity.player.PlayerInventory

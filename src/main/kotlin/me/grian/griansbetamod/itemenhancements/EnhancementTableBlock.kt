@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.itemenhancements
 
+import me.grian.griansbetamod.itemenhancements.screen.EnhancementScreen
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.block.material.Material
 import net.minecraft.client.Minecraft
