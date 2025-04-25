@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "griansbetamod",
   "version": "${version}",
-
   "name": "Grian's Beta Mod",
   "description": "Various bits and bobs for my personal experience.",
   "authors": [
@@ -11,10 +10,8 @@
   "contact": {
     "sources": "https://github.com/grian32/beta-mod"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/griansbetamod/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
@@ -29,10 +26,6 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.icystone.IcyStoneListener"
-      },
-      {
-        "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.itemenhancements.EnhancementRecipeListener"
       }
     ],
     "stationapi:event_bus_client": [
@@ -51,12 +44,17 @@
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.PacketListener"
       }
+    ],
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.itemenhancements.EnhancementRecipeListener"
+      }
     ]
   },
   "mixins": [
     "griansbetamod.mixins.json"
   ],
-
   "depends": {
     "minecraft": "1.0.0-beta.7.3",
     "fabric-language-kotlin": "1.10.18+kotlin.1.9.22"
