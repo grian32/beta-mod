@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.itemenhancements.recipe
 
-import me.grian.griansbetamod.mixininterfaces.IItemStackMixin
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.item.ItemStack
 
@@ -15,12 +14,9 @@ object EnhancementRecipeManager {
 
         val recipe = findRecipe(input) ?: return null
 
-        val newStack = (ItemStack(first.item, 1, first.damage) as IItemStackMixin)
+        val newStack = ItemStack(first.item, 1, first.damage)
 
-        newStack.`beta_mod$setEnhancement`(recipe.enhancement)
-        newStack.`beta_mod$setEnhancementTier`(recipe.enhancementTier)
-
-        return newStack as ItemStack
+        return newStack
     }
 
 
