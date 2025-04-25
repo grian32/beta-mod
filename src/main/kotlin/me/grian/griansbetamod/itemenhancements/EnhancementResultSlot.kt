@@ -22,6 +22,6 @@ class EnhancementResultSlot(
         val recipe = EnhancementRecipeManager.findRecipe(input) ?: return
 
         input.removeStack(0, 1)
-        input.removeStack(1, recipe.enhancement.count)
+        input.removeStack(1, recipe.ingredients.count)
     }
 }

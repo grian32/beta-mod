@@ -2,15 +2,14 @@ package me.grian.griansbetamod.itemenhancements
 
 import net.minecraft.block.Block
 import net.minecraft.inventory.CraftingInventory
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 
 object EnhancementRecipeManager {
     val recipes = listOf(
         EnhancementTableRecipe(
-            Item.DIAMOND_AXE,
+            ToolType.AXE,
             ItemStack(Block.LOG, 48),
-            ItemStack(Block.WOOL, 1, 2)
+            Enhancement.EXTRA_LOGS
         )
     )
 
@@ -20,11 +19,17 @@ object EnhancementRecipeManager {
 
         if (first == null || second == null) return null
 
-        return findRecipe(input)?.result
+        val recipe = findRecipe(input) ?: return null
+
+        val newStack = ItemStack(first.item, 1, first.damage) // TODO: set enhancement
+
+        return newStack
     }
 
 
-    fun findRecipe(input: CraftingInventory) = recipes.find { it.tool.id == input.getStack(0).item.id && input.getStack(1).containsOther(it.enhancement) }
+    fun findRecipe(input: CraftingInventory) = recipes.find {
+        input.getStack(0).item::class.java == it.toolType.clazz && input.getStack(1).containsOther(it.ingredients)
+    }
 
     private fun ItemStack.containsOther(other: ItemStack) = this.item.id == other.item.id && this.count >= other.count && this.damage == other.damage
 }
