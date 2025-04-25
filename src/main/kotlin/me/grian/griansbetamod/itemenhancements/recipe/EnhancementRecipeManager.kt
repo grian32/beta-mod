@@ -14,7 +14,7 @@ object EnhancementRecipeManager {
 
         val recipe = findRecipe(input) ?: return null
 
-        val newStack = ItemStack(first.item, 1, first.damage)
+        val newStack = ItemStack(first.item, 1, first.damage).copy()
 
         return newStack
     }
