@@ -19,7 +19,6 @@ import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 object IcyStoneListener {
     private var redstoneOre = 0
 
-    @EventListener(priority = ListenerPriority.HIGHEST)
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.icyStone) {
             with (BetaMod) {
@@ -82,7 +81,6 @@ object IcyStoneListener {
         }
     }
 
-    @EventListener(priority = ListenerPriority.LOWEST)
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
 
@@ -105,7 +103,6 @@ object IcyStoneListener {
         }
     }
 
-    @EventListener(priority = ListenerPriority.LOWEST)
     fun registerRecipes(event: RecipeRegisterEvent) {
         if (!ConfigScreen.config.icyStone) return
         if (!isEventTypeShapeless(event.recipeId)) return
