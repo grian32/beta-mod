@@ -1,17 +1,10 @@
 package me.grian.griansbetamod.itemenhancements
 
-import net.minecraft.block.Block
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.item.ItemStack
 
 object EnhancementRecipeManager {
-    val recipes = listOf(
-        EnhancementTableRecipe(
-            ToolType.AXE,
-            ItemStack(Block.LOG, 48),
-            Enhancement.EXTRA_LOGS
-        )
-    )
+    val recipes: MutableList<EnhancementRecipe> = mutableListOf()
 
     fun craft(input: CraftingInventory): ItemStack? {
         val first = input.getStack(0)

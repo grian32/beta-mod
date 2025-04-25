@@ -20,3 +20,10 @@ inline fun addSmeltingRecipe(init: SmeltingRecipeBuilder.() -> Unit): SmeltingRe
     smeltingRecipe.registerRecipe()
     return smeltingRecipe
 }
+
+inline fun addEnhancementRecipe(init: EnhancementRecipeBuilder.() -> Unit): EnhancementRecipeBuilder {
+    val enhancementRecipe = EnhancementRecipeBuilder()
+    enhancementRecipe.init()
+    enhancementRecipe.registerRecipe()
+    return enhancementRecipe
+}
