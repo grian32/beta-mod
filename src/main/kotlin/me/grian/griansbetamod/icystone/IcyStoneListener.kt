@@ -105,7 +105,7 @@ object IcyStoneListener {
         }
     }
 
-    @EventListener
+    @EventListener(priority = ListenerPriority.LOWEST)
     fun registerRecipes(event: RecipeRegisterEvent) {
         if (!ConfigScreen.config.icyStone) return
         if (!isEventTypeShapeless(event.recipeId)) return
