@@ -32,6 +32,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.TextureListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.itemenhancements.EnhancementTooltipListener"
       }
     ],
     "stationapi:event_bus_server": [
