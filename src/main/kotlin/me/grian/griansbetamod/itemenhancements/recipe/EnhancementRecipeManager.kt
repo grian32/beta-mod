@@ -9,6 +9,7 @@ object EnhancementRecipeManager {
     val recipes: MutableList<EnhancementRecipe> = mutableListOf()
 
     fun craft(input: CraftingInventory): ItemStack? {
+        // TODO: check if the tool doesn't have this enhancement already and/or has a lower tier of the same enhancement
         val first = input.getStack(0)
         val second = input.getStack(1)
 

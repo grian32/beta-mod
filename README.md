@@ -22,7 +22,30 @@ I have no association with and I do not claim to be the youtuber of the same nam
 
 ## Features
 
+### Item Enhancements
+
+Enhancements are my take on the enchantments added in later versions, this allows you to enhance your tools with various effects, for a set amount of a certain item/block. To give a tool an enhancement you must apply the ingredients of any base enhancement in the Enhancement Table
+
+Unlike enchantments, you can only have one enhancement per tool & if you wish to gain a higher tier of each enhancement then you must upgrade it using the Enhancement Table.
+
+Enhancement Table Recipe:
+TODO
+
+**Enhancements**
+
+- Extra Logs: This enhancement double logs when broken from a naturally spawned tree, the chance goes up from 20% to guaranteed based on the tier.
+  - Tier One - 20% - 48 Oak Logs
+  - Tier Two - 45% - TODO
+  - Tier Three - 75% - TODO
+  - Tier Four - Guaranteed - TODO
+
+**Example Usage**
+
+TODO
+
+
 ### New
+
 - You can now consume Speed Crystal's which will lead to a 1.5x Speed Boost for 20 seconds.
     - Recipe: [![Image from Gyazo](https://i.gyazo.com/fc3a14850ea2879ae6bb47f923238fd2.png)](https://gyazo.com/fc3a14850ea2879ae6bb47f923238fd2)
 - Backports redstone blocks for storage purposes, currently does not feature the redstone functionality.
