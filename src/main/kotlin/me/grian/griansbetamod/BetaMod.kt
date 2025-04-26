@@ -77,9 +77,11 @@ object BetaMod {
                 .setHardness(0.3f)
         }
 
-        enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
-            .setTranslationKey(NAMESPACE, "enhancement_table")
-            .setSoundGroup(Block.STONE_SOUND_GROUP)
+        if (ConfigScreen.config.enhancementSystem) {
+            enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
+                .setTranslationKey(NAMESPACE, "enhancement_table")
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+        }
     }
 
     @EventListener

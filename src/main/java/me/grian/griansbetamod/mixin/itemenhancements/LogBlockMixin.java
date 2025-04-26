@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.itemenhancements;
 
+import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.itemenhancements.Enhancement;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
@@ -43,31 +44,41 @@ public class LogBlockMixin extends Block {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedConstructor(int id, CallbackInfo ci) {
-        setDefaultState(getDefaultState().with(PLACED, false));
+        if (ConfigScreen.config.enhancementSystem) {
+            setDefaultState(getDefaultState().with(PLACED, false));
+        }
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(PLACED);
-        super.appendProperties(builder);
+        if (ConfigScreen.config.enhancementSystem) {
+            builder.add(PLACED);
+            super.appendProperties(builder);
+        }
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getDefaultState().with(PLACED, true);
+        if (ConfigScreen.config.enhancementSystem) {
+            return getDefaultState().with(PLACED, true);
+        }
+
+        return super.getPlacementState(context);
     }
 
     @Override
     public void onBlockBreakStart(World world, int x, int y, int z, PlayerEntity player) {
-        BlockState state = world.getBlockState(x, y, z);
-        if (!state.get(PLACED)) isPlaced = true;
+        if (ConfigScreen.config.enhancementSystem) {
+            BlockState state = world.getBlockState(x, y, z);
+            if (!state.get(PLACED)) isPlaced = true;
 
-        super.onBlockBreakStart(world, x, y, z, player);
+            super.onBlockBreakStart(world, x, y, z, player);
+        }
     }
 
     @Inject(method = "getDroppedItemCount", at = @At("HEAD"), cancellable = true)
     public void getDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
-        if (enhanced && this.tier == 1) {
+        if (enhanced && this.tier == 1 && ConfigScreen.config.enhancementSystem) {
             cir.setReturnValue(1 + (random.nextInt(5) == 0 ? 1 : 0));
 
             isPlaced = false;
@@ -81,7 +92,7 @@ public class LogBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta, CallbackInfo ci) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
-        if (selectedSlot != null && isPlaced) {
+        if (selectedSlot != null && isPlaced && ConfigScreen.config.enhancementSystem) {
             Enhancement enhancement = getEnhancement(selectedSlot);
             int tier = getEnhancementTier(selectedSlot);
 

@@ -38,4 +38,7 @@ public class Config {
 
     @ConfigEntry(name = "Fence collision box matches later versions", description = "Requires a restart to take effect.")
     public Boolean fenceCollisionBox = true;
+
+    @ConfigEntry(name = "Enables Item Enhancements System", description = "Requires a restart to take effect.")
+    public Boolean enhancementSystem = true;
 }
