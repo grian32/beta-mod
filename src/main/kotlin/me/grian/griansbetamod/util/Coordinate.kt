@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.playerplacedblocks
+package me.grian.griansbetamod.util
 
 @JvmInline
 value class Coordinate(
