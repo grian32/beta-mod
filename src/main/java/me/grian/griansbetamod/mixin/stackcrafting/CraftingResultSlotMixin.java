@@ -25,14 +25,13 @@ public class CraftingResultSlotMixin {
     @Final
     private Inventory input;
 
+    // TODO: figure out better inject, have to shift so it takes me out the if :pray:
     @Inject(
             method = "onTakeItem",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/player/PlayerEntity;increaseStat(Lnet/minecraft/stat/Stat;I)V",
-                    shift = At.Shift.BY,
-                    by = 2,
-                    ordinal = 7
+                    target = "Lnet/minecraft/inventory/Inventory;size()I",
+                    shift = At.Shift.BEFORE
             )
     )
     public void onTakeItem(ItemStack par1, CallbackInfo ci) {
@@ -59,6 +58,8 @@ public class CraftingResultSlotMixin {
             @SuppressWarnings("OptionalGetWithoutIsPresent") ItemStack stack = either.right().get();
             return stack;
         }).toList();
+
+        System.out.println(foundRecipeGrid);
 
         for (int var2 = 0; var2 <= this.input.size() - 1; var2++) {
             ItemStack inputStack = this.input.getStack(var2);
