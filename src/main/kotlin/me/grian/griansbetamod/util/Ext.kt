@@ -2,6 +2,7 @@ package me.grian.griansbetamod.util
 
 import net.minecraft.block.Block
 import net.minecraft.item.ItemStack
+import java.util.stream.Stream
 
 fun Array<Any?>.isAllNull(): Boolean {
     for (i in this) {
@@ -24,3 +25,5 @@ fun Array<ItemStack?>.toItemIds(): Array<Int?> {
 }
 
 fun Block.asItemStack(): ItemStack = ItemStack(this, 1)
+
+fun <T> Stream<T>.chunked(size: Int): Stream<Stream<T>> = chunked(size)
