@@ -85,7 +85,7 @@ object BetaMod {
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
 
             pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
-                .setTranslationKey(NAMESPACE, "enhancement_table")
+                .setTranslationKey(NAMESPACE, "pile_of_logs")
                 .setSoundGroup(Block.WOOD_SOUND_GROUP)
                 .setHardness(2.0F)
         }
