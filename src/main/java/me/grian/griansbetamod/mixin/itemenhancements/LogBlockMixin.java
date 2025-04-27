@@ -23,7 +23,7 @@ import java.util.Random;
 
 import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancement;
 import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancementTier;
-import static me.grian.griansbetamod.util.UtilKt.oneIn;
+import static me.grian.griansbetamod.util.UtilKt.outOf;
 
 @Mixin(LogBlock.class)
 public class LogBlockMixin extends Block {
@@ -80,7 +80,7 @@ public class LogBlockMixin extends Block {
     @Inject(method = "getDroppedItemCount", at = @At("HEAD"), cancellable = true)
     public void getDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
         if (enhanced && this.tier == 1 && ConfigScreen.config.enhancementSystem) {
-            cir.setReturnValue(1 + (oneIn(5, random) ? 1 : 0));
+            cir.setReturnValue((1 + (outOf(1, 5, random) ? 1 : 0)));
 
             isPlaced = false;
             enhanced = false;
