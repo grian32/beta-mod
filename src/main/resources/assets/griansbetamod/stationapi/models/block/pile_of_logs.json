@@ -1,5 +1,6 @@
 {
   "textures": {
+    "particle": "griansbetamod:block/oak_side",
     "side": "griansbetamod:block/oak_side",
     "top": "griansbetamod:block/log_top"
   },
