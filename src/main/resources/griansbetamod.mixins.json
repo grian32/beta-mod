@@ -13,7 +13,9 @@
     "icystone.OverworldChunkGeneratorMixin",
     "itemenhancements.LogBlockMixin",
     "lapisspeedboost.PlayerEntityMixin",
+    "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
+    "stackcrafting.StationShapedRecipeMixin",
     "stairsdrop.StairsBlockMixin"
   ],
   "server": [
