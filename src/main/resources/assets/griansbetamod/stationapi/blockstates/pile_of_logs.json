@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": { "model": "griansbetamod:block/pile_of_logs" }
+    "rotated=false": { "model": "griansbetamod:block/pile_of_logs" },
+    "rotated=true": { "model": "griansbetamod:block/pile_of_logs_rotated" }
   }
 }
