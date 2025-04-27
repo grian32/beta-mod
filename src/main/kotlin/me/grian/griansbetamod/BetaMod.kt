@@ -4,6 +4,7 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.NetherGlassBlock
+import me.grian.griansbetamod.blocks.PileOfLogsBlock
 import me.grian.griansbetamod.blocks.RedstoneBlock
 import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
@@ -48,6 +49,7 @@ object BetaMod {
     lateinit var netherGlass: Block
 
     lateinit var enhancementTable: Block
+    lateinit var pileOfLogs: Block
 
     lateinit var grassyBoots: Item
 
@@ -81,6 +83,11 @@ object BetaMod {
             enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
                 .setTranslationKey(NAMESPACE, "enhancement_table")
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+            pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
+                .setTranslationKey(NAMESPACE, "enhancement_table")
+                .setSoundGroup(Block.WOOD_SOUND_GROUP)
+                .setHardness(2.0F)
         }
     }
 
