@@ -54,7 +54,8 @@ public class CraftingResultSlotMixin {
          */
 
         List<ItemStack> foundRecipeGrid = Arrays.stream(foundRecipe.getGrid())
-                .map(it -> it.right().orElseThrow())
+                // if its null & u call right then it throws
+                .map(it -> it != null ? it.right().orElseThrow() : null)
                 .toList();
 
         for (int i = 0; i <= this.input.size() - 1; i++) {
