@@ -24,7 +24,7 @@ public class CraftingResultSlotMixin {
     @Final
     private Inventory input;
 
-    // TODO: figure out better inject, have to shift so it takes me out the if :pray:
+    // TODO: figure out better inject, have to shift so it takes me out the if
     @Inject(
             method = "onTakeItem",
             at = @At(
@@ -36,6 +36,7 @@ public class CraftingResultSlotMixin {
             cancellable = true
     )
     public void onTakeItem(ItemStack par1, CallbackInfo ci) {
+        // TODO: refactor to kt
         var recipes = CraftingRecipeManager.getInstance().getRecipes();
         StationShapedRecipe foundRecipe = null;
         // tried with streams but was dodgy.
@@ -50,21 +51,13 @@ public class CraftingResultSlotMixin {
             return;
         }
 
-        /**
-         * TODO: normalize recipe to have the same layout as input for 2x2 recipes, cuz f.e the recipe for 2x2 will be diff from the placement in the input & loop below will fail :(
-         */
-        // is 2x3 -> is 2x2
-        //        -> is 1x3
-        //        -> is 1x2
-
         List<ItemStack> foundRecipeGrid = Arrays.stream(foundRecipe.getGrid())
                 // if its null & u call right then it throws
                 .map(it -> it != null ? it.right().orElseThrow() : null)
                 .toList();
 
-        if (is2x2(foundRecipeGrid)) {
-            foundRecipeGrid = normalize2x2Recipe(this.input, foundRecipeGrid);
-        }
+        foundRecipeGrid = normalizeRecipe(this.input, foundRecipeGrid);
+
 
         for (int i = 0; i <= this.input.size() - 1; i++) {
             ItemStack inputStack = this.input.getStack(i);
@@ -83,16 +76,7 @@ public class CraftingResultSlotMixin {
     }
 
     @Unique
-    private boolean is2x2(List<ItemStack> lst) {
-        return lst.size() == 6 &&
-            (
-                (lst.get(0) == null && lst.get(3) == null) ||
-                (lst.get(2) == null && lst.get(5) == null)
-            );
-    }
-
-    @Unique
-    private List<ItemStack> normalize2x2Recipe(Inventory input, List<ItemStack> recipe) {
+    private List<ItemStack> normalizeRecipe(Inventory input, List<ItemStack> recipe) {
         ArrayList<ItemStack> normalizedRecipe = new ArrayList<>(Collections.nCopies(input.size(), null));
         Deque<ItemStack> recipeItems = recipe.stream().filter(Objects::nonNull).collect(Collectors.toCollection(ArrayDeque::new));
 
@@ -100,7 +84,7 @@ public class CraftingResultSlotMixin {
             if (input.getStack(i) == null) continue;
 
             if (input.getStack(i) != null) {
-                normalizedRecipe.set(i,     recipeItems.pop());
+                normalizedRecipe.set(i, recipeItems.pop());
             }
         }
 
