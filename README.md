@@ -35,9 +35,9 @@ TODO
 
 - Extra Logs: This enhancement double logs when broken from a naturally spawned tree, the chance goes up from 20% to guaranteed based on the tier.
   - Tier One - 20% - 48 Oak Logs
-  - Tier Two - 45% - TODO
-  - Tier Three - 75% - TODO
-  - Tier Four - Guaranteed - TODO
+  - Tier Two - 45% - 16 Pile Of Logs
+  - Tier Three - 75% - 32 Pile Of Logs
+  - Tier Four - Guaranteed - 64 Pile Of Logs
 
 **Example Usage**
 
