@@ -59,7 +59,7 @@ public class CraftingResultSlotMixin {
         foundRecipeGrid = normalizeRecipe(this.input, foundRecipeGrid);
 
 
-        for (int i = 0; i <= this.input.size() - 1; i++) {
+        for (int i = 0; i < this.input.size(); i++) {
             ItemStack inputStack = this.input.getStack(i);
             ItemStack recipeStack = foundRecipeGrid.get(i);
 
@@ -80,7 +80,7 @@ public class CraftingResultSlotMixin {
         ArrayList<ItemStack> normalizedRecipe = new ArrayList<>(Collections.nCopies(input.size(), null));
         Deque<ItemStack> recipeItems = recipe.stream().filter(Objects::nonNull).collect(Collectors.toCollection(ArrayDeque::new));
 
-        for (int i = 0; i <= input.size() - 1; i++) {
+        for (int i = 0; i < input.size(); i++) {
             if (input.getStack(i) == null) continue;
 
             normalizedRecipe.set(i, recipeItems.pop());
