@@ -30,9 +30,11 @@ public class CraftingResultSlotMixin {
             method = "onTakeItem",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/inventory/Inventory;size()I",
-                    shift = At.Shift.BEFORE
-            )
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;increaseStat(Lnet/minecraft/stat/Stat;I)V",
+                    shift = At.Shift.BY,
+                    by = 2
+            ),
+            cancellable = true
     )
     public void onTakeItem(ItemStack par1, CallbackInfo ci) {
         var recipes = CraftingRecipeManager.getInstance().getRecipes();
@@ -69,5 +71,8 @@ public class CraftingResultSlotMixin {
                 }
             }
         }
+
+        // cancels vanilla behaviour, will return early if no station shaped recipe is found so it's ok.
+        ci.cancel();
     }
 }
