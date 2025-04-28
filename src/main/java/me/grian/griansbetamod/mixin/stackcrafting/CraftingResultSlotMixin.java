@@ -83,9 +83,7 @@ public class CraftingResultSlotMixin {
         for (int i = 0; i <= input.size() - 1; i++) {
             if (input.getStack(i) == null) continue;
 
-            if (input.getStack(i) != null) {
-                normalizedRecipe.set(i, recipeItems.pop());
-            }
+            normalizedRecipe.set(i, recipeItems.pop());
         }
 
         return normalizedRecipe;
