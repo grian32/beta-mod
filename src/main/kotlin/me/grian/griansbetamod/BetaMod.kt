@@ -156,6 +156,17 @@ object BetaMod {
                     bottom(null, Block.COBBLESTONE, null)
                 }
             }
+
+            if (ConfigScreen.config.enhancementSystem) {
+                addShapedRecipe {
+                    output(pileOfLogs)
+
+                    val logStack = ItemStack(Block.LOG, 4, 0)
+
+                    top(logStack, logStack, null)
+                    middle(logStack, logStack, null)
+                }
+            }
         }
 
         if (ConfigScreen.config.decraftSaddles && isEventTypeShapeless(event.recipeId)) {
