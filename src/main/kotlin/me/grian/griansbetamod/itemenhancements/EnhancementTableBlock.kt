@@ -12,6 +12,7 @@ import net.modificationstation.stationapi.api.util.Identifier
 class EnhancementTableBlock(identifier: Identifier) : TemplateBlock(identifier, Material.STONE) {
     @Suppress("DEPRECATION") // only applies in newer versions
     override fun onUse(world: World?, x: Int, y: Int, z: Int, player: PlayerEntity?): Boolean {
+        // TODO: add server side support
         val minecraft = FabricLoader.getInstance().gameInstance as Minecraft;
 
         minecraft.setScreen(EnhancementScreen(player!!.inventory, world!!, x, y, z))
