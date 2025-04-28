@@ -41,8 +41,8 @@ public class CraftingResultSlotMixin {
         StationShapedRecipe foundRecipe = null;
         // tried with streams but was dodgy.
         for (Object recipe : recipes) {
-            if (recipe instanceof StationShapedRecipe && ((StationShapedRecipe) recipe).matches((CraftingInventory) input)) {
-                foundRecipe = (StationShapedRecipe) recipe;
+            if (recipe instanceof StationShapedRecipe ssr && ssr.matches((CraftingInventory) input)) {
+                foundRecipe = ssr;
                 break;
             }
         }
