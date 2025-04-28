@@ -37,6 +37,7 @@ public class CraftingResultSlotMixin {
     public void onTakeItem(ItemStack par1, CallbackInfo ci) {
         var recipes = CraftingRecipeManager.getInstance().getRecipes();
         StationShapedRecipe foundRecipe = null;
+        // tried with streams but was dodgy.
         for (Object recipe : recipes) {
             if (recipe instanceof StationShapedRecipe && ((StationShapedRecipe) recipe).matches((CraftingInventory) input)) {
                 foundRecipe = (StationShapedRecipe) recipe;
@@ -49,26 +50,21 @@ public class CraftingResultSlotMixin {
         }
 
         /**
-         * TODO: normalize inputs for 2x2 recipes, cuz f.e the recipe for 2x2 will be diff from the placement in the input & loop below will fail :(
+         * TODO: normalize recipe to have the same layout as input for 2x2 recipes, cuz f.e the recipe for 2x2 will be diff from the placement in the input & loop below will fail :(
          */
 
-        List<ItemStack> foundRecipeGrid = Arrays.stream(foundRecipe.getGrid()).toList().stream().map(either -> {
-            if (either == null) return null;
-            // if its not null then itl always be this due to how it's mapped out
-            @SuppressWarnings("OptionalGetWithoutIsPresent") ItemStack stack = either.right().get();
-            return stack;
-        }).toList();
+        List<ItemStack> foundRecipeGrid = Arrays.stream(foundRecipe.getGrid())
+                .map(it -> it.right().orElseThrow())
+                .toList();
 
-        System.out.println(foundRecipeGrid);
-
-        for (int var2 = 0; var2 <= this.input.size() - 1; var2++) {
-            ItemStack inputStack = this.input.getStack(var2);
-            ItemStack recipeStack = foundRecipeGrid.get(var2);
+        for (int i = 0; i <= this.input.size() - 1; i++) {
+            ItemStack inputStack = this.input.getStack(i);
+            ItemStack recipeStack = foundRecipeGrid.get(i);
 
             if (inputStack != null && recipeStack != null) {
-                this.input.removeStack(var2, recipeStack.count);
+                this.input.removeStack(i, recipeStack.count);
                 if (inputStack.getItem().hasCraftingReturnItem()) {
-                    this.input.setStack(var2, new ItemStack(inputStack.getItem().getCraftingReturnItem()));
+                    this.input.setStack(i, new ItemStack(inputStack.getItem().getCraftingReturnItem()));
                 }
             }
         }
