@@ -11,7 +11,10 @@ import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static me.grian.griansbetamod.mixinutils.IcyOresKt.convertOresToIcy;
@@ -23,6 +26,10 @@ public class OverworldChunkGeneratorMixin {
      * FIXME: if u spawn in a spruce/taiga biome then caves generate fine in those but not other biomes and vice versa where if i spawn in a forest or something then caves wont generate in a tundra/taiga
      * I think this issue might be due to buildTerrain being called once at the start of worldgen and the biome going off of that, but would require further rewriting
      * due to the redirect's not really letting me access functions param, would need to rewrite everything that uses it to check each time
+     */
+
+    /**
+     * FIXME: weird bug where it thinks biome is null when passing to convertToIcyOres(...)
      */
 
     @Shadow
