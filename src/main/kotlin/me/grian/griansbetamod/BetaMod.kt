@@ -83,6 +83,7 @@ object BetaMod {
             enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
                 .setTranslationKey(NAMESPACE, "enhancement_table")
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
+                .setHardness(5.0f)
 
             pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
                 .setTranslationKey(NAMESPACE, "pile_of_logs")
@@ -165,6 +166,16 @@ object BetaMod {
 
                     top(logStack, logStack, null)
                     middle(logStack, logStack, null)
+                }
+
+                addShapedRecipe {
+                    output(enhancementTable)
+
+                    val lightBlueDye = ItemStack(Item.DYE, 1, 12)
+
+                    top(Block.COBBLESTONE.asItemStack(), lightBlueDye, Block.COBBLESTONE.asItemStack())
+                    middle(Block.PLANKS.asItem(), Item.DIAMOND, Block.PLANKS.asItem())
+                    bottom(Block.PLANKS, null, Block.PLANKS)
                 }
             }
         }
