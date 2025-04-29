@@ -26,6 +26,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.icystone.IcyStoneListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.PacketListener"
       }
     ],
     "stationapi:event_bus_client": [
@@ -44,10 +48,6 @@
       "me.grian.griansbetamod.config.ConfigScreen"
     ],
     "glassnetworking": [
-      {
-        "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.PacketListener"
-      }
     ],
     "main": [
       {

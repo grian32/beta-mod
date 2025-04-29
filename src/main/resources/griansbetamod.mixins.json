@@ -13,18 +13,15 @@
     "icystone.OverworldChunkGeneratorMixin",
     "itemenhancements.LogBlockMixin",
     "lapisspeedboost.PlayerEntityMixin",
+    "lapisspeedboost.WorldMixin",
     "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stackcrafting.StationShapedRecipeMixin",
     "stairsdrop.StairsBlockMixin"
   ],
-  "server": [
-    "lapisspeedboost.ServerPlayNetworkHandlerMixin"
-  ],
   "client": [
     "ClientNetworkHandlerAccessor",
-    "debugbiome.InGameHudMixin",
-    "lapisspeedboost.WorldMixin"
+    "debugbiome.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

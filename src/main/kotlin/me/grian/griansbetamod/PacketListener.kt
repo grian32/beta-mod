@@ -1,20 +1,14 @@
 package me.grian.griansbetamod
 
-import me.grian.griansbetamod.config.ConfigScreen
-import me.grian.griansbetamod.mixin.ClientNetworkHandlerAccessor
-import me.grian.griansbetamod.mixininterfaces.IPlayerEntityMixin
-import net.modificationstation.stationapi.api.util.Namespace
-import net.glasslauncher.mods.networking.GlassPacketListener
+import me.grian.griansbetamod.network.SpeedTicksPacket
+import net.mine_diver.unsafeevents.listener.EventListener
+import net.modificationstation.stationapi.api.event.network.packet.PacketRegisterEvent
+import net.modificationstation.stationapi.api.registry.PacketTypeRegistry
+import net.modificationstation.stationapi.api.registry.Registry
 
-object PacketListener : GlassPacketListener {
-    private val NAMESPACE: Namespace = Namespace.of("griansbetamod")
-
-    override fun registerGlassPackets() {
-        if (ConfigScreen.config.lapisSpeedBoost) {
-            registerGlassPacket("griansbetamod:speedticks", { glassPacket, networkHandler ->
-                val player = ((networkHandler as ClientNetworkHandlerAccessor).minecraft.player as IPlayerEntityMixin)
-                player.`beta_mod$setSpeedBoostTicks`(glassPacket.nbt.getInt("speedTicks"))
-            }, true, false)
-        }
+object PacketListener {
+    @EventListener
+    fun registerPacket(event: PacketRegisterEvent) {
+        Registry.register(PacketTypeRegistry.INSTANCE, SpeedTicksPacket.ID, SpeedTicksPacket.TYPE)
     }
 }
