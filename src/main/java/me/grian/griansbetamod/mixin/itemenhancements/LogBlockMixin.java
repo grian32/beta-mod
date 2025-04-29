@@ -31,7 +31,7 @@ public class LogBlockMixin extends Block {
     private static final BooleanProperty PLACED = BooleanProperty.of("placed");
 
     @Unique
-    public boolean enhanced = false;
+    public Enhancement enhancement = Enhancement.NONE;
 
     @Unique
     public int tier = -1;
@@ -79,11 +79,11 @@ public class LogBlockMixin extends Block {
 
     @Inject(method = "getDroppedItemCount", at = @At("HEAD"), cancellable = true)
     public void getDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
-        if (enhanced && ConfigScreen.config.enhancementSystem && this.tier > 0) {
+        if (enhancement == Enhancement.EXTRA_LOGS && ConfigScreen.config.enhancementSystem && this.tier > 0) {
             cir.setReturnValue(1 + getExtraLogs(this.tier, random));
 
             isPlaced = false;
-            enhanced = false;
+            enhancement = Enhancement.NONE;
             this.tier = -1;
         }
     }
@@ -98,7 +98,7 @@ public class LogBlockMixin extends Block {
             int tier = getEnhancementTier(selectedSlot);
 
             if (enhancement == Enhancement.EXTRA_LOGS) {
-                enhanced = true;
+                this.enhancement = enhancement;
                 this.tier = tier;
             }
         }
