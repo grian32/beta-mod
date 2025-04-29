@@ -173,9 +173,9 @@ object BetaMod {
 
                     val lightBlueDye = ItemStack(Item.DYE, 1, 12)
 
-                    top(Block.COBBLESTONE.asItemStack(), lightBlueDye, Block.COBBLESTONE.asItemStack())
-                    middle(Block.PLANKS.asItem(), Item.DIAMOND, Block.PLANKS.asItem())
-                    bottom(Block.PLANKS, null, Block.PLANKS)
+                    top(lightBlueDye, ItemStack(Item.DIAMOND), lightBlueDye)
+                    middle(Block.STONE.asItemStack(), lightBlueDye, Block.STONE.asItemStack())
+                    bottom(Block.STONE, null, Block.STONE)
                 }
             }
         }
