@@ -1,5 +1,6 @@
 package me.grian.griansbetamod
 
+import me.grian.griansbetamod.network.EnhancementTableScreenPacket
 import me.grian.griansbetamod.network.SpeedTicksPacket
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.event.network.packet.PacketRegisterEvent
@@ -10,5 +11,6 @@ object PacketListener {
     @EventListener
     fun registerPacket(event: PacketRegisterEvent) {
         Registry.register(PacketTypeRegistry.INSTANCE, SpeedTicksPacket.ID, SpeedTicksPacket.TYPE)
+        Registry.register(PacketTypeRegistry.INSTANCE, EnhancementTableScreenPacket.ID, EnhancementTableScreenPacket.TYPE)
     }
 }
