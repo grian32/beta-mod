@@ -36,8 +36,12 @@ public class LogBlockMixin extends Block {
     @Unique
     public int tier = -1;
 
+    /**
+     * this intermediary property is required due to the broken block being air in afterBlockBreak, block can't change between
+     * onBlockBreakStart & afterBlockBreak so afaik it's safe.
+     */
     @Unique
-    public boolean isPlaced = false;
+    public boolean isNotPlaced = false;
 
     public LogBlockMixin(int id, Material material) {
         super(id, material);
@@ -71,7 +75,7 @@ public class LogBlockMixin extends Block {
     public void onBlockBreakStart(World world, int x, int y, int z, PlayerEntity player) {
         if (ConfigScreen.config.enhancementSystem) {
             BlockState state = world.getBlockState(x, y, z);
-            if (!state.get(PLACED)) isPlaced = true;
+            if (!state.get(PLACED)) isNotPlaced = true;
 
             super.onBlockBreakStart(world, x, y, z, player);
         }
@@ -82,7 +86,7 @@ public class LogBlockMixin extends Block {
         if (enhancement == Enhancement.EXTRA_LOGS && ConfigScreen.config.enhancementSystem && this.tier > 0) {
             cir.setReturnValue(1 + getExtraLogs(this.tier, random));
 
-            isPlaced = false;
+            isNotPlaced = false;
             enhancement = Enhancement.NONE;
             this.tier = -1;
         }
@@ -93,7 +97,7 @@ public class LogBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta, CallbackInfo ci) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
-        if (selectedSlot != null && isPlaced && ConfigScreen.config.enhancementSystem) {
+        if (selectedSlot != null && isNotPlaced && ConfigScreen.config.enhancementSystem) {
             Enhancement enhancement = getEnhancement(selectedSlot);
             int tier = getEnhancementTier(selectedSlot);
 
