@@ -25,5 +25,3 @@ fun Array<ItemStack?>.toItemIds(): Array<Int?> {
 }
 
 fun Block.asItemStack(): ItemStack = ItemStack(this, 1)
-
-fun <T> Stream<T>.chunked(size: Int): Stream<Stream<T>> = chunked(size)
