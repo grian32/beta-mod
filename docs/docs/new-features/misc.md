@@ -3,7 +3,7 @@
 Grian's Beta Expansion also adds a variety of miscellaneous features
 
 ### Speed Crystals
-You can now consume Speed Crystal's which will lead to a 1.5x Speed Boost for 20 seconds.
+You can now consume Speed Crystals which will lead to a 1.5x Speed Boost for 20 seconds.
 
 Recipe: 
 
@@ -38,6 +38,19 @@ Redstone Blocks currently do not feature redstone functionality, this is coming 
 
 Redstone Blocks have been backported from 1.5.2. They have the same recipe as all other ore storage blocks.
 
+### Nether Glass
+
+Nether Glass is red tinted glass that can be made via smelting Soul Sand in a furnace.
+
+The beta renderer does not support colored transparency, so this is only tinted on the solid colors. Implementing this in the renderer is planned as part of this mod.
+
+### Pile of Logs
+
+Adds Pile of Logs, which is a decorative block that can also be used as an ingredient for certain enhancements.
+
+Recipe:
+
+[TODO]
 
 ### Saddle Decrafting
 
@@ -50,20 +63,6 @@ This is not configurable as it is a debug feature, if you need to configure this
 :::
 
 Adds a display in the F3 debug menu which shows what biome the player is currently in.
-
-### Nether Glass
-
-Nether Glass is red tinted glass that can be made via smelting Soul Sand in a furnace. 
-
-The beta renderer does not support colored transparency, so this is only tinted on the solid colors. Implementing this in the renderer is planned as part of this mod.
-
-### Pile of Logs
-
-Adds Pile of Logs, which is a decorative block that can also be used as an ingredient for certain enhancements.
-
-Recipe:
-
-[TODO]
 
 ### Fence Collision Boxes
 
