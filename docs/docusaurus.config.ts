@@ -19,7 +19,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'grian32', // Usually your GitHub org/user name.
   projectName: 'beta-mod', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -92,7 +92,7 @@ const config: Config = {
           items: [
             {
               label: 'Wiki',
-              to: '/docs/',
+              to: '/beta-mod/docs/',
             },
           ],
         },
