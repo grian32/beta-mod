@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "rotated=false": { "model": "griansbetamod:block/pile_of_logs",
-      "y": 90
-    },
-    "rotated=true": { "model": "griansbetamod:block/pile_of_logs" }
-  }
-}
