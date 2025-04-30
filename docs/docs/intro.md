@@ -2,46 +2,26 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Grian's Beta Expansion
+rian's Beta Expansion is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
 
-Let's discover **Docusaurus in less than 5 minutes**.
+This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues.
 
-## Getting Started
+The project is currently in pretty early stages & doesn't include much additional content as of now, a lot more is planned however, so stay tuned!
 
-Get started by **creating a new site**.
+## Disclaimer
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+I have no association with and I do not claim to be the youtuber of the same name, it's an unfortunate coincidence, I have had this name for many years and many people know me by it, which means I cannot change it.
 
-### What you'll need
+## Installation
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+1. Install the Babric Prism Instance available [here](https://github.com/babric/prism-instance)
+2. Add the following mods: [Glass Config API](https://modrinth.com/mod/glass-config-api), [Glass Networking](https://modrinth.com/mod/glass-networking), [Fabric Language Kotlin 1.10.18+kotlin1.9.22.](https://modrinth.com/mod/fabric-language-kotlin/version/1.10.18+kotlin.1.9.22), [StationAPI](https://modrinth.com/mod/stationapi) & [Mod Menu Beta](https://modrinth.com/mod/modmenu-beta) to your mods folder.
+3. Add the jar you downloaded to the mods folder.
 
-## Generate a new site
+## Current possible places of conflict with other mods
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Vanilla Overworld Gen - Mainly the Icy Stone generation in cold biomes detailed below.
+:::danger
+Item Enhancements modifies several vanilla blocks by adding blockstates to support certain features efficiently, this means that the Item Enhancements feature is not compatible with pre-existing worlds. At this time I believe there isn't much I can do.
+:::
