@@ -3,6 +3,11 @@ sidebar_position: 1
 ---
 # Item Enhancements
 
+:::warning
+This feature is unfinished and has not yet been published on Modrinth.
+:::
+
+
 Enhancements are my take on the enchantments added in later versions. 
 This feature allows you to enhance your tools with various effects via the Enhancement Table, costing a set amount of a certain ingredient (usually a block, or an item)
 
