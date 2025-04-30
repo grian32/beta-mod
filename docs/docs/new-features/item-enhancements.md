@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Item Enhancements
 
 Enhancements are my take on the enchantments added in later versions. 
