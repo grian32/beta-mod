@@ -6,10 +6,11 @@ enum class Enhancement(
     val guiName: String,
     val color: Formatting,
     val id: Int,
+    val hasTiers: Boolean = true
 ) {
     NONE(guiName = "", color = Formatting.WHITE, id = -1),
     EXTRA_LOGS(guiName = "Extra Logs", color = Formatting.GOLD, id = 0),
-    ROTBANE(guiName = "Rotbane", color = Formatting.DARK_GREEN, id = 1);
+    ROTBANE(guiName = "Rotbane", color = Formatting.DARK_GREEN, id = 1, hasTiers = false);
 
     companion object {
         fun getFromId(id: Int) = entries.find { it.id == id }

@@ -15,7 +15,10 @@ object EnhancementTooltipListener {
 
             if (enhancement == Enhancement.NONE) return
 
-            val enhancementTooltip = "${enhancement.guiName} $enhancementTier"
+            val enhancementTooltip = buildString {
+                append(enhancement.guiName)
+                if (enhancement.hasTiers) append(" $enhancementTier")
+            }
 
             event.add(enhancement.color.toString() + enhancementTooltip)
         }
