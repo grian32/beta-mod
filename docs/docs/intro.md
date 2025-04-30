@@ -25,3 +25,7 @@ I have no association with and I do not claim to be the youtuber of the same nam
 :::danger
 Item Enhancements modifies several vanilla blocks by adding blockstates to support certain features efficiently, this means that the Item Enhancements feature is not compatible with pre-existing worlds. At this time I believe there isn't much I can do.
 :::
+
+## Configuration
+
+All of the above Features & Fixes can be enabled/disabled individually, all of the above are enabled by default unless WIP & the mod is meant to be played with default configuration. If a certain feature is no longer WIP after an update, you will have to manually enable it.
