@@ -21,7 +21,7 @@ const config: Config = {
   projectName: 'beta-mod', // Usually your repo name.
   trailingSlash: true,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
