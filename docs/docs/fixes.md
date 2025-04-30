@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Fixes
 
 Grian's Beta Expansion applies the follows fixes to vanilla:
