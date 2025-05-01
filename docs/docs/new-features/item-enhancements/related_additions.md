@@ -22,16 +22,18 @@ Resin has a variety of uses, one of them is upgrading an axe from Resin Harvest 
 
 A decorative block that is also used to upgrade an axe from Resin Harvest II to Resin Harvest III
 
-[TODO RECIPE]
+Recipe:
 
-[TODO INGAME PICTURE]
+![Resin Block Recipe](/img/recipe/resin_block.png)
+![Pile of Resin Blocks In Game](/img/resin_block.png)
 
 #### Sticky Pistons
 
 Can be used instead of slimeballs to create sticky pistons
 
-[TODO RECIPE]
+Recipe:
 
+![Sticky Piston With Resin Recipe](/img/recipe/sticky_piston_resin.png)
 #### Totem of Health
 
 Naturally regenerates half a heart every 10 seconds.
