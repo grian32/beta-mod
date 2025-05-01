@@ -35,11 +35,11 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Three - 75% - 32 Pile Of Logs
     - Tier Four - Guaranteed - 64 Pile Of Logs
 - Resin Harvest: Logs have a chance to drop resin, resin has various uses, check them out [here](related_additions/#resin)
-    - Tier One - 20% - 64 Logs (any kind)
+    - Tier One - 20% - 64 Spruce Logs
     - Tier Two - 35% - 48 Resin
     - Tier Three - 60% - 32 Resin Blocks
 - Sawdust Collector - Logs have a chance to drop 1-3 sawdust, which can be used as an fuel or to craft planks.
-    - Tier One - 10% - 32 Logs (any kind)
+    - Tier One - 10% - 32 Birch Logs
     - Tier Two - 25% - TODO
     - Tier Three - 45% - TODO
     - Tier Four - 75$ - TODO
