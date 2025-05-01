@@ -192,7 +192,13 @@ object BetaMod {
 
                     top(resin, resin, null)
                     middle(resin, resin, null)
-                    bottom(null as Item?, null, null)
+                }
+
+                addShapedRecipe {
+                    output(Block.STICKY_PISTON)
+
+                    top(null, resin, null)
+                    middle(null, Block.PISTON, null)
                 }
             }
         }
