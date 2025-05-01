@@ -8,7 +8,8 @@ This feature is unfinished and has not yet been published on Modrinth.
 :::
 
 
-Enhancements are my take on the enchantments added in later versions. 
+Item Enhancements are my take on the enchantments added in later versions. This feature is perhaps the largest addition to the mod as of writing, as it adds a lot of surrounding items/blocks/etc. with various uses.
+
 This feature allows you to enhance your tools with various effects via the Enhancement Table, costing a set amount of a certain ingredient (usually a block, or an item)
 
 Unlike enchantments, you can only have one enhancement per tool & if you wish to gain a higher tier of each enhancement then you must upgrade it using the Enhancement Table.

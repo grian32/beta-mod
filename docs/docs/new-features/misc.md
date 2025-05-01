@@ -46,14 +46,6 @@ The beta renderer does not support colored transparency, so this is only tinted 
 
 ![Nether Glass in Minecraft](/img/nether_glass.png)
 
-### Pile of Logs
-
-Adds Pile of Logs, which is a decorative block that can also be used as an ingredient for certain enhancements.
-
-Recipe:
-
-![Pile of Logs Recipe](/img/recipe/pile_of_logs.png)
-
 ### Saddle Decrafting
 
 Adds a shapeless recipe that lets you decraft a saddle into 5 leather.
