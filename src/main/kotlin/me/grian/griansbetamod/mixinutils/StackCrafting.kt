@@ -5,9 +5,7 @@ import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.impl.recipe.StationShapedRecipe
 
-fun stationRecipeToList(ssr: StationShapedRecipe): List<ItemStack?> =
-        ssr.grid
-            .map { it?.right()?.orElseThrow() }
+fun stationRecipeToList(ssr: StationShapedRecipe): List<ItemStack?> = ssr.grid.map { it?.right()?.orElseThrow() }
 
 fun normalizeRecipe(input: Inventory, recipe: List<ItemStack?>): List<ItemStack?> {
     val normalizedRecipe = MutableList<ItemStack?>(input.size()) { null }
