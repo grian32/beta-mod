@@ -19,6 +19,10 @@ TODO
 ## Enhancements
 
 ### Axes
+:::note
+Whenever a naturally spawned tree is mentioned below, this refers to a tree placed by worldgen or grown from a sapling.
+:::
+
 - Extra Logs: This enhancement double logs when broken from a naturally spawned tree, the chance goes up from 20% to guaranteed based on the tier.
     - Tier One - 20% - 48 Oak Logs
     - Tier Two - 45% - 16 Pile Of Logs
