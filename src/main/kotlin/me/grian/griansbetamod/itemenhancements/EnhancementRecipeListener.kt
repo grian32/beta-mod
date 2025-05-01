@@ -38,12 +38,28 @@ object EnhancementRecipeListener : ModInitializer {
             4
             )
 
-            addEnhancementRecipe {
-                toolType = ToolType.AXE
-                ingredients = ItemStack(Block.LOG, 64, 1)
-                enhancement = Enhancement.RESIN
-                enhancementTier = 1
-            }
+            fun resin(recipeIngredients: ItemStack, tier: Int) =
+                addEnhancementRecipe {
+                    toolType = ToolType.AXE
+                    ingredients = recipeIngredients
+                    enhancement = Enhancement.RESIN
+                    enhancementTier = tier
+                }
+
+            resin(
+                ItemStack(Block.LOG, 64, 1),
+                1
+            )
+
+            resin(
+                ItemStack(BetaMod.resin, 48),
+                2
+            )
+
+            resin(
+                ItemStack(BetaMod.resinBlock, 32),
+                3
+            )
         }
     }
 }
