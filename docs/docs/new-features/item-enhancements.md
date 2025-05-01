@@ -14,7 +14,12 @@ This feature allows you to enhance your tools with various effects via the Enhan
 Unlike enchantments, you can only have one enhancement per tool & if you wish to gain a higher tier of each enhancement then you must upgrade it using the Enhancement Table.
 
 Enhancement Table Recipe:
-TODO
+
+![Enhancement Table Recipe](/img/recipe/enhancement_table.png)
+
+Example Usage:
+
+![Example Usage of the Enhancement Table](/img/enhancement_table_example.png)
 
 ## Enhancements
 
@@ -42,5 +47,6 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier One - 64 Saplings (any kind)
 
 ### Pickaxes
+- Lapis Miner: This enhancement gives you a small chance to drop lapis when mining stone, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.
 
 ### Shovel

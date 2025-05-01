@@ -44,13 +44,15 @@ Nether Glass is red tinted glass that can be made via smelting Soul Sand in a fu
 
 The beta renderer does not support colored transparency, so this is only tinted on the solid colors. Implementing this in the renderer is planned as part of this mod.
 
+![Nether Glass in Minecraft](/img/nether_glass.png)
+
 ### Pile of Logs
 
 Adds Pile of Logs, which is a decorative block that can also be used as an ingredient for certain enhancements.
 
 Recipe:
 
-[TODO]
+![Pile of Logs Recipe](/img/recipe/pile_of_logs.png)
 
 ### Saddle Decrafting
 
