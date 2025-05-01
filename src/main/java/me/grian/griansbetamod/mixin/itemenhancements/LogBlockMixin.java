@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.itemenhancements;
 
+import me.grian.griansbetamod.BetaMod;
 import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.itemenhancements.Enhancement;
 import net.minecraft.block.Block;
@@ -24,6 +25,7 @@ import java.util.Random;
 import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancement;
 import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancementTier;
 import static me.grian.griansbetamod.mixinutils.ItemEnhancementsKt.getExtraLogs;
+import static me.grian.griansbetamod.mixinutils.ItemEnhancementsKt.resinDropped;
 
 @Mixin(LogBlock.class)
 public class LogBlockMixin extends Block {
@@ -104,6 +106,8 @@ public class LogBlockMixin extends Block {
             if (enhancement == Enhancement.EXTRA_LOGS) {
                 this.enhancement = enhancement;
                 this.tier = tier;
+            } else if (enhancement == Enhancement.RESIN && resinDropped(tier, world)) {
+                this.dropStack(world, x, y, z, new ItemStack(BetaMod.resin, 1));
             }
         }
     }
