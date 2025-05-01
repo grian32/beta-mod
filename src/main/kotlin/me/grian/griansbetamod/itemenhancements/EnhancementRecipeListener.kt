@@ -18,25 +18,10 @@ object EnhancementRecipeListener : ModInitializer {
                     enhancementTier = tier
                 }
 
-            extraLogs(
-                ItemStack(Block.LOG, 48, 0),
-                1
-            )
-
-            extraLogs(
-                ItemStack(BetaMod.pileOfLogs, 16),
-                2
-            )
-
-            extraLogs(
-                ItemStack(BetaMod.pileOfLogs, 32),
-                3
-            )
-
-            extraLogs(
-                ItemStack(BetaMod.pileOfLogs, 64),
-            4
-            )
+            extraLogs(ItemStack(Block.LOG, 48, 0), 1)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 16), 2)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 32), 3)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 64), 4)
 
             fun resin(recipeIngredients: ItemStack, tier: Int) =
                 addEnhancementRecipe {
@@ -46,20 +31,9 @@ object EnhancementRecipeListener : ModInitializer {
                     enhancementTier = tier
                 }
 
-            resin(
-                ItemStack(Block.LOG, 64, 1),
-                1
-            )
-
-            resin(
-                ItemStack(BetaMod.resin, 48),
-                2
-            )
-
-            resin(
-                ItemStack(BetaMod.resinBlock, 32),
-                3
-            )
+            resin(ItemStack(Block.LOG, 64, 1), 1)
+            resin(ItemStack(BetaMod.resin, 48), 2)
+            resin(ItemStack(BetaMod.resinBlock, 32), 3)
         }
     }
 }
