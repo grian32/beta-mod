@@ -16,11 +16,11 @@ Resin is obtained via chopping trees with the Resin Harvest enhancement.
 
 ### Uses
 
-Resin has a variety of uses, detailed below.
+Resin has a variety of uses, one of them is upgrading an axe from Resin Harvest I to Resin Harvest II, the rest are detailed below.
 
 #### Resin Block
 
-A purely decorative block
+A decorative block that is also used to upgrade an axe from Resin Harvest II to Resin Harvest III
 
 [TODO RECIPE]
 
