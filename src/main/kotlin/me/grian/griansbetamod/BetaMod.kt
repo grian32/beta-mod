@@ -3,10 +3,7 @@ package me.grian.griansbetamod
 import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
-import me.grian.griansbetamod.blocks.NetherGlassBlock
-import me.grian.griansbetamod.blocks.PileOfLogsBlock
-import me.grian.griansbetamod.blocks.RedstoneBlock
-import me.grian.griansbetamod.blocks.SawmillBlock
+import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
@@ -51,6 +48,7 @@ object BetaMod {
     lateinit var enhancementTable: Block
     lateinit var pileOfLogs: Block
     lateinit var resin: Item
+    lateinit var resinBlock: Block
 
     lateinit var grassyBoots: Item
 
@@ -89,7 +87,12 @@ object BetaMod {
             pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
                 .setTranslationKey(NAMESPACE, "pile_of_logs")
                 .setSoundGroup(Block.WOOD_SOUND_GROUP)
-                .setHardness(2.0F)
+                .setHardness(2.0f)
+
+            resinBlock = ResinBlock(NAMESPACE.id("resin_block"))
+                .setTranslationKey(NAMESPACE, "resin_block")
+                .setSoundGroup(Block.DIRT_SOUND_GROUP)
+                .setHardness(2.0f)
         }
     }
 
@@ -182,6 +185,14 @@ object BetaMod {
                     top(lightBlueDye, ItemStack(Item.DIAMOND), lightBlueDye)
                     middle(Block.STONE.asItemStack(), lightBlueDye, Block.STONE.asItemStack())
                     bottom(Block.STONE, null, Block.STONE)
+                }
+
+                addShapedRecipe {
+                    output(resinBlock)
+
+                    top(resin, resin, null)
+                    middle(resin, resin, null)
+                    bottom(null as Item?, null, null)
                 }
             }
         }
