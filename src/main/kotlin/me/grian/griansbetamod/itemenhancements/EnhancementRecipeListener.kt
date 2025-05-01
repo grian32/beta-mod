@@ -37,13 +37,6 @@ object EnhancementRecipeListener : ModInitializer {
                 ItemStack(BetaMod.pileOfLogs, 64),
             4
             )
-
-            addEnhancementRecipe {
-                toolType = ToolType.AXE
-                ingredients = ItemStack(Block.SAPLING, 64)
-                enhancement = Enhancement.ROTBANE
-                enhancementTier = 1
-            }
         }
     }
 }

@@ -44,8 +44,6 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Three - 45% - TODO
     - Tier Four - 75$ - TODO
     - Tier Five - 90% - TODO
-- Rotbane - Leaves decay instantly when the last log of a naturally spawned tree is broken.
-    - Tier One - 64 Saplings (any kind)
 
 ### Pickaxes
 - Lapis Miner: This enhancement gives you a small chance to drop lapis when mining stone, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.
