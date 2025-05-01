@@ -3,8 +3,6 @@ package me.grian.griansbetamod.itemenhancements
 import me.grian.griansbetamod.itemenhancements.Enhancement.entries
 import net.minecraft.item.ItemStack
 
-// TODO: better naming rofl
-
 fun ItemStack.getEnhancement(): Enhancement =
     entries[stationNbt.getInt("enhancement")]
 

@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.stackcrafting;
 
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.CraftingRecipeManager;
@@ -9,13 +8,13 @@ import net.modificationstation.stationapi.impl.recipe.StationShapedRecipe;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+
+import static me.grian.griansbetamod.mixinutils.StackCraftingKt.*;
 
 @Mixin(CraftingResultSlot.class)
 public class CraftingResultSlotMixin {
@@ -36,28 +35,16 @@ public class CraftingResultSlotMixin {
             cancellable = true
     )
     public void onTakeItem(ItemStack par1, CallbackInfo ci) {
-        // TODO: refactor to kt
         var recipes = CraftingRecipeManager.getInstance().getRecipes();
-        StationShapedRecipe foundRecipe = null;
-        // tried with streams but was dodgy.
-        for (Object recipe : recipes) {
-            if (recipe instanceof StationShapedRecipe ssr && ssr.matches((CraftingInventory) input)) {
-                foundRecipe = ssr;
-                break;
-            }
-        }
+        StationShapedRecipe foundRecipe = findRecipe(recipes, input);
 
         if (foundRecipe == null) {
             return;
         }
 
-        List<ItemStack> foundRecipeGrid = Arrays.stream(foundRecipe.getGrid())
-                // if its null & u call right then it throws
-                .map(it -> it != null ? it.right().orElseThrow() : null)
-                .toList();
+        List<ItemStack> foundRecipeGrid = stationRecipeToList(foundRecipe);
 
         foundRecipeGrid = normalizeRecipe(this.input, foundRecipeGrid);
-
 
         for (int i = 0; i < this.input.size(); i++) {
             ItemStack inputStack = this.input.getStack(i);
@@ -73,19 +60,5 @@ public class CraftingResultSlotMixin {
 
         // cancels vanilla behaviour, will return early if no station shaped recipe is found so it's ok.
         ci.cancel();
-    }
-
-    @Unique
-    private List<ItemStack> normalizeRecipe(Inventory input, List<ItemStack> recipe) {
-        ArrayList<ItemStack> normalizedRecipe = new ArrayList<>(Collections.nCopies(input.size(), null));
-        Deque<ItemStack> recipeItems = recipe.stream().filter(Objects::nonNull).collect(Collectors.toCollection(ArrayDeque::new));
-
-        for (int i = 0; i < input.size(); i++) {
-            if (input.getStack(i) == null) continue;
-
-            normalizedRecipe.set(i, recipeItems.pop());
-        }
-
-        return normalizedRecipe;
     }
 }
