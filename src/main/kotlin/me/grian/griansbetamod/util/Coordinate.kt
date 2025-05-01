@@ -1,10 +1,13 @@
 package me.grian.griansbetamod.util
 
+import kotlin.math.abs
+
 @JvmInline
 value class Coordinate(
     val packed: Long
 ) {
     constructor(x: Int, y: Short, z: Int) : this(pack(x, y, z))
+    constructor(x: Int, y: Int, z: Int) : this(x, y.toShort(), z)
 
     val x: Int
         get() = ((packed shr 25) and 0x1FFFFFF).toInt()
@@ -14,6 +17,14 @@ value class Coordinate(
 
     val z: Int
         get() = ((packed) and 0X1FFFFFF).toInt()
+
+    fun manhattanDistanceTo(other: Coordinate): Int {
+        val dx = (other.x - x)
+        val dy = (other.y - y)
+        val dz = (other.z - z)
+
+        return abs(dx) + abs(dy) + abs(dz)
+    }
 
     companion object {
         fun pack(x: Int, y: Short, z: Int): Long {
