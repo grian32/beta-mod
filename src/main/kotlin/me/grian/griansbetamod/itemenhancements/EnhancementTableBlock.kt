@@ -7,11 +7,16 @@ import me.grian.griansbetamod.util.toAccessor
 import me.grian.griansbetamod.util.toServerPlayer
 import net.fabricmc.api.EnvType
 import net.fabricmc.loader.api.FabricLoader
+import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.client.Minecraft
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.world.World
+import net.modificationstation.stationapi.api.block.BlockState
+import net.modificationstation.stationapi.api.item.ItemPlacementContext
 import net.modificationstation.stationapi.api.network.packet.PacketHelper
+import net.modificationstation.stationapi.api.state.StateManager
+import net.modificationstation.stationapi.api.state.property.IntProperty
 import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.util.Identifier
 
@@ -37,5 +42,18 @@ class EnhancementTableBlock(identifier: Identifier) : TemplateBlock(identifier, 
         minecraft.setScreen(EnhancementScreen(player!!.inventory, world!!, x, y, z))
 
         return true
+    }
+
+    override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
+        builder?.add(DIRECTION)
+        super.appendProperties(builder)
+    }
+
+    override fun getPlacementState(context: ItemPlacementContext?): BlockState =
+        defaultState.with(DIRECTION, context?.horizontalPlayerFacing?.horizontal!!)
+
+    companion object {
+        @JvmStatic
+        private val DIRECTION: IntProperty = IntProperty.of("direction", 0, 3)
     }
 }
