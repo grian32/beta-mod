@@ -10,6 +10,7 @@ import me.grian.griansbetamod.blocks.SawmillBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
+import me.grian.griansbetamod.items.ResinItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
@@ -45,11 +46,11 @@ object BetaMod {
 
     lateinit var sawmill: Block
 
-
     lateinit var netherGlass: Block
 
     lateinit var enhancementTable: Block
     lateinit var pileOfLogs: Block
+    lateinit var resin: Item
 
     lateinit var grassyBoots: Item
 
@@ -103,6 +104,11 @@ object BetaMod {
         if (ConfigScreen.config.lapisSpeedBoost) {
             speedCrystal = SpeedCrystalItem(NAMESPACE.id("speed_crystal"))
                 .setTranslationKey(NAMESPACE, "speed_crystal")
+        }
+
+        if (ConfigScreen.config.enhancementSystem) {
+            resin = ResinItem(NAMESPACE.id("resin"))
+                .setTranslationKey(NAMESPACE, "resin")
         }
     }
 

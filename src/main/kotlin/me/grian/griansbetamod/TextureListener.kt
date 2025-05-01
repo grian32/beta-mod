@@ -28,5 +28,6 @@ object TextureListener {
         }
         if (ConfigScreen.config.netherGlass) BetaMod.netherGlass.textureId = terrain.addTexture(NAMESPACE.id("block/nether_glass")).index
         if (ConfigScreen.config.lapisSpeedBoost) BetaMod.speedCrystal.setTexture(NAMESPACE.id("item/speed_crystal"))
+        if (ConfigScreen.config.enhancementSystem) BetaMod.resin.setTexture(NAMESPACE.id("item/resin"))
     }
 }
