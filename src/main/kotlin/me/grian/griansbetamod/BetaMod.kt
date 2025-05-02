@@ -174,6 +174,7 @@ object BetaMod {
             }
 
             if (ConfigScreen.config.enhancementSystem) {
+                // TODO: maybe move this to sep file, not 100% sure
                 addShapedRecipe {
                     output(pileOfLogs)
 
@@ -205,6 +206,14 @@ object BetaMod {
 
                     top(null, resin, null)
                     middle(null, Block.PISTON, null)
+                }
+
+                addShapedRecipe {
+                    output(totemOfHealth)
+
+                    top(Block.DIAMOND_BLOCK.asItem(), resin, Block.DIAMOND_BLOCK.asItem())
+                    middle(resin, resin, resin)
+                    bottom(null, resin, null)
                 }
             }
         }
