@@ -117,6 +117,7 @@ object BetaMod {
 
             totemOfHealth = TotemOfHealthItem(NAMESPACE.id("totem_of_health"))
                 .setTranslationKey(NAMESPACE, "totem_of_health")
+                .setMaxCount(1)
         }
     }
 
