@@ -31,6 +31,7 @@ object TextureListener {
         if (ConfigScreen.config.enhancementSystem) {
             BetaMod.resin.setTexture(NAMESPACE.id("item/resin"))
             BetaMod.resinBlock.textureId = terrain.addTexture(NAMESPACE.id("block/resin_block")).index
+            BetaMod.totemOfHealth.setTexture(NAMESPACE.id("item/totem_of_health"))
         }
     }
 }

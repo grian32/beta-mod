@@ -9,6 +9,7 @@ import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.ResinItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
+import me.grian.griansbetamod.items.TotemOfHealthItem
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
@@ -49,6 +50,7 @@ object BetaMod {
     lateinit var pileOfLogs: Block
     lateinit var resin: Item
     lateinit var resinBlock: Block
+    lateinit var totemOfHealth: Item
 
     lateinit var grassyBoots: Item
 
@@ -112,6 +114,9 @@ object BetaMod {
         if (ConfigScreen.config.enhancementSystem) {
             resin = ResinItem(NAMESPACE.id("resin"))
                 .setTranslationKey(NAMESPACE, "resin")
+
+            totemOfHealth = TotemOfHealthItem(NAMESPACE.id("totem_of_health"))
+                .setTranslationKey(NAMESPACE, "totem_of_health")
         }
     }
 
