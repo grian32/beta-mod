@@ -33,9 +33,9 @@ Can be used instead of slimeballs to create sticky pistons
 
 Recipe:
 
-![Sticky Piston With Resin Recipe](/img/recipe/sticky_piston_resin.png)
+![Sticky Piston With Resin Recipe]( /img/recipe/sticky_piston_resin.png)
 #### Totem of Health
 
-Naturally regenerates half a heart every 10 seconds.
+Naturally regenerates half a heart every 10 seconds. This recipe may be balanced in the future, but it is currently fairly expensive as natural health regen is pretty OP in this version of the game.
 
-[TODO RECIPE TOTEM EXPENSIVE]
+![Totem of Health Recipe](/img/recipe/totem_of_health.png)
