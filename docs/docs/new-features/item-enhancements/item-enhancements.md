@@ -44,6 +44,11 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Three - 45% - TODO
     - Tier Four - 75$ - TODO
     - Tier Five - 90% - TODO
+- Reinforced: Axes have a chance to not consume durability.
+    - Tier One - 10% chance - 24 Iron Ingots
+    - Tier Two - 20% chance - 64 Iron Ingots
+    - Tier Three - 30% chance - 10 Iron Blocks
+    - Tier Four - 40% chance - 20 Iron Blocks
 
 ### Pickaxes
 - Lapis Miner: This enhancement gives you a small chance to drop lapis when mining stone, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.

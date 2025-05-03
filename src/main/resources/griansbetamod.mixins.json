@@ -12,6 +12,7 @@
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
     "itemenhancements.LogBlockMixin",
+    "itemenhancements.ToolItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
     "lapisspeedboost.WorldMixin",
     "stackcrafting.CraftingResultSlotMixin",

@@ -5,6 +5,7 @@ import me.grian.griansbetamod.api.craftingrecipes.addEnhancementRecipe
 import me.grian.griansbetamod.config.ConfigScreen
 import net.fabricmc.api.ModInitializer
 import net.minecraft.block.Block
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 
 object EnhancementRecipeListener : ModInitializer {
@@ -34,6 +35,20 @@ object EnhancementRecipeListener : ModInitializer {
             resin(ItemStack(Block.LOG, 64, 1), 1)
             resin(ItemStack(BetaMod.resin, 48), 2)
             resin(ItemStack(BetaMod.resinBlock, 32), 3)
+
+            fun reinforced(recipeIngredients: ItemStack, tier: Int) =
+                addEnhancementRecipe {
+                    toolType = ToolType.AXE
+                    ingredients = recipeIngredients
+                    enhancement = Enhancement.AXE_UNBREAKING
+                    enhancementTier = tier
+                }
+
+            reinforced(ItemStack(Item.IRON_INGOT, 24), 1)
+            reinforced(ItemStack(Item.IRON_INGOT, 64), 2)
+            reinforced(ItemStack(Block.IRON_BLOCK, 10), 3)
+            reinforced(ItemStack(Block.IRON_BLOCK, 20), 4)
+
         }
     }
 }
