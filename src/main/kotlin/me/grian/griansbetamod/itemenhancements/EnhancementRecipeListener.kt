@@ -75,7 +75,7 @@ object EnhancementRecipeListener : ModInitializer {
 
             addEnhancementRecipe {
                 toolType = ToolType.HOE
-                ingredients = ItemStack(Item.BREAD, 48)
+                ingredients = ItemStack(Item.WHEAT, 64)
                 enhancement = Enhancement.REPLANTER
                 enhancementTier = 1
             }
