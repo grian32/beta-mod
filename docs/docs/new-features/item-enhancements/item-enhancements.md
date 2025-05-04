@@ -61,8 +61,5 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 There are currently no shovel enhancements
 
 ### Hoe
-- Replanter: Crops have a chance to replant themselves at no cost if they were fully grown.
-    - Tier One - 15% - 32 Seeds
-    - Tier Two - 30% - 64 Seeds
-    - Tier Three - 50% - 32 Wheat
-    - Tier Four - 75% - 64 Wheat
+- Replanter: Crops will replant themselves at no cost if they were fully grown.
+    - Tier One - 48 Bread
