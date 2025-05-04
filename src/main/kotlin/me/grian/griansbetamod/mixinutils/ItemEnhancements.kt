@@ -8,11 +8,12 @@ import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
 import java.util.*
 
+// uses smallest possible fractions to save on memory for range to check against.
 fun getExtraLogs(tier: Int, random: Random): Int =
     when (tier) {
-        1 -> (20.outOf(100, random)).toInt()
-        2 -> (45.outOf(100, random)).toInt()
-        3 -> (75.outOf(100, random)).toInt()
+        1 -> (1.outOf(5, random)).toInt() // 20%
+        2 -> (9.outOf(20, random)).toInt() // 45%
+        3 -> (3.outOf(4, random)).toInt() // 75%
         4 -> 1
         else -> 0
     }
@@ -21,9 +22,9 @@ private fun Boolean.toInt() = if (this) 1 else 0
 
 fun resinDropped(tier: Int, random: Random): Boolean =
     when (tier) {
-        1 -> 20.outOf(100, random)
-        2 -> 35.outOf(100, random)
-        3 -> 60.outOf(100, random)
+        1 -> 1.outOf(5, random) // 20%
+        2 -> 21.outOf(60, random) // 35%
+        3 -> 3.outOf(5, random) // 60%
         else -> false
     }
 
@@ -32,10 +33,10 @@ fun shouldSaveDurability(stack: ItemStack?, random: Random): Boolean {
     val tier = stack.getEnhancementTier()
 
     return when (tier) {
-        1 -> 10.outOf(100, random)
-        2 -> 20.outOf(100, random)
-        3 -> 30.outOf(100, random)
-        4 -> 40.outOf(100, random)
+        1 -> 1.outOf(10, random)
+        2 -> 2.outOf(10, random)
+        3 -> 3.outOf(10, random)
+        4 -> 4.outOf(10, random)
         else -> false
     }
 }
