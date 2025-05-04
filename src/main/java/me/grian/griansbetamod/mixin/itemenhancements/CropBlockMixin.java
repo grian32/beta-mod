@@ -1,11 +1,13 @@
 package me.grian.griansbetamod.mixin.itemenhancements;
 
 import me.grian.griansbetamod.itemenhancements.Enhancement;
+import me.grian.griansbetamod.itemenhancements.replanter.ReplanterTimer;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,9 +30,7 @@ public class CropBlockMixin extends Block {
             getEnhancementTier(selectedSlot) > 0 &&
             meta == 7 // fully grown
         ) {
-            world.addParticle("reddust", x + 0.5, y + 0.5, z + 0.5, -1.0, 1.0, 0.0);
-            // TODO: need to figure out how to delay this so the player can't break it instantly :p
-            world.setBlock(x, y, z, Block.WHEAT.id, 0);
+            ReplanterTimer.registerTimer(new BlockPos(x, y, z), world);
         }
 
         super.afterBreak(world, playerEntity, x, y, z, meta);

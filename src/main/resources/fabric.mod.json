@@ -30,6 +30,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.PacketListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.itemenhancements.replanter.ReplanterTimer"
       }
     ],
     "stationapi:event_bus_client": [
