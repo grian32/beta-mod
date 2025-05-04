@@ -106,7 +106,7 @@ public class LogBlockMixin extends Block {
             if (enhancement == Enhancement.EXTRA_LOGS) {
                 this.enhancement = enhancement;
                 this.tier = tier;
-            } else if (enhancement == Enhancement.RESIN && resinDropped(tier, world)) {
+            } else if (enhancement == Enhancement.RESIN && resinDropped(tier, world.random)) {
                 this.dropStack(world, x, y, z, new ItemStack(BetaMod.resin, 1));
             }
         }

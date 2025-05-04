@@ -6,7 +6,6 @@ import me.grian.griansbetamod.itemenhancements.getEnhancementTier
 import me.grian.griansbetamod.util.outOf
 import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
-import net.minecraft.world.World
 import java.util.*
 
 fun getExtraLogs(tier: Int, random: Random): Int =
@@ -20,11 +19,11 @@ fun getExtraLogs(tier: Int, random: Random): Int =
 
 private fun Boolean.toInt() = if (this) 1 else 0
 
-fun resinDropped(tier: Int, world: World): Boolean =
+fun resinDropped(tier: Int, random: Random): Boolean =
     when (tier) {
-        1 -> 20.outOf(100, world.random)
-        2 -> 35.outOf(100, world.random)
-        3 -> 60.outOf(100, world.random)
+        1 -> 20.outOf(100, random)
+        2 -> 35.outOf(100, random)
+        3 -> 60.outOf(100, random)
         else -> false
     }
 
