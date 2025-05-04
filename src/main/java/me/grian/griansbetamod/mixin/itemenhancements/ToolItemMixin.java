@@ -15,15 +15,11 @@ public class ToolItemMixin {
     // can't just cir.setReturnValue(shouldSaveDurability()) since that would return early if true
     @Inject(method = "postHit", at = @At("HEAD"), cancellable = true)
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker, CallbackInfoReturnable<Boolean> cir) {
-        System.out.println(stack.getDamage());
         if (shouldSaveDurability(stack, attacker.world.random)) cir.setReturnValue(true);
-        System.out.println(stack.getDamage());
     }
 
     @Inject(method = "postMine", at = @At("HEAD"), cancellable = true)
     public void postMine(ItemStack stack, int blockId, int x, int y, int z, LivingEntity miner, CallbackInfoReturnable<Boolean> cir) {
-        System.out.println(stack.getDamage());
         if (shouldSaveDurability(stack, miner.world.random)) cir.setReturnValue(true);
-        System.out.println(stack.getDamage());
     }
 }
