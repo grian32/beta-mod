@@ -14,6 +14,8 @@ This feature allows you to enhance your tools with various effects via the Enhan
 
 Unlike enchantments, you can only have one enhancement per tool & if you wish to gain a higher tier of each enhancement then you must upgrade it using the Enhancement Table.
 
+There are currently only a few enhancements to start off with, but there may be more coming in the future.
+
 Enhancement Table Recipe:
 
 ![Enhancement Table Recipe](/img/recipe/enhancement_table.png)
@@ -45,6 +47,22 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Four - 40% chance - 20 Iron Blocks
 
 ### Pickaxes
-- Lapis Miner: This enhancement gives you a small chance to drop lapis when mining stone, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.
+- Lapis Miner: Naturally generated stone now has a small chance to drop lapis when mined, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.
+    - Tier One - 2% Chance - 64 Stone
+    - Tier Two - 3% Chance - 64 Lapis
+    - Tier Three - 4% Chance - 24 Lapis Blocks
+- Steady Hand: All ores now have a small chance to be preserved.
+    - Tier One - 5% chance - 32 Iron Ingots
+    - Tier Two - 7.5% chance - 64 Gold Ingots
+    - Tier Three - 10% Chance - 24 Diamonds
 
 ### Shovel
+
+There are currently no shovel enhancements
+
+### Hoe
+- Replanter: Crops have a chance to replant themselves at no cost if they were fully grown.
+    - Tier One - 15% - 32 Seeds
+    - Tier Two - 30% - 64 Seeds
+    - Tier Three - 50% - 32 Wheat
+    - Tier Four - 75% - 64 Wheat
