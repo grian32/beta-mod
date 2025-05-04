@@ -11,6 +11,7 @@
     "icystone.CaveWorldCarverMixin",
     "icystone.OreFeatureMixin",
     "icystone.OverworldChunkGeneratorMixin",
+    "itemenhancements.CropBlockMixin",
     "itemenhancements.LogBlockMixin",
     "itemenhancements.ToolItemMixin",
     "lapisspeedboost.PlayerEntityMixin",
