@@ -7,12 +7,13 @@ import net.minecraft.world.World
 import net.modificationstation.stationapi.api.event.tick.GameTickEvent
 
 object ReplanterTimer {
-    // TODO: maybe refactor to object? idk, perf is dodgy as is
     // pos, timer, world
     val blocks: MutableMap<BlockPos, Pair<Int, World>> = mutableMapOf()
 
     @EventListener
     fun worldTick(event: GameTickEvent.End) {
+        // TODO: more particles
+        if (blocks.isEmpty()) return
         for (block in blocks) {
             if (block.value.first <= 1) {
                 val world = block.value.second
