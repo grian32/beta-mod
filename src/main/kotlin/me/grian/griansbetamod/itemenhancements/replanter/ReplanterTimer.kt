@@ -17,16 +17,13 @@ object ReplanterTimer {
         for (block in blocks) {
             if (block.value.first <= 1) {
                 val world = block.value.second
+
+                world.addGrowthParticle(block.key, 0.25, 0.5)
+                world.addGrowthParticle(block.key, 0.75, 0.5)
+                world.addGrowthParticle(block.key, 0.5, 0.25)
+                world.addGrowthParticle(block.key, 0.5, 0.75)
+
                 world.setBlock(block.key.x, block.key.y, block.key.z, Block.WHEAT.id, 0)
-                world.addParticle(
-                    "reddust",
-                    block.key.x + 0.5,
-                    block.key.y + 0.5,
-                    block.key.z + 0.5,
-                    -1.0,
-                    1.0,
-                    0.0
-                )
                 blocks.remove(block.key)
             } else {
                 block.setValue(block.value.first - 1 to block.value.second)
@@ -37,5 +34,17 @@ object ReplanterTimer {
     @JvmStatic
     fun registerTimer(pos: BlockPos, world: World) {
         blocks[pos] = 3 to world
+    }
+
+    private fun World.addGrowthParticle(pos: BlockPos, modifierX: Double, modifierZ: Double) {
+        addParticle(
+            "reddust",
+            pos.x + modifierX,
+            pos.y + 0.75,
+            pos.z + modifierZ,
+            -1.0, // red - 1.0 default so have to negate it
+            1.0, // green
+            0.0 // blue
+        )
     }
 }
