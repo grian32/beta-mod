@@ -28,7 +28,7 @@ public class StoneBlockMixin extends Block {
     private static final BooleanProperty PLACED = BooleanProperty.of("placed");
 
     @Unique
-    private boolean isNotPlaced = false;
+    private boolean placed = true;
 
     public StoneBlockMixin(int id, Material material) {
         super(id, material);
@@ -62,7 +62,7 @@ public class StoneBlockMixin extends Block {
     public void onBlockBreakStart(World world, int x, int y, int z, PlayerEntity player) {
         if (ConfigScreen.config.enhancementSystem) {
             BlockState state = world.getBlockState(x, y, z);
-            if (!state.get(PLACED)) isNotPlaced = true;
+            placed = state.get(PLACED);
 
             super.onBlockBreakStart(world, x, y, z, player);
         }
@@ -72,7 +72,7 @@ public class StoneBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
         ItemStack selected = playerEntity.inventory.getSelectedItem();
 
-        if (selected != null && isNotPlaced && ConfigScreen.config.enhancementSystem) {
+        if (selected != null && !placed && ConfigScreen.config.enhancementSystem) {
             Enhancement enhancement = getEnhancement(selected);
             int tier = getEnhancementTier(selected);
 
@@ -81,7 +81,6 @@ public class StoneBlockMixin extends Block {
                 lapisDropped(tier, world.random)
             ) {
                 this.dropStack(world, x, y, z, new ItemStack(Item.DYE, 1, 4)); // DMG 4 = LAPIS
-                isNotPlaced = false;
             }
         }
         super.afterBreak(world, playerEntity, x, y, z, meta);

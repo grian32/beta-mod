@@ -43,7 +43,7 @@ public class LogBlockMixin extends Block {
      * onBlockBreakStart & afterBlockBreak so afaik it's safe.
      */
     @Unique
-    public boolean isNotPlaced = false;
+    public boolean placed = true;
 
     public LogBlockMixin(int id, Material material) {
         super(id, material);
@@ -77,7 +77,7 @@ public class LogBlockMixin extends Block {
     public void onBlockBreakStart(World world, int x, int y, int z, PlayerEntity player) {
         if (ConfigScreen.config.enhancementSystem) {
             BlockState state = world.getBlockState(x, y, z);
-            if (!state.get(PLACED)) isNotPlaced = true;
+            placed = state.get(PLACED);
 
             super.onBlockBreakStart(world, x, y, z, player);
         }
@@ -88,7 +88,6 @@ public class LogBlockMixin extends Block {
         if (enhancement == Enhancement.EXTRA_LOGS && ConfigScreen.config.enhancementSystem && this.tier > 0) {
             cir.setReturnValue(1 + getExtraLogs(this.tier, random));
 
-            isNotPlaced = false;
             enhancement = Enhancement.NONE;
             this.tier = -1;
         }
@@ -99,7 +98,7 @@ public class LogBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta, CallbackInfo ci) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
-        if (selectedSlot != null && isNotPlaced && ConfigScreen.config.enhancementSystem) {
+        if (selectedSlot != null && !placed && ConfigScreen.config.enhancementSystem) {
             Enhancement enhancement = getEnhancement(selectedSlot);
             int tier = getEnhancementTier(selectedSlot);
 
