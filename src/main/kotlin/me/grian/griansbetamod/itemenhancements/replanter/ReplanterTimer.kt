@@ -14,7 +14,10 @@ object ReplanterTimer {
     fun worldTick(event: GameTickEvent.End) {
         // TODO: more particles
         if (blocks.isEmpty()) return
-        for (block in blocks) {
+
+        val blocksCopy = blocks.entries.toList()
+
+        for (block in blocksCopy) {
             if (block.value.first <= 1) {
                 val world = block.value.second
 
@@ -26,7 +29,7 @@ object ReplanterTimer {
                 world.setBlock(block.key.x, block.key.y, block.key.z, Block.WHEAT.id, 0)
                 blocks.remove(block.key)
             } else {
-                block.setValue(block.value.first - 1 to block.value.second)
+                blocks[block.key] = block.value.first - 1 to block.value.second
             }
         }
     }
