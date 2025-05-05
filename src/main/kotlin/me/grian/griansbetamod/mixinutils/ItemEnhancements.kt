@@ -48,3 +48,11 @@ fun lapisDropped(tier: Int, random: Random): Boolean =
         3 -> 1.outOf(25, random) // 4%
         else -> false
     }
+
+fun shouldSaveOre(tier: Int, random: Random): Boolean =
+    when (tier) {
+        1 -> 1.outOf(100, random) // 1%
+        2 -> 3.outOf(100, random) // 3%
+        3 -> 1.outOf(20, random) // 5%
+        else -> false
+    }

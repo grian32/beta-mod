@@ -13,6 +13,7 @@
     "icystone.OverworldChunkGeneratorMixin",
     "itemenhancements.CropBlockMixin",
     "itemenhancements.LogBlockMixin",
+    "itemenhancements.OreBlockMixin",
     "itemenhancements.StoneBlockMixin",
     "itemenhancements.ToolItemMixin",
     "lapisspeedboost.PlayerEntityMixin",

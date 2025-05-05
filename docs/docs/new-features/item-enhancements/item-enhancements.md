@@ -52,9 +52,9 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Two - 3% Chance - 64 Lapis
     - Tier Three - 4% Chance - 24 Lapis Blocks
 - Steady Hand: All ores now have a small chance to be preserved.
-    - Tier One - 5% chance - 32 Iron Ingots
-    - Tier Two - 7.5% chance - 64 Gold Ingots
-    - Tier Three - 10% Chance - 24 Diamonds
+    - Tier One - 1% chance - 32 Iron Ingots
+    - Tier Two - 3% chance - 64 Gold Ingots
+    - Tier Three - 5% Chance - 24 Diamonds
 
 ### Shovel
 
