@@ -28,7 +28,7 @@ public class StoneBlockMixin extends Block {
     private static final BooleanProperty PLACED = BooleanProperty.of("placed");
 
     @Unique
-    private boolean isNotPlaced = true;
+    private boolean isNotPlaced = false;
 
     public StoneBlockMixin(int id, Material material) {
         super(id, material);
