@@ -40,3 +40,11 @@ fun shouldSaveDurability(stack: ItemStack?, random: Random): Boolean {
         else -> false
     }
 }
+
+fun lapisDropped(tier: Int, random: Random): Boolean =
+    when (tier) {
+        1 -> 1.outOf(50, random) // 2%
+        2 -> 3.outOf(100, random) // 3%
+        3 -> 1.outOf(25, random) // 4%
+        else -> false
+    }
