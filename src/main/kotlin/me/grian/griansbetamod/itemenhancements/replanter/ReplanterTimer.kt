@@ -33,7 +33,7 @@ object ReplanterTimer {
 
     @JvmStatic
     fun registerTimer(pos: BlockPos, world: World) {
-        blocks[pos] = 3 to world
+        blocks[pos] = 5 to world
     }
 
     private fun World.addGrowthParticle(pos: BlockPos, modifierX: Double, modifierZ: Double) {
