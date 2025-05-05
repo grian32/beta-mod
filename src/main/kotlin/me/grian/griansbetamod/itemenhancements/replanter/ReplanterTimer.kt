@@ -12,7 +12,6 @@ object ReplanterTimer {
 
     @EventListener
     fun worldTick(event: GameTickEvent.End) {
-        // TODO: more particles
         if (blocks.isEmpty()) return
 
         val blocksCopy = blocks.entries.toList()
