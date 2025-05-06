@@ -82,6 +82,7 @@ public class OreBlockMixin extends Block {
             !placed &&
             shouldSaveOre(tier, world.random)
         ) {
+            world.playSound(x, y, z, "random.fizz", 0.3f, 0.6f);
             world.setBlock(x, y, z, this.id);
         }
 
