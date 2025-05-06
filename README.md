@@ -2,9 +2,13 @@
 
 Grian's Beta Expansion is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
 
-This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues. Any places I expect incompatibilities to exist can be seen [here](https://grian32.github.io/beta-mod/docs/intro/#current-possible-places-of-conflict-with-other-mods) 
+This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues. Any places I expect incompatibilities to exist can be seen [here](https://grian32.github.io/beta-mod/docs/intro/#current-possible-places-of-conflict-with-other-mods)
 
 The project is currently in pretty early stages & doesn't include much additional content as of now, a lot more is planned however, so stay tuned!
+
+# CAUTION, THE ITEM ENHANCEMENTS FEATURE RELEASED IN 1.1.0 IS NOT COMPATIBLE WITH PRE EXISTING WORLDS AND MAY BREAK THEM IRREVERSABLY
+
+This is due to me having to add blockstates to several vanilla blocks (logs, stone, ores, etc.) to enable me to do features efficiently. Do NOT risk this.
 
 ## Disclaimer
 
