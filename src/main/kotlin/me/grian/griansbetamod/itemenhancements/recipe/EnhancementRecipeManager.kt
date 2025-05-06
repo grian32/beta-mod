@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.itemenhancements.recipe
 
+import me.grian.griansbetamod.itemenhancements.getEnhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancementTier
 import me.grian.griansbetamod.itemenhancements.setEnhancement
 import me.grian.griansbetamod.itemenhancements.setEnhancementTier
@@ -10,7 +11,6 @@ object EnhancementRecipeManager {
     val recipes: MutableList<EnhancementRecipe> = mutableListOf()
 
     fun craft(input: CraftingInventory): ItemStack? {
-        // TODO: make enhancements overrideable by other enhancements, i.e reinforced 1 can override extra logs 4
         val first = input.getStack(0)
         val second = input.getStack(1)
 
@@ -28,7 +28,12 @@ object EnhancementRecipeManager {
 
 
     fun findRecipe(input: CraftingInventory) = recipes.find {
-        input.getStack(0).item::class.java == it.toolType.clazz && input.getStack(1).containsOther(it.ingredients) && input.getStack(0).getEnhancementTier() < it.enhancementTier
+        input.getStack(0).item::class.java == it.toolType.clazz &&
+        input.getStack(1).containsOther(it.ingredients) &&
+        (
+            (input.getStack(0).getEnhancementTier() < it.enhancementTier) ||
+            (input.getStack(0).getEnhancement() != it.enhancement && it.enhancementTier == 1)
+        )
     }
 
     private fun ItemStack.containsOther(other: ItemStack) = this.item.id == other.item.id && this.count >= other.count && this.damage == other.damage
