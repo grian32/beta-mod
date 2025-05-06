@@ -2,11 +2,9 @@
 sidebar_position: 1
 ---
 # Item Enhancements
-
-:::warning
-This feature is unfinished and has not yet been published on Modrinth.
+:::danger
+Item Enhancements modifies several vanilla blocks by adding blockstates to support certain features efficiently, this means that the Item Enhancements feature is not compatible with pre-existing worlds. At this time I believe there isn't much I can do.
 :::
-
 
 Item Enhancements are my take on the enchantments added in later versions. This feature is perhaps the largest addition to the mod as of writing, as it adds a lot of surrounding items/blocks/etc. with various uses.
 
