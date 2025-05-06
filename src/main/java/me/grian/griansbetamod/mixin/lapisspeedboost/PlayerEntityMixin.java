@@ -40,19 +40,24 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IPlayerE
             }
 
             if (!this.isSwimming() && scale > 0.0f) {
-                float f = MathHelper.sqrt(this.sidewaysSpeed * this.sidewaysSpeed + this.forwardSpeed * this.forwardSpeed);
-                if (f < 0.01f) {
+                float movementMagnitude = MathHelper.sqrt(this.sidewaysSpeed * this.sidewaysSpeed + this.forwardSpeed * this.forwardSpeed);
+                if (movementMagnitude < 0.01f) {
+                    // basically standing still
                     return;
                 }
-                if (f < 1.0f) {
-                    f = 1.0f;
+                if (movementMagnitude < 1.0f) {
+                    // set minimum as moving too slow
+                    movementMagnitude = 1.0f;
                 }
 
-                f = scale / f;
-                float f2 = MathHelper.sin(this.yaw * (float) Math.PI / 180.0f);
-                float f3 = MathHelper.cos(this.yaw * (float) Math.PI / 180.0f);
-                this.velocityX += (this.sidewaysSpeed *= f) * f3 - (this.forwardSpeed *= f) * f2;
-                this.velocityZ += this.forwardSpeed * f3 + this.sidewaysSpeed * f2;
+                // adjust for scale
+                movementMagnitude = scale / movementMagnitude;
+
+                float yawSin = MathHelper.sin(this.yaw * (float) Math.PI / 180.0f);
+                float yawCos = MathHelper.cos(this.yaw * (float) Math.PI / 180.0f);
+
+                this.velocityX += (this.sidewaysSpeed *= movementMagnitude) * yawCos - (this.forwardSpeed *= movementMagnitude) * yawSin;
+                this.velocityZ += this.forwardSpeed * yawCos + this.sidewaysSpeed * yawSin;
             }
         }
     }
