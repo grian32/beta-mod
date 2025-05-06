@@ -58,6 +58,12 @@
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.itemenhancements.EnhancementRecipeListener"
       }
+    ],
+    "alwaysmoreitems:plugin": [
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.compat.BetaModAMIPlugin"
+      }
     ]
   },
   "mixins": [
