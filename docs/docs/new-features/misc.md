@@ -61,3 +61,9 @@ Adds a display in the F3 debug menu which shows what biome the player is current
 ### Fence Collision Boxes
 
 Fences now have smaller collision boxes as seen in the later versions
+
+### Charcoal Texture
+
+Charcoal now has a unique texture.
+
+![The charcoal texture](/img/charcoal_texture.png)
