@@ -15,9 +15,12 @@ object TextureListener {
     var sawmillTop = 0
     var sawmillSide = 0
 
+    var charcoalTexture = 0
+
     @EventListener
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
+        val items = Atlases.getGuiItems()
 
         if (ConfigScreen.config.enableRedstoneBlock) BetaMod.redstoneBlock.textureId = terrain.addTexture(NAMESPACE.id("block/block_redstone")).index
         if (ConfigScreen.config.leatherBootsTrampleCrops) BetaMod.grassyBoots.setTexture(NAMESPACE.id("item/grassy_boots"))
@@ -33,5 +36,6 @@ object TextureListener {
             BetaMod.resinBlock.textureId = terrain.addTexture(NAMESPACE.id("block/resin_block")).index
             BetaMod.totemOfHealth.setTexture(NAMESPACE.id("item/totem_of_health"))
         }
+        if (ConfigScreen.config.charcoalTexture) charcoalTexture = items.addTexture(NAMESPACE.id("item/charcoal")).index
     }
 }

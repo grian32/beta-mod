@@ -41,4 +41,7 @@ public class Config {
 
     @ConfigEntry(name = "Enables Item Enhancements System", description = "Requires a restart to take effect.")
     public Boolean enhancementSystem = true;
+
+    @ConfigEntry(name = "Replace the charcoal texture with an updated one", description = "Requires a restart to take effect.")
+    public Boolean charcoalTexture = true;
 }
