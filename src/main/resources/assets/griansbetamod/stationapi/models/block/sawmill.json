@@ -1,0 +1,23 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "griansbetamod:block/sawmill_side",
+    "top": "griansbetamod:block/sawmill_top",
+    "left": "griansbetamod:block/sawmill_left",
+    "side": "griansbetamod:block/sawmill_side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#side", "cullface": "down" },
+        "up":    { "texture": "#top", "cullface": "up" },
+        "north": { "texture": "#side", "cullface": "north" },
+        "south": { "texture": "#side", "cullface": "south" },
+        "west":  { "texture": "#left", "cullface": "west" },
+        "east":  { "texture": "#side", "cullface": "east" }
+      }
+    }
+  ]
+}

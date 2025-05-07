@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "direction=0": { "model": "griansbetamod:block/sawmill", "y": 180 },
+    "direction=1": { "model": "griansbetamod:block/sawmill", "y": 270 },
+    "direction=2": { "model": "griansbetamod:block/sawmill" },
+    "direction=3": { "model": "griansbetamod:block/sawmill", "y": 90 }
+  }
+}

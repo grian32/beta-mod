@@ -1,32 +1,27 @@
 package me.grian.griansbetamod.blocks
 
 import me.grian.griansbetamod.Materials
-import me.grian.griansbetamod.TextureListener
 import net.minecraft.block.Block
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
-import net.minecraft.world.BlockView
 import net.minecraft.world.World
+import net.modificationstation.stationapi.api.block.BlockState
+import net.modificationstation.stationapi.api.item.ItemPlacementContext
+import net.modificationstation.stationapi.api.state.StateManager
+import net.modificationstation.stationapi.api.state.property.IntProperty
 import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.util.Identifier
+import net.modificationstation.stationapi.api.util.math.Vec3i
 
 
 class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials.SAWMILL) {
-    override fun getTextureId(blockView: BlockView?, x: Int, y: Int, z: Int, side: Int): Int = getTextureGeneral(side)
-
-    override fun getTexture(side: Int): Int = getTextureGeneral(side)
-
-    private fun getTextureGeneral(side: Int): Int {
-        return when (side) {
-            1 -> TextureListener.sawmillTop // top
-            2 -> TextureListener.sawmillLeft // left
-            else -> TextureListener.sawmillSide
-        }
-    }
-
     override fun onUse(world: World?, x: Int, y: Int, z: Int, player: PlayerEntity?): Boolean {
-        val referenceBlockId = world!!.getBlockId(x, y, z - 1)
-        val referenceBlockMeta = world.getBlockMeta(x, y, z - 1)
+        val bs = world!!.getBlockState(x, y, z)
+
+        val referenceBlockCoordinate = Vec3i(x, y, z).add(getCoordinateModifier(bs.get(DIRECTION)))
+
+        val referenceBlockId = world.getBlockId(referenceBlockCoordinate.x, referenceBlockCoordinate.y, referenceBlockCoordinate.z)
+        val referenceBlockMeta = world.getBlockMeta(referenceBlockCoordinate.x, referenceBlockCoordinate.y, referenceBlockCoordinate.z)
 
         var referenceBlock: Block? = null
 
@@ -34,6 +29,8 @@ class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials
             referenceBlockId == Block.WOODEN_STAIRS.id -> referenceBlock = WOODEN_STAIRS
             referenceBlockId == Block.SLAB.id && referenceBlockMeta == 2 -> referenceBlock = SLAB
         }
+
+        if (referenceBlock == null) return false
 
         val slot = player!!.inventory.selectedSlot
         val stack = player.inventory.main[slot]
@@ -67,5 +64,34 @@ class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials
         }
 
         return false
+    }
+
+    private fun getCoordinateModifier(direction: Int): Vec3i {
+        /**
+         * dir 0 = +x
+         * dir 1 = +z
+         * dir 2 = -x
+         * dir 3 = -z
+         */
+        return when (direction) {
+            0 -> Vec3i(1, 0, 0)
+            1 -> Vec3i(0, 0, 1)
+            2 -> Vec3i(-1, 0, 0)
+            3 -> Vec3i(0, 0, -1)
+            else -> Vec3i(0, 0, 0)
+        }
+    }
+
+    override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
+        builder?.add(DIRECTION)
+        super.appendProperties(builder)
+    }
+
+    override fun getPlacementState(context: ItemPlacementContext?): BlockState =
+        defaultState.with(DIRECTION, context?.horizontalPlayerFacing?.horizontal!!)
+
+    companion object {
+        @JvmStatic
+        private val DIRECTION: IntProperty = IntProperty.of("direction", 0, 3)
     }
 }
