@@ -31,8 +31,8 @@ class SawmillBlock(identifier: Identifier) : TemplateBlock(identifier, Materials
         var referenceBlock: Block? = null
 
         when {
-            referenceBlockId == 53 -> referenceBlock = WOODEN_STAIRS
-            referenceBlockId == 44 && referenceBlockMeta == 2 -> referenceBlock = SLAB
+            referenceBlockId == Block.WOODEN_STAIRS.id -> referenceBlock = WOODEN_STAIRS
+            referenceBlockId == Block.SLAB.id && referenceBlockMeta == 2 -> referenceBlock = SLAB
         }
 
         val slot = player!!.inventory.selectedSlot
