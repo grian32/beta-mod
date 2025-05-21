@@ -10,6 +10,7 @@ import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.ResinItem
 import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.items.TotemOfHealthItem
+import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless

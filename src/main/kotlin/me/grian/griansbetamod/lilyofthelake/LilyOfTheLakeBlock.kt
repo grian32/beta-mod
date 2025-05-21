@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.blocks;
+package me.grian.griansbetamod.lilyofthelake;
 
 import net.minecraft.block.Block
 import net.minecraft.block.material.Material
