@@ -56,6 +56,8 @@ object BetaMod {
 
     lateinit var speedCrystal: Item
 
+    lateinit var lilyOfTheLake: Block
+
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.enableRedstoneBlock) {
@@ -95,6 +97,13 @@ object BetaMod {
                 .setTranslationKey(NAMESPACE, "resin_block")
                 .setSoundGroup(Block.DIRT_SOUND_GROUP)
                 .setHardness(2.0f)
+        }
+
+        if (ConfigScreen.config.lilyOfTheLake) {
+            lilyOfTheLake = LilyOfTheLakeBlock(NAMESPACE.id("lily_of_the_lake"))
+                .setTranslationKey(NAMESPACE, "lily_of_the_lake")
+                .setHardness(0.0F)
+                .setSoundGroup(Block.DIRT_SOUND_GROUP)
         }
     }
 

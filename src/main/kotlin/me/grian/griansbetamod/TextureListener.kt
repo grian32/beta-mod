@@ -37,5 +37,6 @@ object TextureListener {
             BetaMod.totemOfHealth.setTexture(NAMESPACE.id("item/totem_of_health"))
         }
         if (ConfigScreen.config.charcoalTexture) charcoalTexture = items.addTexture(NAMESPACE.id("item/charcoal")).index
+        if (ConfigScreen.config.lilyOfTheLake) BetaMod.lilyOfTheLake.textureId = terrain.addTexture(NAMESPACE.id("block/lily_of_the_lake")).index
     }
 }

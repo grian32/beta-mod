@@ -44,4 +44,7 @@ public class Config {
 
     @ConfigEntry(name = "Replace the charcoal texture with an updated one", description = "Requires a restart to take effect.")
     public Boolean charcoalTexture = true;
+
+    @ConfigEntry(name = "Enables the lily of the lake block", description = "Requires a restart to take effect.")
+    public Boolean lilyOfTheLake = true;
 }
