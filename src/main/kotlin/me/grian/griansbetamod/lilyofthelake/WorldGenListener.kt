@@ -11,12 +11,9 @@ object WorldGenListener {
         val z = event.z
         val random = event.random
 
-        repeat(10) {
-            val featureX = x + random.nextInt(16) + 8
-            val featureY = random.nextInt(128)
-            val featureZ = z + random.nextInt(16) + 8
+        val featureX = x + random.nextInt(16) + 8
+        val featureZ = z + random.nextInt(16) + 8
 
-            LilyOfTheLakePatchFeature().generate(event.world, random, featureX, featureY, featureZ)
-        }
+        LilyOfTheLakePatchFeature().generate(event.world, random, featureX, 63, featureZ)
     }
 }

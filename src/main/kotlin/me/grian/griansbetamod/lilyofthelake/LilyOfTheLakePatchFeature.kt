@@ -9,31 +9,29 @@ import java.util.*
 
 class LilyOfTheLakePatchFeature : Feature() {
     override fun generate(world: World?, random: Random?, x: Int, y: Int, z: Int): Boolean {
-        // FIXME: generates underground, possible fix: just leave it or check if y level > 50 i wager is ok enough
-        // TODO: make this generate in actual lakes and  make it very often, by actual lakes = solid blocks in 10 blocks of atleast 3 directions
-        repeat(20) {
-            val testX = x + random!!.nextInt(5) - random.nextInt(5)
-            val testZ = z + random.nextInt(5) - random.nextInt(5)
+        if (random!!.nextInt(4) != 0) return false
 
-            if (world!!.isAir(testX, y, testZ) && isOnShore(world, testX, y, testZ)) {
-                val genX = testX + random.nextInt(2, 5)
-                val genZ = testX + random.nextInt(2, 5)
 
-                if (world.getMaterial(genX, y, genZ) == Material.WATER && world.isAir(genX, y + 5, genZ) && world.isAir(genX, y + 1, genZ)) {
+        if (isOnShore(world!!, x, z)) {
+            // TODO: maybe tone down scale?
+            repeat(25) {
+                val genX = x + random.nextInt(10)
+                val genZ = z + random.nextInt(10)
+
+                if (world.getMaterial(genX, y, genZ) == Material.WATER) {
                     world.setBlockWithoutNotifyingNeighbors(genX, y + 1, genZ, BetaMod.lilyOfTheLake.id)
-                    println("we generated @ $genX, ${y+1}, $genZ")
+                    println("we generated @ $genX, ${y + 1}, $genZ")
                 }
             }
         }
-
         return true
     }
 
-    private fun isOnShore(world: World, x: Int, y: Int, z: Int): Boolean {
+    private fun isOnShore(world: World, x: Int, z: Int): Boolean {
         // Check if any adjacent block is water (north, south, east, west)
-        return world.getBlockId(x + 1, y, z) == Block.WATER.id ||
-               world.getBlockId(x - 1, y, z) == Block.WATER.id ||
-               world.getBlockId(x, y, z + 1) == Block.WATER.id ||
-               world.getBlockId(x, y, z - 1) == Block.WATER.id
+        return world.getBlockId(x + 1, 63, z) != Block.WATER.id ||
+                world.getBlockId(x - 1, 63, z) != Block.WATER.id ||
+                world.getBlockId(x, 63, z + 1) != Block.WATER.id ||
+                world.getBlockId(x, 63, z - 1) != Block.WATER.id
     }
 }
