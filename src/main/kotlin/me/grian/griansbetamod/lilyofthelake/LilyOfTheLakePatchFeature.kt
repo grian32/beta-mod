@@ -13,7 +13,7 @@ class LilyOfTheLakePatchFeature : Feature() {
 
 
         if (isOnShore(world!!, x, z)) {
-            // TODO: maybe tone down scale?
+            // TODO: maybe tone down scale or chance? i'd prefer chance honestly.
             repeat(25) {
                 val genX = x + random.nextInt(10)
                 val genZ = z + random.nextInt(10)

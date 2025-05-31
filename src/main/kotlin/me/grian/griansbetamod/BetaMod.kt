@@ -105,6 +105,7 @@ object BetaMod {
                 .setTranslationKey(NAMESPACE, "lily_of_the_lake")
                 .setHardness(0.0F)
                 .setSoundGroup(Block.DIRT_SOUND_GROUP)
+                .setLuminance(0.695f)
         }
     }
 
