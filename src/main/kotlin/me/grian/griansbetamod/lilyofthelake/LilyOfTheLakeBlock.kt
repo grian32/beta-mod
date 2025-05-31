@@ -12,7 +12,6 @@ class LilyOfTheLakeBlock(identifier: Identifier) : TemplateBlock(identifier, Mat
         return blockId == Block.WATER.id
     }
 
-    override fun getRenderType() = 1 // cross
     override fun isOpaque() = false
     override fun isFullCube() = false
     override fun getCollisionShape(world: World?, x: Int, y: Int, z: Int) = null
