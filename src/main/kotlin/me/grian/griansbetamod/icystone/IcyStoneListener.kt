@@ -19,7 +19,7 @@ import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 object IcyStoneListener {
     private var redstoneOre = 0
 
-    @EventListener
+    @EventListener(priority = ListenerPriority.HIGH)
     fun registerBlocks(event: BlockRegistryEvent) {
         if (ConfigScreen.config.icyStone) {
             with (BetaMod) {
@@ -71,13 +71,17 @@ object IcyStoneListener {
                     .setHardness(3.0F)
                     .setResistance(5.0F)
 
-                litIcyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("lit_icy_redstone_ore"), true)
-                    .setTranslationKey(NAMESPACE, "lit_icy_redstone_ore")
-                    .setSoundGroup(Block.STONE_SOUND_GROUP)
-                    .setHardness(3.0F)
-                    .setResistance(5.0F)
-                    .setLuminance(0.625F)
-                    .ignoreMetaUpdates()
+
+                if (!litIcyRedstoneOreInit) {
+                    litIcyRedstoneOre = IcyRedstoneOreBlock(NAMESPACE.id("lit_icy_redstone_ore"), true)
+                        .setTranslationKey(NAMESPACE, "lit_icy_redstone_ore")
+                        .setSoundGroup(Block.STONE_SOUND_GROUP)
+                        .setHardness(3.0F)
+                        .setResistance(5.0F)
+                        .setLuminance(0.625F)
+                        .ignoreMetaUpdates()
+                    litIcyRedstoneOreInit = true
+                }
             }
         }
     }
