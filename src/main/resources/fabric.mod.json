@@ -55,8 +55,6 @@
     "gcapi3": [
       "me.grian.griansbetamod.config.ConfigScreen"
     ],
-    "glassnetworking": [
-    ],
     "main": [
       {
         "adapter": "kotlin",
