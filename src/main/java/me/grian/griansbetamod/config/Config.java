@@ -3,7 +3,7 @@ package me.grian.griansbetamod.config;
 import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 
 public class Config {
-    @ConfigEntry(name = "Speed Crystals which give a speed boost", description = "Requires a restart to take effect & feature only currently works client-side")
+    @ConfigEntry(name = "Speed Crystals which give a speed boost", description = "Requires a restart to take effect.")
     public Boolean lapisSpeedBoost = true;
 
     @ConfigEntry(name = "Players wearing Grassy Boots no longer trample crops.", description = "Requires a restart to take effect, grassy boots are also included in this config.")
@@ -39,7 +39,7 @@ public class Config {
     @ConfigEntry(name = "Fence collision box matches later versions", description = "Requires a restart to take effect.")
     public Boolean fenceCollisionBox = true;
 
-    @ConfigEntry(name = "Enables Item Enhancements System", description = "Requires a restart to take effect.")
+    @ConfigEntry(name = "Enables Item Enhancements System", description = "Requires a restart to take effect. Does not work with pre-existing worlds.")
     public Boolean enhancementSystem = true;
 
     @ConfigEntry(name = "Replace the charcoal texture with an updated one", description = "Requires a restart to take effect.")
