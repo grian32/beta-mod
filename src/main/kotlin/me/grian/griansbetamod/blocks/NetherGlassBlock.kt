@@ -7,7 +7,7 @@ import java.util.Random
 
 class NetherGlassBlock(identifier: Identifier) : TemplateTranslucentBlock(identifier, 0,Material.GLASS, false) {
     override fun getRenderLayer(): Int {
-        return 0
+        return 1
     }
 
     override fun getDroppedItemId(blockMeta: Int, random: Random?): Int {
