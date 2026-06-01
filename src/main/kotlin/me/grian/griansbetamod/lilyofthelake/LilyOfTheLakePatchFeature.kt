@@ -20,7 +20,6 @@ class LilyOfTheLakePatchFeature : Feature() {
 
                 if (world.getMaterial(genX, y, genZ) == Material.WATER) {
                     world.setBlockWithoutNotifyingNeighbors(genX, y + 1, genZ, BetaMod.lilyOfTheLake.id)
-                    println("we generated @ $genX, ${y + 1}, $genZ")
                 }
             }
         }
