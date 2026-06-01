@@ -15,9 +15,6 @@ public class Config {
     @ConfigEntry(name = "Allows crafting saddles into leather.", description = "Requires a restart to take effect.")
     public Boolean decraftSaddles = true;
 
-    @ConfigEntry(name = "Taiga biomes now generate icy stone", description = " WARNING: WIP, DO NOT USE. Requires a restart to take effect.")
-    public Boolean icyStone = false;
-
     @ConfigEntry(name = "Enable Sawmill Block", description = "Requires a restart to take effect.")
     public Boolean sawmillBlock = true;
 

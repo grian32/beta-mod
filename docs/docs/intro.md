@@ -21,7 +21,6 @@ I have no association with and I do not claim to be the youtuber of the same nam
 
 ## Current possible places of conflict with other mods
 
-- Vanilla Overworld Gen - Mainly the Icy Stone generation in cold biomes detailed below.
 :::danger
 Item Enhancements modifies several vanilla blocks by adding blockstates to support certain features efficiently, this means that the Item Enhancements feature is not compatible with pre-existing worlds. At this time I believe there isn't much I can do.
 :::

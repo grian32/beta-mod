@@ -5,7 +5,6 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.config.ConfigScreen
-import me.grian.griansbetamod.icystone.blocks.IcyRedstoneOreBlock
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.ResinItem
@@ -33,16 +32,6 @@ object BetaMod {
 
     lateinit var redstoneBlock: Block
 
-    lateinit var icyStone: Block
-    lateinit var icyCobblestone: Block
-    lateinit var icyCoalOre: Block
-    lateinit var icyIronOre: Block
-    lateinit var icyGoldOre: Block
-    lateinit var icyDiamondOre: Block
-    lateinit var icyLapisLazuliOre: Block
-    lateinit var icyRedstoneOre: Block
-    lateinit var litIcyRedstoneOre: Block
-
     lateinit var sawmill: Block
 
     lateinit var netherGlass: Block
@@ -58,8 +47,6 @@ object BetaMod {
     lateinit var speedCrystal: Item
 
     lateinit var lilyOfTheLake: Block
-
-    var litIcyRedstoneOreInit = false
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {

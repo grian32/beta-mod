@@ -25,10 +25,6 @@
       },
       {
         "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.icystone.IcyStoneListener"
-      },
-      {
-        "adapter": "kotlin",
         "value": "me.grian.griansbetamod.PacketListener"
       },
       {
