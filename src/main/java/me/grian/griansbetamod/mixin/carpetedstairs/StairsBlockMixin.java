@@ -24,8 +24,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static me.grian.griansbetamod.util.ExtKt.setBlockStatePreserveMeta;
-
 @Debug(export = true)
 @Mixin(StairsBlock.class)
 public class StairsBlockMixin extends Block {
@@ -55,7 +53,7 @@ public class StairsBlockMixin extends Block {
         if (baseBlock == Block.PLANKS && player.getHand().itemId == Block.WOOL.id && world.getBlockState(x, y, z).get(WOOL_META) == 16) {
             BlockState state = world.getBlockState(x, y, z);
             int blockMeta = player.getHand().getDamage();
-            setBlockStatePreserveMeta(world, x, y, z, state.with(WOOL_META, blockMeta));
+            world.setBlockState(x, y, z, state.with(WOOL_META, blockMeta), world.getBlockMeta(x, y, z));
             player.getHand().count -= 1;
             cir.setReturnValue(true);
         }

@@ -21,8 +21,8 @@ class PileOfLogsBlock(identifier: Identifier) : TemplateBlock(identifier, Materi
 
     override fun getPlacementState(context: ItemPlacementContext?): BlockState =
         when (context?.horizontalPlayerFacing) {
-            Direction.EAST, Direction.WEST -> defaultState.with(ROTATED, false)
-            Direction.NORTH, Direction.SOUTH -> defaultState.with(ROTATED, true)
+            Direction.EAST, Direction.WEST -> defaultState.with(ROTATED, true)
+            Direction.NORTH, Direction.SOUTH -> defaultState.with(ROTATED, false)
             else -> defaultState.with(ROTATED, false) // null, down, up, shouldnt happen with this property
         }
 

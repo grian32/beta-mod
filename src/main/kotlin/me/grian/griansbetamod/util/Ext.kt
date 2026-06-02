@@ -35,8 +35,3 @@ fun Block.asItemStack(): ItemStack = ItemStack(this, 1)
 fun NetworkHandler?.toClientAccessor() = this as ClientNetworkHandlerAccessor
 fun PlayerEntity?.toServerPlayer() = this as ServerPlayerEntity
 fun ServerPlayerEntity?.toAccessor() = this as ServerPlayerEntityAccessor
-
-// for whatever reason, stapi's setblockstate sets meta to 0, god knows why..
-fun World.setBlockStatePreserveMeta(x: Int, y: Int, z: Int, blockState: BlockState) {
-    this.setBlockStateWithMetadataWithNotify(x, y, z, blockState, getBlockMeta(x, y, z))
-}

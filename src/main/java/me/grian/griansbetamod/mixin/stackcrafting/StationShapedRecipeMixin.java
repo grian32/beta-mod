@@ -19,7 +19,7 @@ public class StationShapedRecipeMixin {
             method = "matches(Lnet/minecraft/inventory/CraftingInventory;IIZ)Z",
             at = @At(
                     value = "INVOKE_ASSIGN",
-                    target = "Lnet/minecraft/item/ItemStack;isItemEqual(Lnet/minecraft/item/ItemStack;)Z"
+                    target = "Lnet/modificationstation/stationapi/impl/recipe/StationShapedRecipe;areItemsEqual(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z"
             ),
             cancellable = true
     )
