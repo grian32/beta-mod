@@ -50,7 +50,12 @@ public class StairsBlockMixin extends Block {
 
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)
     void onUse(World world, int x, int y, int z, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        if (baseBlock == Block.PLANKS && player.getHand().itemId == Block.WOOL.id && world.getBlockState(x, y, z).get(WOOL_META) == 16) {
+        if (
+                baseBlock == Block.PLANKS &&
+                player.getHand() != null &&
+                player.getHand().itemId == Block.WOOL.id &&
+                world.getBlockState(x, y, z).get(WOOL_META) == 16
+        ) {
             BlockState state = world.getBlockState(x, y, z);
             int blockMeta = player.getHand().getDamage();
             world.setBlockState(x, y, z, state.with(WOOL_META, blockMeta), world.getBlockMeta(x, y, z));
