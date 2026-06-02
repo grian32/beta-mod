@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.carpetedstairs;
 
+import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.util.BetaSide;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
@@ -48,17 +49,17 @@ public class SlabBlockMixin extends Block {
 
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
-        ItemStack hand = player.getHand();
         if (
+                ConfigScreen.config.carpetedStairsAndSlabs &&
                 !doubleSlab &&
                 world.getBlockMeta(x, y, z) == WOOD_SLAB_META &&
-                hand != null &&
-                hand.itemId == Block.WOOL.id &&
+                player.getHand() != null &&
+                player.getHand().itemId == Block.WOOL.id &&
                 world.getBlockState(x, y, z).get(WOOL_META) == 16
         ) {
             BlockState state = world.getBlockState(x, y, z);
-            world.setBlockState(x, y, z, state.with(WOOL_META, hand.getDamage()), world.getBlockMeta(x, y, z));
-            hand.count -= 1;
+            world.setBlockState(x, y, z, state.with(WOOL_META, player.getHand().getDamage()), world.getBlockMeta(x, y, z));
+            player.getHand().count -= 1;
             return true;
         }
         return super.onUse(world, x, y, z, player);
@@ -66,7 +67,7 @@ public class SlabBlockMixin extends Block {
 
     @Override
     public int getTextureId(BlockView blockView, int x, int y, int z, int side) {
-        if (blockView.getBlockMeta(x, y, z) != WOOD_SLAB_META || side != BetaSide.TOP.getValue()) {
+        if (!ConfigScreen.config.carpetedStairsAndSlabs || blockView.getBlockMeta(x, y, z) != WOOD_SLAB_META || side != BetaSide.TOP.getValue()) {
             return super.getTextureId(blockView, x, y, z, side);
         }
         if (blockView instanceof BlockStateView bsv) {
@@ -90,7 +91,7 @@ public class SlabBlockMixin extends Block {
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState) {
-        if (state.getBlock() == newState.getBlock()) {
+        if (state.getBlock() == newState.getBlock() || !ConfigScreen.config.carpetedStairsAndSlabs) {
             return;
         }
         int woolMeta = state.get(WOOL_META);

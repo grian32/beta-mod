@@ -33,6 +33,9 @@ public class Config {
     @ConfigEntry(name = "Stairs now drop themselves", description = "Requires a restart to take effect.")
     public Boolean stairDrop = true;
 
+    @ConfigEntry(name = "Enable carpeted wooden stairs and slabs", description = "Requires a restart to take effect.")
+    public Boolean carpetedStairsAndSlabs = true;
+
     @ConfigEntry(name = "Fence collision box matches later versions", description = "Requires a restart to take effect.")
     public Boolean fenceCollisionBox = true;
 
