@@ -38,13 +38,17 @@ public class StairsBlockMixin extends Block {
 
     @Inject(method = "<init>", at=@At("TAIL"))
     private void injectedConstructor(int id, Block baseBlock, CallbackInfo ci) {
-        setDefaultState(getDefaultState().with(WOOL_META, 16));
+        if (ConfigScreen.config.carpetedStairsAndSlabs) {
+            setDefaultState(getDefaultState().with(WOOL_META, 16));
+        }
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WOOL_META);
-        super.appendProperties(builder);
+        if (ConfigScreen.config.carpetedStairsAndSlabs) {
+            builder.add(WOOL_META);
+            super.appendProperties(builder);
+        }
     }
 
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)
