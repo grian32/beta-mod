@@ -17,9 +17,7 @@ The project is currently in pretty early stages & doesn't include much additiona
 
 ## Current possible places of conflict with other mods
 
-:::danger
-Item Enhancements modifies several vanilla blocks by adding blockstates to support certain features efficiently, this means that the Item Enhancements feature is not compatible with pre-existing worlds. At this time I believe there isn't much I can do.
-:::
+None, to my knowledge.
 
 ## Configuration
 
