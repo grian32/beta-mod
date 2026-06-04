@@ -33,6 +33,10 @@
       },
       {
         "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.itemenhancements.EnhancementDataFixerListener"
+      },
+      {
+        "adapter": "kotlin",
         "value": "me.grian.griansbetamod.lilyofthelake.WorldGenListener"
       }
     ],
