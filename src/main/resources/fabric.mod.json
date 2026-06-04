@@ -37,6 +37,10 @@
       },
       {
         "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.carpetedstairs.CarpetedStairsDataFixerListener"
+      },
+      {
+        "adapter": "kotlin",
         "value": "me.grian.griansbetamod.lilyofthelake.WorldGenListener"
       }
     ],
