@@ -10,6 +10,7 @@
     "carpetedstairs.StairsBlockMixin",
     "charcoaltexture.CoalItemMixin",
     "climate.ForestBiomeMixin",
+    "climate.LeavesBlockMixin",
     "croptrampling.FarmlandBlockMixin",
     "fencehitbox.FenceBlockMixin",
     "itemenhancements.CropBlockMixin",
