@@ -30,6 +30,12 @@ object TextureListener {
             sawmillSide = terrain.addTexture(NAMESPACE.id("block/sawmill_side")).index
         }
         if (ConfigScreen.config.netherGlass) BetaMod.netherGlass.textureId = terrain.addTexture(NAMESPACE.id("block/nether_glass")).index
+        if (ConfigScreen.config.climate) {
+            val bluePeonyId = terrain.addTexture(NAMESPACE.id("block/cyan_rose")).index
+            BetaMod.bluePeony.textureId = bluePeonyId
+            BetaMod.bluePeony.asItem().setTextureId(bluePeonyId)
+        }
+
         if (ConfigScreen.config.lapisSpeedBoost) BetaMod.speedCrystal.setTexture(NAMESPACE.id("item/speed_crystal"))
         if (ConfigScreen.config.enhancementSystem) {
             BetaMod.resin.setTexture(NAMESPACE.id("item/resin"))

@@ -4,6 +4,7 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapedRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
+import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
@@ -47,6 +48,8 @@ object BetaMod {
     lateinit var speedCrystal: Item
 
     lateinit var lilyOfTheLake: Block
+
+    lateinit var bluePeony: Block
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
@@ -95,6 +98,13 @@ object BetaMod {
                 .setHardness(0.0F)
                 .setSoundGroup(Block.DIRT_SOUND_GROUP)
                 .setLuminance(0.695f)
+        }
+
+        if (ConfigScreen.config.climate) {
+            bluePeony = BluePeonyBlock(NAMESPACE.id("blue_peony"))
+                .setTranslationKey(NAMESPACE, "blue_peony")
+                .setHardness(0F)
+                .setSoundGroup(Block.DIRT_SOUND_GROUP)
         }
     }
 
