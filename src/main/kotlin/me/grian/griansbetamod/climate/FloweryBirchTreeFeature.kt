@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.climate
 
+import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
 import net.minecraft.world.World
 import net.minecraft.world.gen.feature.BirchTreeFeature
@@ -29,8 +30,11 @@ class FloweryBirchTreeFeature : BirchTreeFeature() {
                     // block dandelion. can place was blocking me since it was checking for air and i wanna replace grass aswell
                     canPlantOnTop(world, flowerX, flowerY-1, flowerZ)
                 ) {
-                    println("Generated flower for birch $flowerAmount")
-                    world.setBlockWithoutNotifyingNeighbors(flowerX, flowerY, flowerZ, Block.DANDELION.id)
+                    if (random.nextInt(2) == 0) {
+                        world.setBlockWithoutNotifyingNeighbors(flowerX, flowerY, flowerZ, Block.DANDELION.id)
+                    } else {
+                        world.setBlockWithoutNotifyingNeighbors(flowerX, flowerY, flowerZ, BetaMod.bluePeony.id)
+                    }
                     flowerAmount--
                 }
             }
