@@ -35,3 +35,6 @@ bin/
 run/*
 # Remove the following line to remove server.properties from your project.
 !server.properties
+
+# Grian's Beta Expansion
+src/main/resources/version.properties

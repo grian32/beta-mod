@@ -28,7 +28,9 @@
   "client": [
     "ClientNetworkHandlerAccessor",
     "debugbiome.InGameHudMixin",
-    "netherglassrender.ChunkBuilderMixin"
+    "netherglassrender.ChunkBuilderMixin",
+    "versionstring.DebugScreenMixin",
+    "versionstring.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

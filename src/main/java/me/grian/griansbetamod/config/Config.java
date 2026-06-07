@@ -50,4 +50,7 @@ public class Config {
 
     @ConfigEntry(name = "Climate dependent saplings", requiresRestart = true)
     public Boolean climate = true;
+
+    @ConfigEntry(name = "Modify version string", requiresRestart = true)
+    public boolean modifyVersionString = true;
 }

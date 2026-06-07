@@ -20,11 +20,14 @@ import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.modificationstation.stationapi.api.event.mod.InitEvent
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
+import org.simpleyaml.utils.SupplierIO
+import java.util.Properties
 
 object BetaMod {
     val NAMESPACE: Namespace = Namespace.of("griansbetamod")
@@ -50,6 +53,17 @@ object BetaMod {
     lateinit var lilyOfTheLake: Block
 
     lateinit var bluePeony: Block
+
+    @JvmStatic
+    var versionString: String = "unknown"
+
+    @EventListener
+    fun init(event: InitEvent) {
+        val props = Properties();
+        val input = this.javaClass.classLoader.getResourceAsStream("version.properties")
+        props.load(input)
+        versionString = props.getProperty("version", "unknown")
+    }
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
