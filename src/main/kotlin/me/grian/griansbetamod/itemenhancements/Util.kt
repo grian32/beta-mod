@@ -4,10 +4,14 @@ import me.grian.griansbetamod.itemenhancements.Enhancement.entries
 import net.minecraft.item.ItemStack
 
 fun ItemStack.getEnhancement(): Enhancement =
-    entries[stationNbt.getInt("enhancement")]
+    if (stationNbt.contains("enhancement"))  {
+        Enhancement.getFromId(stationNbt.getInt("enhancement"))!!
+    } else {
+        Enhancement.NONE
+    }
 
 fun ItemStack.setEnhancement(enhancement: Enhancement): ItemStack {
-    stationNbt.putInt("enhancement", enhancement.ordinal)
+    stationNbt.putInt("enhancement", enhancement.id)
     return this
 }
 
