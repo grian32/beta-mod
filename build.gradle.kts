@@ -91,6 +91,8 @@ dependencies {
 	modImplementation("net.fabricmc:fabric-language-kotlin:1.10.18+kotlin.1.9.22") {
 		exclude("net.fabricmc")
 	}
+
+	testImplementation(kotlin("test-junit5"))
 }
 
 tasks.withType<ProcessResources> {
@@ -99,6 +101,10 @@ tasks.withType<ProcessResources> {
 	filesMatching("fabric.mod.json") {
 		expand(mapOf("version" to project.properties["version"]))
 	}
+}
+
+tasks.test {
+	useJUnitPlatform()
 }
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is

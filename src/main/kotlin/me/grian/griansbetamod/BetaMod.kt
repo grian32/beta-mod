@@ -20,13 +20,14 @@ import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.modificationstation.stationapi.api.datafixer.DataFixers
+import net.modificationstation.stationapi.api.event.datafixer.DataFixerRegisterEvent
 import net.modificationstation.stationapi.api.event.mod.InitEvent
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
-import org.simpleyaml.utils.SupplierIO
 import java.util.Properties
 
 object BetaMod {
@@ -258,5 +259,14 @@ object BetaMod {
                 }
             }
         }
+    }
+
+    @EventListener
+    fun registerDataFixers(event: DataFixerRegisterEvent) {
+        DataFixers.registerFixer(
+            NAMESPACE,
+            ::createBetaModDataFixer,
+            CURRENT_DF_VERSION
+        )
     }
 }
