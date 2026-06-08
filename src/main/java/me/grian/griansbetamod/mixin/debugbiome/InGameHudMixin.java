@@ -32,6 +32,6 @@ public class InGameHudMixin extends DrawContext {
         int z = this.minecraft.player.chunkZ * 16;
         Biome biome = this.minecraft.world.method_1781().getBiome(x, z);
 
-        this.drawTextWithShadow(this.minecraft.textRenderer, "biome:" + biome.name, 2, 96, 14737632);
+        this.drawTextWithShadow(this.minecraft.textRenderer, "biome: " + biome.name, 2, 96, 14737632);
     }
 }
