@@ -52,5 +52,5 @@ public class Config {
     public Boolean climate = true;
 
     @ConfigEntry(name = "Modify version string", requiresRestart = true)
-    public boolean modifyVersionString = true;
+    public Boolean modifyVersionString = true;
 }
