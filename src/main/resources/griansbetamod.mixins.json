@@ -11,6 +11,7 @@
     "charcoaltexture.CoalItemMixin",
     "climate.ForestBiomeMixin",
     "climate.LeavesBlockMixin",
+    "climate.SaplingBlockMixin",
     "croptrampling.FarmlandBlockMixin",
     "fencehitbox.FenceBlockMixin",
     "itemenhancements.CropBlockMixin",
@@ -30,7 +31,9 @@
     "debugbiome.InGameHudMixin",
     "netherglassrender.ChunkBuilderMixin",
     "versionstring.DebugScreenMixin",
-    "versionstring.TitleScreenMixin"
+    "versionstring.TitleScreenMixin",
+    "carpetedstairs.SlabBlockClientMixin",
+    "carpetedstairs.StairsBlockClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
