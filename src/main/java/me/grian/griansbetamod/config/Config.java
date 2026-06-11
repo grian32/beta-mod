@@ -3,9 +3,6 @@ package me.grian.griansbetamod.config;
 import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 
 public class Config {
-    @ConfigEntry(name = "Speed Crystals which give a speed boost", requiresRestart = true)
-    public Boolean lapisSpeedBoost = true;
-
     @ConfigEntry(name = "Players wearing Grassy Boots no longer trample crops.", requiresRestart = true)
     public Boolean leatherBootsTrampleCrops = true;
 

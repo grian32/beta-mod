@@ -49,18 +49,6 @@ object EnhancementRecipeListener : ModInitializer {
             reinforced(ItemStack(Block.IRON_BLOCK, 10), 3)
             reinforced(ItemStack(Block.IRON_BLOCK, 20), 4)
 
-            fun lapisMiner(recipeIngredients: ItemStack, tier: Int) =
-                addEnhancementRecipe {
-                    toolType = ToolType.PICKAXE
-                    ingredients = recipeIngredients
-                    enhancement = Enhancement.LAPIS_MINER
-                    enhancementTier = tier
-                }
-
-            lapisMiner(ItemStack(Block.STONE, 64), 1)
-            lapisMiner(ItemStack(Item.DYE, 64, 4), 2) // DMG 4 = LAPIS THANK YOU NOTCH
-            lapisMiner(ItemStack(Block.LAPIS_BLOCK, 64), 3)
-
             fun steadyHand(recipeIngredients: ItemStack, tier: Int) =
                 addEnhancementRecipe {
                     toolType = ToolType.PICKAXE

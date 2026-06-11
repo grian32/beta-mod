@@ -9,7 +9,7 @@ import com.mojang.serialization.JsonOps
 import net.modificationstation.stationapi.api.datafixer.TypeReferences
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
 
 class DataFixerTest {
@@ -28,12 +28,27 @@ class DataFixerTest {
         val inventory = update(TypeReferences.PLAYER, player, 1)
             .getAsJsonArray("Inventory")
 
-        assertEquals(3, enhancement(inventory[0].asJsonObject))
-        assertFalse(
+        assertEquals(-1, enhancement(inventory[0].asJsonObject))
+        assertEquals(0, enhancementTier(inventory[0].asJsonObject))
+        assertNotEquals(
             inventory[1].asJsonObject
                 .getAsJsonObject("stationapi:item_nbt")
-                ?.has("enhancement") == true
+                ?.has("enhancement"), true
         )
+    }
+
+    @Test
+    fun removesLapisMinerEnhancementFromVersionTwoData() {
+        val player = jsonObject(
+            "Inventory" to jsonArray(enhancedStack(3))
+        )
+
+        val stack = update(TypeReferences.PLAYER, player, 2)
+            .getAsJsonArray("Inventory")[0]
+            .asJsonObject
+
+        assertEquals(-1, enhancement(stack))
+        assertEquals(0, enhancementTier(stack))
     }
 
     @Test
@@ -108,6 +123,9 @@ class DataFixerTest {
 
     private fun enhancement(stack: JsonObject): Int =
         stack.getAsJsonObject("stationapi:item_nbt")["enhancement"].asInt
+
+    private fun enhancementTier(stack: JsonObject): Int =
+        stack.getAsJsonObject("stationapi:item_nbt")["enhancementTier"].asInt
 
     private fun update(
         type: DSL.TypeReference,

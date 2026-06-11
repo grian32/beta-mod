@@ -9,7 +9,6 @@ import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.ResinItem
-import me.grian.griansbetamod.items.SpeedCrystalItem
 import me.grian.griansbetamod.items.TotemOfHealthItem
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
 import me.grian.griansbetamod.util.asItemStack
@@ -48,8 +47,6 @@ object BetaMod {
     lateinit var totemOfHealth: Item
 
     lateinit var grassyBoots: Item
-
-    lateinit var speedCrystal: Item
 
     lateinit var lilyOfTheLake: Block
 
@@ -131,11 +128,6 @@ object BetaMod {
                 .setTexturePosition(0, 3)
         }
 
-        if (ConfigScreen.config.lapisSpeedBoost) {
-            speedCrystal = SpeedCrystalItem(NAMESPACE.id("speed_crystal"))
-                .setTranslationKey(NAMESPACE, "speed_crystal")
-        }
-
         if (ConfigScreen.config.enhancementSystem) {
             resin = ResinItem(NAMESPACE.id("resin"))
                 .setTranslationKey(NAMESPACE, "resin")
@@ -184,17 +176,6 @@ object BetaMod {
                     top(null, Item.IRON_INGOT, null)
                     middle(Block.PLANKS.asItem(), Item.IRON_INGOT, Block.PLANKS.asItem())
                     bottom(Block.STONE.asItem(), Item.IRON_INGOT, Block.STONE.asItem() )
-                }
-            }
-
-            if (ConfigScreen.config.lapisSpeedBoost) {
-                addShapedRecipe {
-                    output(speedCrystal)
-
-                    top(null, Block.COBBLESTONE, null)
-                    // dmg 4 = lapis
-                    middle(Block.COBBLESTONE.asItemStack(), ItemStack(Item.DYE, 1, 4), Block.COBBLESTONE.asItemStack())
-                    bottom(null, Block.COBBLESTONE, null)
                 }
             }
 

@@ -4,9 +4,10 @@ import BetaModSchema
 import com.mojang.datafixers.DataFixer
 import com.mojang.datafixers.DataFixerBuilder
 import me.grian.griansbetamod.itemenhancements.OrdinalToIdFix
+import me.grian.griansbetamod.itemenhancements.RemoveLapisMinerFix
 import me.grian.griansbetamod.util.SetDefaultBlockStateFix
 
-internal const val CURRENT_DF_VERSION = 2
+internal const val CURRENT_DF_VERSION = 3
 
 internal fun createBetaModDataFixer(): DataFixer {
     val placedBlocks = setOf(
@@ -43,6 +44,9 @@ internal fun createBetaModDataFixer(): DataFixer {
 
     val version2 = builder.addSchema(2, ::BetaModSchema)
     builder.addFixer(OrdinalToIdFix(version2))
+
+    val version3 = builder.addSchema(3, ::BetaModSchema)
+    builder.addFixer(RemoveLapisMinerFix(version3))
 
     return builder.build().fixer()
 }

@@ -36,7 +36,6 @@ object TextureListener {
             BetaMod.bluePeony.asItem().setTextureId(bluePeonyId)
         }
 
-        if (ConfigScreen.config.lapisSpeedBoost) BetaMod.speedCrystal.setTexture(NAMESPACE.id("item/speed_crystal"))
         if (ConfigScreen.config.enhancementSystem) {
             BetaMod.resin.setTexture(NAMESPACE.id("item/resin"))
             BetaMod.resinBlock.textureId = terrain.addTexture(NAMESPACE.id("block/resin_block")).index

@@ -15,7 +15,7 @@ enum class Enhancement(
     AXE_UNBREAKING(guiName = "Reinforced", color = Formatting.GRAY, id = 2),
 
     // pick
-    LAPIS_MINER(guiName = "Lapis Miner", color = Formatting.BLUE, id = 3),
+    __LAPIS_MINER(guiName = "Lapis Miner", color = Formatting.BLUE, id = 3),
     STEADY_HAND(guiName = "Steady Hand", color = Formatting.AQUA, id = 4),
 
     // hoe
