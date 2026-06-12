@@ -23,6 +23,9 @@ public class SaplingBlockMixin extends PlantBlock {
 
     @Override
     public void onPlaced(World world, int x, int y, int z) {
+        if (!ConfigScreen.config.climate) {
+            return;
+        }
         Biome biome = world.method_1781().getBiome(x, z);
         if (biome == Biome.TUNDRA || biome == Biome.TAIGA) {
             world.setBlockMeta(x, y, z, 1);
