@@ -42,10 +42,6 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Four - 40% chance - 20 Iron Blocks
 
 ### Pickaxes
-- Lapis Miner: Naturally generated stone now has a small chance to drop lapis when mined, this may come in handy if you are using [Speed Crystals](../misc/#speed-crystals) extensively.
-    - Tier One - 2% Chance - 64 Stone
-    - Tier Two - 3% Chance - 64 Lapis
-    - Tier Three - 4% Chance - 24 Lapis Blocks
 - Steady Hand: All ores now have a small chance to be preserved, this is indicated by the sound effect.
     - Tier One - 1% chance - 32 Iron Ingots
     - Tier Two - 3% chance - 64 Gold Ingots

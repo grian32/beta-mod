@@ -2,13 +2,6 @@
 
 Grian's Beta Expansion also adds a variety of miscellaneous features
 
-### Speed Crystals
-You can now consume Speed Crystals which will lead to a 1.5x Speed Boost for 20 seconds.
-
-Recipe: 
-
-[![Image from Gyazo](https://i.gyazo.com/fc3a14850ea2879ae6bb47f923238fd2.png)](https://gyazo.com/fc3a14850ea2879ae6bb47f923238fd2)
-
 ### Grassy Boots
 Grassy Boots are a new armor item that, when being worn, prevent you from trampling crops.
 
