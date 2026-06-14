@@ -6,6 +6,8 @@ import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.config.ConfigScreen
+import me.grian.griansbetamod.icydungeons.IcyCobblestoneBlock
+import me.grian.griansbetamod.icydungeons.IcyStoneBlock
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.items.ResinItem
@@ -51,6 +53,9 @@ object BetaMod {
     lateinit var lilyOfTheLake: Block
 
     lateinit var bluePeony: Block
+
+    lateinit var icyStone: Block
+    lateinit var icyCobblestone: Block
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -117,6 +122,20 @@ object BetaMod {
                 .setTranslationKey(NAMESPACE, "blue_peony")
                 .setHardness(0F)
                 .setSoundGroup(Block.DIRT_SOUND_GROUP)
+        }
+
+        if (ConfigScreen.config.icyDungeons) {
+            icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
+                .setTranslationKey(NAMESPACE, "icy_stone")
+                .setHardness(1.5F)
+                .setResistance(10.0F)
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+            icyCobblestone = IcyCobblestoneBlock(NAMESPACE.id("icy_cobblestone"))
+                .setTranslationKey(NAMESPACE, "icy_cobblestone")
+                .setHardness(2.0F)
+                .setResistance(10.0F)
+                .setSoundGroup(Block.STONE_SOUND_GROUP)
         }
     }
 
@@ -237,6 +256,13 @@ object BetaMod {
                 addSmeltingRecipe {
                     input(Block.SOUL_SAND)
                     output(netherGlass)
+                }
+            }
+
+            if (ConfigScreen.config.icyDungeons) {
+                addSmeltingRecipe {
+                    input(icyCobblestone)
+                    output(icyStone)
                 }
             }
         }

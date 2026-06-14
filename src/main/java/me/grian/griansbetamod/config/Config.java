@@ -50,4 +50,7 @@ public class Config {
 
     @ConfigEntry(name = "Modify version string", requiresRestart = true)
     public Boolean modifyVersionString = true;
+
+    @ConfigEntry(name = "Icy Dungeons", requiresRestart = true)
+    public Boolean icyDungeons = true;
 }

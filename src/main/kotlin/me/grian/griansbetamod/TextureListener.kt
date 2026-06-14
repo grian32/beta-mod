@@ -42,5 +42,9 @@ object TextureListener {
             BetaMod.totemOfHealth.setTexture(NAMESPACE.id("item/totem_of_health"))
         }
         if (ConfigScreen.config.charcoalTexture) charcoalTexture = items.addTexture(NAMESPACE.id("item/charcoal")).index
+        if (ConfigScreen.config.icyDungeons) {
+            BetaMod.icyStone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_stone")).index
+            BetaMod.icyCobblestone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_cobblestone")).index
+        }
     }
 }
