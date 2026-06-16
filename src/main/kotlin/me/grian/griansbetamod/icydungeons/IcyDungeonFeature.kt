@@ -4,6 +4,7 @@ import me.grian.griansbetamod.BetaMod
 import net.minecraft.world.World
 import net.minecraft.world.gen.feature.Feature
 import java.util.Random
+import kotlin.ranges.rangeTo
 
 class IcyDungeonFeature : Feature() {
     override fun generate(
@@ -24,20 +25,76 @@ class IcyDungeonFeature : Feature() {
 
     private fun World.genCenterRoom(x: Int, y: Int, z: Int, rand: Random) {
         genFlat(x, y, z, rand, false)
+        genFlat(x, y+6, z, rand, true)
+        // TODO: move entrances here since theyre part of the entrance
+        // TODO: carve center hole 
 
         val minX = x - 3
         val maxX = x + 3
         val minZ = z - 3
         val maxZ = z + 3
 
-        for (cy in 0..5) {
+        for (cy in 1..5) {
+            for (dx in minX..maxX) {
+                for (dz in minZ..maxZ) {
+                    setBlock(dx, cy + y, dz, 0)
+                }
+            }
+        }
+
+        for (cy in 1..5) {
             setBlock(minX, cy+y, minZ, getGenBlock(rand, cy))
             setBlock(minX, cy+y, maxZ, getGenBlock(rand, cy))
             setBlock(maxX, cy+y, minZ, getGenBlock(rand, cy))
             setBlock(maxX, cy+y, maxZ, getGenBlock(rand, cy))
         }
 
-        genFlat(x, y+6, z, rand, true)
+
+        repeat (2) { i ->
+            // entrance x axis
+            var entranceX = x
+            if (i == 0) {
+                entranceX -= 3
+            } else {
+                entranceX += 3
+            }
+
+            for (dy in 1..5) {
+                setBlock(entranceX, dy + y, minZ+1, getGenBlock(rand, dy))
+                setBlock(entranceX, dy + y, maxZ-1, getGenBlock(rand, dy))
+            }
+
+            for (cz in minZ-1..<maxZ) {
+                // AT dy = 5 getgenblock always returns icystone, so no need..
+                setBlock(entranceX, y + 5, cz, BetaMod.icyStone.id)
+            }
+
+            // corners around entrance
+            setBlock(entranceX, y+4, z + 1, getGenBlock(rand, 4))
+            setBlock(entranceX, y+4, z - 1, getGenBlock(rand, 4))
+
+            // z entrances
+            var entranceZ = z
+            if (i == 0) {
+                entranceZ -= 3
+            } else {
+                entranceZ += 3
+            }
+
+            for (dy in 1..5) {
+                setBlock(minX+1, dy + y, entranceZ, getGenBlock(rand, dy))
+                setBlock(maxX-1, dy + y, entranceZ, getGenBlock(rand, dy))
+            }
+
+            for (cx in minX-1..<maxX) {
+                // AT dy = 5 getgenblock always returns icystone, so no need..
+                setBlock(cx, y + 5, entranceZ, BetaMod.icyStone.id)
+            }
+
+            // corners around entrance
+            setBlock(x+1, y+4, entranceZ, getGenBlock(rand, 4))
+            setBlock(x-1, y+4, entranceZ, getGenBlock(rand, 4))
+        }
     }
 
     private fun World.genXRoom(x: Int, y: Int, z: Int, rand: Random, positive: Boolean) {
@@ -54,7 +111,7 @@ class IcyDungeonFeature : Feature() {
         val maxX = centerX + 3
 
         // neg z wall -- left
-        for (dy in 0..5) {
+        for (dy in 1..5) {
             for (cx in minX..maxX) {
                 setBlock(cx, dy + y, z - 3, getGenBlock(rand, dy))
             }
@@ -77,9 +134,18 @@ class IcyDungeonFeature : Feature() {
             cx -= 3
         }
 
-        for (dy in 0..5) {
+        for (dy in 1..5) {
             for (cz in minZ..maxZ) {
                 setBlock(cx, dy + y, cz, getGenBlock(rand, dy))
+            }
+        }
+
+        // clean out w/ air
+        for (dy in 1..5) {
+            for (cx in centerX-2..centerX+2) {
+                for (cz in z-2..z+2) {
+                    setBlock(cx, dy + y, cz, 0)
+                }
             }
         }
     }
@@ -98,14 +164,14 @@ class IcyDungeonFeature : Feature() {
         val maxZ = centerZ + 3
 
         // neg z wall -- left
-        for (dy in 0..5) {
+        for (dy in 1..5) {
             for (cz in minZ..maxZ) {
                 setBlock(x - 3, dy + y, cz, getGenBlock(rand, dy))
             }
         }
 
         // pos z wall -- right
-        for (dy in 0..5) {
+        for (dy in 1..5) {
             for (cz in minZ..maxZ) {
                 setBlock(x+3, dy + y, cz, getGenBlock(rand, dy))
             }
@@ -121,9 +187,17 @@ class IcyDungeonFeature : Feature() {
             cz -= 3
         }
 
-        for (dy in 0..5) {
+        for (dy in 1..5) {
             for (cx in minX..maxX) {
                 setBlock(cx, dy + y, cz, getGenBlock(rand, dy))
+            }
+        }
+
+        for (dy in 1..5) {
+            for (cz in centerZ-2..centerZ+2) {
+                for (cx in x-2..x+2) {
+                    setBlock(cx, dy + y, cz, 0)
+                }
             }
         }
     }
