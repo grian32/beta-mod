@@ -2,6 +2,9 @@ package me.grian.griansbetamod.icydungeons
 
 import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
+import net.minecraft.block.entity.ChestBlockEntity
+import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
 import net.minecraft.world.World
 import net.minecraft.world.gen.feature.Feature
 import java.util.*
@@ -254,6 +257,10 @@ class IcyDungeonFeature : Feature() {
                 }
             }
         }
+
+        if (positive) {
+            genZSeedRoom(x, y, z, rand)
+        }
     }
 
     private fun World.genFlat(x: Int, y: Int, z: Int, random: Random, ceiling: Boolean) {
@@ -274,6 +281,63 @@ class IcyDungeonFeature : Feature() {
                 // deffo want icy cobblestone on the floor so hardcoding dy
                 setBlock(cx, y, cz, blockId)
             }
+        }
+    }
+
+    private fun World.genZSeedRoom(x: Int, y: Int, z: Int, random: Random) {
+        val centerZ = z + 7;
+
+        for (cx in x-2..x+2) {
+            for (cz in centerZ-3..centerZ+2) {
+                if (random.nextInt(2) == 0) {
+                    setBlock(cx, y+1, cz, Block.SNOW.id)
+                }
+            }
+        }
+
+        setBlock(x, y + 1, centerZ, BetaMod.icyStone.id)
+        setBlock(x+1, y + 1, centerZ, BetaMod.icyStone.id)
+        setBlock(x-1, y + 1, centerZ, BetaMod.icyStone.id)
+        setBlock(x, y + 1, centerZ + 1, BetaMod.icyStone.id)
+        setBlock(x, y + 1, centerZ - 1, BetaMod.icyStone.id)
+
+        // you cant fucking set the facing side since its based off of surrounding opaque blocks so i have to add a backer, this is abysmal dogshit
+        setBlock(x, y + 2, centerZ + 1, BetaMod.icyStone.id)
+        setBlock(x, y + 2, centerZ, Block.CHEST.id)
+
+        val blockEntity = getBlockEntity(x, y+2, centerZ) as ChestBlockEntity
+        var gennedSeeds = false
+        for (slot in 0..27) {
+            val item = getRandomItemSeedRoom(random)
+            if (item != null) {
+                blockEntity.setStack(slot, item)
+                if (item.itemId == Block.BEDROCK.id) {
+                    gennedSeeds = true
+                }
+            }
+        }
+
+        if (!gennedSeeds) {
+            blockEntity.setStack(3, ItemStack(Block.BEDROCK, 1))
+        }
+
+    }
+
+    private fun getRandomItemSeedRoom(random: Random): ItemStack? {
+        // should gen
+        if (random.nextInt(4) != 0) return null
+
+        return when (random.nextInt(10)) {
+            0 -> ItemStack(Item.STRING, random.nextInt(1, 3))
+            1 -> ItemStack(Item.FEATHER, random.nextInt(1, 2))
+            2 -> ItemStack(Item.BONE, random.nextInt(1, 4))
+            3 -> ItemStack(Item.GUNPOWDER, random.nextInt(1, 3))
+            4 -> ItemStack(Item.SNOWBALL, random.nextInt(2, 7))
+            5 -> ItemStack(Item.COAL, random.nextInt(1, 4))
+            6 -> ItemStack(Block.BEDROCK, 1)
+            7 -> ItemStack(Item.IRON_INGOT, random.nextInt(1, 3))
+            8 -> ItemStack(Item.SADDLE, 1)
+            else -> if (random.nextInt(10) == 0) ItemStack(Item.RECORD_THIRTEEN, 1) else null
         }
     }
 
