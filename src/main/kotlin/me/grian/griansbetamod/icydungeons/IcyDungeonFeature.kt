@@ -141,8 +141,10 @@ class IcyDungeonFeature : Feature() {
         }
 
         // clean out w/ air
+        val clearMinX = if (positive) centerX - 3 else centerX - 2
+        val clearMaxX = if (positive) centerX + 2 else centerX + 3
         for (dy in 1..5) {
-            for (cx in centerX - 2..centerX + 2) {
+            for (cx in clearMinX..clearMaxX) {
                 for (cz in z - 2..z + 2) {
                     setBlock(cx, dy + y, cz, 0)
                 }
@@ -243,8 +245,10 @@ class IcyDungeonFeature : Feature() {
             }
         }
 
+        val clearMinZ = if (positive) centerZ - 3 else centerZ - 2
+        val clearMaxZ = if (positive) centerZ + 2 else centerZ + 3
         for (dy in 1..5) {
-            for (cz in centerZ - 2..centerZ + 2) {
+            for (cz in clearMinZ..clearMaxZ) {
                 for (cx in x - 2..x + 2) {
                     setBlock(cx, dy + y, cz, 0)
                 }
