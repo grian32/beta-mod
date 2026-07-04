@@ -21,10 +21,4 @@ class NetherGlassBlock(identifier: Identifier) : TemplateTranslucentBlock(identi
     override fun getDroppedItemCount(random: Random?): Int {
         return 0
     }
-
-    override fun onUse(world: World, x: Int, y: Int, z: Int, player: PlayerEntity?): Boolean {
-        world.setBlock(x, y, z, 0)
-        IcyDungeonFeature().generate(world, world.random, x, y, z)
-        return true
-    }
 }

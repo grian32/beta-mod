@@ -34,6 +34,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.lilyofthelake.WorldGenListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.icydungeons.WorldGenListener"
       }
     ],
     "stationapi:event_bus_client": [

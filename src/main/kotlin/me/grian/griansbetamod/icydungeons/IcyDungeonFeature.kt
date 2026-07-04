@@ -29,8 +29,6 @@ class IcyDungeonFeature : Feature() {
     private fun World.genCenterRoom(x: Int, y: Int, z: Int, rand: Random) {
         genFlat(x, y, z, rand, false)
         genFlat(x, y + 6, z, rand, true)
-        // TODO: move entrances here since theyre part of the entrance
-        // TODO: carve center hole 
 
         val minX = x - 3
         val maxX = x + 3
@@ -97,6 +95,15 @@ class IcyDungeonFeature : Feature() {
             // corners around entrance
             setBlock(x + 1, y + 4, entranceZ, getGenBlock(rand, 4))
             setBlock(x - 1, y + 4, entranceZ, getGenBlock(rand, 4))
+        }
+
+        val topY = getTopY(x, z)
+        for (cy in y+6..topY+1) {
+            setBlock(x, cy, z, 0)
+            setBlock(x+1, cy, z, 0)
+            setBlock(x-1, cy, z, 0)
+            setBlock(x, cy, z+1, 0)
+            setBlock(x, cy, z-1, 0)
         }
     }
 
@@ -260,6 +267,8 @@ class IcyDungeonFeature : Feature() {
 
         if (positive) {
             genZSeedRoom(x, y, z, rand)
+        } else {
+            genZPlayerRoom(x, y, z, rand)
         }
     }
 
@@ -305,7 +314,7 @@ class IcyDungeonFeature : Feature() {
         setBlock(x, y + 2, centerZ + 1, BetaMod.icyStone.id)
         setBlock(x, y + 2, centerZ, Block.CHEST.id)
 
-        val blockEntity = getBlockEntity(x, y+2, centerZ) as ChestBlockEntity
+        val blockEntity = getBlockEntity(x, y+2, centerZ) as? ChestBlockEntity ?: return
         var gennedSeeds = false
         for (slot in 0..27) {
             val item = getRandomItemSeedRoom(random)
@@ -320,7 +329,78 @@ class IcyDungeonFeature : Feature() {
         if (!gennedSeeds) {
             blockEntity.setStack(3, ItemStack(Block.BEDROCK, 1))
         }
+    }
 
+    private fun World.genZPlayerRoom(x: Int, y: Int, z: Int, random: Random) {
+        val centerZ = z - 7;
+
+        for (cx in x-2..x+2) {
+            for (cz in centerZ-2..centerZ+3) {
+                if (random.nextInt(2) == 0) {
+                    setBlock(cx, y+1, cz, Block.SNOW.id)
+                }
+            }
+        }
+
+        for (cz in centerZ - 1..centerZ + 2) {
+            for (cx in listOf(x - 2, x + 2)) {
+                val rubbleBlock = if (random.nextInt(2) == 0) {
+                    Block.GRAVEL.id
+                } else {
+                    Block.ICE.id
+                }
+
+                setBlock(cx, y + 1, cz, rubbleBlock)
+
+                if (random.nextInt(3) == 0) {
+                    setBlock(cx, y + 2, cz, rubbleBlock)
+                } else {
+                    setBlock(cx, y + 2, cz, Block.SNOW.id)
+                }
+
+                if (random.nextInt(3) == 0) {
+                    val centerSpillX = if (cx < x) {
+                        cx + 1
+                    } else {
+                        cx - 1
+                    }
+                    setBlock(centerSpillX, y + 1, cz, rubbleBlock)
+                }
+            }
+        }
+
+        setBlock(x - 2, y + 1, centerZ - 2, Block.CRAFTING_TABLE.id)
+        // clear just in case
+        setBlock(x + 2, y + 1, centerZ - 1, 0)
+        setBlock(x + 2, y + 1, centerZ - 2, 0)
+        setBlock(x + 2, y + 1, centerZ - 1, Block.BED.id, 2)
+        setBlock(x + 2, y + 1, centerZ - 2, Block.BED.id, 10)
+        setBlock(x, y + 1, centerZ - 2, Block.CHEST.id)
+
+        if (random.nextInt(2) == 0) {
+            val rubbleBlock = if (random.nextInt(2) == 0) {
+                Block.GRAVEL.id
+            } else {
+                Block.ICE.id
+            }
+            setBlock(x - 2, y + 2, centerZ - 2, rubbleBlock)
+        }
+        if (random.nextInt(2) == 0) {
+            val rubbleBlock = if (random.nextInt(2) == 0) {
+                Block.GRAVEL.id
+            } else {
+                Block.ICE.id
+            }
+            setBlock(x - 1, y + 2, centerZ - 2, rubbleBlock)
+        }
+
+        val blockEntity = getBlockEntity(x, y + 1, centerZ - 2) as? ChestBlockEntity ?: return
+        for (slot in 0..27) {
+            val item = getRandomItemPlayerRoom(random)
+            if (item != null) {
+                blockEntity.setStack(slot, item)
+            }
+        }
     }
 
     private fun getRandomItemSeedRoom(random: Random): ItemStack? {
@@ -336,6 +416,24 @@ class IcyDungeonFeature : Feature() {
             5 -> ItemStack(Item.COAL, random.nextInt(1, 4))
             6 -> ItemStack(Block.BEDROCK, 1)
             7 -> ItemStack(Item.IRON_INGOT, random.nextInt(1, 3))
+            8 -> ItemStack(Item.SADDLE, 1)
+            else -> if (random.nextInt(10) == 0) ItemStack(Item.RECORD_THIRTEEN, 1) else null
+        }
+    }
+
+    private fun getRandomItemPlayerRoom(random: Random): ItemStack? {
+        // should gen
+        if (random.nextInt(4) != 0) return null
+
+        return when (random.nextInt(10)) {
+            0 -> ItemStack(Block.PLANKS, random.nextInt(1, 3))
+            1 -> ItemStack(Block.LOG, random.nextInt(1, 2))
+            2 -> ItemStack(Item.IRON_INGOT, random.nextInt(1, 2))
+            3 -> ItemStack(Item.IRON_PICKAXE, 1, 100)
+            4 -> ItemStack(Item.SNOWBALL, random.nextInt(2, 7))
+            5 -> ItemStack(Item.STONE_AXE, 1, 50)
+            6 -> ItemStack(Item.BREAD, 1)
+            7 -> ItemStack(Item.WOODEN_HOE, 1, 10)
             8 -> ItemStack(Item.SADDLE, 1)
             else -> if (random.nextInt(10) == 0) ItemStack(Item.RECORD_THIRTEEN, 1) else null
         }
