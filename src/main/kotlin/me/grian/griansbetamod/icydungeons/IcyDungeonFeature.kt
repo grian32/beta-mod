@@ -320,7 +320,7 @@ class IcyDungeonFeature : Feature() {
             val item = getRandomItemSeedRoom(random)
             if (item != null) {
                 blockEntity.setStack(slot, item)
-                if (item.itemId == Block.BEDROCK.id) {
+                if (item.itemId == BetaMod.frostRootSeeds.id) {
                     gennedSeeds = true
                 }
             }
@@ -414,7 +414,7 @@ class IcyDungeonFeature : Feature() {
             3 -> ItemStack(Item.GUNPOWDER, random.nextInt(1, 3))
             4 -> ItemStack(Item.SNOWBALL, random.nextInt(2, 7))
             5 -> ItemStack(Item.COAL, random.nextInt(1, 4))
-            6 -> ItemStack(Block.BEDROCK, 1)
+            6 -> ItemStack(BetaMod.frostRootSeeds, 1)
             7 -> ItemStack(Item.IRON_INGOT, random.nextInt(1, 3))
             8 -> ItemStack(Item.SADDLE, 1)
             else -> if (random.nextInt(10) == 0) ItemStack(Item.RECORD_THIRTEEN, 1) else null

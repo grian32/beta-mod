@@ -12,3 +12,6 @@ tile.@.lily_of_the_lake.name=Lily of the Lake
 tile.@.blue_peony.name=Blue Peony
 tile.@.icy_stone.name=Icy Stone
 tile.@.icy_cobblestone.name=Icy Cobblestone
+item.@.frost_root_seeds.name=Frost Root Seeds
+item.@.frost_root.name=Frost Root
+item.@.cooked_frost_root.name=Cooked Frost Root

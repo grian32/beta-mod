@@ -6,6 +6,9 @@ import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.config.ConfigScreen
+import me.grian.griansbetamod.icydungeons.CookedFrostRootItem
+import me.grian.griansbetamod.icydungeons.FrostRootItem
+import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
 import me.grian.griansbetamod.icydungeons.IcyCobblestoneBlock
 import me.grian.griansbetamod.icydungeons.IcyStoneBlock
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
@@ -56,6 +59,9 @@ object BetaMod {
 
     lateinit var icyStone: Block
     lateinit var icyCobblestone: Block
+    lateinit var frostRoot: Item
+    lateinit var cookedFrostRoot: Item
+    lateinit var frostRootSeeds: Item
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -154,6 +160,17 @@ object BetaMod {
             totemOfHealth = TotemOfHealthItem(NAMESPACE.id("totem_of_health"))
                 .setTranslationKey(NAMESPACE, "totem_of_health")
                 .setMaxCount(1)
+        }
+
+        if (ConfigScreen.config.icyDungeons) {
+            frostRootSeeds = FrostRootSeedsItem(NAMESPACE.id("frost_root_seeds"))
+                .setTranslationKey(NAMESPACE, "frost_root_seeds")
+
+            frostRoot = FrostRootItem(NAMESPACE.id("frost_root"))
+                .setTranslationKey(NAMESPACE, "frost_root")
+
+            cookedFrostRoot = CookedFrostRootItem(NAMESPACE.id("cooked_frost_root"))
+                .setTranslationKey(NAMESPACE, "cooked_frost_root")
         }
     }
 

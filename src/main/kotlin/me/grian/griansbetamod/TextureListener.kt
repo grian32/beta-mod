@@ -1,5 +1,6 @@
 package me.grian.griansbetamod
 
+import com.google.common.annotations.Beta
 import me.grian.griansbetamod.config.ConfigScreen
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
@@ -45,6 +46,10 @@ object TextureListener {
         if (ConfigScreen.config.icyDungeons) {
             BetaMod.icyStone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_stone")).index
             BetaMod.icyCobblestone.textureId = terrain.addTexture(NAMESPACE.id("block/icy_cobblestone")).index
+            BetaMod.frostRoot.setTexture(NAMESPACE.id("item/frost_root"))
+            BetaMod.cookedFrostRoot.setTexture(NAMESPACE.id("item/cooked_frost_root"))
+            BetaMod.frostRootSeeds.setTexture(NAMESPACE.id("item/frost_root_seeds"))
+
         }
     }
 }
