@@ -1,3 +1,6 @@
+---
+sidebar_position: 4
+---
 # Climate
 
 The climate feature introduces new behaviour based on the climate/biome you are in.

@@ -1,3 +1,6 @@
+---
+sidebar_position: 7
+---
 # Sawmill
 
 Adds a new block called the Sawmill.

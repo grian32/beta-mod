@@ -1,3 +1,6 @@
+---
+sidebar_position: 6
+---
 # Miscellaneous
 
 Grian's Beta Expansion also adds a variety of miscellaneous features
