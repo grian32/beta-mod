@@ -5,7 +5,40 @@
   width: 100%;
 }
 
-.featureSvg {
+.featureContainer {
+  max-width: 1800px;
+}
+
+.featureImage {
   height: 200px;
-  width: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.comingSoonImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #20232a, #101114);
+  color: #f5f6f7;
+  font-size: clamp(1.75rem, 2.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 997px) {
+  .featureImage {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .featureContainer {
+    width: 90%;
+  }
+
+  .featureImage {
+    height: 360px;
+  }
 }
