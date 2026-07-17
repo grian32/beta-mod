@@ -45,12 +45,29 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 - Steady Hand: All ores now have a small chance to be preserved, this is indicated by the sound effect.
     - Tier One - 1% chance - 32 Iron Ingots
     - Tier Two - 3% chance - 64 Gold Ingots
-    - Tier Three - 5% Chance - 24 Diamonds
+    - Tier Three - 5% Chance - 9 Diamonds
+- Quarryman: Stone based blocks are mined faster.
+ 
+    Affected Blocks: Stone, Cobblestone, Mossy Cobblestone.
+    - Tier One - 25% Faster - 24 Iron Ingots
+    - Tier Two - 50% Faster - 1 Diamond
+    - Tier Three - 100% Faster - 5 Diamonds
 
 ### Shovel
 
-There are currently no shovel enhancements
+- Landscaper: Certain terrain blocks drop in their intact form.
+
+    Affected blocks: Grass Blocks, Clay Blocks, Snow Blocks, Gravel.
+    - Tier One - 24 Resin
+- Sifter: Sand touching water has a chance to drop 2-4 clay balls instead of sand.
+    - Tier One - 25% Chance - 64 Sand
+    - Tier Two - 50% Chance - 64 Clay Balls
+    - Tier Three - Guaranteed - 32 Clay Blocks
 
 ### Hoe
 - Replanter: Crops will replant themselves at no cost if they were fully grown. This will happen a few ticks after harvesting and is indicated by green particles.
     - Tier One - 64 Wheat
+- Bountiful: Fully grown crops harvested have a chance to drop 1-2 additional produce.
+    - Tier One - 20% Chance - 64 Seeds
+    - Tier Two - 45% Chance - 48 Wheat
+    - Tier Three - 75% Chance - 64 Frost Roots
