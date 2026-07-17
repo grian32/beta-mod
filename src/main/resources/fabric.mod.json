@@ -38,6 +38,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.icydungeons.WorldGenListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.icydungeons.TooltipListener"
       }
     ],
     "stationapi:event_bus_client": [
