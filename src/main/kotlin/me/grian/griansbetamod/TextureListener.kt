@@ -18,6 +18,8 @@ object TextureListener {
 
     var charcoalTexture = 0
 
+    var frostRootCropTextures = Array(4) { 0 }
+
     @EventListener
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
@@ -49,7 +51,10 @@ object TextureListener {
             BetaMod.frostRoot.setTexture(NAMESPACE.id("item/frost_root"))
             BetaMod.cookedFrostRoot.setTexture(NAMESPACE.id("item/cooked_frost_root"))
             BetaMod.frostRootSeeds.setTexture(NAMESPACE.id("item/frost_root_seeds"))
-
+            frostRootCropTextures[0] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage0")).index
+            frostRootCropTextures[1] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage1")).index
+            frostRootCropTextures[2] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage2")).index
+            frostRootCropTextures[3] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage3")).index
         }
     }
 }

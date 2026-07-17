@@ -7,6 +7,7 @@ import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.icydungeons.CookedFrostRootItem
+import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
 import me.grian.griansbetamod.icydungeons.IcyCobblestoneBlock
@@ -62,6 +63,7 @@ object BetaMod {
     lateinit var frostRoot: Item
     lateinit var cookedFrostRoot: Item
     lateinit var frostRootSeeds: Item
+    lateinit var frostRootCrop: Block
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -142,6 +144,11 @@ object BetaMod {
                 .setHardness(2.0F)
                 .setResistance(10.0F)
                 .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+            frostRootCrop = FrostRootCropBlock(NAMESPACE.id("frost_root_crop"))
+                .setTranslationKey(NAMESPACE, "frost_root_crop")
+                .setHardness(0.0F)
+                .setSoundGroup(Block.DIRT_SOUND_GROUP)
         }
     }
 
@@ -280,6 +287,11 @@ object BetaMod {
                 addSmeltingRecipe {
                     input(icyCobblestone)
                     output(icyStone)
+                }
+
+                addSmeltingRecipe {
+                    input(frostRoot)
+                    output(cookedFrostRoot)
                 }
             }
         }
