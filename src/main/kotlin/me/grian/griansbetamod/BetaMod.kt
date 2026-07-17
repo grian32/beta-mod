@@ -6,7 +6,6 @@ import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.config.ConfigScreen
-import me.grian.griansbetamod.icydungeons.CookedFrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
@@ -31,6 +30,7 @@ import net.modificationstation.stationapi.api.event.mod.InitEvent
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
+import net.modificationstation.stationapi.api.template.item.TemplateFoodItem
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
 import java.util.Properties
@@ -176,8 +176,9 @@ object BetaMod {
             frostRoot = FrostRootItem(NAMESPACE.id("frost_root"))
                 .setTranslationKey(NAMESPACE, "frost_root")
 
-            cookedFrostRoot = CookedFrostRootItem(NAMESPACE.id("cooked_frost_root"))
+            cookedFrostRoot = TemplateFoodItem(NAMESPACE.id("cooked_frost_root"), 4, false)
                 .setTranslationKey(NAMESPACE, "cooked_frost_root")
+                .setMaxCount(1)
         }
     }
 
