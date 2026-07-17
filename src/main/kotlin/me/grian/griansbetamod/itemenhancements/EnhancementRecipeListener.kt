@@ -20,9 +20,9 @@ object EnhancementRecipeListener : ModInitializer {
                 }
 
             extraLogs(ItemStack(Block.LOG, 48, 0), 1)
-            extraLogs(ItemStack(BetaMod.pileOfLogs, 16), 2)
-            extraLogs(ItemStack(BetaMod.pileOfLogs, 32), 3)
-            extraLogs(ItemStack(BetaMod.pileOfLogs, 64), 4)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 8), 2)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 16), 3)
+            extraLogs(ItemStack(BetaMod.pileOfLogs, 32), 4)
 
             fun resin(recipeIngredients: ItemStack, tier: Int) =
                 addEnhancementRecipe {

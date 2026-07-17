@@ -28,9 +28,9 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 
 - Extra Logs: This enhancement double logs when broken from a naturally spawned tree, the chance goes up from 20% to guaranteed based on the tier.
     - Tier One - 20% - 48 Oak Logs
-    - Tier Two - 45% - 16 Pile Of Logs
-    - Tier Three - 75% - 32 Pile Of Logs
-    - Tier Four - Guaranteed - 64 Pile Of Logs
+    - Tier Two - 45% - 8 Pile Of Logs
+    - Tier Three - 75% - 16 Pile Of Logs
+    - Tier Four - Guaranteed - 32 Pile Of Logs
 - Resin Harvest: Logs have a chance to drop resin, resin has various uses, check them out [here](related_additions/#resin)
     - Tier One - 20% - 64 Spruce Logs
     - Tier Two - 35% - 48 Resin
