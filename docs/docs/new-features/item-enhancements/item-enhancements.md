@@ -53,4 +53,4 @@ There are currently no shovel enhancements
 
 ### Hoe
 - Replanter: Crops will replant themselves at no cost if they were fully grown. This will happen a few ticks after harvesting and is indicated by green particles.
-    - Tier One - 48 Bread
+    - Tier One - 64 Wheat
