@@ -59,7 +59,7 @@ object EnhancementRecipeListener : ModInitializer {
 
             steadyHand(ItemStack(Item.IRON_INGOT, 32), 1)
             steadyHand(ItemStack(Item.GOLD_INGOT, 64), 2)
-            steadyHand(ItemStack(Item.DIAMOND, 24), 3)
+            steadyHand(ItemStack(Item.DIAMOND, 9), 3)
 
             addEnhancementRecipe {
                 toolType = ToolType.HOE
