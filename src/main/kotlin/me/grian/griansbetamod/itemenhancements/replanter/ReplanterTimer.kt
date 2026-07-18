@@ -1,41 +1,53 @@
 package me.grian.griansbetamod.itemenhancements.replanter
 
 import net.mine_diver.unsafeevents.listener.EventListener
-import net.minecraft.block.Block
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.modificationstation.stationapi.api.event.tick.GameTickEvent
 
+private data class Location(
+    val world: World,
+    val pos: BlockPos
+)
+
+private data class PendingReplant(
+    val cropId: Int,
+    var ticksRemaining: Int = 5
+)
+
 object ReplanterTimer {
-    // pos, timer, world
-    val blocks: MutableMap<BlockPos, Pair<Int, World>> = mutableMapOf()
+    private val replants: MutableMap<Location, PendingReplant> = mutableMapOf()
 
     @EventListener
     fun worldTick(event: GameTickEvent.End) {
-        if (blocks.isEmpty()) return
+        if (replants.isEmpty()) return
 
-        val blocksCopy = blocks.entries.toList()
+        val iterator = replants.iterator()
 
-        for (block in blocksCopy) {
-            if (block.value.first <= 1) {
-                val world = block.value.second
+        while (iterator.hasNext()) {
+            val entry = iterator.next()
 
-                world.addGrowthParticle(block.key, 0.25, 0.5)
-                world.addGrowthParticle(block.key, 0.75, 0.5)
-                world.addGrowthParticle(block.key, 0.5, 0.25)
-                world.addGrowthParticle(block.key, 0.5, 0.75)
+            if (entry.value.ticksRemaining - 1 <= 0) {
+                val world = entry.key.world
+                val pos = entry.key.pos
+                if (world.isAir(pos.x, pos.y, pos.z)) {
+                    world.addGrowthParticle(pos, 0.25, 0.5)
+                    world.addGrowthParticle(pos, 0.75, 0.5)
+                    world.addGrowthParticle(pos, 0.5, 0.25)
+                    world.addGrowthParticle(pos, 0.5, 0.75)
 
-                world.setBlock(block.key.x, block.key.y, block.key.z, Block.WHEAT.id, 0)
-                blocks.remove(block.key)
+                    world.setBlock(pos.x, pos.y, pos.z, entry.value.cropId, 0)
+                }
+                iterator.remove()
             } else {
-                blocks[block.key] = block.value.first - 1 to block.value.second
+                entry.value.ticksRemaining--
             }
         }
     }
 
     @JvmStatic
-    fun registerTimer(pos: BlockPos, world: World) {
-        blocks[pos] = 5 to world
+    fun registerTimer(pos: BlockPos, world: World, cropBlockId: Int) {
+        replants[Location(world, pos)] = PendingReplant(cropBlockId)
     }
 
     private fun World.addGrowthParticle(pos: BlockPos, modifierX: Double, modifierZ: Double) {

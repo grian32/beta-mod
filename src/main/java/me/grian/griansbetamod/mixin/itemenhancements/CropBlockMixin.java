@@ -30,7 +30,7 @@ public class CropBlockMixin extends Block {
             getEnhancementTier(selectedSlot) > 0 &&
             meta == 7 // fully grown
         ) {
-            ReplanterTimer.registerTimer(new BlockPos(x, y, z), world);
+            ReplanterTimer.registerTimer(new BlockPos(x, y, z), world, this.id);
         }
 
         super.afterBreak(world, playerEntity, x, y, z, meta);
