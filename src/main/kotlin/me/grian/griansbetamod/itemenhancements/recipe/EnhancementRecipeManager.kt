@@ -27,13 +27,22 @@ object EnhancementRecipeManager {
     }
 
 
-    fun findRecipe(input: CraftingInventory) = recipes.find {
-        input.getStack(0).item::class.java == it.toolType.clazz &&
-        input.getStack(1).containsOther(it.ingredients) &&
-        (
-            (input.getStack(0).getEnhancementTier() < it.enhancementTier) ||
-            (input.getStack(0).getEnhancement() != it.enhancement && it.enhancementTier == 1)
-        )
+    fun findRecipe(input: CraftingInventory): EnhancementRecipe? {
+        val tool = input.getStack(0) ?: return null
+        val ingredient = input.getStack(1) ?: return null
+
+        val qualifiedRecipies = recipes.filter {
+            tool.item::class.java == it.toolType.clazz && ingredient.containsOther(it.ingredients)
+        }
+
+        val currentEnhancement = tool.getEnhancement()
+        val currentTier = tool.getEnhancementTier()
+
+        return qualifiedRecipies.find {
+            it.enhancement == currentEnhancement && it.enhancementTier > currentTier
+        } ?: qualifiedRecipies.find {
+            it.enhancement != currentEnhancement && it.enhancementTier == 1
+        }
     }
 
     private fun ItemStack.containsOther(other: ItemStack) = this.item.id == other.item.id && this.count >= other.count && this.damage == other.damage
