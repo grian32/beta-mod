@@ -63,6 +63,7 @@ object BetaMod {
     lateinit var cookedFrostRoot: Item
     lateinit var frostRootSeeds: Item
     lateinit var frostRootCrop: Block
+    var frostRootCropInit = false
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -135,6 +136,7 @@ object BetaMod {
             .setTranslationKey(NAMESPACE, "frost_root_crop")
             .setHardness(0.0F)
             .setSoundGroup(Block.DIRT_SOUND_GROUP)
+        frostRootCropInit = true
     }
 
     @EventListener
