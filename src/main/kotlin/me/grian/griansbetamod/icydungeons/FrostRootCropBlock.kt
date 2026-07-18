@@ -2,9 +2,15 @@ package me.grian.griansbetamod.icydungeons
 
 import me.grian.griansbetamod.BetaMod
 import me.grian.griansbetamod.TextureListener
+import me.grian.griansbetamod.itemenhancements.Enhancement
+import me.grian.griansbetamod.itemenhancements.getEnhancement
+import me.grian.griansbetamod.itemenhancements.getEnhancementTier
+import me.grian.griansbetamod.itemenhancements.replanter.ReplanterTimer
 import net.minecraft.entity.ItemEntity
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraft.world.biome.Biome
 import net.modificationstation.stationapi.api.block.BlockState
@@ -147,5 +153,25 @@ class FrostRootCropBlock(identifier: Identifier) : TemplatePlantBlock(identifier
         }
 
         return true
+    }
+
+    override fun afterBreak(world: World, playerEntity: PlayerEntity, x: Int, y: Int, z: Int, meta: Int) {
+        val selectedSlot = playerEntity.inventory.selectedItem;
+
+        if (
+            selectedSlot != null &&
+            selectedSlot.getEnhancement() == Enhancement.REPLANTER &&
+            selectedSlot.getEnhancementTier() > 0 &&
+            meta == 3
+        ) {
+            selectedSlot.damage(1, playerEntity)
+            if (selectedSlot.count <= 0) {
+                selectedSlot.onRemoved(playerEntity)
+                playerEntity.clearStackInHand()
+            }
+            ReplanterTimer.registerTimer(BlockPos(x, y, z), world, this.id);
+        }
+
+        super.afterBreak(world, playerEntity, x, y, z, meta)
     }
 }
