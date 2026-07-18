@@ -33,10 +33,6 @@ Adds a shapeless recipe that lets you decraft a saddle into 5 leather.
 
 ### Biomes in F3 Debug Menu
 
-:::note
-This is not configurable as it is a debug feature, if you need to configure this for whatever reason, please contact me & I will add it in.
-:::
-
 Adds a display in the F3 debug menu which shows what biome the player is currently in.
 
 ### Fence Collision Boxes

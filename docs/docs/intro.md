@@ -21,4 +21,4 @@ None, to my knowledge.
 
 ## Configuration
 
-All of the above Features & Fixes can be enabled/disabled individually, all of the above are enabled by default unless WIP & the mod is meant to be played with default configuration. If a certain feature is no longer WIP after an update, you will have to manually enable it.
+This features of this mod are pretty heavily interconnected, so unfortunately most of them aren't able to be configured. However you may disable the version string modification.
