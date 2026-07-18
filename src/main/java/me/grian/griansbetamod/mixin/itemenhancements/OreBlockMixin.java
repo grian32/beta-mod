@@ -30,8 +30,6 @@ public class OreBlockMixin extends Block {
     @Unique
     private static final BooleanProperty PLACED = BooleanProperty.of("placed");
 
-    @Unique
-    private boolean placed = true;
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedConstructor(int textureId, int par2, CallbackInfo ci) {
@@ -58,28 +56,16 @@ public class OreBlockMixin extends Block {
     }
 
     @Override
-    public void onBlockBreakStart(World world, int x, int y, int z, PlayerEntity player) {
-        // so im like 90% sure i can get away with not having an intermediary property for this one but apparently
-        // onBreak gets called during all of world gen for god knows what reason
-        // and that seems like it could get wonky perf wise
-        if (ConfigScreen.config.enhancementSystem) {
-            BlockState state = world.getBlockState(x, y, z);
-            placed = state.get(PLACED);
-
-            super.onBlockBreakStart(world, x, y, z, player);
-        }
-    }
-
-    @Override
-    public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
+    public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, BlockState brokenState, int meta) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
         int tier = getEnhancementTier(selectedSlot);
 
         if (
+            ConfigScreen.config.enhancementSystem &&
             getEnhancement(selectedSlot) == Enhancement.STEADY_HAND &&
             tier > 0 &&
-            !placed &&
+            !brokenState.get(PLACED) &&
             shouldSaveOre(tier, world.random)
         ) {
             world.playSound(x, y, z, "random.fizz", 0.3f, 0.6f);
