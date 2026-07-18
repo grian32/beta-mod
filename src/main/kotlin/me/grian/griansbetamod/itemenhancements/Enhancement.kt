@@ -19,7 +19,10 @@ enum class Enhancement(
     STEADY_HAND(guiName = "Steady Hand", color = Formatting.AQUA, id = 4),
 
     // hoe
-    REPLANTER(guiName = "Replanter", color = Formatting.GREEN, id = 5, false);
+    REPLANTER(guiName = "Replanter", color = Formatting.GREEN, id = 5, false),
+
+    // shovel
+    LANDSCAPER(guiName = "Landscaper", color = Formatting.DARK_GREEN, id = 6, false);
 
     companion object {
         fun getFromId(id: Int) = entries.find { it.id == id }

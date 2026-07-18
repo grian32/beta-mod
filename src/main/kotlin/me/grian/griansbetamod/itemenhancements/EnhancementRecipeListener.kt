@@ -2,6 +2,7 @@ package me.grian.griansbetamod.itemenhancements
 
 import me.grian.griansbetamod.BetaMod
 import me.grian.griansbetamod.api.craftingrecipes.addEnhancementRecipe
+import me.grian.griansbetamod.config.ConfigScreen
 import net.fabricmc.api.ModInitializer
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -63,6 +64,13 @@ object EnhancementRecipeListener : ModInitializer {
             toolType = ToolType.HOE
             ingredients = ItemStack(Item.WHEAT, 64)
             enhancement = Enhancement.REPLANTER
+            enhancementTier = 1
+        }
+
+        addEnhancementRecipe {
+            toolType = ToolType.SHOVEL
+            ingredients = ItemStack(BetaMod.resin, 24)
+            enhancement = Enhancement.LANDSCAPER
             enhancementTier = 1
         }
     }
