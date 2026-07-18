@@ -11,9 +11,10 @@ import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
 import me.grian.griansbetamod.icydungeons.IcyCobblestoneBlock
 import me.grian.griansbetamod.icydungeons.IcyStoneBlock
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
+import me.grian.griansbetamod.itemenhancements.resinharvest.ResinBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
-import me.grian.griansbetamod.items.ResinItem
-import me.grian.griansbetamod.items.TotemOfHealthItem
+import me.grian.griansbetamod.itemenhancements.resinharvest.ResinItem
+import me.grian.griansbetamod.itemenhancements.resinharvest.TotemOfHealthItem
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped

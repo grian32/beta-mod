@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.items;
+package me.grian.griansbetamod.itemenhancements.resinharvest
 
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
