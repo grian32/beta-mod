@@ -67,6 +67,13 @@ object EnhancementRecipeListener : ModInitializer {
                 enhancement = Enhancement.REPLANTER
                 enhancementTier = 1
             }
+
+            addEnhancementRecipe {
+                toolType = ToolType.SHOVEL
+                ingredients = ItemStack(BetaMod.resin, 24)
+                enhancement = Enhancement.LANDSCAPER
+                enhancementTier = 1
+            }
         }
     }
 }
