@@ -18,6 +18,10 @@
     "itemenhancements.LogBlockMixin",
     "itemenhancements.OreBlockMixin",
     "itemenhancements.ToolItemMixin",
+    "itemenhancements.landscaper.ClayBlockMixin",
+    "itemenhancements.landscaper.GrassBlockMixin",
+    "itemenhancements.landscaper.GravelBlockMixin",
+    "itemenhancements.landscaper.SnowyBlockMixin",
     "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stackcrafting.StationShapedRecipeMixin",
@@ -25,12 +29,12 @@
   ],
   "client": [
     "ClientNetworkHandlerAccessor",
+    "carpetedstairs.SlabBlockClientMixin",
+    "carpetedstairs.StairsBlockClientMixin",
     "debugbiome.InGameHudMixin",
     "netherglassrender.ChunkBuilderMixin",
     "versionstring.DebugScreenMixin",
-    "versionstring.TitleScreenMixin",
-    "carpetedstairs.SlabBlockClientMixin",
-    "carpetedstairs.StairsBlockClientMixin"
+    "versionstring.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
