@@ -59,10 +59,10 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 
     Affected blocks: Grass Blocks, Clay Blocks, Snow Blocks, Gravel.
     - Tier One - 24 Resin
-- Sifter: Sand touching water has a chance to drop 2-4 clay balls instead of sand.
+- Sifter: Sand touching water has a chance to drop 2-4 Clay Balls instead of sand. Likewise, Soul Sand mined while touching lava has a chance to drop 2-4 Scorched Clay Balls instead.
     - Tier One - 25% Chance - 64 Sand
     - Tier Two - 50% Chance - 64 Clay Balls
-    - Tier Three - Guaranteed - 32 Clay Blocks
+    - Tier Three - Guaranteed - 16 Scorched Clay Blocks
 
 ### Hoe
 - Replanter: Crops will replant themselves at no cost if they were fully grown. This will happen a few ticks after harvesting and is indicated by green particles.
