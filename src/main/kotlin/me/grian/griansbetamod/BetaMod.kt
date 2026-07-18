@@ -15,6 +15,10 @@ import me.grian.griansbetamod.itemenhancements.resinharvest.ResinBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.itemenhancements.resinharvest.ResinItem
 import me.grian.griansbetamod.itemenhancements.resinharvest.TotemOfHealthItem
+import me.grian.griansbetamod.itemenhancements.sifter.ScorchedBrickBlock
+import me.grian.griansbetamod.itemenhancements.sifter.ScorchedBrickItem
+import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBallItem
+import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBlock
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
@@ -65,6 +69,11 @@ object BetaMod {
     lateinit var frostRootSeeds: Item
     lateinit var frostRootCrop: Block
     var frostRootCropInit = false
+
+    lateinit var scorchedClayBall: Item
+    lateinit var scorchedClayBlock: Block
+    lateinit var scorchedBrick: Item
+    lateinit var scorchedBricks: Block
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -138,6 +147,17 @@ object BetaMod {
             .setHardness(0.0F)
             .setSoundGroup(Block.DIRT_SOUND_GROUP)
         frostRootCropInit = true
+
+        scorchedBricks = ScorchedBrickBlock(NAMESPACE.id("scorched_bricks"))
+            .setTranslationKey(NAMESPACE, "scorched_bricks")
+            .setHardness(2.0F)
+            .setResistance(10.0F)
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+        scorchedClayBlock = ScorchedClayBlock(NAMESPACE.id("scorched_clay_block"))
+            .setTranslationKey("scorched_clay_block")
+            .setHardness(0.6F)
+            .setSoundGroup(Block.GRAVEL_SOUND_GROUP)
     }
 
     @EventListener
@@ -162,6 +182,12 @@ object BetaMod {
         cookedFrostRoot = TemplateFoodItem(NAMESPACE.id("cooked_frost_root"), 4, false)
             .setTranslationKey(NAMESPACE, "cooked_frost_root")
             .setMaxCount(1)
+
+        scorchedClayBall = ScorchedClayBallItem(NAMESPACE.id("scorched_clay_ball"))
+            .setTranslationKey(NAMESPACE, "scorched_clay_ball")
+
+        scorchedBrick = ScorchedClayBallItem(NAMESPACE.id("scorched_brick"))
+            .setTranslationKey(NAMESPACE, "scorched_brick")
     }
 
     @EventListener
