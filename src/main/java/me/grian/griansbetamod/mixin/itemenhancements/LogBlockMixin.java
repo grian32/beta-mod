@@ -1,7 +1,6 @@
 package me.grian.griansbetamod.mixin.itemenhancements;
 
 import me.grian.griansbetamod.BetaMod;
-import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.itemenhancements.Enhancement;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
@@ -39,26 +38,18 @@ public class LogBlockMixin extends Block {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedConstructor(int id, CallbackInfo ci) {
-        if (ConfigScreen.config.enhancementSystem) {
-            setDefaultState(getDefaultState().with(PLACED, false));
-        }
+        setDefaultState(getDefaultState().with(PLACED, false));
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        if (ConfigScreen.config.enhancementSystem) {
-            builder.add(PLACED);
-            super.appendProperties(builder);
-        }
+        builder.add(PLACED);
+        super.appendProperties(builder);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        if (ConfigScreen.config.enhancementSystem) {
-            return getDefaultState().with(PLACED, true);
-        }
-
-        return super.getPlacementState(context);
+        return getDefaultState().with(PLACED, true);
     }
 
 
@@ -67,7 +58,7 @@ public class LogBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, BlockState brokenState, int meta) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
-        if (selectedSlot != null && ConfigScreen.config.enhancementSystem) {
+        if (selectedSlot != null) {
             Enhancement enhancement = getEnhancement(selectedSlot);
             int tier = getEnhancementTier(selectedSlot);
 

@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.carpetedstairs;
 
-import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.mixininterfaces.SlabBlockMixinShared;
 import me.grian.griansbetamod.util.BetaSide;
 import net.minecraft.block.Block;
@@ -19,7 +18,7 @@ public class SlabBlockClientMixin extends  Block {
 
     @Override
     public int getTextureId(BlockView blockView, int x, int y, int z, int side) {
-        if (!ConfigScreen.config.carpetedStairsAndSlabs || blockView.getBlockMeta(x, y, z) != SlabBlockMixinShared.WOOD_SLAB_META || side != BetaSide.TOP.getValue()) {
+        if (blockView.getBlockMeta(x, y, z) != SlabBlockMixinShared.WOOD_SLAB_META || side != BetaSide.TOP.getValue()) {
             return super.getTextureId(blockView, x, y, z, side);
         }
         if (blockView instanceof BlockStateView bsv) {

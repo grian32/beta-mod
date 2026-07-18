@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.climate;
 
-import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.LeavesBlock;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,11 +18,7 @@ public class LeavesBlockMixin {
             index = 4
     )
     int modifyMetaBreakLeaves(int oldMeta) {
-        if (ConfigScreen.config.climate) {
-            return 0;
-        }
-
-        return oldMeta;
+        return 0;
     }
 
     @ModifyArg(
@@ -35,10 +30,6 @@ public class LeavesBlockMixin {
             index=5
     )
     int modifyMetaAfterBreak(int oldMeta) {
-        if (ConfigScreen.config.climate) {
-            return 0;
-        }
-
-        return oldMeta;
+        return 0;
     }
 }

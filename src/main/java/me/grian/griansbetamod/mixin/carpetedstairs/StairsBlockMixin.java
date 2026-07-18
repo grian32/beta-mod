@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.carpetedstairs;
 
-import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.mixininterfaces.StairsBlockMixinShared;
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;
@@ -31,23 +30,18 @@ public class StairsBlockMixin extends Block {
 
     @Inject(method = "<init>", at=@At("TAIL"))
     private void injectedConstructor(int id, Block baseBlock, CallbackInfo ci) {
-        if (ConfigScreen.config.carpetedStairsAndSlabs) {
-            setDefaultState(getDefaultState().with(StairsBlockMixinShared.WOOL_META, 16));
-        }
+        setDefaultState(getDefaultState().with(StairsBlockMixinShared.WOOL_META, 16));
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        if (ConfigScreen.config.carpetedStairsAndSlabs) {
-            builder.add(StairsBlockMixinShared.WOOL_META);
-            super.appendProperties(builder);
-        }
+        builder.add(StairsBlockMixinShared.WOOL_META);
+        super.appendProperties(builder);
     }
 
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)
     void onUse(World world, int x, int y, int z, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
         if (
-                ConfigScreen.config.carpetedStairsAndSlabs &&
                 baseBlock == Block.PLANKS &&
                 player.getHand() != null &&
                 player.getHand().itemId == Block.WOOL.id &&
@@ -65,7 +59,7 @@ public class StairsBlockMixin extends Block {
     // feels real dodgy but onbreak gets called after block is broken lol
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState) {
-        if (state.getBlock() == newState.getBlock() || !ConfigScreen.config.carpetedStairsAndSlabs) {
+        if (state.getBlock() == newState.getBlock()) {
             return;
         }
         int woolMeta = state.get(StairsBlockMixinShared.WOOL_META);

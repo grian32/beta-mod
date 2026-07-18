@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.icydungeons
 
-import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakePatchFeature
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.world.biome.Biome
@@ -9,9 +8,6 @@ import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent
 object WorldGenListener {
     @EventListener
     fun worldGen(event: WorldGenEvent.ChunkDecoration) {
-        if (!ConfigScreen.config.icyDungeons) {
-            return
-        }
         if (event.random.nextInt(200) != 0 || (event.biome != Biome.TUNDRA && event.biome != Biome.TAIGA)) {
             return
         }

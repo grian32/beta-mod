@@ -5,7 +5,6 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
-import me.grian.griansbetamod.config.ConfigScreen
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
@@ -78,108 +77,88 @@ object BetaMod {
 
     @EventListener
     fun registerBlocks(event: BlockRegistryEvent) {
-        if (ConfigScreen.config.enableRedstoneBlock) {
-            redstoneBlock = RedstoneBlock(NAMESPACE.id("redstone_block"))
-                .setTranslationKey(NAMESPACE, "redstone_block")
-                .setSoundGroup(Block.METAL_SOUND_GROUP)
-                .setResistance(6.0f)
-                .setHardness(5.0f)
-        }
+        redstoneBlock = RedstoneBlock(NAMESPACE.id("redstone_block"))
+            .setTranslationKey(NAMESPACE, "redstone_block")
+            .setSoundGroup(Block.METAL_SOUND_GROUP)
+            .setResistance(6.0f)
+            .setHardness(5.0f)
 
-        if (ConfigScreen.config.sawmillBlock) {
-            sawmill = SawmillBlock(NAMESPACE.id("sawmill"))
-                .setTranslationKey(NAMESPACE, "sawmill")
-                .setSoundGroup(Block.WOOD_SOUND_GROUP)
-                .setHardness(3.5f)
-        }
+        sawmill = SawmillBlock(NAMESPACE.id("sawmill"))
+            .setTranslationKey(NAMESPACE, "sawmill")
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setHardness(3.5f)
 
-        if (ConfigScreen.config.netherGlass) {
-            netherGlass = NetherGlassBlock(NAMESPACE.id("nether_glass"))
-                .setTranslationKey(NAMESPACE, "nether_glass")
-                .setSoundGroup(Block.GLASS_SOUND_GROUP)
-                .setHardness(0.3f)
-        }
+        netherGlass = NetherGlassBlock(NAMESPACE.id("nether_glass"))
+            .setTranslationKey(NAMESPACE, "nether_glass")
+            .setSoundGroup(Block.GLASS_SOUND_GROUP)
+            .setHardness(0.3f)
 
-        if (ConfigScreen.config.enhancementSystem) {
-            enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
-                .setTranslationKey(NAMESPACE, "enhancement_table")
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
-                .setHardness(5.0f)
+        enhancementTable = EnhancementTableBlock(NAMESPACE.id("enhancement_table"))
+            .setTranslationKey(NAMESPACE, "enhancement_table")
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
+            .setHardness(5.0f)
 
-            pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
-                .setTranslationKey(NAMESPACE, "pile_of_logs")
-                .setSoundGroup(Block.WOOD_SOUND_GROUP)
-                .setHardness(2.0f)
+        pileOfLogs = PileOfLogsBlock(NAMESPACE.id("pile_of_logs"))
+            .setTranslationKey(NAMESPACE, "pile_of_logs")
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setHardness(2.0f)
 
-            resinBlock = ResinBlock(NAMESPACE.id("resin_block"))
-                .setTranslationKey(NAMESPACE, "resin_block")
-                .setSoundGroup(Block.DIRT_SOUND_GROUP)
-                .setHardness(2.0f)
-        }
+        resinBlock = ResinBlock(NAMESPACE.id("resin_block"))
+            .setTranslationKey(NAMESPACE, "resin_block")
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
+            .setHardness(2.0f)
 
-        if (ConfigScreen.config.lilyOfTheLake) {
-            lilyOfTheLake = LilyOfTheLakeBlock(NAMESPACE.id("lily_of_the_lake"))
-                .setTranslationKey(NAMESPACE, "lily_of_the_lake")
-                .setHardness(0.0F)
-                .setSoundGroup(Block.DIRT_SOUND_GROUP)
-                .setLuminance(0.695f)
-        }
+        lilyOfTheLake = LilyOfTheLakeBlock(NAMESPACE.id("lily_of_the_lake"))
+            .setTranslationKey(NAMESPACE, "lily_of_the_lake")
+            .setHardness(0.0F)
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
+            .setLuminance(0.695f)
 
-        if (ConfigScreen.config.climate) {
-            bluePeony = BluePeonyBlock(NAMESPACE.id("blue_peony"))
-                .setTranslationKey(NAMESPACE, "blue_peony")
-                .setHardness(0F)
-                .setSoundGroup(Block.DIRT_SOUND_GROUP)
-        }
+        bluePeony = BluePeonyBlock(NAMESPACE.id("blue_peony"))
+            .setTranslationKey(NAMESPACE, "blue_peony")
+            .setHardness(0F)
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
 
-        if (ConfigScreen.config.icyDungeons) {
-            icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
-                .setTranslationKey(NAMESPACE, "icy_stone")
-                .setHardness(1.5F)
-                .setResistance(10.0F)
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
+        icyStone = IcyStoneBlock(NAMESPACE.id("icy_stone"))
+            .setTranslationKey(NAMESPACE, "icy_stone")
+            .setHardness(1.5F)
+            .setResistance(10.0F)
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
 
-            icyCobblestone = IcyCobblestoneBlock(NAMESPACE.id("icy_cobblestone"))
-                .setTranslationKey(NAMESPACE, "icy_cobblestone")
-                .setHardness(2.0F)
-                .setResistance(10.0F)
-                .setSoundGroup(Block.STONE_SOUND_GROUP)
+        icyCobblestone = IcyCobblestoneBlock(NAMESPACE.id("icy_cobblestone"))
+            .setTranslationKey(NAMESPACE, "icy_cobblestone")
+            .setHardness(2.0F)
+            .setResistance(10.0F)
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
 
-            frostRootCrop = FrostRootCropBlock(NAMESPACE.id("frost_root_crop"))
-                .setTranslationKey(NAMESPACE, "frost_root_crop")
-                .setHardness(0.0F)
-                .setSoundGroup(Block.DIRT_SOUND_GROUP)
-        }
+        frostRootCrop = FrostRootCropBlock(NAMESPACE.id("frost_root_crop"))
+            .setTranslationKey(NAMESPACE, "frost_root_crop")
+            .setHardness(0.0F)
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
     }
 
     @EventListener
     fun registerItems(event: ItemRegistryEvent) {
-        if (ConfigScreen.config.leatherBootsTrampleCrops) {
-            grassyBoots = GrassyBootsItem(NAMESPACE.id("grassy_boots"))
-                .setTranslationKey(NAMESPACE, "grassy_boots")
-                .setTexturePosition(0, 3)
-        }
+        grassyBoots = GrassyBootsItem(NAMESPACE.id("grassy_boots"))
+            .setTranslationKey(NAMESPACE, "grassy_boots")
+            .setTexturePosition(0, 3)
 
-        if (ConfigScreen.config.enhancementSystem) {
-            resin = ResinItem(NAMESPACE.id("resin"))
-                .setTranslationKey(NAMESPACE, "resin")
+        resin = ResinItem(NAMESPACE.id("resin"))
+            .setTranslationKey(NAMESPACE, "resin")
 
-            totemOfHealth = TotemOfHealthItem(NAMESPACE.id("totem_of_health"))
-                .setTranslationKey(NAMESPACE, "totem_of_health")
-                .setMaxCount(1)
-        }
+        totemOfHealth = TotemOfHealthItem(NAMESPACE.id("totem_of_health"))
+            .setTranslationKey(NAMESPACE, "totem_of_health")
+            .setMaxCount(1)
 
-        if (ConfigScreen.config.icyDungeons) {
-            frostRootSeeds = FrostRootSeedsItem(NAMESPACE.id("frost_root_seeds"))
-                .setTranslationKey(NAMESPACE, "frost_root_seeds")
+        frostRootSeeds = FrostRootSeedsItem(NAMESPACE.id("frost_root_seeds"))
+            .setTranslationKey(NAMESPACE, "frost_root_seeds")
 
-            frostRoot = FrostRootItem(NAMESPACE.id("frost_root"))
-                .setTranslationKey(NAMESPACE, "frost_root")
+        frostRoot = FrostRootItem(NAMESPACE.id("frost_root"))
+            .setTranslationKey(NAMESPACE, "frost_root")
 
-            cookedFrostRoot = TemplateFoodItem(NAMESPACE.id("cooked_frost_root"), 4, false)
-                .setTranslationKey(NAMESPACE, "cooked_frost_root")
-                .setMaxCount(1)
-        }
+        cookedFrostRoot = TemplateFoodItem(NAMESPACE.id("cooked_frost_root"), 4, false)
+            .setTranslationKey(NAMESPACE, "cooked_frost_root")
+            .setMaxCount(1)
     }
 
     @EventListener
@@ -187,88 +166,80 @@ object BetaMod {
         val type = RecipeRegisterEvent.Vanilla.fromType(event.recipeId)
 
         if (isEventTypeShaped(event.recipeId)) {
-            if (ConfigScreen.config.enableRedstoneBlock) {
-                addShapedRecipe {
-                    output(redstoneBlock.asItem())
+            addShapedRecipe {
+                output(redstoneBlock.asItem())
 
-                    top(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
-                    middle(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
-                    bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
-                }
-
-                addShapelessRecipe {
-                    output(ItemStack(Item.REDSTONE, 9))
-
-                    ingredient(redstoneBlock.asItem())
-                }
+                top(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                middle(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
+                bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
             }
 
-            if (ConfigScreen.config.leatherBootsTrampleCrops) {
-                addShapedRecipe {
-                    output(grassyBoots)
+            addShapelessRecipe {
+                output(ItemStack(Item.REDSTONE, 9))
 
-                    top(null, Item.WHEAT, null)
-                    middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
-                    bottom(null, Item.WHEAT, null)
-                }
+                ingredient(redstoneBlock.asItem())
             }
 
-            if (ConfigScreen.config.sawmillBlock) {
-                addShapedRecipe {
-                    output(sawmill)
+            addShapedRecipe {
+                output(grassyBoots)
 
-                    top(null, Item.IRON_INGOT, null)
-                    middle(Block.PLANKS.asItem(), Item.IRON_INGOT, Block.PLANKS.asItem())
-                    bottom(Block.STONE.asItem(), Item.IRON_INGOT, Block.STONE.asItem() )
-                }
+                top(null, Item.WHEAT, null)
+                middle(Item.SEEDS, Item.LEATHER_BOOTS, Item.SEEDS)
+                bottom(null, Item.WHEAT, null)
             }
 
-            if (ConfigScreen.config.enhancementSystem) {
-                // TODO: maybe move this to sep file, not 100% sure
-                addShapedRecipe {
-                    output(pileOfLogs)
+            addShapedRecipe {
+                output(sawmill)
 
-                    val logStack = ItemStack(Block.LOG, 4, 0)
+                top(null, Item.IRON_INGOT, null)
+                middle(Block.PLANKS.asItem(), Item.IRON_INGOT, Block.PLANKS.asItem())
+                bottom(Block.STONE.asItem(), Item.IRON_INGOT, Block.STONE.asItem() )
+            }
 
-                    top(logStack, logStack, null)
-                    middle(logStack, logStack, null)
-                }
+            // TODO: maybe move this to sep file, not 100% sure
+            addShapedRecipe {
+                output(pileOfLogs)
 
-                addShapedRecipe {
-                    output(enhancementTable)
+                val logStack = ItemStack(Block.LOG, 4, 0)
 
-                    val lightBlueDye = ItemStack(Item.DYE, 1, 12)
+                top(logStack, logStack, null)
+                middle(logStack, logStack, null)
+            }
 
-                    top(lightBlueDye, ItemStack(Item.DIAMOND), lightBlueDye)
-                    middle(Block.STONE.asItemStack(), lightBlueDye, Block.STONE.asItemStack())
-                    bottom(Block.STONE, null, Block.STONE)
-                }
+            addShapedRecipe {
+                output(enhancementTable)
 
-                addShapedRecipe {
-                    output(resinBlock)
+                val lightBlueDye = ItemStack(Item.DYE, 1, 12)
 
-                    top(resin, resin, null)
-                    middle(resin, resin, null)
-                }
+                top(lightBlueDye, ItemStack(Item.DIAMOND), lightBlueDye)
+                middle(Block.STONE.asItemStack(), lightBlueDye, Block.STONE.asItemStack())
+                bottom(Block.STONE, null, Block.STONE)
+            }
 
-                addShapedRecipe {
-                    output(Block.STICKY_PISTON)
+            addShapedRecipe {
+                output(resinBlock)
 
-                    top(null, resin, null)
-                    middle(null, Block.PISTON, null)
-                }
+                top(resin, resin, null)
+                middle(resin, resin, null)
+            }
 
-                addShapedRecipe {
-                    output(totemOfHealth)
+            addShapedRecipe {
+                output(Block.STICKY_PISTON)
 
-                    top(Block.DIAMOND_BLOCK.asItem(), resin, Block.DIAMOND_BLOCK.asItem())
-                    middle(resin, resin, resin)
-                    bottom(null, resin, null)
-                }
+                top(null, resin, null)
+                middle(null, Block.PISTON, null)
+            }
+
+            addShapedRecipe {
+                output(totemOfHealth)
+
+                top(Block.DIAMOND_BLOCK.asItem(), resin, Block.DIAMOND_BLOCK.asItem())
+                middle(resin, resin, resin)
+                bottom(null, resin, null)
             }
         }
 
-        if (ConfigScreen.config.decraftSaddles && isEventTypeShapeless(event.recipeId)) {
+        if (isEventTypeShapeless(event.recipeId)) {
             addShapelessRecipe {
                 output(ItemStack(Item.LEATHER, 5))
 
@@ -277,23 +248,19 @@ object BetaMod {
         }
 
         if (isEventTypeSmelting(event.recipeId)) {
-            if (ConfigScreen.config.netherGlass) {
-                addSmeltingRecipe {
-                    input(Block.SOUL_SAND)
-                    output(netherGlass)
-                }
+            addSmeltingRecipe {
+                input(Block.SOUL_SAND)
+                output(netherGlass)
             }
 
-            if (ConfigScreen.config.icyDungeons) {
-                addSmeltingRecipe {
-                    input(icyCobblestone)
-                    output(icyStone)
-                }
+            addSmeltingRecipe {
+                input(icyCobblestone)
+                output(icyStone)
+            }
 
-                addSmeltingRecipe {
-                    input(frostRoot)
-                    output(cookedFrostRoot)
-                }
+            addSmeltingRecipe {
+                input(frostRoot)
+                output(cookedFrostRoot)
             }
         }
     }

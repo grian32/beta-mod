@@ -1,7 +1,6 @@
 package me.grian.griansbetamod.mixin.croptrampling;
 
 import me.grian.griansbetamod.BetaMod;
-import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,24 +19,22 @@ public class FarmlandBlockMixin {
 
     @Inject(method="onSteppedOn(Lnet/minecraft/world/World;IIILnet/minecraft/entity/Entity;)V", at = @At("HEAD"), cancellable = true)
     public void onSteppedOn(World world, int x, int y, int z, Entity entity, CallbackInfo ci) {
-        if (ConfigScreen.config.leatherBootsTrampleCrops) {
-            boolean isPlayer = entity instanceof PlayerEntity;
-            PlayerEntity player = null;
-            boolean hasArmor = false;
-            boolean hasLeatherBoots = false;
+        boolean isPlayer = entity instanceof PlayerEntity;
+        PlayerEntity player = null;
+        boolean hasArmor = false;
+        boolean hasLeatherBoots = false;
 
-            if (isPlayer) {
-                player = (PlayerEntity) entity;
-                hasArmor = !isAllNull(player.inventory.armor);
-            }
+        if (isPlayer) {
+            player = (PlayerEntity) entity;
+            hasArmor = !isAllNull(player.inventory.armor);
+        }
 
-            if (isPlayer && hasArmor) {
-                hasLeatherBoots = ArrayUtils.contains(toItemIds(player.inventory.armor), BetaMod.grassyBoots.id);
-            }
+        if (isPlayer && hasArmor) {
+            hasLeatherBoots = ArrayUtils.contains(toItemIds(player.inventory.armor), BetaMod.grassyBoots.id);
+        }
 
-            if (isPlayer && hasLeatherBoots) {
-                ci.cancel();
-            }
+        if (isPlayer && hasLeatherBoots) {
+            ci.cancel();
         }
     }
 }

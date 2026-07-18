@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.carpetedstairs;
 
-import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.mixininterfaces.SlabBlockMixinShared;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
@@ -29,23 +28,18 @@ public class SlabBlockMixin extends Block {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedConstructor(int id, boolean doubleSlab, CallbackInfo ci) {
-        if (ConfigScreen.config.carpetedStairsAndSlabs) {
-            setDefaultState(getDefaultState().with(SlabBlockMixinShared.WOOL_META, 16));
-        }
+        setDefaultState(getDefaultState().with(SlabBlockMixinShared.WOOL_META, 16));
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        if (ConfigScreen.config.carpetedStairsAndSlabs) {
-            builder.add(SlabBlockMixinShared.WOOL_META);
-            super.appendProperties(builder);
-        }
+        builder.add(SlabBlockMixinShared.WOOL_META);
+        super.appendProperties(builder);
     }
 
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         if (
-                ConfigScreen.config.carpetedStairsAndSlabs &&
                 !doubleSlab &&
                 world.getBlockMeta(x, y, z) == SlabBlockMixinShared.WOOD_SLAB_META &&
                 player.getHand() != null &&
@@ -63,7 +57,7 @@ public class SlabBlockMixin extends Block {
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState) {
-        if (state.getBlock() == newState.getBlock() || !ConfigScreen.config.carpetedStairsAndSlabs) {
+        if (state.getBlock() == newState.getBlock()) {
             return;
         }
         int woolMeta = state.get(SlabBlockMixinShared.WOOL_META);

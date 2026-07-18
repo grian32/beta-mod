@@ -2,7 +2,6 @@ package me.grian.griansbetamod.mixin.climate;
 
 import lombok.extern.slf4j.Slf4j;
 import me.grian.griansbetamod.BetaMod;
-import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.SaplingBlock;
@@ -23,9 +22,6 @@ public class SaplingBlockMixin extends PlantBlock {
 
     @Override
     public void onPlaced(World world, int x, int y, int z) {
-        if (!ConfigScreen.config.climate) {
-            return;
-        }
         Biome biome = world.method_1781().getBiome(x, z);
         if (biome == Biome.TUNDRA || biome == Biome.TAIGA) {
             world.setBlockMeta(x, y, z, 1);
@@ -56,9 +52,7 @@ public class SaplingBlockMixin extends PlantBlock {
 
     @Inject(method = "getDroppedItemMeta", at = @At("HEAD"), cancellable = true)
     void getDroppedItemMeta(int blockMeta, CallbackInfoReturnable<Integer> cir) {
-        if (ConfigScreen.config.climate) {
-            cir.setReturnValue(0);
-        }
+        cir.setReturnValue(0);
     }
 
     @Unique

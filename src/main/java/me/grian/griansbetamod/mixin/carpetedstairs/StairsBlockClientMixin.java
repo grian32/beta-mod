@@ -1,6 +1,5 @@
 package me.grian.griansbetamod.mixin.carpetedstairs;
 
-import me.grian.griansbetamod.config.ConfigScreen;
 import me.grian.griansbetamod.mixininterfaces.StairsBlockMixinShared;
 import me.grian.griansbetamod.util.BetaSide;
 import net.minecraft.block.Block;
@@ -20,7 +19,7 @@ public class StairsBlockClientMixin {
 
     @Inject(method = "getTextureId", at = @At("HEAD"), cancellable = true)
     void getTextureId(BlockView blockView, int x, int y, int z, int side, CallbackInfoReturnable<Integer> cir) {
-        if (!ConfigScreen.config.carpetedStairsAndSlabs || baseBlock != Block.PLANKS) {
+        if (baseBlock != Block.PLANKS) {
             return;
         }
         if (blockView instanceof BlockStateView bsv) {

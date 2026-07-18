@@ -1,7 +1,6 @@
 package me.grian.griansbetamod.mixin.breakingspeedpickaxe;
 
 import com.google.common.collect.ObjectArrays;
-import me.grian.griansbetamod.config.ConfigScreen;
 import net.minecraft.block.Block;
 import net.minecraft.item.PickaxeItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,16 +12,14 @@ public class PickaxeItemMixin {
     private static Block[] pickaxeEffectiveBlocks;
 
     static {
-        if (ConfigScreen.config.pickaxeEffectiveBlocks) {
-            Block[] newBlocks = new Block[]{
-                    Block.REDSTONE_ORE,
-                    Block.LIT_REDSTONE_ORE,
-                    Block.COBBLESTONE_STAIRS,
-                    Block.FURNACE,
-                    Block.LIT_FURNACE
-            };
+        Block[] newBlocks = new Block[]{
+                Block.REDSTONE_ORE,
+                Block.LIT_REDSTONE_ORE,
+                Block.COBBLESTONE_STAIRS,
+                Block.FURNACE,
+                Block.LIT_FURNACE
+        };
 
-            pickaxeEffectiveBlocks = ObjectArrays.concat(pickaxeEffectiveBlocks, newBlocks, Block.class);
-        }
+        pickaxeEffectiveBlocks = ObjectArrays.concat(pickaxeEffectiveBlocks, newBlocks, Block.class);
     }
 }
