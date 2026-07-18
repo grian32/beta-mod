@@ -73,5 +73,17 @@ object EnhancementRecipeListener : ModInitializer {
             enhancement = Enhancement.LANDSCAPER
             enhancementTier = 1
         }
+
+        fun bountiful(recipeIngredients: ItemStack, tier: Int) =
+            addEnhancementRecipe {
+                toolType = ToolType.HOE
+                ingredients = recipeIngredients
+                enhancement = Enhancement.BOUNTIFUL
+                enhancementTier = tier
+            }
+
+        bountiful(ItemStack(Item.SEEDS, 64), 1)
+        bountiful(ItemStack(Item.WHEAT, 48), 2)
+        bountiful(ItemStack(BetaMod.frostRoot, 64), 3)
     }
 }

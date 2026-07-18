@@ -6,6 +6,7 @@ import me.grian.griansbetamod.itemenhancements.Enhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancementTier
 import me.grian.griansbetamod.itemenhancements.replanter.ReplanterTimer
+import me.grian.griansbetamod.mixinutils.shouldDropExtraBountiful
 import net.minecraft.entity.ItemEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
@@ -134,12 +135,7 @@ class FrostRootCropBlock(identifier: Identifier) : TemplatePlantBlock(identifier
     }
 
     override fun getDroppedItemCount(random: Random): Int {
-        val rand = random.nextInt(3)
-        return if (rand != 0) {
-            rand
-        } else {
-            1
-        }
+        return 1
     }
 
     override fun onBonemealUse(world: World, x: Int, y: Int, z: Int, state: BlockState): Boolean {
@@ -158,19 +154,33 @@ class FrostRootCropBlock(identifier: Identifier) : TemplatePlantBlock(identifier
     override fun afterBreak(world: World, playerEntity: PlayerEntity, x: Int, y: Int, z: Int, meta: Int) {
         val selectedSlot = playerEntity.inventory.selectedItem;
 
-        if (
-            selectedSlot != null &&
-            selectedSlot.getEnhancement() == Enhancement.REPLANTER &&
-            selectedSlot.getEnhancementTier() > 0 &&
-            meta == 3
-        ) {
-            selectedSlot.damage(1, playerEntity)
-            if (selectedSlot.count <= 0) {
-                selectedSlot.onRemoved(playerEntity)
-                playerEntity.clearStackInHand()
+        if (selectedSlot != null && meta == 3) {
+            // TODO: figure out some way to generic this since its the same code as wheat? lol idk
+            if (
+                selectedSlot.getEnhancement() == Enhancement.REPLANTER &&
+                selectedSlot.getEnhancementTier() > 0
+            ) {
+                selectedSlot.damage(1, playerEntity)
+                if (selectedSlot.count <= 0) {
+                    selectedSlot.onRemoved(playerEntity)
+                    playerEntity.clearStackInHand()
+                }
+                ReplanterTimer.registerTimer(BlockPos(x, y, z), world, this.id);
+            } else if (
+                selectedSlot.getEnhancement() == Enhancement.BOUNTIFUL &&
+                selectedSlot.getEnhancementTier() > 0
+            ) {
+                selectedSlot.damage(1, playerEntity)
+                if (selectedSlot.count <= 0) {
+                    selectedSlot.onRemoved(playerEntity)
+                    playerEntity.clearStackInHand()
+                }
+                if (shouldDropExtraBountiful(selectedSlot.getEnhancementTier(), world.random)) {
+                    this.dropStack(world, x, y, z, ItemStack(BetaMod.frostRoot, world.random.nextInt(1, 3)))
+                }
             }
-            ReplanterTimer.registerTimer(BlockPos(x, y, z), world, this.id);
         }
+
 
         super.afterBreak(world, playerEntity, x, y, z, meta)
     }

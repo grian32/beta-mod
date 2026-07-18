@@ -47,3 +47,12 @@ fun shouldSaveOre(tier: Int, random: Random): Boolean =
         3 -> 1.outOf(20, random) // 5%
         else -> false
     }
+
+fun shouldDropExtraBountiful(tier: Int, random: Random): Boolean =
+    when (tier) {
+        1 -> 20.outOf(100, random)
+        2 -> 45.outOf(100, random)
+        3 -> 75.outOf(100, random)
+        else -> false
+    }
+

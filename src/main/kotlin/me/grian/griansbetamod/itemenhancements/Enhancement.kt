@@ -22,7 +22,8 @@ enum class Enhancement(
     REPLANTER(guiName = "Replanter", color = Formatting.GREEN, id = 5, false),
 
     // shovel
-    LANDSCAPER(guiName = "Landscaper", color = Formatting.DARK_GREEN, id = 6, false);
+    LANDSCAPER(guiName = "Landscaper", color = Formatting.DARK_GREEN, id = 6, false),
+    BOUNTIFUL(guiName = "Bountiful", color = Formatting.YELLOW, id = 7);
 
     companion object {
         fun getFromId(id: Int) = entries.find { it.id == id }
