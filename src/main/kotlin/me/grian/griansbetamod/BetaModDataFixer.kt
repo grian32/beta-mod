@@ -1,6 +1,5 @@
 package me.grian.griansbetamod
 
-import BetaModSchema
 import com.mojang.datafixers.DataFixer
 import com.mojang.datafixers.DataFixerBuilder
 import me.grian.griansbetamod.itemenhancements.OrdinalToIdFix

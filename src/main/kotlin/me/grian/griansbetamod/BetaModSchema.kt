@@ -1,3 +1,5 @@
+package me.grian.griansbetamod
+
 import com.mojang.datafixers.DSL
 import com.mojang.datafixers.schemas.Schema
 import com.mojang.datafixers.types.templates.TypeTemplate
@@ -5,8 +7,6 @@ import net.modificationstation.stationapi.api.datafixer.TypeReferences
 import net.modificationstation.stationapi.api.vanillafix.datafixer.schema.IdentifierNormalizingSchema
 import net.modificationstation.stationapi.api.vanillafix.datafixer.schema.McRegionSchemaB1_7_3
 import java.util.function.Supplier
-import javax.xml.validation.Validator
-import javax.xml.validation.ValidatorHandler
 
 class BetaModSchema(versionKey: Int, parent: Schema?) : McRegionSchemaB1_7_3(versionKey, parent) {
     override fun registerTypes(
