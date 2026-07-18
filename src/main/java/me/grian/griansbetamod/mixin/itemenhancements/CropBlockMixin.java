@@ -26,10 +26,17 @@ public class CropBlockMixin extends Block {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
         if (
+            selectedSlot != null &&
             getEnhancement(selectedSlot) == Enhancement.REPLANTER &&
             getEnhancementTier(selectedSlot) > 0 &&
             meta == 7 // fully grown
         ) {
+            selectedSlot.damage(1, playerEntity);
+            // i have to do this so it doesnt get an extra durability where it shows as full durability, not sure why this happens as it should work correctly but :shrug:
+            if (selectedSlot.count <= 0) {
+                selectedSlot.onRemoved(playerEntity);
+                playerEntity.clearStackInHand();
+            }
             ReplanterTimer.registerTimer(new BlockPos(x, y, z), world, this.id);
         }
 

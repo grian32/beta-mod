@@ -65,6 +65,9 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Three - Guaranteed - 16 Scorched Clay Blocks
 
 ### Hoe
+:::note 
+Both of the below enhancements will consume durability, unlike normal block breaking with a hoe. 
+:::
 - Replanter: Crops will replant themselves at no cost if they were fully grown. This will happen a few ticks after harvesting and is indicated by green particles.
     - Tier One - 64 Wheat
 - Bountiful: Fully grown crops harvested have a chance to drop 1-2 additional produce.
