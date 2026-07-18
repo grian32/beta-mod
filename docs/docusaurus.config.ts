@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Grian\'s Beta Expansion',
-  tagline: 'A standalone large expansion mod for Minecraft b1.7.3',
+  tagline: 'A standalone expansion mod for Minecraft b1.7.3',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

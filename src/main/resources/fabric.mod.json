@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "griansbetamod",
   "version": "${version}",
-  "name": "Grian's Beta Mod",
-  "description": "Various bits and bobs for my personal experience.",
+  "name": "Grian's Beta Expansion",
+  "description": "An expansion mod containing a variety of features that aims to fit into a roughly beta feel.",
   "authors": [
     "Grian"
   ],
