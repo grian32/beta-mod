@@ -3,9 +3,6 @@
 Grian's Beta Expansion is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
 
 This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues. Any places I expect incompatibilities to exist can be seen [here](https://grian32.github.io/beta-mod/docs/intro/#current-possible-places-of-conflict-with-other-mods)
-
-The project is currently in relatively early stages & has only one major feature along with several minor ones, a lot more is planned however, so stay tuned!
-
 ## Installation
 
 1. Install the Babric Prism Instance available [here](https://github.com/babric/prism-instance)
