@@ -20,13 +20,10 @@ public class ClayBlockMixin extends Block {
 
     @Override
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
-        ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
+        ItemStack drop = LandscaperCommon.getDrop(playerEntity, this);
 
-        if (
-            selectedSlot != null &&
-            getEnhancement(selectedSlot) == Enhancement.LANDSCAPER
-        ) {
-            this.dropStack(world, x, y, z, new ItemStack(Block.CLAY, 1));
+        if (drop != null ) {
+            this.dropStack(world, x, y, z, drop);
             playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
         } else {
             super.afterBreak(world, playerEntity, x, y, z, meta);
