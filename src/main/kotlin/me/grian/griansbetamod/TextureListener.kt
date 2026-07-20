@@ -54,7 +54,7 @@ object TextureListener {
         frostRootCropTextures[2] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage2")).index
         frostRootCropTextures[3] = terrain.addTexture(NAMESPACE.id("block/frost_root_stage3")).index
 
-        BetaMod.scorchedClayBall.setTexture(NAMESPACE.id("item/scorched_clay"))
+        BetaMod.scorchedClayBall.setTexture(NAMESPACE.id("item/scorched_clay_ball"))
         BetaMod.scorchedClayBlock.textureId = terrain.addTexture(NAMESPACE.id("block/scorched_clay_block")).index
         BetaMod.scorchedBrick.setTexture(NAMESPACE.id("item/scorched_brick"))
         BetaMod.scorchedBricks.textureId = terrain.addTexture(NAMESPACE.id("block/scorched_bricks")).index

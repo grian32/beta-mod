@@ -155,7 +155,7 @@ object BetaMod {
             .setSoundGroup(Block.STONE_SOUND_GROUP)
 
         scorchedClayBlock = ScorchedClayBlock(NAMESPACE.id("scorched_clay_block"))
-            .setTranslationKey("scorched_clay_block")
+            .setTranslationKey(NAMESPACE, "scorched_clay_block")
             .setHardness(0.6F)
             .setSoundGroup(Block.GRAVEL_SOUND_GROUP)
     }
@@ -266,6 +266,18 @@ object BetaMod {
                 middle(resin, resin, resin)
                 bottom(null, resin, null)
             }
+
+            addShapedRecipe {
+                output(scorchedClayBlock)
+                top(scorchedClayBall, scorchedClayBall, null)
+                middle(scorchedClayBall, scorchedClayBall, null)
+            }
+
+            addShapedRecipe {
+                output(scorchedBricks)
+                top(scorchedBrick, scorchedBrick, null)
+                middle(scorchedBrick, scorchedBrick, null)
+            }
         }
 
         if (isEventTypeShapeless(event.recipeId)) {
@@ -290,6 +302,11 @@ object BetaMod {
             addSmeltingRecipe {
                 input(frostRoot)
                 output(cookedFrostRoot)
+            }
+
+            addSmeltingRecipe {
+                input(scorchedClayBall)
+                output(scorchedBrick)
             }
         }
     }
