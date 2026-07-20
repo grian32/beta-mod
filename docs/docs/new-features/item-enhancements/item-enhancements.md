@@ -48,7 +48,7 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Three - 5% Chance - 9 Diamonds
 - Quarryman: Stone based blocks are mined faster.
  
-    Affected Blocks: Stone, Cobblestone, Mossy Cobblestone.
+    Affected Blocks: Stone, Cobblestone, Mossy Cobblestone, Icy Stone, Icy Cobblestone.
     - Tier One - 25% Faster - 3 Iron Blocks
     - Tier Two - 50% Faster - 1 Diamond
     - Tier Three - 100% Faster - 5 Diamonds

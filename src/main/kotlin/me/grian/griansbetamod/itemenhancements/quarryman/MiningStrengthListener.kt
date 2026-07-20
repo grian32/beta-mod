@@ -32,7 +32,9 @@ object MiningStrengthListener {
         arrayOf(
             Block.COBBLESTONE.id,
             Block.STONE.id,
-            Block.MOSSY_COBBLESTONE.id
+            Block.MOSSY_COBBLESTONE.id,
+            BetaMod.icyStone,
+            BetaMod.icyCobblestone
         )
     }
 
