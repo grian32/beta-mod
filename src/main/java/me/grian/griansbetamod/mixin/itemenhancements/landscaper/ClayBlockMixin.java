@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 
 import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancement;
 
@@ -28,9 +27,9 @@ public class ClayBlockMixin extends Block {
             getEnhancement(selectedSlot) == Enhancement.LANDSCAPER
         ) {
             this.dropStack(world, x, y, z, new ItemStack(Block.CLAY, 1));
+            playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
+        } else {
+            super.afterBreak(world, playerEntity, x, y, z, meta);
         }
-
-        playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
-        // i dont super cuz all it does is increase stat and dropstacks which im modifying here
     }
 }

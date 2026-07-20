@@ -57,7 +57,7 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 
 - Landscaper: Certain terrain blocks drop in their intact form.
 
-    Affected blocks: Grass Blocks, Clay Blocks, Snow Blocks, Gravel.
+    Affected blocks: Grass Blocks, Clay Blocks, Snow Blocks, Gravel, Scorched Clay Blocks.
     - Tier One - 24 Resin
 - Sifter: Sand touching water has a chance to drop 2-4 Clay Balls instead of sand. Likewise, Soul Sand mined while touching lava has a chance to drop 2-4 Scorched Clay Balls instead.
     - Tier One - 25% Chance - 64 Sand

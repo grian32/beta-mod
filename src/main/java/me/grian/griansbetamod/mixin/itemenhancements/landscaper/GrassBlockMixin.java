@@ -27,8 +27,9 @@ public class GrassBlockMixin extends Block {
             getEnhancement(selectedSlot) == Enhancement.LANDSCAPER
         ) {
             this.dropStack(world, x, y, z, new ItemStack(Block.GRASS_BLOCK, 1));
+            playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
+        } else {
+            super.afterBreak(world, playerEntity, x, y, z, meta);
         }
-
-        playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
     }
 }
