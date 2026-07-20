@@ -42,6 +42,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.icydungeons.TooltipListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.itemenhancements.quarryman.MiningStrengthListener"
       }
     ],
     "stationapi:event_bus_client": [

@@ -16,6 +16,7 @@ enum class Enhancement(
 
     // pick
     __LAPIS_MINER(guiName = "Lapis Miner", color = Formatting.BLUE, id = 3),
+    QUARRYMAN(guiName = "Quarryman", color = Formatting.GRAY, id=9),
     STEADY_HAND(guiName = "Steady Hand", color = Formatting.AQUA, id = 4),
 
     // hoe

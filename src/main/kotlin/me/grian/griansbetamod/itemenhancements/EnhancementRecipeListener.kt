@@ -97,5 +97,17 @@ object EnhancementRecipeListener : ModInitializer {
         sifter(ItemStack(Block.SAND, 64), 1)
         sifter(ItemStack(Item.CLAY, 64), 2)
         sifter(ItemStack(BetaMod.scorchedClayBlock, 16), 3)
+
+        fun quarryMan(recipeIngredients: ItemStack, tier: Int) =
+            addEnhancementRecipe {
+                toolType = ToolType.PICKAXE
+                ingredients = recipeIngredients
+                enhancement = Enhancement.QUARRYMAN
+                enhancementTier = tier
+            }
+
+        quarryMan(ItemStack(Block.IRON_BLOCK, 3), 1)
+        quarryMan(ItemStack(Item.DIAMOND, 1), 2)
+        quarryMan(ItemStack(Item.DIAMOND, 5), 3)
     }
 }
