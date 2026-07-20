@@ -20,4 +20,19 @@ class ScorchedClayBlock(identifier: Identifier): TemplateBlock(identifier, Mater
     override fun getDroppedItemCount(random: Random?): Int {
         return 4
     }
+
+    override fun afterBreak(world: World, playerEntity: PlayerEntity, x: Int, y: Int, z: Int, meta: Int) {
+        val selectedSlot = playerEntity.inventory.selectedItem
+
+        if (
+            selectedSlot != null &&
+            selectedSlot.getEnhancement() == Enhancement.LANDSCAPER
+        ) {
+            this.dropStack(world, x, y, z, ItemStack(BetaMod.scorchedClayBlock, 1));
+            playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
+        } else {
+            super.afterBreak(world, playerEntity, x, y, z, meta)
+        }
+
+    }
 }
