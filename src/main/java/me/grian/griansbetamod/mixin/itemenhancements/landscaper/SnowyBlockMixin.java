@@ -22,6 +22,7 @@ public class SnowyBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
         ItemStack selectedSlot = playerEntity.inventory.getSelectedItem();
 
+        // TODO: figure out some way to abstract this :S
         if (
             selectedSlot != null &&
             getEnhancement(selectedSlot) == Enhancement.LANDSCAPER

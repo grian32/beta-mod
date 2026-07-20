@@ -22,6 +22,8 @@
     "itemenhancements.landscaper.GrassBlockMixin",
     "itemenhancements.landscaper.GravelBlockMixin",
     "itemenhancements.landscaper.SnowyBlockMixin",
+    "itemenhancements.sifter.SandBlockMixin",
+    "itemenhancements.sifter.SoulSandBlockMixin",
     "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stackcrafting.StationShapedRecipeMixin",

@@ -7,7 +7,6 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.network.NetworkHandler
-import net.minecraft.world.World
 import net.modificationstation.stationapi.api.block.BlockState
 
 fun Array<Any?>.isAllNull(): Boolean {
@@ -35,3 +34,7 @@ fun Block.asItemStack(): ItemStack = ItemStack(this, 1)
 fun NetworkHandler?.toClientAccessor() = this as ClientNetworkHandlerAccessor
 fun PlayerEntity?.toServerPlayer() = this as ServerPlayerEntity
 fun ServerPlayerEntity?.toAccessor() = this as ServerPlayerEntityAccessor
+
+// specifies full qualifier since diff randoms
+fun Int.outOf(x: Int, random: java.util.Random) = random.nextInt(x) in 0..<this
+fun Int.outOf(x: Int, random: kotlin.random.Random) = random.nextInt(x) in 0..<this

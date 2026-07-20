@@ -85,5 +85,17 @@ object EnhancementRecipeListener : ModInitializer {
         bountiful(ItemStack(Item.SEEDS, 64), 1)
         bountiful(ItemStack(Item.WHEAT, 48), 2)
         bountiful(ItemStack(BetaMod.frostRoot, 64), 3)
+
+        fun sifter(recipeIngredients: ItemStack, tier: Int) =
+            addEnhancementRecipe {
+                toolType = ToolType.SHOVEL
+                ingredients = recipeIngredients
+                enhancement = Enhancement.SIFTER
+                enhancementTier = tier
+            }
+
+        sifter(ItemStack(Block.SAND, 64), 1)
+        sifter(ItemStack(Item.CLAY, 64), 2)
+        sifter(ItemStack(BetaMod.scorchedClayBlock, 32), 3)
     }
 }

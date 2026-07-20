@@ -50,9 +50,16 @@ fun shouldSaveOre(tier: Int, random: Random): Boolean =
 
 fun shouldDropExtraBountiful(tier: Int, random: Random): Boolean =
     when (tier) {
-        1 -> 20.outOf(100, random)
-        2 -> 45.outOf(100, random)
-        3 -> 75.outOf(100, random)
+        1 -> 1.outOf(5, random) // 20%
+        2 -> 9.outOf(20, random) // 45%
+        3 -> 3.outOf(4, random) // 75%
         else -> false
     }
 
+fun shouldDropSifter(tier: Int, random: Random): Boolean =
+    when (tier) {
+        1 -> 1.outOf(4, random) // 25%
+        2 -> 1.outOf(2, random) // 50%
+        3 -> true // 100%
+        else -> false
+    }
