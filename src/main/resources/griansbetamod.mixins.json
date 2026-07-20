@@ -6,6 +6,7 @@
   "mixins": [
     "breakingspeedfixes.AxeItemMixin",
     "breakingspeedfixes.PickaxeItemMixin",
+    "breakingspeedfixes.ShovelItemMixin",
     "carpetedstairs.SlabBlockMixin",
     "carpetedstairs.StairsBlockMixin",
     "charcoaltexture.CoalItemMixin",
