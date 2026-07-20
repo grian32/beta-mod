@@ -4,8 +4,8 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "breakingspeedaxe.AxeItemMixin",
-    "breakingspeedpickaxe.PickaxeItemMixin",
+    "breakingspeedfixes.AxeItemMixin",
+    "breakingspeedfixes.PickaxeItemMixin",
     "carpetedstairs.SlabBlockMixin",
     "carpetedstairs.StairsBlockMixin",
     "charcoaltexture.CoalItemMixin",

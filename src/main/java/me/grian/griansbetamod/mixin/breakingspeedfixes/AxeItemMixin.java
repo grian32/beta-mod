@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.mixin.breakingspeedaxe;
+package me.grian.griansbetamod.mixin.breakingspeedfixes;
 
 import com.google.common.collect.ObjectArrays;
 import net.minecraft.block.Block;
