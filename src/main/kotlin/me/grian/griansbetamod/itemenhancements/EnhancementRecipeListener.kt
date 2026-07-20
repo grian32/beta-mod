@@ -96,6 +96,6 @@ object EnhancementRecipeListener : ModInitializer {
 
         sifter(ItemStack(Block.SAND, 64), 1)
         sifter(ItemStack(Item.CLAY, 64), 2)
-        sifter(ItemStack(BetaMod.scorchedClayBlock, 32), 3)
+        sifter(ItemStack(BetaMod.scorchedClayBlock, 16), 3)
     }
 }

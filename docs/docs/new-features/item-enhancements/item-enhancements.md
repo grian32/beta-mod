@@ -62,7 +62,7 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
 - Sifter: Sand touching water has a chance to drop 2-4 Clay Balls instead of sand. Likewise, Soul Sand mined while touching lava has a chance to drop 2-4 Scorched Clay Balls instead.
     - Tier One - 25% Chance - 64 Sand
     - Tier Two - 50% Chance - 64 Clay Balls
-    - Tier Three - Guaranteed - 32 Scorched Clay Blocks
+    - Tier Three - Guaranteed - 16 Scorched Clay Blocks
 
 ### Hoe
 :::note 
