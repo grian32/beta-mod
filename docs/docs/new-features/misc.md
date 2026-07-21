@@ -48,3 +48,7 @@ Charcoal now has a unique texture.
 ### Armor
 
 Vanilla armor values have been modified to match the same values as b1.8 and the protection no longer degrades with durability.
+
+### Boats
+
+Boats now have a much faster acceleration and max speed, along with this they cannot break on collision, they turn faster, and they drop a boat item when broken by the player.
