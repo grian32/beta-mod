@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 # Miscellaneous
 
-Grian's Beta Expansion also adds a variety of miscellaneous features
+Project Beta Expanded also adds a variety of miscellaneous features
 
 ### Grassy Boots
 Grassy Boots are a new armor item that, when being worn, prevent you from trampling crops.

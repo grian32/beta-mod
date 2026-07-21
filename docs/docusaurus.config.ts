@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Grian\'s Beta Expansion',
-  tagline: 'A standalone expansion mod for Minecraft b1.7.3',
+  title: 'Project Beta Expanded',
+  tagline: "A mod that reimagines the game as the foundation for an alternate path of development.",
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -67,9 +67,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Grian\'s Beta Expansion',
+      title: 'Project Beta Expanded',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Project Beta Expanded Logo',
         src: 'img/logo.svg',
       },
       items: [

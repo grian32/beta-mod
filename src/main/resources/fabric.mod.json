@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "griansbetamod",
   "version": "${version}",
-  "name": "Grian's Beta Expansion",
-  "description": "An expansion mod containing a variety of features that aims to fit into a roughly beta feel.",
+  "name": "Project Beta Expanded",
+  "description": "A mod that reimagines the game as the foundation for an alternate path of development.",
   "authors": [
-    "Grian"
+    "grian32"
   ],
   "contact": {
     "sources": "https://github.com/grian32/beta-mod"

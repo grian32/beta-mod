@@ -25,7 +25,7 @@ public class DebugScreenMixin {
             }
 
             int insertIndex = index + 6;
-            return oldVersionString.substring(0, insertIndex) + "+GBE " + BetaMod.getVersionString() + oldVersionString.substring(insertIndex);
+            return oldVersionString.substring(0, insertIndex) + "+PBE " + BetaMod.getVersionString() + oldVersionString.substring(insertIndex);
         }
 
         return oldVersionString;

@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Fixes
 
-Grian's Beta Expansion applies the follows fixes to vanilla:
+Project Beta Expanded applies the following fixes to vanilla:
 
 - The following items now break faster with axes: Wooden Stairs, Crafting Table, Wooden Fence.
 - The following items now break faster with shovels: Soul Sand.

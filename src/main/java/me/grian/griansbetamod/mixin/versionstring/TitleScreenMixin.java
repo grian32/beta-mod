@@ -20,7 +20,7 @@ public class TitleScreenMixin {
     )
     String versionString(String oldVersionString) {
         if (ConfigScreen.config.modifyVersionString) {
-            return oldVersionString + "+GBE " + BetaMod.getVersionString();
+            return oldVersionString + "+PBE " + BetaMod.getVersionString();
         }
         return oldVersionString;
     }

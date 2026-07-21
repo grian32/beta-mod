@@ -2,8 +2,9 @@
 sidebar_position: 1
 ---
 
-# Grian's Beta Expansion
-Grian's Beta Expansion is a mod for Minecraft Beta 1.7.3, that aims to add new features that I thought were fun or made sense to add as a feature either to solve problems or introduce more content, while trying to stay true to the beta style/feel.
+# Project Beta Expanded
+
+Project Beta Expanded is a mod for Minecraft Beta 1.7.3 that reimagines the game as the foundation for an alternate path of development. It fixes vanilla annoyances, completes unfinished features, and introduces new content guided by its own design philosophy.
 
 This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues.
 

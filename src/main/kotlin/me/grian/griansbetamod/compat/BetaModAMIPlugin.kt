@@ -8,7 +8,7 @@ import net.modificationstation.stationapi.api.util.Identifier
 
 class BetaModAMIPlugin : ModPluginProvider {
     override fun getName(): String {
-        return "Grian's Beta Expansion"
+        return "Project Beta Expanded"
     }
 
     override fun getId(): Identifier {
