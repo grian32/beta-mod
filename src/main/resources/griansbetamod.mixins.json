@@ -25,6 +25,8 @@
     "itemenhancements.landscaper.SnowyBlockMixin",
     "itemenhancements.sifter.SandBlockMixin",
     "itemenhancements.sifter.SoulSandBlockMixin",
+    "newarmor.ArmorItemMixin",
+    "newarmor.PlayerInventoryMixin",
     "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stackcrafting.StationShapedRecipeMixin",
