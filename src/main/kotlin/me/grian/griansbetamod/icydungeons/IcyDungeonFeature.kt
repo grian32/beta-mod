@@ -327,7 +327,7 @@ class IcyDungeonFeature : Feature() {
         }
 
         if (!gennedSeeds) {
-            blockEntity.setStack(3, ItemStack(Block.BEDROCK, 1))
+            blockEntity.setStack(3, ItemStack(BetaMod.frostRootSeeds, 1))
         }
     }
 

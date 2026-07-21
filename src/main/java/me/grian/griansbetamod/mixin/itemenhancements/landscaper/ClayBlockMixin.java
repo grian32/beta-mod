@@ -10,8 +10,6 @@ import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
-import static me.grian.griansbetamod.itemenhancements.UtilKt.getEnhancement;
-
 @Mixin(ClayBlock.class)
 public class ClayBlockMixin extends Block {
     public ClayBlockMixin(int id, Material material) {
