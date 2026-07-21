@@ -75,6 +75,8 @@ object BetaMod {
     lateinit var scorchedBrick: Item
     lateinit var scorchedBricks: Block
 
+    lateinit var stoneBricks: Block
+
     @JvmStatic
     var versionString: String = "unknown"
 
@@ -158,6 +160,12 @@ object BetaMod {
             .setTranslationKey(NAMESPACE, "scorched_clay_block")
             .setHardness(0.6F)
             .setSoundGroup(Block.GRAVEL_SOUND_GROUP)
+
+        stoneBricks = StoneBricksBlock(NAMESPACE.id("stone_bricks"))
+            .setTranslationKey(NAMESPACE, "stone_bricks")
+            .setHardness(1.5F)
+            .setResistance(10.0F)
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
     }
 
     @EventListener
@@ -277,6 +285,12 @@ object BetaMod {
                 output(scorchedBricks)
                 top(scorchedBrick, scorchedBrick, null)
                 middle(scorchedBrick, scorchedBrick, null)
+            }
+
+            addShapedRecipe {
+                output(stoneBricks)
+                top(Block.STONE, Block.STONE, null)
+                middle(Block.STONE, Block.STONE, null)
             }
         }
 
