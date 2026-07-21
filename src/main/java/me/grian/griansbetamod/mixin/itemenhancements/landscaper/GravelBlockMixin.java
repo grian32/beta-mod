@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.itemenhancements.landscaper;
 
+import me.grian.griansbetamod.mixinutil.LandscaperCommon;
 import net.minecraft.block.GravelBlock;
 import net.minecraft.block.SandBlock;
 import net.minecraft.entity.player.PlayerEntity;

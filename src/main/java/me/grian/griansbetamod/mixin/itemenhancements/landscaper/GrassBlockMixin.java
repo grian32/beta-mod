@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.mixin.itemenhancements.landscaper;
 
+import me.grian.griansbetamod.mixinutil.LandscaperCommon;
 import net.minecraft.block.Block;
 import net.minecraft.block.GrassBlock;
 import net.minecraft.block.material.Material;
