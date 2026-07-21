@@ -35,9 +35,11 @@ Adds a shapeless recipe that lets you decraft a saddle into 5 leather.
 
 Adds a display in the F3 debug menu which shows what biome the player is currently in.
 
-### Fence Collision Boxes
+### Fence Changes
 
 Fences now have smaller collision boxes as seen in the later versions
+
+Fences no longer require a block underneath to be placed.
 
 ### Charcoal Texture
 

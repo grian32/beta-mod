@@ -16,6 +16,7 @@
     "climate.SaplingBlockMixin",
     "croptrampling.FarmlandBlockMixin",
     "fencehitbox.FenceBlockMixin",
+    "fenceplacement.FenceBlockMixin",
     "itemenhancements.CropBlockMixin",
     "itemenhancements.LogBlockMixin",
     "itemenhancements.OreBlockMixin",
