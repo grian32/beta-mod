@@ -9,5 +9,6 @@ Project Beta Expanded applies the following fixes to vanilla:
 - The following items now break faster with shovels: Soul Sand.
 - The following items now break faster with pickaxes: Cobblestone Stairs, Redstone Ore, Furnace, Bricks.
 - Slabs only break faster with their respective tools, i.e Stone/Sandstone/Cobblestone Slabs break faster with a Pickaxe & Wooden Slabs break faster with an Axe.
+- The Grass Block Item Model now looks correct.
 - Stairs now drop themselves.
 - Code-defined recipes now work with stacks > 1.

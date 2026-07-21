@@ -46,6 +46,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.itemenhancements.quarryman.MiningStrengthListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.grassblockmodel.ItemColorsListener"
       }
     ],
     "stationapi:event_bus_client": [
