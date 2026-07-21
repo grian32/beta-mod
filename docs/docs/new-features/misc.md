@@ -44,3 +44,7 @@ Fences now have smaller collision boxes as seen in the later versions
 Charcoal now has a unique texture.
 
 ![The charcoal texture](/img/charcoal_texture.png)
+
+### Armor
+
+Vanilla armor values have been modified to match the same values as b1.8 and the protection no longer degrades with durability.
