@@ -50,10 +50,6 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.grassblockmodel.ItemColorsListener"
-      },
-      {
-        "adapter": "kotlin",
-        "value": "me.grian.griansbetamod.shrine.LoginListener"
       }
     ],
     "stationapi:event_bus_client": [
@@ -67,6 +63,10 @@
       }
     ],
     "stationapi:event_bus_server": [
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.shrine.LoginListener"
+      }
     ],
     "gcapi3": [
       "me.grian.griansbetamod.config.ConfigScreen"
