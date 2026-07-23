@@ -4,6 +4,7 @@
   "package": "me.grian.griansbetamod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "WorldRegionAccessor",
     "boatspeed.BoatEntityMixin",
     "breakingspeedfixes.AxeItemMixin",
     "breakingspeedfixes.PickaxeItemMixin",
@@ -36,10 +37,14 @@
   ],
   "client": [
     "ClientNetworkHandlerAccessor",
+    "MinecraftAccessor",
     "carpetedstairs.SlabBlockClientMixin",
     "carpetedstairs.StairsBlockClientMixin",
     "debugbiome.InGameHudMixin",
     "netherglassrender.ChunkBuilderMixin",
+    "shrine.LiquidBlockMixin",
+    "shrine.WaterSpriteMixin",
+    "shrine.WorldRendererMixin",
     "versionstring.DebugScreenMixin",
     "versionstring.TitleScreenMixin"
   ],
