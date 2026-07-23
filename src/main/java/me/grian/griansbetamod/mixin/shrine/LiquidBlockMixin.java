@@ -21,7 +21,13 @@ public class LiquidBlockMixin extends Block {
     @Inject(method = "getColorMultiplier", at=@At("HEAD"), cancellable = true)
     void getColorMultiplier(BlockView blockView, int x, int y, int z, CallbackInfoReturnable<Integer> cir) {
         if (this.material != Material.WATER) return;
-        World world = ((WorldRegionAccessor) blockView).getWorld();
+//        World world = ((WorldRegionAccessor) blockView).getWorld();
+        World world = null;
+        if (blockView instanceof WorldRegionAccessor war) {
+            world = war.getWorld();
+        } else if (blockView instanceof World bvw) {
+            world = bvw;
+        }
         if (world == null) return;
         long dayTime = world.getTime() % 24000L;
         boolean isNight = dayTime >= 13000L && dayTime < 23000L;
