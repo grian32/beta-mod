@@ -31,9 +31,9 @@ The beta renderer does not support colored transparency, so this is only tinted 
 
 Adds a shapeless recipe that lets you decraft a saddle into 5 leather.
 
-### Biomes in F3 Debug Menu
+### F3 Debug Menu
 
-Adds a display in the F3 debug menu which shows what biome the player is currently in.
+The F3 Debug Menu now displays the biome the player is standing in, along with the seed of the world.
 
 ### Fence Changes
 

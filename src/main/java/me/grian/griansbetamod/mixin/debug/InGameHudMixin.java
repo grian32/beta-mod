@@ -1,4 +1,4 @@
-package me.grian.griansbetamod.mixin.debugbiome;
+package me.grian.griansbetamod.mixin.debug;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawContext;
@@ -33,5 +33,6 @@ public class InGameHudMixin extends DrawContext {
         Biome biome = this.minecraft.world.method_1781().getBiome(x, z);
 
         this.drawTextWithShadow(this.minecraft.textRenderer, "biome: " + biome.name, 2, 96, 14737632);
+        this.drawTextWithShadow(this.minecraft.textRenderer, "seed: " + this.minecraft.world.getSeed(), 2, 104, 14737632);
     }
 }
