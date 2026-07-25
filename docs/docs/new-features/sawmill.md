@@ -14,4 +14,4 @@ Please keep in mind that it will convert the entire stack you are holding to the
 
 Recipe:
 
-[![Image from Gyazo](https://i.gyazo.com/57c04b8fa47de9ddc228cb70283672af.png)](https://gyazo.com/57c04b8fa47de9ddc228cb70283672af)
+![Sawmill recipe](/img/recipe/sawmill.png)

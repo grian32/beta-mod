@@ -10,7 +10,7 @@ Grassy Boots are a new armor item that, when being worn, prevent you from trampl
 
 Recipe: 
 
-[![Image from Gyazo](https://i.gyazo.com/07979b73a12646950b87fc707cda5541.png)](https://gyazo.com/07979b73a12646950b87fc707cda5541)
+![Grassy Boots recipe](/img/recipe/grassy_boots.png)
 
 ### Redstone Blocks
 :::note
