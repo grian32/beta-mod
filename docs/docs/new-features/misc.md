@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 # Miscellaneous
 
@@ -54,3 +54,13 @@ Vanilla armor values have been modified to match the same values as b1.8 and the
 ### Boats
 
 Boats now have a much faster acceleration and max speed, along with this they cannot break on collision, they turn faster, and they drop a boat item when broken by the player.
+
+### Stone Bricks
+
+Stone bricks have been backported.
+
+![Stone Bricks in world](/img/stone_bricks.png)
+
+The recipe is the following:
+
+![Stone Bricks recipe](/img/recipe/stone_bricks.png)

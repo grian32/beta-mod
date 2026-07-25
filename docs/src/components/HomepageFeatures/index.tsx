@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
         image: require('@site/static/img/enhancement_table_main.png').default,
         description: (
             <>
-                Uprade your tools with powerful effects at the Enhancement Table.
+                Upgrade your tools with powerful effects at the Enhancement Table.
             </>
         ),
     },
@@ -30,21 +30,14 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: 'Coming Soon',
+        title: 'Mysterious Shrine',
+        image: require('@site/static/img/mysterious_shrine.png').default,
         description: (
             <>
+                A shrine that rarely generates across the world, while it is known the shrine can be activated, the way to do so and its effects have been lost to time.
             </>
         ),
     },
-    // {
-    //     title: 'Mysterious Shrine',
-    //     Svg: require('@site/static/img/icy_dungeon.png').default,
-    //     description: (
-    //         <>
-    //             A shrine that rarely pops up across the world, it is known that it can be activated, although the result is not.
-    //         </>
-    //     ),
-    // },
 ];
 
 function Feature({title, image, description}: FeatureItem) {

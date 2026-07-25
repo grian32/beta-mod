@@ -31,7 +31,7 @@ Whenever a naturally spawned tree is mentioned below, this refers to a tree plac
     - Tier Two - 45% - 8 Pile Of Logs
     - Tier Three - 75% - 16 Pile Of Logs
     - Tier Four - Guaranteed - 32 Pile Of Logs
-- Resin Harvest: Logs have a chance to drop resin, resin has various uses, check them out [here](related_additions/#resin)
+- Resin Harvest: Logs have a chance to drop resin, resin has various uses, check them out [here](related-additions/#resin)
     - Tier One - 20% - 64 Spruce Logs
     - Tier Two - 35% - 48 Resin
     - Tier Three - 60% - 32 Resin Blocks
