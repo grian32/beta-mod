@@ -13,7 +13,3 @@ This mod is meant to be played standalone, it may work alongside other mods, but
 ## Wiki
 
 You can find information about the mod and all of it's features at [the wiki](https://grian32.github.io/beta-mod/docs/intro/).
-
-## Credits
-
-Font used in icon - https://fontenddev.com/fonts/alkhemikal/
