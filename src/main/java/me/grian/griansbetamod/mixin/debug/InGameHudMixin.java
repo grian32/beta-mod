@@ -3,6 +3,7 @@ package me.grian.griansbetamod.mixin.debug;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,8 +29,8 @@ public class InGameHudMixin extends DrawContext {
         )
     )
     void render(float screenOpen, boolean mouseX, int mouseY, int par4, CallbackInfo ci) {
-        int x = this.minecraft.player.chunkX * 16;
-        int z = this.minecraft.player.chunkZ * 16;
+        int x = MathHelper.floor(this.minecraft.player.x);
+        int z = MathHelper.floor(this.minecraft.player.z);
         Biome biome = this.minecraft.world.method_1781().getBiome(x, z);
 
         this.drawTextWithShadow(this.minecraft.textRenderer, "biome: " + biome.name, 2, 96, 14737632);
