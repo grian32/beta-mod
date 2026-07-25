@@ -70,7 +70,6 @@ object BetaMod {
     lateinit var cookedFrostRoot: Item
     lateinit var frostRootSeeds: Item
     lateinit var frostRootCrop: Block
-    var frostRootCropInit = false
 
     lateinit var scorchedClayBall: Item
     lateinit var scorchedClayBlock: Block
@@ -81,6 +80,8 @@ object BetaMod {
 
     lateinit var shrineCenter: Block
     lateinit var goldStone: Block
+
+    var blocksInitialized = false
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -153,7 +154,6 @@ object BetaMod {
             .setTranslationKey(NAMESPACE, "frost_root_crop")
             .setHardness(0.0F)
             .setSoundGroup(Block.DIRT_SOUND_GROUP)
-        frostRootCropInit = true
 
         scorchedBricks = ScorchedBrickBlock(NAMESPACE.id("scorched_bricks"))
             .setTranslationKey(NAMESPACE, "scorched_bricks")
@@ -179,6 +179,8 @@ object BetaMod {
         goldStone = TemplateBlock(NAMESPACE.id("gold_stone"), Material.STONE)
             .setUnbreakable()
             .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+        blocksInitialized = true
     }
 
     @EventListener

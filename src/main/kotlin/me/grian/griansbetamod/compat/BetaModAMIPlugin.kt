@@ -17,9 +17,15 @@ class BetaModAMIPlugin : ModPluginProvider {
 
     override fun onAMIHelpersAvailable(amiHelpers: AMIHelpers) {
         // this is a strange way to do it but it causes issues sometimes due to uninitialized depending on if its ran in dev/prod etc :S
-        if (BetaMod.frostRootCropInit) {
+        if (BetaMod.blocksInitialized) {
             amiHelpers.itemBlacklist.addItemToBlacklist(
                 ItemStack(BetaMod.frostRootCrop)
+            )
+            amiHelpers.itemBlacklist.addItemToBlacklist(
+                ItemStack(BetaMod.shrineCenter)
+            )
+            amiHelpers.itemBlacklist.addItemToBlacklist(
+                ItemStack(BetaMod.goldStone)
             )
         }
     }
