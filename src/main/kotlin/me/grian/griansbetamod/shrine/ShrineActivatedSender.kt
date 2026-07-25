@@ -8,10 +8,11 @@ import net.minecraft.entity.player.ServerPlayerEntity
 
 @Environment(EnvType.SERVER)
 object ShrineActivatedSender {
-    fun send(player: PlayerEntity, activated: Boolean) {
+    @JvmStatic
+    fun send(player: PlayerEntity, activated: Boolean, playSound: Boolean = false) {
         val serverPlayer = player as? ServerPlayerEntity ?: return
         serverPlayer.server.playerManager.sendToAll(
-            ShrineActivatedPacket(activated)
+            ShrineActivatedPacket(activated, playSound)
         )
     }
 }

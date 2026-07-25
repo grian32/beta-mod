@@ -8,11 +8,11 @@ import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent
 object WorldGenListener {
     @EventListener
     fun listener(event: WorldGenEvent.ChunkDecoration) {
-        if (event.random.nextInt(100) != 0) return
+        if (event.random.nextInt(300) != 0) return
 
         val featureX = event.x + event.random.nextInt(16) + 8
         val featureZ = event.z + event.random.nextInt(16) + 8
-        val featureY = event.world.getTopSolidBlockY(featureX, featureZ)
+        val featureY = event.world.getTopY(featureX, featureZ)
 
         if (!isAreaClear(event.world, featureX, featureY, featureZ)) return
 
@@ -24,7 +24,8 @@ object WorldGenListener {
         for (dx in -2..2) {
             for (dz in -2..2) {
                 val blockBelow = world.getBlockId(x+dx, y-1, z+dz)
-                if (blockBelow == Block.ICE.id || blockBelow == Block.WATER.id || blockBelow == Block.FLOWING_WATER.id) {
+                // FIXME: this kinda sucks
+                if (blockBelow == Block.ICE.id || blockBelow == Block.WATER.id || blockBelow == Block.FLOWING_WATER.id || blockBelow == Block.LEAVES.id || blockBelow == 0) {
                     return false
                 }
 

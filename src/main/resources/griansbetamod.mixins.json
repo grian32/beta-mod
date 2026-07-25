@@ -30,6 +30,7 @@
     "itemenhancements.sifter.SoulSandBlockMixin",
     "newarmor.ArmorItemMixin",
     "newarmor.PlayerInventoryMixin",
+    "shrine.GoldBlockMixin",
     "stackcrafting.CraftingResultSlotMixin",
     "stackcrafting.ScreenHandlerMixin",
     "stackcrafting.StationShapedRecipeMixin",

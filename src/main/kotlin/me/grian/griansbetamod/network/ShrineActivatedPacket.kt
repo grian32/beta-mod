@@ -14,20 +14,24 @@ import java.io.DataOutputStream
 
 class ShrineActivatedPacket(): Packet(), ManagedPacket<ShrineActivatedPacket> {
     private var shrineActivated: Boolean? = null
+    private var playSound: Boolean? = null
 
-    constructor(shrineActivated: Boolean): this() {
-        this.shrineActivated = shrineActivated;
+    constructor(shrineActivated: Boolean, playSound: Boolean): this() {
+        this.shrineActivated = shrineActivated
+        this.playSound = playSound
     }
 
     override fun read(stream: DataInputStream) {
         shrineActivated = stream.readBoolean()
+        playSound = stream.readBoolean()
     }
 
     override fun write(stream: DataOutputStream) {
-        if (shrineActivated == null) {
-            throw IllegalStateException("shrine activated should not be null when writing packet")
+        if (shrineActivated == null || playSound == null) {
+            throw IllegalStateException("shrine activated packet fields should not be null when writing packet")
         }
         stream.writeBoolean(shrineActivated!!)
+        stream.writeBoolean(playSound!!)
     }
 
     override fun apply(networkHandler: NetworkHandler) {
@@ -39,9 +43,20 @@ class ShrineActivatedPacket(): Packet(), ManagedPacket<ShrineActivatedPacket> {
         val state = ShrineState.get(world)
 
         state.setShrineState(shrineActivated!!)
+
+        if (playSound!!) {
+            world.playSound(
+                minecraft.player.x,
+                minecraft.player.y,
+                minecraft.player.z,
+                "ambient.weather.thunder",
+                10000.0F,
+                0.8F
+            )
+        }
     }
 
-    override fun size(): Int = 1
+    override fun size(): Int = 2
 
     override fun getType(): PacketType<ShrineActivatedPacket> = TYPE
 

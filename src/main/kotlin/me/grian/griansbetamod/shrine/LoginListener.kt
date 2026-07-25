@@ -9,7 +9,7 @@ object LoginListener {
     fun onPlayerLogin(event: PlayerLoginEvent) {
         val activated = ShrineState.get(event.player.world).shrineActivated
         event.player.networkHandler.sendPacket(
-            ShrineActivatedPacket(activated)
+            ShrineActivatedPacket(activated, false)
         )
     }
 }
