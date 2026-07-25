@@ -5,6 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "WorldRegionAccessor",
+    "biomes.cold.OverworldChunkGeneratorMixin",
+    "biomes.cold.SnowyBlockMixin",
+    "biomes.cold.SpruceTreeFeatureMixin",
     "boatspeed.BoatEntityMixin",
     "breakingspeedfixes.AxeItemMixin",
     "breakingspeedfixes.PickaxeItemMixin",
@@ -41,7 +44,7 @@
     "MinecraftAccessor",
     "carpetedstairs.SlabBlockClientMixin",
     "carpetedstairs.StairsBlockClientMixin",
-    "debugbiome.InGameHudMixin",
+    "debug.InGameHudMixin",
     "netherglassrender.ChunkBuilderMixin",
     "shrine.LiquidBlockMixin",
     "shrine.WaterSpriteMixin",
