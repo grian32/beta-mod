@@ -60,5 +60,7 @@ object TextureListener {
         BetaMod.scorchedBricks.textureId = terrain.addTexture(NAMESPACE.id("block/scorched_bricks")).index
 
         BetaMod.stoneBricks.textureId = terrain.addTexture(NAMESPACE.id("block/stone_bricks")).index
+
+        BetaMod.shrineCenter.textureId = terrain.addTexture(NAMESPACE.id("block/shrine_center")).index
     }
 }

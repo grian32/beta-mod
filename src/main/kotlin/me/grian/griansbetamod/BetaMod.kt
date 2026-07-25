@@ -26,6 +26,7 @@ import me.grian.griansbetamod.util.isEventTypeShapeless
 import me.grian.griansbetamod.util.isEventTypeSmelting
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
+import net.minecraft.block.material.Material
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.datafixer.DataFixers
@@ -34,6 +35,7 @@ import net.modificationstation.stationapi.api.event.mod.InitEvent
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
+import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.template.item.TemplateFoodItem
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
@@ -76,6 +78,9 @@ object BetaMod {
     lateinit var scorchedBricks: Block
 
     lateinit var stoneBricks: Block
+
+    lateinit var shrineCenter: Block
+    lateinit var goldStone: Block
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -165,6 +170,14 @@ object BetaMod {
             .setTranslationKey(NAMESPACE, "stone_bricks")
             .setHardness(1.5F)
             .setResistance(10.0F)
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+        shrineCenter = TemplateBlock(NAMESPACE.id("shrine_center"), Material.STONE)
+            .setUnbreakable()
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
+
+        goldStone = TemplateBlock(NAMESPACE.id("gold_stone"), Material.STONE)
+            .setUnbreakable()
             .setSoundGroup(Block.STONE_SOUND_GROUP)
     }
 
