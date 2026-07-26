@@ -22,7 +22,7 @@ public class OverworldChunkGeneratorMixin {
 
     @Inject(method = "decorate", at = @At("HEAD"))
     void setSeasonalForestDecoration(ChunkSource chunkSource, int x, int z, CallbackInfo ci) {
-        seasonalForestDecoration = world.method_1781().getBiome(x, z) == Biome.SEASONAL_FOREST;
+        seasonalForestDecoration = world.method_1781().getBiome(x * 16 + 16, z * 16 + 16) == Biome.SEASONAL_FOREST;
     }
 
     @ModifyConstant(
