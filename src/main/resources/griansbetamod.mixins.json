@@ -14,6 +14,7 @@
     "biomes.seasonalforest.MushroomFeatureMixin",
     "biomes.seasonalforest.OakTreeFeatureMixin",
     "biomes.seasonalforest.OverworldChunkGeneratorMixin",
+    "biomes.seasonalforest.PumpkinPatchFeatureMixin",
     "boatspeed.BoatEntityMixin",
     "breakingspeedfixes.AxeItemMixin",
     "breakingspeedfixes.PickaxeItemMixin",
