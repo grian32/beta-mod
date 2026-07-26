@@ -8,6 +8,8 @@
     "biomes.cold.OverworldChunkGeneratorMixin",
     "biomes.cold.SnowyBlockMixin",
     "biomes.cold.SpruceTreeFeatureMixin",
+    "biomes.rainforest.OverworldChunkGeneratorMixin",
+    "biomes.rainforest.RainforestBiomeMixin",
     "biomes.seasonalforest.BiomeMixin",
     "biomes.seasonalforest.LargeOakTreeFeatureMixin",
     "biomes.seasonalforest.LeavesBlockMixin",
