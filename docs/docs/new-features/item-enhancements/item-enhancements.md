@@ -9,8 +9,6 @@ This feature allows you to enhance your tools with various effects via the Enhan
 
 Unlike enchantments, you can only have one enhancement per tool & if you wish to gain a higher tier of each enhancement then you must upgrade it using the Enhancement Table.
 
-There are currently only a few enhancements to start off with, but there may be more coming in the future.
-
 Enhancement Table Recipe:
 
 ![Enhancement Table Recipe](/img/recipe/enhancement_table.png)
