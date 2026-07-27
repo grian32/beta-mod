@@ -25,9 +25,9 @@ class DevTeleportScreen(
         val fieldX = width / 2 - FIELD_WIDTH / 2
         val firstFieldY = height / 2 - 52
 
-        xField = coordinateField(fieldX, firstFieldY, player.x)
-        yField = coordinateField(fieldX, firstFieldY + FIELD_SPACING, player.y)
-        zField = coordinateField(fieldX, firstFieldY + FIELD_SPACING * 2, player.z)
+        xField = coordinateField(fieldX, firstFieldY)
+        yField = coordinateField(fieldX, firstFieldY + FIELD_SPACING)
+        zField = coordinateField(fieldX, firstFieldY + FIELD_SPACING * 2)
         fields = listOf(xField, yField, zField)
         updateFocus()
 
@@ -118,8 +118,8 @@ class DevTeleportScreen(
         super.render(mouseX, mouseY, delta)
     }
 
-    private fun coordinateField(x: Int, y: Int, coordinate: Double): TextFieldWidget {
-        return TextFieldWidget(this, textRenderer, x, y, FIELD_WIDTH, 20, coordinate.toString()).also {
+    private fun coordinateField(x: Int, y: Int): TextFieldWidget {
+        return TextFieldWidget(this, textRenderer, x, y, FIELD_WIDTH, 20, "").also {
             it.setMaxLength(24)
         }
     }
