@@ -54,6 +54,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.shrine.WorldGenListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.biome.swamp.SwamplandListener"
       }
     ],
     "stationapi:event_bus_client": [

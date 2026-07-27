@@ -20,6 +20,47 @@ base.archivesName = project.properties["archives_base_name"] as String
 version = project.properties["mod_version"] as String
 group = project.properties["maven_group"] as String
 
+val swampBiomeChangesEnabled = providers
+	.gradleProperty("enable_swamp_biome_changes")
+	.map(String::toBooleanStrict)
+	.orElse(true)
+val generatedBuildFeaturesDirectory = layout.buildDirectory.dir("generated/sources/buildFeatures/java")
+
+val generateBuildFeatures by tasks.registering {
+	inputs.property("enable_swamp_biome_changes", swampBiomeChangesEnabled)
+	outputs.dir(generatedBuildFeaturesDirectory)
+
+	doLast {
+		val outputFile = generatedBuildFeaturesDirectory.get()
+			.file("me/grian/griansbetamod/BuildFeatures.java")
+			.asFile
+		outputFile.parentFile.mkdirs()
+		outputFile.writeText(
+			"""
+			package me.grian.griansbetamod;
+
+			public final class BuildFeatures {
+			    public static final boolean SWAMP_BIOME_CHANGES = ${swampBiomeChangesEnabled.get()};
+
+			    private BuildFeatures() {}
+			}
+			""".trimIndent() + "\n"
+		)
+	}
+}
+
+sourceSets.named("main") {
+	java.srcDir(generatedBuildFeaturesDirectory)
+}
+
+tasks.named("compileKotlin") {
+	dependsOn(generateBuildFeatures)
+}
+
+tasks.named("compileJava") {
+	dependsOn(generateBuildFeatures)
+}
+
 loom {
 //	accessWidenerPath = file("src/main/resources/examplemod.accesswidener")
 
