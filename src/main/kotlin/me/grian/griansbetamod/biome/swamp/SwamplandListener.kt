@@ -7,6 +7,7 @@ import net.minecraft.block.Block
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler
 import net.minecraft.world.World
 import net.minecraft.world.biome.Biome
+import net.minecraft.world.chunk.Chunk
 import net.minecraft.world.gen.feature.GrassPatchFeature
 import net.minecraft.world.gen.feature.SugarCanePatchFeature
 import net.modificationstation.stationapi.api.block.BlockState
@@ -26,9 +27,10 @@ object SwamplandListener {
         swamp.setFixedGrassColorProvider(0x3F5A32)
         swamp.setLeavesColor(0x2F4A28)
 
-        val channel = ChannelSurfaceCondition()
-        val surface = SurfaceOffsetCondition(0)
-        val subsurface = SurfaceOffsetCondition(1)
+        val terrainSurfaceCache = TerrainSurfaceCache()
+        val channel = ChannelSurfaceCondition(terrainSurfaceCache)
+        val surface = SurfaceOffsetCondition(terrainSurfaceCache, 0)
+        val subsurface = SurfaceOffsetCondition(terrainSurfaceCache, 1)
 
         swamp.addSurfaceRule(
             SurfaceBuilder.start(Block.WATER)
@@ -52,7 +54,7 @@ object SwamplandListener {
         )
 
         swamp.addFeature(
-           HeightScatterFeature(SwamplandLilyOfTheLakePatchFeature(), 12),
+           HeightScatterFeature(SwamplandLilyOfTheLakePatchFeature(), 1),
         )
 
         swamp.addFeature(
@@ -76,7 +78,9 @@ object SwamplandListener {
         )
     }
 
-    private class ChannelSurfaceCondition : SurfaceCondition {
+    private class ChannelSurfaceCondition(
+        private val terrainSurfaceCache: TerrainSurfaceCache
+    ) : SurfaceCondition {
         private var seed = Long.MIN_VALUE
         private var noise: OctavePerlinNoiseSampler? = null
         private var detailNoise: OctavePerlinNoiseSampler? = null
@@ -119,7 +123,7 @@ object SwamplandListener {
                 )
             }
 
-            val surfaceY = getTerrainSurfaceY(world, x, z)
+            val surfaceY = terrainSurfaceCache.get(world, x, z)
             if (y != surfaceY) return false
 
             for (dir in DIRECTIONS) {
@@ -142,6 +146,7 @@ object SwamplandListener {
     }
 
     private class SurfaceOffsetCondition(
+        private val terrainSurfaceCache: TerrainSurfaceCache,
         private val offset: Int
     ) : SurfaceCondition {
         override fun canApply(
@@ -151,25 +156,46 @@ object SwamplandListener {
             z: Int,
             state: BlockState
         ): Boolean {
-            return y == getTerrainSurfaceY(world, x, z) - offset
+            return y == terrainSurfaceCache.get(world, x, z) - offset
         }
     }
 
-    private fun getTerrainSurfaceY(world: World, x: Int, z: Int): Int {
-        var y = world.getTopY(x, z) - 1
+    private class TerrainSurfaceCache {
+        private var world: World? = null
+        private var x = 0
+        private var z = 0
+        private var surfaceY = 0
 
-        while (y > world.bottomY) {
-            val blockId = world.getBlockId(x, y, z)
-            if (
-                blockId != 0 &&
-                blockId != Block.LEAVES.id &&
-                blockId != Block.LOG.id
-            ) {
-                return y
+        fun get(world: World, x: Int, z: Int): Int {
+            if (this.world !== world || this.x != x || this.z != z) {
+                this.world = world
+                this.x = x
+                this.z = z
+                surfaceY = findTerrainSurfaceY(world, x, z)
             }
-            y--
+
+            return surfaceY
         }
 
-        return world.bottomY
+        private fun findTerrainSurfaceY(world: World, x: Int, z: Int): Int {
+            val chunk: Chunk = world.getChunkFromPos(x, z)
+            val localX = x and 15
+            val localZ = z and 15
+            var y = chunk.getHeight(localX, localZ) - 1
+
+            while (y > world.bottomY) {
+                val blockId = chunk.getBlockId(localX, y, localZ)
+                if (
+                    blockId != 0 &&
+                    blockId != Block.LEAVES.id &&
+                    blockId != Block.LOG.id
+                ) {
+                    return y
+                }
+                y--
+            }
+
+            return world.bottomY
+        }
     }
 }

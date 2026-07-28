@@ -2,7 +2,6 @@ package me.grian.griansbetamod.biome.swamp
 
 import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
-import net.minecraft.block.material.Material
 import net.minecraft.world.LightType
 import net.minecraft.world.World
 import net.minecraft.world.gen.feature.Feature
@@ -16,19 +15,34 @@ class SwamplandLilyOfTheLakePatchFeature : Feature() {
         y: Int,
         z: Int
     ): Boolean {
-        val waterY = y - 1;
+        var generated = false
 
-        val blockId = world.getBlockId(x, waterY, z);
-        val isWater = blockId == Block.WATER.id || blockId == Block.FLOWING_WATER.id
+        repeat(12) {
+            val featureX = x + random.nextInt(33) - 16
+            val featureZ = z + random.nextInt(33) - 16
+            val featureY = world.getTopY(featureX, featureZ)
+            val blockId = world.getBlockId(featureX, featureY - 1, featureZ)
+            val isWater = blockId == Block.WATER.id || blockId == Block.FLOWING_WATER.id
 
-        if (!isWater || !world.isAir(x, y, z)) return false
-
-        if (world.setBlockWithoutNotifyingNeighbors(x, y, z, BetaMod.lilyOfTheLake.id)) {
-           world.updateLight(LightType.BLOCK, x, y, z, 0)
-           world.doLightingUpdates()
+            if (
+                isWater &&
+                world.isAir(featureX, featureY, featureZ) &&
+                world.setBlockWithoutNotifyingNeighbors(
+                    featureX,
+                    featureY,
+                    featureZ,
+                    BetaMod.lilyOfTheLake.id
+                )
+            ) {
+                world.updateLight(LightType.BLOCK, featureX, featureY, featureZ, 0)
+                generated = true
+            }
         }
 
-        return true
-    }
+        if (generated) {
+            world.doLightingUpdates()
+        }
 
+        return generated
+    }
 }
