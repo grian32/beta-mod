@@ -9,6 +9,7 @@ class ShapedRecipeBuilder {
     private var pattern = MutableList(3) { "" }
     private lateinit var output: ItemStack
     private val keys: MutableMap<Char, ItemStack> = mutableMapOf()
+    private val charsForItems = ('a'..'j').toMutableList()
 
     fun output(block: Block) {
         output(block.asItem())
@@ -93,8 +94,4 @@ class ShapedRecipeBuilder {
     private fun Item?.toStack(): ItemStack? = if (this == null) null else ItemStack(this, 1)
     
     private fun Block?.toItem(): Item? = this?.asItem()
-
-    companion object {
-        private val charsForItems = ('a'..'j').toMutableList()
-    }
 }
