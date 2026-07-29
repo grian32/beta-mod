@@ -3,10 +3,12 @@ package me.grian.griansbetamod.moonwell
 import me.grian.griansbetamod.itemenhancements.Enhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancementTier
+import me.grian.griansbetamod.network.MoonwellVisualPacket
 import me.grian.griansbetamod.shrine.ShrineState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
+import net.minecraft.network.packet.Packet
 
 class MoonwellBlockEntity : BlockEntity() {
     private var item: ItemStack? = null
@@ -67,5 +69,9 @@ class MoonwellBlockEntity : BlockEntity() {
             tickCounter = 0
             markDirty()
         }
+    }
+
+    override fun createUpdatePacket(): Packet {
+        return MoonwellVisualPacket(item?.itemId ?: -1, x, y, z)
     }
 }

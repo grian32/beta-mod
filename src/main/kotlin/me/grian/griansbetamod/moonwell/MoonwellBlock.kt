@@ -2,6 +2,9 @@ package me.grian.griansbetamod.moonwell
 
 import me.grian.griansbetamod.itemenhancements.getEnhancement
 import me.grian.griansbetamod.itemenhancements.getEnhancementTier
+import me.grian.griansbetamod.network.MoonwellVisualPacket
+import net.fabricmc.api.EnvType
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.block.BlockWithEntity
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.material.Material
@@ -29,6 +32,7 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
             if (blockEntity.setItemStack(player.inventory.selectedItem, true)) {
                 player.inventory.setStack(player.inventory.selectedSlot, null)
                 blockEntity.markDirty()
+                world.blockUpdateEvent(x, y, z)
                 return true
             }
         } else if (blockEntity.getStack() != null && player.inventory.selectedItem == null) {
@@ -36,6 +40,7 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
             blockEntity.setItemStack(null, true)
             player.inventory.setStack(player.inventory.selectedSlot, stack)
             blockEntity.markDirty()
+            world.blockUpdateEvent(x, y, z)
             return true
         }
 

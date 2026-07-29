@@ -20,6 +20,10 @@ class MoonwellVisualPacket() : Packet(), ManagedPacket<MoonwellVisualPacket> {
     private var z: Int = -1
     private var itemId: Int = -1
 
+    init {
+        this.worldPacket = true
+    }
+
     constructor(itemId: Int, x: Int, y: Int, z: Int): this() {
         this.itemId = itemId
         this.x = x
