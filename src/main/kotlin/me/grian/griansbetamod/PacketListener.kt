@@ -1,6 +1,7 @@
 package me.grian.griansbetamod
 
 import me.grian.griansbetamod.network.EnhancementTableScreenPacket
+import me.grian.griansbetamod.network.MoonwellVisualPacket
 import me.grian.griansbetamod.network.ShrineActivatedPacket
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.modificationstation.stationapi.api.event.network.packet.PacketRegisterEvent
@@ -12,5 +13,6 @@ object PacketListener {
     fun registerPacket(event: PacketRegisterEvent) {
         Registry.register(PacketTypeRegistry.INSTANCE, ShrineActivatedPacket.ID, ShrineActivatedPacket.TYPE)
         Registry.register(PacketTypeRegistry.INSTANCE, EnhancementTableScreenPacket.ID, EnhancementTableScreenPacket.TYPE)
+        Registry.register(PacketTypeRegistry.INSTANCE, MoonwellVisualPacket.ID, MoonwellVisualPacket.TYPE)
     }
 }

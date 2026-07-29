@@ -26,14 +26,14 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
         if (blockEntity.getStack() == null) {
             if (player.inventory.selectedItem == null) return false
 
-            if (blockEntity.setItemStack(player.inventory.selectedItem)) {
+            if (blockEntity.setItemStack(player.inventory.selectedItem, true)) {
                 player.inventory.setStack(player.inventory.selectedSlot, null)
                 blockEntity.markDirty()
                 return true
             }
         } else if (blockEntity.getStack() != null && player.inventory.selectedItem == null) {
             val stack = blockEntity.getStack()
-            blockEntity.setItemStack(null)
+            blockEntity.setItemStack(null, true)
             player.inventory.setStack(player.inventory.selectedSlot, stack)
             blockEntity.markDirty()
             return true
@@ -43,6 +43,7 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
     }
 
     override fun onBreak(world: World, x: Int, y: Int, z: Int) {
+        if (world.isRemote) return
         val blockEntity = world.getBlockEntity(x, y, z) as MoonwellBlockEntity
         if (blockEntity.getStack() != null) {
             dropStack(world, x, y, z, blockEntity.getStack())

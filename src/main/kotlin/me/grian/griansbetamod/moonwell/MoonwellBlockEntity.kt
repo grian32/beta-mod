@@ -14,13 +14,13 @@ class MoonwellBlockEntity : BlockEntity() {
 
     fun getStack(): ItemStack? = item
 
-    fun setItemStack(v: ItemStack?): Boolean {
+    fun setItemStack(v: ItemStack?, checkEnhancement: Boolean): Boolean {
         if (v == null) {
             item = v
             return true
         }
 
-        if (v.getEnhancement() != Enhancement.NONE && v.getEnhancementTier() > 0) {
+        if (!checkEnhancement || (v.getEnhancement() != Enhancement.NONE && v.getEnhancementTier() > 0)) {
             item = v
             return true
         }
