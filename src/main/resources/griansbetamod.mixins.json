@@ -12,7 +12,6 @@
     "biomes.rainforest.RainforestBiomeMixin",
     "biomes.seasonalforest.BiomeMixin",
     "biomes.seasonalforest.LargeOakTreeFeatureMixin",
-    "biomes.seasonalforest.LeavesBlockMixin",
     "biomes.seasonalforest.MushroomFeatureMixin",
     "biomes.seasonalforest.OakTreeFeatureMixin",
     "biomes.seasonalforest.OverworldChunkGeneratorMixin",
@@ -61,7 +60,8 @@
     "shrine.WaterSpriteMixin",
     "shrine.WorldRendererMixin",
     "versionstring.DebugScreenMixin",
-    "versionstring.TitleScreenMixin"
+    "versionstring.TitleScreenMixin",
+    "biomes.seasonalforest.LeavesBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
