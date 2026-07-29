@@ -28,7 +28,6 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
 
             if (blockEntity.setItemStack(player.inventory.selectedItem)) {
                 player.inventory.setStack(player.inventory.selectedSlot, null)
-                println("${blockEntity.getStack()} ${blockEntity.getStack()?.getEnhancement()} ${blockEntity.getStack()?.getEnhancementTier()}")
                 blockEntity.markDirty()
                 return true
             }
@@ -36,7 +35,7 @@ class MoonwellBlock(identifier: Identifier) : TemplateBlockWithEntity(identifier
             val stack = blockEntity.getStack()
             blockEntity.setItemStack(null)
             player.inventory.setStack(player.inventory.selectedSlot, stack)
-            println("${stack} ${stack?.getEnhancement()} ${stack?.getEnhancementTier()}")
+            blockEntity.markDirty()
             return true
         }
 

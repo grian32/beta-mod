@@ -72,6 +72,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.moonwell.MoonwellRenderListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.debug.HeldItemDurabilityHotkey"
       }
     ],
     "stationapi:event_bus_server": [
