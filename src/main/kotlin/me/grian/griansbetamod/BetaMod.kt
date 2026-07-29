@@ -20,6 +20,8 @@ import me.grian.griansbetamod.itemenhancements.sifter.ScorchedBrickItem
 import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBallItem
 import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBlock
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
+import me.grian.griansbetamod.moonwell.MoonwellBlock
+import me.grian.griansbetamod.moonwell.MoonwellBlockEntity
 import me.grian.griansbetamod.util.asItemStack
 import me.grian.griansbetamod.util.isEventTypeShaped
 import me.grian.griansbetamod.util.isEventTypeShapeless
@@ -30,6 +32,7 @@ import net.minecraft.block.material.Material
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.api.datafixer.DataFixers
+import net.modificationstation.stationapi.api.event.block.entity.BlockEntityRegisterEvent
 import net.modificationstation.stationapi.api.event.datafixer.DataFixerRegisterEvent
 import net.modificationstation.stationapi.api.event.mod.InitEvent
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
@@ -80,6 +83,8 @@ object BetaMod {
 
     lateinit var shrineCenter: Block
     lateinit var goldStone: Block
+
+    lateinit var moonwell: Block
 
     var blocksInitialized = false
 
@@ -180,7 +185,17 @@ object BetaMod {
             .setUnbreakable()
             .setSoundGroup(Block.STONE_SOUND_GROUP)
 
+        moonwell = MoonwellBlock(NAMESPACE.id("moonwell"))
+            .setTranslationKey(NAMESPACE, "moonwell")
+            .setSoundGroup(Block.STONE_SOUND_GROUP)
+            .setHardness(5.0f)
+
         blocksInitialized = true
+    }
+
+    @EventListener
+    fun registerBlockEntitys(event: BlockEntityRegisterEvent) {
+        event.register(BetaMod.NAMESPACE.id("moonwell"), MoonwellBlockEntity::class.java)
     }
 
     @EventListener

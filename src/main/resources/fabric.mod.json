@@ -68,6 +68,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.itemenhancements.EnhancementTooltipListener"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.moonwell.MoonwellRenderListener"
       }
     ],
     "stationapi:event_bus_server": [
