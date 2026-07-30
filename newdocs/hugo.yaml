@@ -15,3 +15,7 @@ markup:
 
 taxonomies:
   category: categories
+
+caches:
+  images:
+    dir: :cacheDir/images
