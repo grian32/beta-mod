@@ -322,6 +322,13 @@ object BetaMod {
                 top(Block.STONE, Block.STONE, null)
                 middle(Block.STONE, Block.STONE, null)
             }
+
+            addShapedRecipe {
+                output(moonwell)
+                top(ItemStack(Item.DIAMOND, 1, 0), ItemStack(Item.DYE, 1, 5), ItemStack(Item.DIAMOND, 1, 0))
+                middle(stoneBricks, null, stoneBricks)
+                bottom(stoneBricks, stoneBricks, stoneBricks)
+            }
         }
 
         if (isEventTypeShapeless(event.recipeId)) {
