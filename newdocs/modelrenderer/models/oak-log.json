@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "side": "atlas:newdocs/static/img/atlases/terrain.png@4,1",
+    "end": "atlas:newdocs/static/img/atlases/terrain.png@5,1"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down": {"texture": "#end"},
+        "up": {"texture": "#end"},
+        "north": {"texture": "#side"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#side"},
+        "east": {"texture": "#side"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{{ $id := .Get "id" }}
+{{ $recipe := index hugo.Data.recipes $id }}
+{{ $recipeType := $recipe.type | default "crafting" }}
+<figure class="recipe-card">
+  <div class="recipe-title">
+    <span>{{ if eq $recipeType "smelting" }}Smelting recipe{{ else }}Crafting recipe{{ end }}</span>
+    {{ if and (eq $recipeType "crafting") $recipe.shapeless }}<span class="recipe-kind" title="Shapeless recipe">Shapeless</span>{{ end }}
+  </div>
+  {{ if eq $recipeType "smelting" }}
+  <div class="recipe-workbench furnace-workbench" aria-label="{{ $recipe.name }} smelting recipe">
+    {{ partial "item-slot.html" (dict "item" $recipe.ingredient "count" 1) }}
+    <div class="furnace-process" aria-hidden="true">
+      <span class="furnace-flame"></span>
+    </div>
+    <div class="recipe-arrow" aria-hidden="true"><span></span></div>
+    <div class="recipe-output">
+      {{ partial "item-slot.html" (dict "item" $recipe.result.item "count" $recipe.result.count) }}
+    </div>
+  </div>
+  {{ else }}
+  <div class="recipe-workbench" aria-label="{{ $recipe.name }} crafting recipe">
+    <div class="crafting-grid">
+      {{ range $slot := $recipe.grid }}
+        {{ if reflect.IsMap $slot }}
+          {{ partial "item-slot.html" (dict "item" $slot.item "count" ($slot.count | default 1)) }}
+        {{ else }}
+          {{ partial "item-slot.html" (dict "item" $slot "count" 1) }}
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="recipe-arrow" aria-hidden="true"><span></span></div>
+    <div class="recipe-output">
+      {{ partial "item-slot.html" (dict "item" $recipe.result.item "count" $recipe.result.count) }}
+    </div>
+  </div>
+  {{ end }}
+  {{ with $recipe.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

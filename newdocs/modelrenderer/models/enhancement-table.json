@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "all": "griansbetamod:block/enhancement_table",
+    "bottom": "atlas:newdocs/static/img/atlases/terrain.png@1,0"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down":  { "texture": "#bottom" },
+        "up":    { "uv": [0, 0, 16, 5.34], "texture": "#all" },
+        "north": { "uv": [0, 5.35, 16, 10.66], "texture": "#all" },
+        "south": { "uv": [0, 5.35, 16, 10.66], "texture": "#all" },
+        "west":  { "uv": [0, 10.67, 16, 16], "texture": "#all" },
+        "east":  { "uv": [0, 10.67, 16, 16], "texture": "#all" }
+      }
+    }
+  ]
+}

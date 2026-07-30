@@ -1,0 +1,24 @@
+{{ $itemID := .item }}
+{{ $count := .count | default 1 }}
+{{ if $itemID }}
+  {{ $item := index hugo.Data.items $itemID }}
+  {{ $tag := cond (isset $item "href") "a" "span" }}
+  {{ if eq $tag "a" }}
+    <a class="item-stack linked-item" href="{{ $item.href | relURL }}" aria-label="{{ $item.name }}" data-item-name="{{ $item.name }}">
+  {{ else }}
+    <span class="item-stack" aria-label="{{ $item.name }}" data-item-name="{{ $item.name }}">
+  {{ end }}
+      {{ if isset $item "atlas" }}
+        <span
+          class="item-icon atlas-icon"
+          style="--atlas-image: url('{{ (printf "img/atlases/%s.png" $item.atlas) | relURL }}'); --atlas-x: {{ $item.x }}; --atlas-y: {{ $item.y }};"
+          aria-hidden="true"
+        ></span>
+      {{ else }}
+        <img class="item-icon image-icon{{ if $item.rendered }} rendered-icon{{ end }}" src="{{ $item.image | relURL }}" alt="">
+      {{ end }}
+      {{ if gt $count 1 }}<span class="item-count">{{ $count }}</span>{{ end }}
+  {{ if eq $tag "a" }}</a>{{ else }}</span>{{ end }}
+{{ else }}
+  <span class="item-stack empty-slot" aria-hidden="true"></span>
+{{ end }}

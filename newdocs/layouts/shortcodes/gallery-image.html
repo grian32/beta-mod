@@ -1,0 +1,5 @@
+{{ $fit := .Get "fit" }}
+<figure{{ with $fit }} class="gallery-fit-{{ . }}"{{ end }}>
+  <img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" }}" loading="{{ if eq $fit "natural" }}eager{{ else }}lazy{{ end }}">
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

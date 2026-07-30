@@ -1,0 +1,144 @@
+extra_logs:
+  name: Extra Logs
+  tool: Axe
+  tiers:
+    - tier: I
+      effect: 20% chance
+      ingredient: oak_log
+      count: 48
+    - tier: II
+      effect: 45% chance
+      ingredient: pile_of_logs
+      count: 8
+    - tier: III
+      effect: 75% chance
+      ingredient: pile_of_logs
+      count: 16
+    - tier: IV
+      effect: Guaranteed
+      ingredient: pile_of_logs
+      count: 32
+
+resin_harvest:
+  name: Resin Harvest
+  tool: Axe
+  tiers:
+    - tier: I
+      effect: 20% chance
+      ingredient: spruce_log
+      count: 64
+    - tier: II
+      effect: 35% chance
+      ingredient: resin
+      count: 48
+    - tier: III
+      effect: 60% chance
+      ingredient: resin_block
+      count: 32
+
+reinforced:
+  name: Reinforced
+  tool: Axe
+  tiers:
+    - tier: I
+      effect: 10% chance
+      ingredient: iron_ingot
+      count: 24
+    - tier: II
+      effect: 20% chance
+      ingredient: iron_ingot
+      count: 64
+    - tier: III
+      effect: 30% chance
+      ingredient: iron_block
+      count: 10
+    - tier: IV
+      effect: 40% chance
+      ingredient: iron_block
+      count: 20
+
+steady_hand:
+  name: Steady Hand
+  tool: Pickaxe
+  tiers:
+    - tier: I
+      effect: 1% chance
+      ingredient: iron_ingot
+      count: 32
+    - tier: II
+      effect: 3% chance
+      ingredient: gold_ingot
+      count: 64
+    - tier: III
+      effect: 5% chance
+      ingredient: diamond
+      count: 9
+
+quarryman:
+  name: Quarryman
+  tool: Pickaxe
+  tiers:
+    - tier: I
+      effect: 25% faster
+      ingredient: iron_block
+      count: 3
+    - tier: II
+      effect: 50% faster
+      ingredient: diamond
+      count: 1
+    - tier: III
+      effect: 100% faster
+      ingredient: diamond
+      count: 5
+
+landscaper:
+  name: Landscaper
+  tool: Shovel
+  tiers:
+    - tier: I
+      effect: Intact terrain drops
+      ingredient: resin
+      count: 24
+
+sifter:
+  name: Sifter
+  tool: Shovel
+  tiers:
+    - tier: I
+      effect: 25% chance
+      ingredient: sand
+      count: 64
+    - tier: II
+      effect: 50% chance
+      ingredient: clay_ball
+      count: 64
+    - tier: III
+      effect: Guaranteed
+      ingredient: scorched_clay_block
+      count: 16
+
+replanter:
+  name: Replanter
+  tool: Hoe
+  tiers:
+    - tier: I
+      effect: Replants mature crops
+      ingredient: wheat
+      count: 64
+
+bountiful:
+  name: Bountiful
+  tool: Hoe
+  tiers:
+    - tier: I
+      effect: 20% chance
+      ingredient: seeds
+      count: 64
+    - tier: II
+      effect: 45% chance
+      ingredient: wheat
+      count: 48
+    - tier: III
+      effect: 75% chance
+      ingredient: frost_root
+      count: 64

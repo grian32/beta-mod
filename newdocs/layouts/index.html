@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <article class="wiki-home">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">The official wiki</div>
+        <h1>{{ .Title }}</h1>
+        <div class="hero-copy">{{ .Content }}</div>
+        <a class="hero-action" href="{{ "items/" | relURL }}">Browse the wiki</a>
+      </div>
+      <img src="{{ "img/logo.svg" | relURL }}" alt="" class="hero-logo">
+    </section>
+
+    <section class="feature-showcase">
+      <div class="section-heading">
+        <span>Feature showcase</span>
+        <span class="rule"></span>
+      </div>
+      <div class="feature-grid">
+        <a class="feature-card" href="{{ "mechanics/item-enhancements/" | relURL }}">
+          <img src="{{ "img/enhancement_table_main.png" | relURL }}" alt="An Enhancement Table in a workshop">
+          <div>
+            <h2>Item Enhancements</h2>
+            <p>Upgrade tools with powerful effects at the Enhancement Table.</p>
+          </div>
+        </a>
+        <a class="feature-card" href="{{ "biomes/swampland/" | relURL }}">
+          <img src="{{ "img/swamp2.png" | relURL }}" alt="A reworked Swampland biome">
+          <div>
+            <h2>Reworked Swampland</h2>
+            <p>Explore shallow pools, winding channels, and crooked oak trees.</p>
+          </div>
+        </a>
+        <a class="feature-card" href="{{ "structures/mysterious-shrine/" | relURL }}">
+          <img src="{{ "img/mysterious_shrine.png" | relURL }}" alt="A Mysterious Shrine">
+          <div>
+            <h2>Mysterious Shrine</h2>
+            <p>Discover a rare shrine whose activation and effects have been lost to time.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+{{ end }}

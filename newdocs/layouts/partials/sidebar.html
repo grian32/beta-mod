@@ -1,0 +1,28 @@
+<aside class="site-sidebar" data-sidebar>
+  <nav aria-label="Wiki navigation">
+    <a class="nav-home{{ if .IsHome }} active{{ end }}" href="{{ site.Home.RelPermalink }}">Main page</a>
+
+    {{ $currentPage := . }}
+    {{ $sections := slice
+      (dict "name" "Items" "section" "items" "glyph" "◆" "class" "item-glyph")
+      (dict "name" "Blocks" "section" "blocks" "glyph" "■" "class" "block-glyph")
+      (dict "name" "Biomes" "section" "biomes" "glyph" "▲" "class" "biome-glyph")
+      (dict "name" "Structures" "section" "structures" "glyph" "⬟" "class" "structure-glyph")
+      (dict "name" "Mechanics" "section" "mechanics" "glyph" "●" "class" "mechanic-glyph")
+      (dict "name" "Guides" "section" "guides" "glyph" "›" "class" "guide-glyph")
+    }}
+    {{ range $sections }}
+      {{ $config := . }}
+      <section class="nav-section">
+        <h2><a href="{{ (printf "%s/" $config.section) | relURL }}">{{ $config.name }}</a></h2>
+        {{ range (where site.RegularPages "Section" $config.section).ByTitle }}
+          <a{{ if eq $currentPage.RelPermalink .RelPermalink }} class="active"{{ end }} href="{{ .RelPermalink }}">
+            <span class="nav-glyph {{ $config.class }}">{{ $config.glyph }}</span>{{ .LinkTitle }}
+          </a>
+        {{ end }}
+      </section>
+    {{ end }}
+  </nav>
+  <p class="sidebar-version">Project Beta Expanded<br>Official wiki</p>
+</aside>
+<button class="sidebar-scrim" type="button" aria-label="Close navigation" data-sidebar-scrim></button>

@@ -1,0 +1,32 @@
+{{ $box := .box }}
+<aside class="infobox" aria-label="{{ .page.Title }} information">
+  <div class="infobox-title">{{ .page.Title }}</div>
+  <figure class="infobox-media {{ $box.image_type }}">
+    <img src="{{ $box.image | relURL }}" alt="{{ $box.image_alt }}">
+  </figure>
+  <table>
+    <tbody>
+      {{ with $box.type }}<tr><th>Type</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.stackable }}<tr><th>Stackable</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.restores }}<tr><th>Restores</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.armor }}<tr><th>Armor</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.renewable }}<tr><th>Renewable</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.rarity }}<tr><th>Rarity</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.tool }}<tr><th>Tool</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.hardness }}<tr><th>Hardness</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.blast_resistance }}<tr><th>Blast resistance</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.transparent }}<tr><th>Transparent</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.full_block }}<tr><th>Full block</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.luminance }}<tr><th>Luminance</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.temperature }}<tr><th>Temperature</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.precipitation }}<tr><th>Precipitation</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.trees }}<tr><th>Trees</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.structures }}<tr><th>Structures</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.dimension }}<tr><th>Dimension</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.biomes }}<tr><th>Biomes</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.location }}<tr><th>Location</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.generation }}<tr><th>Generation</th><td>{{ . }}</td></tr>{{ end }}
+      {{ with $box.blocks }}<tr><th>Blocks</th><td>{{ . }}</td></tr>{{ end }}
+    </tbody>
+  </table>
+</aside>

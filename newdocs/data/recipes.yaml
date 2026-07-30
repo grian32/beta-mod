@@ -1,0 +1,314 @@
+cloth_string:
+  name: String
+  shapeless: true
+  grid:
+    - ""
+    - ""
+    - ""
+    - ""
+    - tattered_cloth
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: string
+    count: 2
+  caption: Tattered Cloth can be pulled apart into two pieces of string.
+
+cloth_painting:
+  name: Painting
+  grid:
+    - stick
+    - stick
+    - stick
+    - stick
+    - tattered_cloth
+    - stick
+    - stick
+    - stick
+    - stick
+  result:
+    item: painting
+    count: 1
+  caption: Tattered Cloth can replace wool in the painting recipe.
+
+moonwell:
+  name: Moonwell
+  grid:
+    - diamond
+    - purple_dye
+    - diamond
+    - stone_bricks
+    - ""
+    - stone_bricks
+    - stone_bricks
+    - stone_bricks
+    - stone_bricks
+  result:
+    item: moonwell
+    count: 1
+  caption: The crafting recipe for a Moonwell.
+
+stone_bricks:
+  name: Stone Bricks
+  grid:
+    - stone
+    - stone
+    - ""
+    - stone
+    - stone
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: stone_bricks
+    count: 1
+  caption: ""
+
+cooked_frost_root:
+  name: Cooked Frost Root
+  type: smelting
+  ingredient: frost_root
+  result:
+    item: cooked_frost_root
+    count: 1
+  caption: ""
+
+redstone_block:
+  name: Redstone Block
+  grid:
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+    - redstone
+  result:
+    item: redstone_block
+    count: 1
+  caption: ""
+
+redstone_decraft:
+  name: Redstone
+  shapeless: true
+  grid:
+    - ""
+    - ""
+    - ""
+    - ""
+    - redstone_block
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: redstone
+    count: 9
+  caption: ""
+
+grassy_boots:
+  name: Grassy Boots
+  grid:
+    - ""
+    - wheat
+    - ""
+    - seeds
+    - leather_boots
+    - seeds
+    - ""
+    - wheat
+    - ""
+  result:
+    item: grassy_boots
+    count: 1
+  caption: ""
+
+sawmill:
+  name: Sawmill
+  grid:
+    - ""
+    - iron_ingot
+    - ""
+    - oak_planks
+    - iron_ingot
+    - oak_planks
+    - stone
+    - iron_ingot
+    - stone
+  result:
+    item: sawmill
+    count: 1
+  caption: ""
+
+enhancement_table:
+  name: Enhancement Table
+  grid:
+    - light_blue_dye
+    - diamond
+    - light_blue_dye
+    - stone
+    - light_blue_dye
+    - stone
+    - stone
+    - ""
+    - stone
+  result:
+    item: enhancement_table
+    count: 1
+  caption: ""
+
+pile_of_logs:
+  name: Pile of Logs
+  grid:
+    - item: oak_log
+      count: 4
+    - item: oak_log
+      count: 4
+    - ""
+    - item: oak_log
+      count: 4
+    - item: oak_log
+      count: 4
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: pile_of_logs
+    count: 1
+  caption: ""
+
+resin_block:
+  name: Resin Block
+  grid:
+    - resin
+    - resin
+    - ""
+    - resin
+    - resin
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: resin_block
+    count: 1
+  caption: ""
+
+sticky_piston_resin:
+  name: Sticky Piston
+  grid:
+    - ""
+    - resin
+    - ""
+    - ""
+    - piston
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: sticky_piston
+    count: 1
+  caption: ""
+
+totem_of_health:
+  name: Totem of Health
+  grid:
+    - diamond_block
+    - resin
+    - diamond_block
+    - resin
+    - resin
+    - resin
+    - ""
+    - resin
+    - ""
+  result:
+    item: totem_of_health
+    count: 1
+  caption: ""
+
+scorched_clay_block:
+  name: Scorched Clay Block
+  grid:
+    - scorched_clay_ball
+    - scorched_clay_ball
+    - ""
+    - scorched_clay_ball
+    - scorched_clay_ball
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: scorched_clay_block
+    count: 1
+  caption: ""
+
+scorched_brick:
+  name: Scorched Brick
+  type: smelting
+  ingredient: scorched_clay_ball
+  result:
+    item: scorched_brick
+    count: 1
+  caption: ""
+
+scorched_bricks:
+  name: Scorched Bricks
+  grid:
+    - scorched_brick
+    - scorched_brick
+    - ""
+    - scorched_brick
+    - scorched_brick
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: scorched_bricks
+    count: 1
+  caption: ""
+
+nether_glass:
+  name: Nether Glass
+  type: smelting
+  ingredient: soul_sand
+  result:
+    item: nether_glass
+    count: 1
+  caption: ""
+
+icy_stone:
+  name: Icy Stone
+  type: smelting
+  ingredient: icy_cobblestone
+  result:
+    item: icy_stone
+    count: 1
+  caption: ""
+
+saddle_decraft:
+  name: Leather
+  shapeless: true
+  grid:
+    - ""
+    - ""
+    - ""
+    - ""
+    - saddle
+    - ""
+    - ""
+    - ""
+    - ""
+  result:
+    item: leather
+    count: 5
+  caption: ""

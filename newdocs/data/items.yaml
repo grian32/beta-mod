@@ -1,0 +1,256 @@
+tattered_cloth:
+  name: Tattered Cloth
+  image: img/cloth.png
+  href: items/tattered-cloth/
+
+moonwell:
+  name: Moonwell
+  image: img/renders/moonwell.png
+  href: blocks/moonwell/
+  rendered: true
+
+stone_bricks:
+  name: Stone Bricks
+  image: img/renders/stone-bricks.png
+  href: blocks/stone-bricks/
+  rendered: true
+
+stick:
+  name: Stick
+  atlas: items
+  x: 5
+  y: 3
+
+diamond:
+  name: Diamond
+  atlas: items
+  x: 7
+  y: 3
+
+purple_dye:
+  name: Purple Dye
+  atlas: items
+  x: 14
+  y: 9
+
+string:
+  name: String
+  atlas: items
+  x: 8
+  y: 0
+
+painting:
+  name: Painting
+  atlas: items
+  x: 10
+  y: 1
+
+stone:
+  name: Stone
+  image: img/renders/vanilla/stone.png
+  rendered: true
+
+frost_root:
+  name: Frost Root
+  image: img/items/frost-root.png
+  href: items/frost-root/
+
+cooked_frost_root:
+  name: Cooked Frost Root
+  image: img/items/cooked-frost-root.png
+  href: items/frost-root/#cooking
+
+frost_root_seeds:
+  name: Frost Root Seeds
+  image: img/items/frost-root-seeds.png
+  href: items/frost-root/#obtaining
+
+grassy_boots:
+  name: Grassy Boots
+  image: img/items/grassy-boots.png
+  href: items/grassy-boots/
+
+resin:
+  name: Resin
+  image: img/items/resin.png
+  href: items/resin/
+
+totem_of_health:
+  name: Totem of Health
+  image: img/items/totem-of-health.png
+  href: items/totem-of-health/
+
+scorched_clay_ball:
+  name: Scorched Clay Ball
+  image: img/items/scorched-clay-ball.png
+  href: items/scorched-clay-ball/
+
+scorched_brick:
+  name: Scorched Brick
+  image: img/items/scorched-brick.png
+  href: items/scorched-brick/
+
+redstone_block:
+  name: Redstone Block
+  image: img/renders/redstone-block.png
+  href: blocks/redstone-block/
+  rendered: true
+
+sawmill:
+  name: Sawmill
+  image: img/renders/sawmill.png
+  href: blocks/sawmill/
+  rendered: true
+
+enhancement_table:
+  name: Enhancement Table
+  image: img/renders/enhancement-table.png
+  href: blocks/enhancement-table/
+  rendered: true
+
+pile_of_logs:
+  name: Pile of Logs
+  image: img/renders/pile-of-logs.png
+  href: blocks/pile-of-logs/
+  rendered: true
+
+resin_block:
+  name: Resin Block
+  image: img/renders/resin-block.png
+  href: blocks/resin-block/
+  rendered: true
+
+scorched_clay_block:
+  name: Scorched Clay Block
+  image: img/renders/scorched-clay-block.png
+  href: blocks/scorched-clay-block/
+  rendered: true
+
+scorched_bricks:
+  name: Scorched Bricks
+  image: img/renders/scorched-bricks.png
+  href: blocks/scorched-bricks/
+  rendered: true
+
+icy_stone:
+  name: Icy Stone
+  image: img/renders/icy-stone.png
+  href: blocks/icy-stone/
+  rendered: true
+
+icy_cobblestone:
+  name: Icy Cobblestone
+  image: img/renders/icy-cobblestone.png
+  href: blocks/icy-cobblestone/
+  rendered: true
+
+nether_glass:
+  name: Nether Glass
+  image: img/renders/nether-glass.png
+  href: blocks/nether-glass/
+  rendered: true
+
+redstone:
+  name: Redstone
+  atlas: items
+  x: 8
+  y: 3
+
+wheat:
+  name: Wheat
+  atlas: items
+  x: 9
+  y: 1
+
+seeds:
+  name: Seeds
+  atlas: items
+  x: 9
+  y: 0
+
+leather_boots:
+  name: Leather Boots
+  atlas: items
+  x: 0
+  y: 3
+
+iron_ingot:
+  name: Iron Ingot
+  atlas: items
+  x: 7
+  y: 1
+
+light_blue_dye:
+  name: Light Blue Dye
+  atlas: items
+  x: 15
+  y: 8
+
+oak_planks:
+  name: Oak Planks
+  image: img/renders/vanilla/oak-planks.png
+  rendered: true
+
+oak_log:
+  name: Oak Log
+  image: img/renders/vanilla/oak-log.png
+  rendered: true
+
+spruce_log:
+  name: Spruce Log
+  image: img/renders/vanilla/spruce-log.png
+  rendered: true
+
+diamond_block:
+  name: Diamond Block
+  image: img/renders/vanilla/diamond-block.png
+  rendered: true
+
+iron_block:
+  name: Iron Block
+  image: img/renders/vanilla/iron-block.png
+  rendered: true
+
+sand:
+  name: Sand
+  image: img/renders/vanilla/sand.png
+  rendered: true
+
+gold_ingot:
+  name: Gold Ingot
+  atlas: items
+  x: 7
+  y: 2
+
+clay_ball:
+  name: Clay Ball
+  atlas: items
+  x: 9
+  y: 3
+
+piston:
+  name: Piston
+  image: img/renders/vanilla/piston.png
+  rendered: true
+
+sticky_piston:
+  name: Sticky Piston
+  image: img/renders/vanilla/sticky-piston.png
+  rendered: true
+
+soul_sand:
+  name: Soul Sand
+  image: img/renders/vanilla/soul-sand.png
+  rendered: true
+
+saddle:
+  name: Saddle
+  atlas: items
+  x: 8
+  y: 6
+
+leather:
+  name: Leather
+  atlas: items
+  x: 7
+  y: 6

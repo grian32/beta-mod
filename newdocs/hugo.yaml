@@ -1,0 +1,17 @@
+baseURL: "https://grian32.github.io/beta-mod/"
+locale: "en-us"
+title: "Project Beta Expanded Wiki"
+disableKinds:
+  - RSS
+
+params:
+  description: "A reference wiki for Project Beta Expanded."
+  repository: "https://github.com/grian32/beta-mod"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+taxonomies:
+  category: categories

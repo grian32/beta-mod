@@ -1,0 +1,19 @@
+{{ $id := .Get "id" }}
+{{ $enhancement := index hugo.Data.enhancements $id }}
+<figure class="enhancement-card">
+  <div class="recipe-title">
+    <span>Enhancement Table recipe</span>
+    <span class="recipe-kind">{{ $enhancement.tool }}</span>
+  </div>
+  <div class="enhancement-name">{{ $enhancement.name }}</div>
+  <div class="enhancement-tiers">
+    {{ range $enhancement.tiers }}
+      <div class="enhancement-tier">
+        <span class="tier-label">Tier {{ .tier }}</span>
+        <span class="tier-effect">{{ .effect }}</span>
+        <span class="tier-cost-label">Cost</span>
+        {{ partial "item-slot.html" (dict "item" .ingredient "count" .count) }}
+      </div>
+    {{ end }}
+  </div>
+</figure>

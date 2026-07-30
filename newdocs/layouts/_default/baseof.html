@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} – {{ site.Title }}{{ end }}</title>
+    <link rel="icon" href="{{ "img/favicon.ico" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/wiki.css" | relURL }}">
+    <script>
+      const savedTheme = localStorage.getItem("pbe-wiki-theme");
+      if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    </script>
+  </head>
+  <body>
+    {{ partial "header.html" . }}
+    <div class="site-shell">
+      {{ partial "sidebar.html" . }}
+      <main class="site-main" id="main-content">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+    <script src="{{ "js/wiki.js" | relURL }}"></script>
+  </body>
+</html>

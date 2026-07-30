@@ -1,0 +1,21 @@
+{
+  "textures": {
+    "top": "atlas:newdocs/static/img/atlases/terrain.png@10,6",
+    "side": "atlas:newdocs/static/img/atlases/terrain.png@12,6",
+    "bottom": "atlas:newdocs/static/img/atlases/terrain.png@13,6"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down": {"texture": "#bottom"},
+        "up": {"texture": "#top"},
+        "north": {"texture": "#side"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#side"},
+        "east": {"texture": "#side"}
+      }
+    }
+  ]
+}

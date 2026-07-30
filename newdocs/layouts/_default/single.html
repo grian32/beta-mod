@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <article class="wiki-article">
+    <header class="article-header">
+      <div class="eyebrow">
+        {{ with .Section }}{{ humanize . }}{{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="article-summary">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ with .Params.infobox }}
+      {{ partial "infobox.html" (dict "page" $ "box" .) }}
+    {{ end }}
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+    {{ with .Params.categories }}
+      <footer class="article-categories" aria-label="Page categories">
+        <span>Categories:</span>
+        {{ range . }}
+          <a href="{{ (printf "categories/%s/" (. | urlize)) | relURL }}">{{ . }}</a>
+        {{ end }}
+      </footer>
+    {{ end }}
+  </article>
+{{ end }}
+
