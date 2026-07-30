@@ -40,6 +40,7 @@ import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
 import net.modificationstation.stationapi.api.template.block.TemplateBlock
 import net.modificationstation.stationapi.api.template.item.TemplateFoodItem
+import net.modificationstation.stationapi.api.template.item.TemplateItem
 import net.modificationstation.stationapi.api.util.Namespace
 import org.apache.logging.log4j.Logger
 import java.util.Properties
@@ -85,6 +86,8 @@ object BetaMod {
     lateinit var goldStone: Block
 
     lateinit var moonwell: Block
+
+    lateinit var cloth: Item
 
     var blocksInitialized = false
 
@@ -226,6 +229,9 @@ object BetaMod {
 
         scorchedBrick = ScorchedClayBallItem(NAMESPACE.id("scorched_brick"))
             .setTranslationKey(NAMESPACE, "scorched_brick")
+
+        cloth = TemplateItem(NAMESPACE.id("tattered_cloth"))
+            .setTranslationKey(NAMESPACE, "tattered_cloth")
     }
 
     @EventListener
@@ -241,11 +247,6 @@ object BetaMod {
                 bottom(Item.REDSTONE, Item.REDSTONE, Item.REDSTONE)
             }
 
-            addShapelessRecipe {
-                output(ItemStack(Item.REDSTONE, 9))
-
-                ingredient(redstoneBlock.asItem())
-            }
 
             addShapedRecipe {
                 output(grassyBoots)
@@ -329,6 +330,13 @@ object BetaMod {
                 middle(stoneBricks, null, stoneBricks)
                 bottom(stoneBricks, stoneBricks, stoneBricks)
             }
+
+            addShapedRecipe {
+                output(Item.PAINTING)
+                top(Item.STICK, Item.STICK, Item.STICK)
+                middle(Item.STICK, cloth, Item.STICK)
+                bottom(Item.STICK, Item.STICK, Item.STICK)
+            }
         }
 
         if (isEventTypeShapeless(event.recipeId)) {
@@ -336,6 +344,17 @@ object BetaMod {
                 output(ItemStack(Item.LEATHER, 5))
 
                 ingredient(Item.SADDLE)
+            }
+
+            addShapelessRecipe {
+                output(ItemStack(Item.REDSTONE, 9))
+
+                ingredient(redstoneBlock.asItem())
+            }
+
+            addShapelessRecipe {
+                ingredient(cloth)
+                output(ItemStack(Item.STRING, 2))
             }
         }
 

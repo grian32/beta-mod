@@ -27,6 +27,7 @@
     "climate.ForestBiomeMixin",
     "climate.LeavesBlockMixin",
     "climate.SaplingBlockMixin",
+    "cloth.ZombieEntityMixin",
     "croptrampling.FarmlandBlockMixin",
     "fencehitbox.FenceBlockMixin",
     "fenceplacement.FenceBlockMixin",
@@ -51,17 +52,17 @@
   "client": [
     "ClientNetworkHandlerAccessor",
     "MinecraftAccessor",
+    "biomes.seasonalforest.LeavesBlockMixin",
+    "biomes.swampland.SugarCaneBlockMixin",
     "carpetedstairs.SlabBlockClientMixin",
     "carpetedstairs.StairsBlockClientMixin",
     "debug.InGameHudMixin",
-    "biomes.swampland.SugarCaneBlockMixin",
     "netherglassrender.ChunkBuilderMixin",
     "shrine.LiquidBlockMixin",
     "shrine.WaterSpriteMixin",
     "shrine.WorldRendererMixin",
     "versionstring.DebugScreenMixin",
-    "versionstring.TitleScreenMixin",
-    "biomes.seasonalforest.LeavesBlockMixin"
+    "versionstring.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

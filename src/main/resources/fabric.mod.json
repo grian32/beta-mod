@@ -76,6 +76,10 @@
       {
         "adapter": "kotlin",
         "value": "me.grian.griansbetamod.debug.HeldItemDurabilityHotkey"
+      },
+      {
+        "adapter": "kotlin",
+        "value": "me.grian.griansbetamod.debug.SpawnZombieListener"
       }
     ],
     "stationapi:event_bus_server": [
