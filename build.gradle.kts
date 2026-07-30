@@ -50,7 +50,7 @@ val generateBuildFeatures by tasks.registering {
 }
 
 sourceSets.named("main") {
-	java.srcDir(generatedBuildFeaturesDirectory)
+	java.srcDir(generateBuildFeatures)
 }
 
 tasks.named("compileKotlin") {
