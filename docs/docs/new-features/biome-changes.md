@@ -24,3 +24,10 @@ Rainforests now exclusively spawn large oak trees at an increased chance.
 
 ![Rainforest](/img/rainforest1.png)
 ![Rainforest 2](/img/rainforest2.png)
+
+## Swampland
+
+The Swampland biome has been fully reworked with flatter terrain, shallow pools, and winding water channels. It features crooked oak trees, sugar cane, and Lily of the Lake.
+
+![Swamp 2](/img/swamp2.png)
+![Swamp](/img/swamp.png)
