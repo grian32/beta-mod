@@ -2,7 +2,7 @@
 
 Project Beta Expanded is a mod for Minecraft Beta 1.7.3 that reimagines the game as the foundation for an alternate path of development. It fixes vanilla annoyances, completes unfinished features, and introduces new content guided by its own design philosophy.
 
-This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues. Any places I expect incompatibilities to exist can be seen [here](https://grian32.github.io/beta-mod/docs/intro/#current-possible-places-of-conflict-with-other-mods)
+This mod is meant to be played standalone, it may work alongside other mods, but there may be compatibility issues. 
 
 ## Installation
 
@@ -12,4 +12,4 @@ This mod is meant to be played standalone, it may work alongside other mods, but
 
 ## Wiki
 
-You can find information about the mod and all of it's features at [the wiki](https://grian32.github.io/beta-mod/docs/intro/).
+You can find information about the mod and all of it's features at [the wiki](https://grian32.github.io/beta-mod/).
