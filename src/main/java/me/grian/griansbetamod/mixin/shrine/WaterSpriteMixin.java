@@ -15,13 +15,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Debug(export = true)
-@Mixin(value = {ArsenicStillWater.class, ArsenicFlowingWater.class}, remap = false)
+@Mixin(value = {ArsenicStillWater.class, ArsenicFlowingWater.class})
 public abstract class WaterSpriteMixin extends StationTextureBinder {
     public WaterSpriteMixin(Atlas.Sprite staticReference) {
         super(staticReference);
     }
 
-    @Inject(method = "tick", at = @At("TAIL"), remap = false)
+    @Inject(method = "tick", at = @At("TAIL"))
     private void colorWater(CallbackInfo ci) {
         Minecraft mc = MinecraftAccessor.getInstance();
         World world = mc.world;
