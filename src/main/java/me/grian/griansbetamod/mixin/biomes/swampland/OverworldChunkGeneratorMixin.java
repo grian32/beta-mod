@@ -1,5 +1,7 @@
 package me.grian.griansbetamod.mixin.biomes.swampland;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import me.grian.griansbetamod.BuildFeatures;
 import net.minecraft.block.SandBlock;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
@@ -23,7 +25,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.At.Shift;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
@@ -95,7 +96,7 @@ public class OverworldChunkGeneratorMixin {
             world.method_1781().getBiome(chunkX * 16 + 16, chunkZ * 16 + 16) == Biome.SWAMPLAND;
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -108,12 +109,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -126,12 +128,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -144,12 +147,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -162,12 +166,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -180,12 +185,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -198,12 +204,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -216,12 +223,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -234,12 +242,13 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
@@ -252,9 +261,10 @@ public class OverworldChunkGeneratorMixin {
         Random random,
         int x,
         int y,
-        int z
+        int z,
+        Operation<Boolean> original
     ) {
-        return !swamplandDecoration && feature.generate(world, random, x, y, z);
+        return !swamplandDecoration && original.call(feature, world, random, x, y, z);
     }
 
     @Inject(

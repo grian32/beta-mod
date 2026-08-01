@@ -1,5 +1,7 @@
 package me.grian.griansbetamod.mixin.boatspeed;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
@@ -33,8 +35,8 @@ public abstract class BoatEntityMixin extends Entity {
         return original;
     }
 
-    @Redirect(method = "tick", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/vehicle/BoatEntity;horizontalCollision:Z", opcode = Opcodes.GETFIELD))
-    private boolean disableCollisionBreaking(BoatEntity boat) {
+    @WrapOperation(method = "tick", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/vehicle/BoatEntity;horizontalCollision:Z", opcode = Opcodes.GETFIELD))
+    private boolean disableCollisionBreaking(BoatEntity boat, Operation<Boolean> original) {
         return false;
     }
 

@@ -1,5 +1,7 @@
 package me.grian.griansbetamod.mixin.biomes.cold;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import net.minecraft.world.World;
@@ -9,7 +11,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
@@ -35,16 +36,16 @@ public class OverworldChunkGeneratorMixin {
     }
 
 
-    @Redirect(
+    @WrapOperation(
         method = "decorate",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/World;setBlock(IIII)Z"
         )
     )
-    boolean snowMeta(World instance, int x, int y, int z, int blockId) {
+    boolean snowMeta(World instance, int x, int y, int z, int blockId, Operation<Boolean> original) {
         if (instance.getBlockId(x, y-1, z) == Block.LEAVES.id) {
-            instance.setBlock(x, y, z, blockId);
+            original.call(instance, x, y, z, blockId);
         } else {
             double regionX = x / 8.0;
             double regionZ = z / 8.0;
