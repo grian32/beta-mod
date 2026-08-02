@@ -1,6 +1,10 @@
 package me.grian.griansbetamod.compat
 
 import me.grian.griansbetamod.BetaMod
+import me.grian.griansbetamod.compat.itemenhancements.EnhancementRecipeCategory
+import me.grian.griansbetamod.compat.itemenhancements.EnhancementRecipeHandler
+import me.grian.griansbetamod.itemenhancements.Enhancement
+import me.grian.griansbetamod.itemenhancements.recipe.EnhancementRecipeManager
 import net.glasslauncher.mods.alwaysmoreitems.api.*
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
@@ -30,15 +34,18 @@ class BetaModAMIPlugin : ModPluginProvider {
         }
     }
 
-    override fun onItemRegistryAvailable(itemRegistry: ItemRegistry?) {
+    override fun onItemRegistryAvailable(itemRegistry: ItemRegistry) {
     }
 
-    override fun register(modRegistry: ModRegistry?) {
-
+    override fun register(modRegistry: ModRegistry) {
+        modRegistry.addRecipeCategories(EnhancementRecipeCategory())
+        modRegistry.addRecipeHandlers(EnhancementRecipeHandler())
+        modRegistry.addRecipes(EnhancementRecipeManager.recipes.filter {
+            it.enhancement != Enhancement.NONE && it.enhancement != Enhancement.__LAPIS_MINER
+        })
     }
 
-    override fun onRecipeRegistryAvailable(recipeRegistry: RecipeRegistry?) {
-
+    override fun onRecipeRegistryAvailable(recipeRegistry: RecipeRegistry) {
     }
 
     override fun deserializeRecipe(nbtCompound: NbtCompound): SyncableRecipe? {

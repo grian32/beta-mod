@@ -5,18 +5,20 @@ import me.grian.griansbetamod.api.craftingrecipes.addShapelessRecipe
 import me.grian.griansbetamod.api.craftingrecipes.addSmeltingRecipe
 import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
+import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIBlock
+import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIItem
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
 import me.grian.griansbetamod.icydungeons.IcyCobblestoneBlock
 import me.grian.griansbetamod.icydungeons.IcyStoneBlock
+import me.grian.griansbetamod.itemenhancements.Enhancement
 import me.grian.griansbetamod.itemenhancements.EnhancementTableBlock
 import me.grian.griansbetamod.itemenhancements.resinharvest.ResinBlock
 import me.grian.griansbetamod.items.GrassyBootsItem
 import me.grian.griansbetamod.itemenhancements.resinharvest.ResinItem
 import me.grian.griansbetamod.itemenhancements.resinharvest.TotemOfHealthItem
 import me.grian.griansbetamod.itemenhancements.sifter.ScorchedBrickBlock
-import me.grian.griansbetamod.itemenhancements.sifter.ScorchedBrickItem
 import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBallItem
 import me.grian.griansbetamod.itemenhancements.sifter.ScorchedClayBlock
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakeBlock
@@ -90,6 +92,16 @@ object BetaMod {
     lateinit var cloth: Item
 
     var blocksInitialized = false
+
+    lateinit var extraLogsAMIItem: EnhancementAMIBlock
+    lateinit var resinHarvestAMIItem: EnhancementAMIItem
+    lateinit var reinforcedAMIItem: EnhancementAMIItem
+    lateinit var steadyHandAMIItem: EnhancementAMIItem
+    lateinit var replanterAMIItem: EnhancementAMIItem
+    lateinit var landscaperAMIItem: EnhancementAMIBlock
+    lateinit var bountifulAMIItem: EnhancementAMIItem
+    lateinit var sifterAMIItem: EnhancementAMIItem
+    lateinit var quarrymanAMIItem: EnhancementAMIItem
 
     @JvmStatic
     var versionString: String = "unknown"
@@ -232,6 +244,16 @@ object BetaMod {
 
         cloth = TemplateItem(NAMESPACE.id("tattered_cloth"))
             .setTranslationKey(NAMESPACE, "tattered_cloth")
+
+        extraLogsAMIItem = EnhancementAMIBlock(NAMESPACE.id("extra_logs_ami"), "extra_logs", 4, Enhancement.EXTRA_LOGS)
+        resinHarvestAMIItem = EnhancementAMIItem(NAMESPACE.id("resin_harvest_ami"), "resin_harvest", 3, Enhancement.RESIN)
+        reinforcedAMIItem = EnhancementAMIItem(NAMESPACE.id("reinforced_ami"), "reinforced", 4, Enhancement.AXE_UNBREAKING)
+        steadyHandAMIItem = EnhancementAMIItem(NAMESPACE.id("steady_hand_ami"), "steady_hand", 3, Enhancement.STEADY_HAND)
+        replanterAMIItem = EnhancementAMIItem(NAMESPACE.id("replanter_ami"), "replanter", 1, Enhancement.REPLANTER)
+        landscaperAMIItem = EnhancementAMIBlock(NAMESPACE.id("landscaper_ami"), "landscaper", 1, Enhancement.LANDSCAPER)
+        bountifulAMIItem = EnhancementAMIItem(NAMESPACE.id("bountiful_ami"), "bountiful", 3, Enhancement.BOUNTIFUL)
+        sifterAMIItem = EnhancementAMIItem(NAMESPACE.id("sifter_ami"), "sifter", 3, Enhancement.SIFTER)
+        quarrymanAMIItem = EnhancementAMIItem(NAMESPACE.id("quarryman_ami"), "quarryman", 3, Enhancement.QUARRYMAN)
     }
 
     @EventListener

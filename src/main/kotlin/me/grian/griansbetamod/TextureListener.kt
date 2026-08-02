@@ -2,6 +2,7 @@ package me.grian.griansbetamod
 
 import com.google.common.annotations.Beta
 import net.mine_diver.unsafeevents.listener.EventListener
+import net.minecraft.item.Item
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases
 import net.modificationstation.stationapi.api.util.Namespace
@@ -64,5 +65,14 @@ object TextureListener {
         BetaMod.shrineCenter.textureId = terrain.addTexture(NAMESPACE.id("block/shrine_center")).index
 
         BetaMod.cloth.setTexture(NAMESPACE.id("item/tattered_cloth"))
+
+        BetaMod.resinHarvestAMIItem.setTexture(NAMESPACE.id("item/resin"))
+        BetaMod.reinforcedAMIItem.setTextureId(Item.IRON_INGOT.getTextureId(0))
+        BetaMod.steadyHandAMIItem.setTextureId(Item.GOLD_INGOT.getTextureId(0))
+        BetaMod.replanterAMIItem.setTextureId(Item.SEEDS.getTextureId(0))
+        BetaMod.bountifulAMIItem.setTextureId(Item.WHEAT.getTextureId(0))
+        BetaMod.sifterAMIItem.setTextureId(Item.CLAY.getTextureId(0))
+        BetaMod.quarrymanAMIItem.setTextureId(Item.DIAMOND.getTextureId(0))
+
     }
 }
