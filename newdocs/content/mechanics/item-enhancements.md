@@ -13,6 +13,8 @@ Tools can be enhanced with specialized effects at an [Enhancement Table]({{< rel
 
 Unlike enchantments, a tool can only carry one enhancement. Higher tiers of that enhancement must be applied by upgrading it at the Enhancement Table.
 
+Item Enhancements also has support for AMI, so you can view all enhancement recipes in AMI
+
 {{< gallery >}}
   {{< gallery-image src="img/enhancement_table_example.png" alt="Using an Enhancement Table" caption="Using the Enhancement Table to apply an enhancement." fit="natural" >}}
 {{< /gallery >}}

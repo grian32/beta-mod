@@ -13,7 +13,7 @@ infobox:
   dimension: Overworld
   biomes: Taiga, Tundra
   location: Just below the surface
-  generation: 1-in-200 eligible chunk attempt
+  generation: 1-in-160 eligible chunk attempt
   blocks: Icy Stone, Icy Cobblestone
 ---
 
