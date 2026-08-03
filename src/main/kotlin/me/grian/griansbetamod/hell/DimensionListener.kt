@@ -28,6 +28,7 @@ object DimensionListener {
         limboBiome = BiomeBuilder
             .start("Limbo")
             .precipitation(false)
+            .fogColor(0x919191)
             .build()
     }
 

@@ -57,6 +57,8 @@
     "carpetedstairs.SlabBlockClientMixin",
     "carpetedstairs.StairsBlockClientMixin",
     "debug.InGameHudMixin",
+    "hell.limbo.GameRendererMixin",
+    "hell.limbo.WorldRendererMixin",
     "netherglassrender.ChunkBuilderMixin",
     "shrine.LiquidBlockMixin",
     "shrine.WaterSpriteMixin",

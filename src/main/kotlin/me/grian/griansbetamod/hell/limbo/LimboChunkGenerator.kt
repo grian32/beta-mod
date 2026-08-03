@@ -9,18 +9,23 @@ import net.modificationstation.stationapi.impl.world.chunk.FlattenedChunk
 
 class LimboChunkGenerator(private val world: World, private val seed: Long) : ChunkSource {
     override fun getChunk(chunkX: Int, chunkZ: Int): Chunk {
-        val blocks = ByteArray(16*16*128)
+        val chunk = FlattenedChunk(world, chunkX, chunkZ)
+        val section = chunk.getOrCreateSection(0, false)
+        val bedrock = Block.BEDROCK.defaultState
+
         for (x in 0..15) {
-            for (z in 0..15 ) {
-                val index = (x * 16 + z) * 128
-                blocks[index] = Block.BEDROCK.id.toByte()
+            for (z in 0..15) {
+                section.setBlockState(
+                    x,
+                    0,
+                    z,
+                    bedrock
+                )
             }
         }
 
-        return FlattenedChunk(world, chunkX, chunkZ).also {
-            it.fromLegacy(blocks)
-            it.populateHeightMap()
-        }
+        chunk.populateHeightMap()
+        return chunk
     }
 
     override fun loadChunk(chunkX: Int, chunkZ: Int): Chunk = getChunk(chunkX, chunkZ)
