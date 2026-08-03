@@ -8,7 +8,7 @@ class LimboForcer : PortalForcer() {
     override fun moveToPortal(world: World, entity: Entity) {
         entity.setPositionAndAnglesKeepPrevAngles(
             entity.x,
-            2.0,
+            15.0,
             entity.z,
             entity.yaw,
             entity.pitch

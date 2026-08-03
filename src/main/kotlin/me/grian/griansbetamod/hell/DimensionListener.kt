@@ -29,6 +29,8 @@ object DimensionListener {
             .start("Limbo")
             .precipitation(false)
             .fogColor(0x919191)
+            .grassColor(0x919191)
+            .leavesColor(0x919191)
             .build()
     }
 
