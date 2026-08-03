@@ -3,11 +3,14 @@ package me.grian.griansbetamod.shrine
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.block.Block
 import net.minecraft.world.World
+import net.minecraft.world.dimension.Dimension
+import net.minecraft.world.dimension.OverworldDimension
 import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent
 
 object WorldGenListener {
     @EventListener
     fun listener(event: WorldGenEvent.ChunkDecoration) {
+        if (event.world.dimension !is OverworldDimension) return
         if (event.random.nextInt(300) != 0) return
 
         val featureX = event.x + event.random.nextInt(16) + 8
