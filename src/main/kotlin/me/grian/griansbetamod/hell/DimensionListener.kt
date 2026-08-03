@@ -4,6 +4,7 @@ import me.grian.griansbetamod.BetaMod
 import me.grian.griansbetamod.hell.limbo.LimboDimension
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.world.biome.Biome
+import net.modificationstation.stationapi.api.client.event.color.item.ItemColorsRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.DimensionRegistryEvent
 import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEvent
 import net.modificationstation.stationapi.api.registry.DimensionContainer
@@ -34,4 +35,10 @@ object DimensionListener {
             .build()
     }
 
+    @EventListener
+    fun register(event: ItemColorsRegisterEvent) {
+        event.itemColors.register({_, tintIndex ->
+            if (tintIndex == 1) 0x919191 else 0xFFFFFF
+        }, BetaMod.deadGrass)
+    }
 }

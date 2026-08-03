@@ -1,5 +1,7 @@
 {
   "values": [
-    "griansbetamod:scorched_clay_block"
+    "griansbetamod:scorched_clay_block",
+    "griansbetamod:dead_dirt",
+    "griansbetamod:dead_grass"
   ]
 }

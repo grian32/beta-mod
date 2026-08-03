@@ -65,7 +65,7 @@ Affected blocks: Stone, Cobblestone, Mossy Cobblestone, Icy Stone, and Icy Cobbl
 
 Certain terrain blocks drop in their intact form.
 
-Affected blocks: Grass Blocks, Clay Blocks, Snow Blocks, Gravel, and Scorched Clay Blocks.
+Affected blocks: Grass Blocks, Dead Grass, Clay Blocks, Snow Blocks, Gravel, and Scorched Clay Blocks.
 
 {{< enhancement id="landscaper" >}}
 

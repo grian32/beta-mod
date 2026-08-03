@@ -1,5 +1,6 @@
 package me.grian.griansbetamod.hell.limbo
 
+import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
 import net.minecraft.client.gui.screen.LoadingDisplay
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler
@@ -27,14 +28,14 @@ class LimboChunkGenerator(private val world: World, private val seed: Long) : Ch
                 val worldX = chunkX * 16.0 + x
                 val worldZ = chunkZ * 16.0 + z
                 val height = noiseGen.sample(worldX / 24.0, worldZ / 24.0)
-                val grass = Block.GRASS_BLOCK.defaultState
+                val grass = BetaMod.deadGrass.defaultState
                 val grassY = if (height < -0.15) { 10 } else if (height < 0.15) { 11 } else { 12 }
 
                 section.setBlockState(x, grassY, z, grass)
 
                 for (y in 1..<grassY) {
                     val state = if (y >= grassY - 3) {
-                        Block.DIRT.defaultState
+                        BetaMod.deadDirt.defaultState
                     } else {
                         Block.STONE.defaultState
                     }

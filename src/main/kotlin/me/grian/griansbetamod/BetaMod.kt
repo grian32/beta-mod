@@ -7,6 +7,7 @@ import me.grian.griansbetamod.blocks.*
 import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIBlock
 import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIItem
+import me.grian.griansbetamod.hell.limbo.DeadGrassBlock
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
@@ -90,6 +91,9 @@ object BetaMod {
     lateinit var moonwell: Block
 
     lateinit var cloth: Item
+
+    lateinit var deadDirt: Block
+    lateinit var deadGrass: Block
 
     var blocksInitialized = false
 
@@ -204,6 +208,16 @@ object BetaMod {
             .setTranslationKey(NAMESPACE, "moonwell")
             .setSoundGroup(Block.STONE_SOUND_GROUP)
             .setHardness(5.0f)
+
+        deadGrass = DeadGrassBlock(NAMESPACE.id("dead_grass"))
+            .setHardness(0.6F)
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_grass")
+
+        deadDirt = TemplateBlock(NAMESPACE.id("dead_dirt"), Material.SOIL)
+            .setHardness(0.5F)
+            .setSoundGroup(Block.GRAVEL_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_dirt")
 
         blocksInitialized = true
     }

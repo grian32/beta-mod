@@ -74,5 +74,6 @@ object TextureListener {
         BetaMod.sifterAMIItem.setTextureId(Item.CLAY.getTextureId(0))
         BetaMod.quarrymanAMIItem.setTextureId(Item.DIAMOND.getTextureId(0))
 
+        BetaMod.deadDirt.textureId = terrain.addTexture(NAMESPACE.id("block/dead_dirt")).index
     }
 }
