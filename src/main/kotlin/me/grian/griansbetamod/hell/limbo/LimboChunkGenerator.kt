@@ -2,12 +2,14 @@ package me.grian.griansbetamod.hell.limbo
 
 import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
+import net.minecraft.block.SandBlock
 import net.minecraft.client.gui.screen.LoadingDisplay
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler
 import net.minecraft.world.World
 import net.minecraft.world.chunk.Chunk
 import net.minecraft.world.chunk.ChunkSource
 import net.modificationstation.stationapi.impl.world.chunk.FlattenedChunk
+import net.modificationstation.stationapi.impl.worldgen.WorldDecoratorImpl
 import java.util.Random
 
 class LimboChunkGenerator(private val world: World, private val seed: Long) : ChunkSource {
@@ -53,8 +55,12 @@ class LimboChunkGenerator(private val world: World, private val seed: Long) : Ch
 
     override fun loadChunk(chunkX: Int, chunkZ: Int): Chunk = getChunk(chunkX, chunkZ)
 
-    override fun decorate(source: ChunkSource?, x: Int, z: Int) {
-
+    override fun decorate(source: ChunkSource, x: Int, z: Int) {
+        try {
+            WorldDecoratorImpl.decorate(world, x, z)
+        } finally {
+            SandBlock.fallInstantly = false
+        }
     }
 
     override fun isChunkLoaded(x: Int, z: Int): Boolean = true

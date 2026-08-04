@@ -1,6 +1,7 @@
 package me.grian.griansbetamod.hell
 
 import me.grian.griansbetamod.BetaMod
+import me.grian.griansbetamod.hell.limbo.DeadTreeFeature
 import me.grian.griansbetamod.hell.limbo.LimboDimension
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.world.biome.Biome
@@ -9,6 +10,7 @@ import net.modificationstation.stationapi.api.event.registry.DimensionRegistryEv
 import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEvent
 import net.modificationstation.stationapi.api.registry.DimensionContainer
 import net.modificationstation.stationapi.api.worldgen.biome.BiomeBuilder
+import net.modificationstation.stationapi.api.worldgen.feature.HeightScatterFeature
 
 object DimensionListener {
     val LIMBO_ID = BetaMod.NAMESPACE.id("hell_limbo")
@@ -32,6 +34,7 @@ object DimensionListener {
             .fogColor(0x919191)
             .grassColor(0x919191)
             .leavesColor(0x919191)
+            .feature(HeightScatterFeature(DeadTreeFeature(), 2))
             .build()
     }
 
