@@ -1,6 +1,7 @@
 package me.grian.griansbetamod.hell
 
 import me.grian.griansbetamod.BetaMod
+import me.grian.griansbetamod.hell.limbo.DeadGrassPatchFeature
 import me.grian.griansbetamod.hell.limbo.DeadTreeFeature
 import me.grian.griansbetamod.hell.limbo.LimboDimension
 import net.mine_diver.unsafeevents.listener.EventListener
@@ -34,7 +35,18 @@ object DimensionListener {
             .fogColor(0x919191)
             .grassColor(0x919191)
             .leavesColor(0x919191)
-            .feature(HeightScatterFeature(DeadTreeFeature(), 2))
+            .feature(
+                HeightScatterFeature(
+                    DeadTreeFeature(),
+                    2
+                )
+            )
+            .feature(
+                HeightScatterFeature(
+                    DeadGrassPatchFeature(),
+                    1
+                )
+            )
             .build()
     }
 

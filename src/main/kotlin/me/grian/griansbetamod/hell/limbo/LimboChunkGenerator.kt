@@ -21,7 +21,6 @@ class LimboChunkGenerator(private val world: World, private val seed: Long) : Ch
         val section = chunk.getOrCreateSection(0, false)
         val bedrock = Block.BEDROCK.defaultState
 
-        // TODO: replace w/ dead dirt, grass blocks, & see if i can fit the grey netherrack thing
 
         for (x in 0..15) {
             for (z in 0..15) {

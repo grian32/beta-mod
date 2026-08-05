@@ -8,6 +8,7 @@ import me.grian.griansbetamod.climate.BluePeonyBlock
 import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIBlock
 import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIItem
 import me.grian.griansbetamod.hell.limbo.DeadGrassBlock
+import me.grian.griansbetamod.hell.limbo.DeadGrassPlantBlock
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
@@ -95,6 +96,7 @@ object BetaMod {
     lateinit var deadDirt: Block
     lateinit var deadGrass: Block
     lateinit var deadLog: Block
+    lateinit var deadGrassPlant: Block
 
     var blocksInitialized = false
 
@@ -224,6 +226,11 @@ object BetaMod {
             .setHardness(2.0F)
             .setSoundGroup(Block.WOOD_SOUND_GROUP)
             .setTranslationKey("dead_log")
+
+        deadGrassPlant = DeadGrassPlantBlock(NAMESPACE.id("dead_grass_plant"))
+            .setHardness(0.0F)
+            .setSoundGroup(Block.DIRT_SOUND_GROUP)
+            .setTranslationKey("dead_grass_plant")
 
         blocksInitialized = true
     }
