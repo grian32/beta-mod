@@ -20,7 +20,7 @@ class DeadTreeFeature : Feature() {
         val trunkHeight = 6 + random.nextInt(3)
 
         for (dy in 0..trunkHeight) {
-            world.setBlock(x, y + dy, z, Block.LOG.id, 0)
+            world.setBlock(x, y + dy, z, BetaMod.deadLog.id, 0)
         }
 
         repeat(5) {
@@ -28,9 +28,9 @@ class DeadTreeFeature : Feature() {
             val dz = if (random.nextInt(2) == 0) -1 else 1
             val dy = random.nextInt(trunkHeight - 2, trunkHeight)
 
-            world.setBlock(x + dx, y + dy, z + dz, Block.LOG.id, 0)
+            world.setBlock(x + dx, y + dy, z + dz, BetaMod.deadLog.id, 0)
             if (random.nextBoolean()) {
-                world.setBlock(x + dx, (y + dy - 1).coerceAtLeast(trunkHeight - 2), z + dz, Block.LOG.id, 0)
+                world.setBlock(x + dx, (y + dy - 1).coerceAtLeast(trunkHeight - 2), z + dz, BetaMod.deadLog.id, 0)
             }
         }
 

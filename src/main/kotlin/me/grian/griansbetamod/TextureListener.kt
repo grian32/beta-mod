@@ -20,6 +20,8 @@ object TextureListener {
 
     var frostRootCropTextures = Array(4) { 0 }
 
+    var deadTreeSide = 0
+
     @EventListener
     fun registerTextures(event: TextureRegisterEvent) {
         val terrain = Atlases.getTerrain()
@@ -75,5 +77,6 @@ object TextureListener {
         BetaMod.quarrymanAMIItem.setTextureId(Item.DIAMOND.getTextureId(0))
 
         BetaMod.deadDirt.textureId = terrain.addTexture(NAMESPACE.id("block/dead_dirt")).index
+        deadTreeSide = terrain.addTexture(NAMESPACE.id("block/dead_tree")).index
     }
 }

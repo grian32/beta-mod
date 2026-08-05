@@ -94,6 +94,7 @@ object BetaMod {
 
     lateinit var deadDirt: Block
     lateinit var deadGrass: Block
+    lateinit var deadLog: Block
 
     var blocksInitialized = false
 
@@ -218,6 +219,11 @@ object BetaMod {
             .setHardness(0.5F)
             .setSoundGroup(Block.GRAVEL_SOUND_GROUP)
             .setTranslationKey(NAMESPACE, "dead_dirt")
+
+        deadLog = TemplateBlock(NAMESPACE.id("dead_log"), Material.WOOD)
+            .setHardness(2.0F)
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setTranslationKey("dead_log")
 
         blocksInitialized = true
     }
@@ -391,6 +397,10 @@ object BetaMod {
             addShapelessRecipe {
                 ingredient(cloth)
                 output(ItemStack(Item.STRING, 2))
+            }
+            addShapelessRecipe {
+                ingredient(deadLog)
+                output(ItemStack(Block.PLANKS, 2))
             }
         }
 

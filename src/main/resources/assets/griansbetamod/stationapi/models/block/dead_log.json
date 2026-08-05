@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "griansbetamod:block/dead_tree_top",
+    "side": "griansbetamod:block/dead_tree"
+  }
+}
