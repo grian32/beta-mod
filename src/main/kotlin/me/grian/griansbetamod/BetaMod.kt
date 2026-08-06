@@ -414,6 +414,18 @@ object BetaMod {
             }
 
             addShapedRecipe {
+                output(ItemStack(deadPlankSlab.asItem(), 3))
+                top(deadPlank, deadPlank, deadPlank)
+            }
+
+            addShapedRecipe {
+                output(ItemStack(deadPlankStair.asItem(), 4))
+                top(deadPlank, null, null)
+                middle(deadPlank, deadPlank, null)
+                bottom(deadPlank, deadPlank, deadPlank)
+            }
+
+            addShapedRecipe {
                 output(Item.PAINTING)
                 top(Item.STICK, Item.STICK, Item.STICK)
                 middle(Item.STICK, cloth, Item.STICK)

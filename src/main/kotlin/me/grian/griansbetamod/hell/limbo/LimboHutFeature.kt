@@ -2,7 +2,6 @@ package me.grian.griansbetamod.hell.limbo
 
 import me.grian.griansbetamod.BetaMod
 import net.minecraft.block.Block
-import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.ChestBlockEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -39,10 +38,9 @@ class LimboHutFeature : Feature() {
             }
         }
 
-        world.genWalls(x, y, z, random.nextInt(4))
+        world.genWalls(x, y, z, random.nextInt(4), random)
         world.destroyBlocks(x, y, z, random)
 
-        println("genned @ $x $y $z")
         return true
     }
 
@@ -60,7 +58,7 @@ class LimboHutFeature : Feature() {
         0 to -1
     )
 
-    private fun World.genWalls(x: Int, y: Int, z: Int, doorDirection: Int) {
+    private fun World.genWalls(x: Int, y: Int, z: Int, doorDirection: Int, random: Random) {
         for ((direction, offset) in WALL_OFFSETS.withIndex()) {
             if (direction == doorDirection) continue
             val (dx, dz) = offset
@@ -70,8 +68,9 @@ class LimboHutFeature : Feature() {
 
         if (random.nextBoolean()) return
 
-        val chestOffsetX = WALL_OFFSETS[doorDirection].first + 1
-        val chestOffsetZ = WALL_OFFSETS[doorDirection].second + 1
+        val (doorOffsetX, doorOffsetZ) = WALL_OFFSETS[doorDirection]
+        val chestOffsetX = doorOffsetX * 2 - doorOffsetZ
+        val chestOffsetZ = doorOffsetZ * 2 + doorOffsetX
 
         setBlock(x + chestOffsetX, y, z + chestOffsetZ, Block.CHEST.id)
         val blockEntity = getBlockEntity(x + chestOffsetX, y, z + chestOffsetZ)
