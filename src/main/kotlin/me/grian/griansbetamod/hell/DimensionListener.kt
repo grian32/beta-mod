@@ -4,6 +4,7 @@ import me.grian.griansbetamod.BetaMod
 import me.grian.griansbetamod.hell.limbo.DeadGrassPatchFeature
 import me.grian.griansbetamod.hell.limbo.DeadTreeFeature
 import me.grian.griansbetamod.hell.limbo.LimboDimension
+import me.grian.griansbetamod.hell.limbo.LimboHutFeature
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.world.biome.Biome
 import net.modificationstation.stationapi.api.client.event.color.item.ItemColorsRegisterEvent
@@ -44,6 +45,12 @@ object DimensionListener {
             .feature(
                 HeightScatterFeature(
                     DeadGrassPatchFeature(),
+                    1
+                )
+            )
+            .feature(
+                HeightScatterFeature(
+                    LimboHutFeature(),
                     1
                 )
             )

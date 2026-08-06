@@ -78,5 +78,11 @@ object TextureListener {
 
         BetaMod.deadDirt.textureId = terrain.addTexture(NAMESPACE.id("block/dead_dirt")).index
         deadTreeSide = terrain.addTexture(NAMESPACE.id("block/dead_tree")).index
+
+        val deadPlanks = terrain.addTexture(NAMESPACE.id("block/dead_planks")).index
+        BetaMod.deadPlank.textureId = deadPlanks
+        BetaMod.deadPlankSlab.textureId = deadPlanks
+        BetaMod.deadPlankDoubleSlab.textureId = deadPlanks
+        BetaMod.deadPlankStair.textureId = deadPlanks
     }
 }

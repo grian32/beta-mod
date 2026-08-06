@@ -51,3 +51,7 @@ item.@.quarryman.1.name=Quarryman I
 item.@.quarryman.2.name=Quarryman II
 item.@.quarryman.3.name=Quarryman III
 tile.@.dead_log.name=Dead Log
+tile.@.dead_plank.name=Dead Planks
+tile.@.dead_plank_slab.name=Dead Plank Slab
+tile.@.dead_plank_double_slab.name=Double Dead Plank Slab
+tile.@.dead_plank_stairs.name=Dead Plank Stairs

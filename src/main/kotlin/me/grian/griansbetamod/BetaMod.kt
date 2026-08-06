@@ -9,6 +9,7 @@ import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIBlock
 import me.grian.griansbetamod.compat.itemenhancements.EnhancementAMIItem
 import me.grian.griansbetamod.hell.limbo.DeadGrassBlock
 import me.grian.griansbetamod.hell.limbo.DeadGrassPlantBlock
+import me.grian.griansbetamod.hell.limbo.DeadPlankSlabBlock
 import me.grian.griansbetamod.icydungeons.FrostRootCropBlock
 import me.grian.griansbetamod.icydungeons.FrostRootItem
 import me.grian.griansbetamod.icydungeons.FrostRootSeedsItem
@@ -43,6 +44,7 @@ import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent
 import net.modificationstation.stationapi.api.template.block.TemplateBlock
+import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock
 import net.modificationstation.stationapi.api.template.item.TemplateFoodItem
 import net.modificationstation.stationapi.api.template.item.TemplateItem
 import net.modificationstation.stationapi.api.util.Namespace
@@ -97,6 +99,10 @@ object BetaMod {
     lateinit var deadGrass: Block
     lateinit var deadLog: Block
     lateinit var deadGrassPlant: Block
+    lateinit var deadPlank: Block
+    lateinit var deadPlankSlab: Block
+    lateinit var deadPlankDoubleSlab: Block
+    lateinit var deadPlankStair: Block
 
     var blocksInitialized = false
 
@@ -231,6 +237,33 @@ object BetaMod {
             .setHardness(0.0F)
             .setSoundGroup(Block.DIRT_SOUND_GROUP)
             .setTranslationKey("dead_grass_plant")
+
+        deadPlank = TemplateBlock(NAMESPACE.id("dead_plank"), Material.WOOD)
+            .setHardness(2.0F)
+            .setResistance(5.0F)
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_plank")
+
+        deadPlankSlab = DeadPlankSlabBlock(NAMESPACE.id("dead_plank_slab"), false)
+            .setOpacity(0)
+            .setHardness(2.0F)
+            .setResistance(5.0F)
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_plank_slab")
+
+        deadPlankDoubleSlab = DeadPlankSlabBlock(NAMESPACE.id("dead_plank_double_slab"), true)
+            .setHardness(2.0F)
+            .setResistance(5.0F)
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_plank_double_slab")
+        deadPlankDoubleSlab.disableAutoItemRegistration()
+
+        deadPlankStair = TemplateStairsBlock(NAMESPACE.id("dead_plank_stairs"), deadPlank)
+            .setOpacity(0)
+            .setHardness(2.0F)
+            .setResistance(5.0F)
+            .setSoundGroup(Block.WOOD_SOUND_GROUP)
+            .setTranslationKey(NAMESPACE, "dead_plank_stairs")
 
         blocksInitialized = true
     }
@@ -407,7 +440,7 @@ object BetaMod {
             }
             addShapelessRecipe {
                 ingredient(deadLog)
-                output(ItemStack(Block.PLANKS, 2))
+                output(ItemStack(deadPlank, 2))
             }
         }
 
