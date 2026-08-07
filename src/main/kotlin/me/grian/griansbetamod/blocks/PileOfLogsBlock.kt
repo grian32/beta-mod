@@ -1,7 +1,10 @@
 package me.grian.griansbetamod.blocks
 
+import me.grian.griansbetamod.hell.DescentGateFeature
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.block.Block
 import net.minecraft.block.material.Material
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.util.math.Box
 import net.minecraft.world.World
 import net.modificationstation.stationapi.api.block.BlockState
@@ -14,6 +17,12 @@ import net.modificationstation.stationapi.api.util.math.Direction
 
 
 class PileOfLogsBlock(identifier: Identifier) : TemplateBlock(identifier, Material.WOOD) {
+    override fun onUse(world: World, x: Int, y: Int, z: Int, player: PlayerEntity): Boolean {
+        if (!FabricLoader.getInstance().isDevelopmentEnvironment) return false
+        if (!world.isRemote) DescentGateFeature.generate(world, x, y, z)
+        return true
+    }
+
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
         builder?.add(ROTATED)
         super.appendProperties(builder)
