@@ -17,12 +17,6 @@ import net.modificationstation.stationapi.api.util.math.Direction
 
 
 class PileOfLogsBlock(identifier: Identifier) : TemplateBlock(identifier, Material.WOOD) {
-    override fun onUse(world: World, x: Int, y: Int, z: Int, player: PlayerEntity): Boolean {
-        if (!FabricLoader.getInstance().isDevelopmentEnvironment) return false
-        if (!world.isRemote) DescentGateFeature.generate(world, x, y, z)
-        return true
-    }
-
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
         builder?.add(ROTATED)
         super.appendProperties(builder)

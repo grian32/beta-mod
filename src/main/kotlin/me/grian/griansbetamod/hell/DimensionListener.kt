@@ -13,6 +13,7 @@ import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEve
 import net.modificationstation.stationapi.api.registry.DimensionContainer
 import net.modificationstation.stationapi.api.worldgen.biome.BiomeBuilder
 import net.modificationstation.stationapi.api.worldgen.feature.HeightScatterFeature
+import net.modificationstation.stationapi.api.worldgen.feature.VolumetricScatterFeature
 
 object DimensionListener {
     val LIMBO_ID = BetaMod.NAMESPACE.id("hell_limbo")
@@ -52,6 +53,14 @@ object DimensionListener {
                 HeightScatterFeature(
                     LimboHutFeature(),
                     1
+                )
+            )
+            .feature(
+                VolumetricScatterFeature(
+                    DescentGateFeature(),
+                    1,
+                    0,
+                    0
                 )
             )
             .build()

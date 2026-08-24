@@ -2,13 +2,17 @@ package me.grian.griansbetamod.hell
 
 import net.minecraft.block.Block
 import net.minecraft.world.World
+import net.minecraft.world.gen.feature.Feature
+import java.util.Random
 import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
-object DescentGateFeature {
-    fun generate(world: World, centerX: Int, bottomY: Int, centerZ: Int) {
+class DescentGateFeature : Feature() {
+    override fun generate(world: World, random: Random, x: Int, y: Int, z: Int): Boolean {
+        if (random.nextInt(1200) != 0) return false
+
         for (offsetY in 0 until 42) {
             val wallRadius = if (offsetY < 12) {
                 6.0
@@ -23,7 +27,7 @@ object DescentGateFeature {
 
                     if (offsetY == 0) {
                         if (radius <= wallRadius) {
-                            world.setBlock(centerX + offsetX, bottomY + offsetY, centerZ + offsetZ, Block.BEDROCK.id)
+                            world.setBlock(x + offsetX, y + offsetY, z + offsetZ, Block.BEDROCK.id)
                         }
                         continue
                     }
@@ -32,20 +36,23 @@ object DescentGateFeature {
                     when {
                         radius < innerRadius -> {
                             val blockId = if (offsetY == 1) Block.GOLD_BLOCK.id else 0
-                            world.setBlock(centerX + offsetX, bottomY + offsetY, centerZ + offsetZ, blockId)
+                            world.setBlock(x + offsetX, y + offsetY, z + offsetZ, blockId)
                         }
                         removedUpperSector && radius <= wallRadius -> {
-                            world.setBlock(centerX + offsetX, bottomY + offsetY, centerZ + offsetZ, 0)
+                            world.setBlock(x + offsetX, y + offsetY, z + offsetZ, 0)
                         }
                         radius <= wallRadius -> {
-                            world.setBlock(centerX + offsetX, bottomY + offsetY, centerZ + offsetZ, Block.BEDROCK.id)
+                            world.setBlock(x + offsetX, y + offsetY, z + offsetZ, Block.BEDROCK.id)
                         }
                     }
                 }
             }
         }
 
-        generateDroopingTips(world, centerX, bottomY, centerZ)
+        generateDroopingTips(world, x, y, z)
+        println("genned descent gate @ $x $y $z")
+
+        return true
     }
 
     private fun getUpperRadius(offsetY: Int): Double {
