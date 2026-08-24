@@ -56,12 +56,7 @@ object DimensionListener {
                 )
             )
             .feature(
-                VolumetricScatterFeature(
-                    DescentGateFeature(),
-                    1,
-                    0,
-                    0
-                )
+                DescentGateFeature(),
             )
             .build()
     }

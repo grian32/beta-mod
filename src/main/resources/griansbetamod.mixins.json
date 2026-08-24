@@ -57,6 +57,7 @@
     "carpetedstairs.SlabBlockClientMixin",
     "carpetedstairs.StairsBlockClientMixin",
     "debug.InGameHudMixin",
+    "hell.limbo.ArsenicCompassMixin",
     "hell.limbo.GameRendererMixin",
     "hell.limbo.WorldRendererMixin",
     "netherglassrender.ChunkBuilderMixin",
