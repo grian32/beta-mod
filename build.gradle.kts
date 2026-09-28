@@ -227,4 +227,5 @@ modrinth {
 	versionType.set("release") // This is the default -- can also be `beta` or `alpha`
 	uploadFile.set(tasks.remapJar) // With Loom, this MUST be set to `remapJar` instead of `jar`!
 	gameVersions.addAll("b1.7.3") // Must be an array, even with only one version
+	loaders.add("babric") // Minotaur auto-detects `fabric` from loom, which modrinth rejects for beta versions
 }
