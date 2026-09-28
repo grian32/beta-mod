@@ -42,16 +42,16 @@ public class CraftingResultSlotMixin {
             return;
         }
 
-        List<ItemStack> foundRecipeGrid = stationRecipeToList(foundRecipe);
+        List<Integer> foundRecipeCounts = stationRecipeToCounts(foundRecipe);
 
-        foundRecipeGrid = normalizeRecipe(this.input, foundRecipeGrid);
+        foundRecipeCounts = normalizeRecipe(this.input, foundRecipeCounts);
 
         for (int i = 0; i < this.input.size(); i++) {
             ItemStack inputStack = this.input.getStack(i);
-            ItemStack recipeStack = foundRecipeGrid.get(i);
+            Integer recipeCount = foundRecipeCounts.get(i);
 
-            if (inputStack != null && recipeStack != null) {
-                this.input.removeStack(i, recipeStack.count);
+            if (inputStack != null && recipeCount != null) {
+                this.input.removeStack(i, recipeCount);
                 if (inputStack.getItem().hasCraftingReturnItem()) {
                     this.input.setStack(i, new ItemStack(inputStack.getItem().getCraftingReturnItem()));
                 }

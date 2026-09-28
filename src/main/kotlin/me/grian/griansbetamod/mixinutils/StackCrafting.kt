@@ -2,13 +2,13 @@ package me.grian.griansbetamod.mixinutils
 
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.inventory.Inventory
-import net.minecraft.item.ItemStack
 import net.modificationstation.stationapi.impl.recipe.StationShapedRecipe
 
-fun stationRecipeToList(ssr: StationShapedRecipe): List<ItemStack?> = ssr.grid.map { it?.right()?.orElseThrow() }
+// tag ingredients (left) always consume 1, item stack ingredients (right) consume their count
+fun stationRecipeToCounts(ssr: StationShapedRecipe): List<Int?> = ssr.grid.map { it?.map({ 1 }, { stack -> stack.count }) }
 
-fun normalizeRecipe(input: Inventory, recipe: List<ItemStack?>): List<ItemStack?> {
-    val normalizedRecipe = MutableList<ItemStack?>(input.size()) { null }
+fun normalizeRecipe(input: Inventory, recipe: List<Int?>): List<Int?> {
+    val normalizedRecipe = MutableList<Int?>(input.size()) { null }
     val recipeItems = ArrayDeque(recipe.filterNotNull())
 
     // unfortunately cant use input.indices as its not a collection
