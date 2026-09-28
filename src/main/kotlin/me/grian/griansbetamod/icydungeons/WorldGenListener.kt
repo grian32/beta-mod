@@ -1,6 +1,7 @@
 package me.grian.griansbetamod.icydungeons
 
 import me.grian.griansbetamod.lilyofthelake.LilyOfTheLakePatchFeature
+import net.fabricmc.loader.api.FabricLoader
 import net.mine_diver.unsafeevents.listener.EventListener
 import net.minecraft.world.biome.Biome
 import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent
@@ -30,5 +31,8 @@ object WorldGenListener {
         }
 
         IcyDungeonFeature().generate(event.world, event.random, featureX, featureY, featureZ)
+        if (FabricLoader.getInstance().isDevelopmentEnvironment) {
+            println("icy dungeon gen @ $featureX $featureY $featureZ")
+        }
     }
 }
